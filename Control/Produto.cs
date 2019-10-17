@@ -92,7 +92,7 @@ namespace Control
             }
         }
 
-        
+
         //métodos
         public int Inserir()
         {
@@ -107,7 +107,7 @@ namespace Control
                     " VALUES (@nome, @preco, @qtdEstoque, @codFornecedor, @pchave)";
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
                 cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
-                cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;             
+                cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;
                 cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.Codigo;
                 cn.Parameters.Add("pchave", SqlDbType.VarChar).Value = pchave;
                 cn.Connection = con;
@@ -139,7 +139,7 @@ namespace Control
             }
         }
         public DataSet ListarDataGrid()
-        {            
+        {
             Fornecedor fornecedor = new Fornecedor();
             using (SqlConnection con = new SqlConnection())
             {
@@ -149,7 +149,7 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM produto;";
-                
+
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -165,9 +165,9 @@ namespace Control
                 if (dr.HasRows)
                 {
                     //dr.Read();
-                    
-                  while (dr.Read())
-                  {
+
+                    while (dr.Read())
+                    {
                         //codProduto = dr.GetInt32(0);
                         Id = Convert.ToInt32(dr["codigo"]);
                         Nome = Convert.ToString(dr["nome"]);
@@ -175,10 +175,9 @@ namespace Control
                         QtdEstoque = Convert.ToInt32(dr["qtdEstoque"]);
                         fornecedor.Codigo = Convert.ToInt32(dr["codFornecedor"]);
                         Pchave = Convert.ToString(dr["pchave"]);
-                        
-                  }
+
+                    }
                     con.Close();
-                    
                 }
                 return dataSet;
             }
@@ -203,7 +202,7 @@ namespace Control
                     reader.Read();
                     codProduto = reader.GetInt32(0);
                 }
-            } 
+            }
         }
 
         public int NovaQtd(int x)
@@ -215,20 +214,31 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "UPDATE Produto SET qtdEstoque -="+ x +"WHERE codigo = @codProduto";
+                cn.CommandText = "UPDATE Produto SET qtdEstoque -=" + x + "WHERE codigo = @codProduto";
                 cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
             }
         }
-        public void Update()
+        public int UpdateProduto(int cod)
         {
-            SqlConnection cn = new SqlConnection("Data Source=BRCONDE\\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True");// foi adicionado uma contra barra para gerar conexão
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader dr;
-            
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Produto SET nome = " + cod + " WHERE codigo = @codProduto";
+                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }
+
 
         }
-    }  
+
+    }
 }
