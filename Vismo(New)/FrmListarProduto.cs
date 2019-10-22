@@ -22,7 +22,15 @@ namespace Vismo_New_
 
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
-            //produto.UpdateProduto();
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            string nome = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            double preco = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            int qtd = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            int fornec = Convert.ToInt32(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            string pchave = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+
+            FrmAtualizarProduto tela = new FrmAtualizarProduto(id, nome, preco, qtd, fornec, pchave);
+            tela.Show();
         }
         private void ListarGrid()
         {

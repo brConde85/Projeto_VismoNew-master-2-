@@ -60,6 +60,52 @@ namespace Control
             }
         }
 
+        public void PegaNome()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT nome FROM Fornecedor WHERE codFornecedor = @id";
+                cn.Parameters.Add("id", SqlDbType.Int).Value = id;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    nomeFornecedor = reader.GetString(0);
+                }
+            }
+        }
+
+        public void PegaId()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT codFornecedor FROM Fornecedor WHERE codFornecedor = @id";
+                cn.Parameters.Add("id", SqlDbType.Int).Value = id;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    id = reader.GetInt32(0);
+                }
+            }
+        }
+
         public int Checa()
         {
             using (SqlConnection con = new SqlConnection())

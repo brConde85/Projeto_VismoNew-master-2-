@@ -115,6 +115,36 @@ namespace Control
                 return cn.ExecuteNonQuery();
             }
         }
+        public int Update()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                /*  UPDATE DEPARTAMENTO
+                    SET SALARIO = 1000
+                    WHERE CODIGODEP = 1
+                    codigo = 
+                 */
+                cn.CommandText = ("UPDATE produto SET nome = @nome, preco = @preco, " +
+                    "qtdEstoque = @qtdEstoque, codFornecedor = @codFornecedor, pchave = @pchave " +
+                    "WHERE codigo = @codigo");
+
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codProduto;
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
+                cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
+                cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;
+                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Parameters.Add("pchave", SqlDbType.VarChar).Value = pchave;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }
+        }
+
 
         public DataSet Listar()
         {
