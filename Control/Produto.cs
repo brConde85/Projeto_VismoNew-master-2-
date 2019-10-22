@@ -27,7 +27,7 @@ namespace Control
 
         // getter e setter produto
 
-        public int Id
+        public int Codigo
         {
             get
             {
@@ -108,7 +108,7 @@ namespace Control
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
                 cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
                 cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;
-                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.Codigo;
+                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
                 cn.Parameters.Add("pchave", SqlDbType.VarChar).Value = pchave;
                 cn.Connection = con;
 
@@ -144,11 +144,11 @@ namespace Control
             using (SqlConnection con = new SqlConnection())
             {
                 con.ConnectionString = Properties.Settings.Default.banco;
-                SqlCommand cn = new SqlCommand();
+                SqlCommand cn = new SqlCommand("SELECT * FROM produto;");
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM produto;";
+                //cn.CommandText = "SELECT * FROM produto;";
 
                 cn.Connection = con;
 
@@ -158,27 +158,49 @@ namespace Control
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
 
-                SqlDataReader dr;
+                //SqlDataReader dr;
 
-                dr = cn.ExecuteReader();
+                //dr = cn.ExecuteReader();
+                /*private SqlConnection conexao = new SqlConnection("strConection");
 
-                if (dr.HasRows)
-                {
-                    //dr.Read();
+                  conexao.Open();
 
-                    while (dr.Read())
-                    {
+                  //criando o select e o objeto de consulta
+                  string sql = "select * from clientes";
+                  SqlCommand cmd = new SqlCommand(sql, conexao);
+                  cmd.Connection = conexao;
+                  cmd.CommandText = sql;
+  
+                  // cria o dataadapter...
+                  SqlDataAdapter adapter = new SqlDataAdapter();
+                  adapter.SelectCommand = cmd;
+
+                  // preenche o dataset...
+                  DataSet dataSet = new DataSet();
+                  adapter.Fill(dataSet);
+
+                  dataGridView1.DataSource = dataSet;
+                  dataGridView1.DataMember = dataSet.Tables[0].TableName;
+                  conexao.Close();
+                 */
+
+                //if (dr.HasRows)
+                //{
+                //    //dr.Read();
+
+                //    while (dr.Read())
+                //    {
                         //codProduto = dr.GetInt32(0);
-                        Id = Convert.ToInt32(dr["codigo"]);
-                        Nome = Convert.ToString(dr["nome"]);
-                        Preco = Convert.ToDouble(dr["preco"]);
-                        QtdEstoque = Convert.ToInt32(dr["qtdEstoque"]);
-                        fornecedor.Codigo = Convert.ToInt32(dr["codFornecedor"]);
-                        Pchave = Convert.ToString(dr["pchave"]);
+                        //Id = Convert.ToInt32(dr["codigo"]);
+                        //Nome = Convert.ToString(dr["nome"]);
+                        //Preco = Convert.ToDouble(dr["preco"]);
+                        //QtdEstoque = Convert.ToInt32(dr["qtdEstoque"]);
+                        //fornecedor.Codigo = Convert.ToInt32(dr["codFornecedor"]);
+                        //Pchave = Convert.ToString(dr["pchave"]);
 
-                    }
-                    con.Close();
-                }
+                //    }
+                //    con.Close();
+                //}
                 return dataSet;
             }
         }

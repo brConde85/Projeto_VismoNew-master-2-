@@ -45,7 +45,7 @@ namespace Vismo_New_
                     produto.Preco = Convert.ToDouble(txtPreco.Text);
                     produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
                     produto.Pchave = cboPalavra.Text;
-                    produto.fornecedor.Codigo = fornecedor.Codigo;
+                    produto.fornecedor.CodigoF = fornecedor.CodigoF;
 
                     //chamada do método Inserir(), que insere os registros no banco
                     int x = produto.Inserir();

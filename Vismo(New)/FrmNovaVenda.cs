@@ -26,7 +26,7 @@ namespace Vismo_New_
             if (!txtCod.Text.Equals(""))
             {
                 //atribuição do campo de id ao atributo de id do produto
-                produto.Id = Convert.ToInt32(txtCod.Text); 
+                produto.Codigo = Convert.ToInt32(txtCod.Text); 
 
                 try
                 {
@@ -40,7 +40,7 @@ namespace Vismo_New_
                     {
                         //busca o id do produto e atribui no datagrid (método de listagem não pega id)
                         produto.PegaId();
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Id;
+                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
                     }
                 }
 
@@ -172,7 +172,7 @@ namespace Vismo_New_
             for (int i =0; i <= Convert.ToInt32(txtRow.Text)-1; i++)
             {
                 //atualizando a quantidade em estoque dos produtos
-                produto.Id = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
                 produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));   
             }
 

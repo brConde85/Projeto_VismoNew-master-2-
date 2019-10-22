@@ -16,10 +16,10 @@ namespace Control
 
         //Getter e setter fornecedor
       
-        public int Codigo
+        public int CodigoF
         {
             get
-            {
+            {            
                 return id;
             }
 
@@ -70,7 +70,7 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM Fornecedor WHERE nome = @nome";
-                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = Codigo;
+                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = id;
                 cn.Parameters.Add("nome", SqlDbType.NVarChar).Value = nomeFornecedor;
                 cn.Connection = con;
 
@@ -79,7 +79,7 @@ namespace Control
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    Codigo = reader.GetInt32(0);
+                    CodigoF = reader.GetInt32(0);
 
                     return 1;
                 }

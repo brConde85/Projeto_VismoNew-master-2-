@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnQtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumncodForn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPalChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAtualizar = new System.Windows.Forms.Button();
-            this.btnDeletar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -63,63 +63,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(965, 352);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = null;
-            this.id.DefaultCellStyle = dataGridViewCellStyle7;
-            this.id.HeaderText = "Código";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.Width = 60;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.DataPropertyName = "Nome";
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.MinimumWidth = 8;
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.Width = 140;
-            // 
-            // ColumnPreco
-            // 
-            this.ColumnPreco.DataPropertyName = "Preco";
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ColumnPreco.HeaderText = "Preço";
-            this.ColumnPreco.MinimumWidth = 8;
-            this.ColumnPreco.Name = "ColumnPreco";
-            this.ColumnPreco.Width = 80;
-            // 
-            // ColumnQtdEstoque
-            // 
-            this.ColumnQtdEstoque.DataPropertyName = "QtdEstoque";
-            this.ColumnQtdEstoque.HeaderText = "Quantidade em Estoque";
-            this.ColumnQtdEstoque.MinimumWidth = 8;
-            this.ColumnQtdEstoque.Name = "ColumnQtdEstoque";
-            this.ColumnQtdEstoque.Width = 80;
-            // 
-            // ColumncodForn
-            // 
-            this.ColumncodForn.DataPropertyName = "Codigo";
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ColumncodForn.HeaderText = "Código Fornecedor";
-            this.ColumncodForn.MinimumWidth = 8;
-            this.ColumncodForn.Name = "ColumncodForn";
-            this.ColumncodForn.Width = 80;
-            // 
-            // ColumnPalChave
-            // 
-            this.ColumnPalChave.DataPropertyName = "Pchave";
-            this.ColumnPalChave.HeaderText = "Palavra Chave";
-            this.ColumnPalChave.MinimumWidth = 8;
-            this.ColumnPalChave.Name = "ColumnPalChave";
-            this.ColumnPalChave.Width = 150;
             // 
             // btnAtualizar
             // 
@@ -160,6 +103,63 @@
             this.pictureBox1.Size = new System.Drawing.Size(1002, 383);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Codigo";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "Código";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.Width = 60;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.DataPropertyName = "Nome";
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.MinimumWidth = 8;
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.Width = 140;
+            // 
+            // ColumnPreco
+            // 
+            this.ColumnPreco.DataPropertyName = "Preco";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnPreco.HeaderText = "Preço";
+            this.ColumnPreco.MinimumWidth = 8;
+            this.ColumnPreco.Name = "ColumnPreco";
+            this.ColumnPreco.Width = 80;
+            // 
+            // ColumnQtdEstoque
+            // 
+            this.ColumnQtdEstoque.DataPropertyName = "QtdEstoque";
+            this.ColumnQtdEstoque.HeaderText = "Quantidade em Estoque";
+            this.ColumnQtdEstoque.MinimumWidth = 8;
+            this.ColumnQtdEstoque.Name = "ColumnQtdEstoque";
+            this.ColumnQtdEstoque.Width = 80;
+            // 
+            // ColumncodForn
+            // 
+            this.ColumncodForn.DataPropertyName = "codFornecedor";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumncodForn.HeaderText = "Código Fornecedor";
+            this.ColumncodForn.MinimumWidth = 8;
+            this.ColumncodForn.Name = "ColumncodForn";
+            this.ColumncodForn.Width = 80;
+            // 
+            // ColumnPalChave
+            // 
+            this.ColumnPalChave.DataPropertyName = "Pchave";
+            this.ColumnPalChave.HeaderText = "Palavra Chave";
+            this.ColumnPalChave.MinimumWidth = 8;
+            this.ColumnPalChave.Name = "ColumnPalChave";
+            this.ColumnPalChave.Width = 150;
             // 
             // FrmListarProduto
             // 

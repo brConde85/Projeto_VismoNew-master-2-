@@ -52,7 +52,7 @@ namespace Vismo_New_
         {
             //.CurrentRow.Cells[0].Value.ToString();
             //this.DataGridView.Rows[ IndiceDaLinha ].Cells[ IndiceDaCelula ].Value.ToString();
-            produto.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            produto.Codigo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
             DelProd();// chamando metodo para apagar produto
             
@@ -72,9 +72,11 @@ namespace Vismo_New_
                                                                         //Colocando o método para linkar o database e a ide
                                                                         // selecionando a coluna do datagrid que sera capturada pelo atributo
 
-                string delete = "DELETE FROM produto where codigo ='" + produto.Id + "';";
+                string delete = "DELETE FROM produto where codigo ='" + produto.Codigo + "';";
+                string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto ='" + produto.Codigo + "';";
 
                 //MessageBox.Show(delete);  //Exibindo o que acabei de update
+                comandoDelete.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)                
                 comandoDelete.CommandText = delete; //Setar a query dentro do comando (extração de informações)
                 comandoDelete.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
                 connection.Close();
