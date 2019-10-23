@@ -71,5 +71,14 @@ namespace Vismo_New_
                 }
             }
         }
+
+        private void FrmNovoFornecedor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms.OfType<FrmLogGerente>().Count() == 0)
+            {
+                FrmLogGerente tela = new FrmLogGerente();
+                tela.Show();
+            }  
+        }
     }
 }

@@ -73,21 +73,18 @@ CONSTRAINT FK_codGerente FOREIGN KEY(codigoGerente)
 drop table dbo.pagamento,dbo.itemReposicao;
 CREATE TABLE pagamento(
 codigo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+valor NVARCHAR(7) NOT NULL,
 descricao NVARCHAR(50) NOT NULL,
 validade DATE NOT NULL,
-codigoGerente INT NOT NULL,
-CONSTRAINT FK_codigoGerente FOREIGN KEY (codigoGerente)
-	REFERENCES dbo.funcionario (codigo)
+codFornecedor INT NOT NULL,
+CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
+	REFERENCES dbo.fornecedor (codFornecedor)
 );
 
 SELECT * FROM Fornecedor;
 select * from funcionario;
-
-
 select * from Produto;
-drop table dbo.produto_venda,dbo.venda; 
-
-insert into dbo.produto values ('test1','4.00','100',1,'outro');      
+select * from pagamento
 
 
 

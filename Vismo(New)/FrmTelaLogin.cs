@@ -63,5 +63,15 @@ namespace Vismo_New_
                 txtSenha.UseSystemPasswordChar = true;
             }
         }
+
+        private void label3_MouseEnter(object sender, EventArgs e)
+        {
+            label3.ForeColor = Color.SkyBlue;
+        }
+
+        private void label3_MouseLeave(object sender, EventArgs e)
+        {
+            label3.ForeColor = Color.SteelBlue;
+        }
     }
 }

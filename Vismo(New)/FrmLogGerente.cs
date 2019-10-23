@@ -26,6 +26,8 @@ namespace Vismo_New_
         {
             FrmNovoFornecedor tela = new FrmNovoFornecedor();
             tela.Show();
+
+            Close();
         }
 
         private void ProdutoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,6 +50,34 @@ namespace Vismo_New_
         {
             FrmListarProduto tela = new FrmListarProduto();
             tela.Show();
+        }
+
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadFuncionario tela = new FrmCadFuncionario();
+            tela.Show();
+
+            Close();
+        }
+
+        private void funcionárioToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmListarFuncionario tela = new FrmListarFuncionario();
+            tela.Show();
+        }
+
+        private void fornecedorToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmListarFornecedor tela = new FrmListarFornecedor();
+            tela.Show();
+        }
+
+        private void pagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastroPagamento tela = new FrmCadastroPagamento();
+            tela.Show();
+
+            Close();
         }
     }
 }

@@ -53,17 +53,29 @@
     <Compile Include="FrmAtualizarProduto.Designer.cs">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroPagamento.Designer.cs">
+      <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCadFuncionario.Designer.cs">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadProduto.cs">
+    <Compile Include="FrmListarFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadProduto.Designer.cs">
-      <DependentUpon>FrmCadProduto.cs</DependentUpon>
+    <Compile Include="FrmListarFornecedor.Designer.cs">
+      <DependentUpon>FrmListarFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmListarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListarFuncionario.Designer.cs">
+      <DependentUpon>FrmListarFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListarProduto.cs">
       <SubType>Form</SubType>
@@ -112,11 +124,17 @@
     <EmbeddedResource Include="FrmAtualizarProduto.resx">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroPagamento.resx">
+      <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadFuncionario.resx">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadProduto.resx">
-      <DependentUpon>FrmCadProduto.cs</DependentUpon>
+    <EmbeddedResource Include="FrmListarFornecedor.resx">
+      <DependentUpon>FrmListarFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListarFuncionario.resx">
+      <DependentUpon>FrmListarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListarProduto.resx">
       <DependentUpon>FrmListarProduto.cs</DependentUpon>

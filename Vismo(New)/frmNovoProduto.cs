@@ -145,5 +145,14 @@ namespace Vismo_New_
                 lblMsg.Text = "* Obrigatório.";
             }
         }
+
+        private void FrmNovoProduto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms.OfType<FrmLogGerente>().Count() == 0)
+            {
+                FrmLogGerente tela = new FrmLogGerente();
+                tela.Show();
+            }
+        }
     }
 }
