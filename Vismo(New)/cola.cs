@@ -26,7 +26,7 @@ namespace Vismo_New_
             if (!txtCod.Text.Equals(""))
             {
                 //atribuição do campo de id ao atributo de id do produto
-                produto.Codigo = Convert.ToInt32(txtCod.Text);
+                produto.Id = Convert.ToInt32(txtCod.Text); 
 
                 try
                 {
@@ -38,7 +38,7 @@ namespace Vismo_New_
 
                     if (dataGridView2.Rows[0].Cells[1].Value != null)
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        dataGridView2.Rows[0].Cells[0].Value = produto.Id;                      
                     }
                 }
 
@@ -64,7 +64,7 @@ namespace Vismo_New_
 
                     if (dataGridView2.Rows[0].Cells[1].Value != null)
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        dataGridView2.Rows[0].Cells[0].Value = produto.Id;
                     }
                 }
 
@@ -90,7 +90,7 @@ namespace Vismo_New_
 
                     if (dataGridView2.Rows[0].Cells[1].Value != null)
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        dataGridView2.Rows[0].Cells[0].Value = produto.Id;
                     }
                 }
 
@@ -186,12 +186,12 @@ namespace Vismo_New_
                     btnOk.Enabled = false;
                 }
             }
-
+           
         }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) != "X")
+            if(Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) != "X")
             {
                 if (MessageBox.Show("Cancelar registro?",
                             "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -212,18 +212,18 @@ namespace Vismo_New_
                     total -= preco;
                     txtTotal.Text = Convert.ToString(total);
                 }
-            }
+            }         
         }
 
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Produto produto = new Produto();
-
-            for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
+            
+            for (int i =0; i <= Convert.ToInt32(txtRow.Text)-1; i++)
             {
                 //atualizando a quantidade em estoque dos produtos
-                produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
-                produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
+                produto.Id = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));   
             }
 
             Venda venda = new Venda();
@@ -240,7 +240,7 @@ namespace Vismo_New_
                     ItemDeVenda ivenda = new ItemDeVenda();
                     ivenda.IdVenda = venda.Codigo;
 
-                    for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
+                    for (int i =0; i <=Convert.ToInt32(txtRow.Text)-1; i++)
                     {
                         if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) != "X")
                         {
@@ -265,7 +265,7 @@ namespace Vismo_New_
             {
                 MessageBox.Show(ex.Message);
             }
-
+            
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)

@@ -145,29 +145,6 @@ namespace Control
             }
         }
 
-
-        public DataSet Listar()
-        {
-            using (SqlConnection con = new SqlConnection())
-            {
-                con.ConnectionString = Properties.Settings.Default.banco;
-                SqlCommand cn = new SqlCommand();
-                cn.CommandType = CommandType.Text;
-
-                con.Open();
-                cn.CommandText = "SELECT * FROM Produto WHERE codigo = @codProduto";
-                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
-                cn.Connection = con;
-
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cn;
-
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-
-                return dataSet;
-            }
-        }
         public DataSet ListarDataGrid()
         {
             Fornecedor fornecedor = new Fornecedor();
@@ -254,6 +231,99 @@ namespace Control
                     reader.Read();
                     codProduto = reader.GetInt32(0);
                 }
+            }
+        }
+
+        public DataSet Listar1()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM Produto WHERE codigo = @codProduto";
+                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    codProduto = reader.GetInt32(0);
+                }
+
+                return dataSet;
+            }
+        }
+
+        public DataSet Listar2()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM Produto WHERE nome = @nomeProduto";
+                cn.Parameters.Add("nomeProduto", SqlDbType.NVarChar).Value = nomeProduto;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    codProduto = reader.GetInt32(0);
+                }
+
+                return dataSet;
+            }
+        }
+
+        public DataSet Listar3()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM Produto WHERE pchave = @pchave";
+                cn.Parameters.Add("pchave", SqlDbType.NVarChar).Value = pchave;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    codProduto = reader.GetInt32(0);
+                }
+
+                return dataSet;
             }
         }
 
