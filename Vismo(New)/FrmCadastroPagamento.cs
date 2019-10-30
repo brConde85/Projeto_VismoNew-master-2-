@@ -38,24 +38,33 @@ namespace Vismo_New_
                     pagamento.Valor = txtValor.Text;
                     pagamento.fornecedor.CodigoF = Convert.ToInt32(txtCod.Text);
                     pagamento.Descricao = txtDesc.Text;
-                    pagamento.Validade = Convert.ToDateTime(txtPrazo.Text);
 
-                    if (pagamento.Inserir() == 1)
+                    if (Convert.ToDateTime(txtPrazo.Text) > DateTime.Now)
                     {
-                        txtValor.Clear();
-                        txtCod.Clear();
-                        txtDesc.Clear();
-                        txtPrazo.Clear();
+                        pagamento.Validade = Convert.ToDateTime(txtPrazo.Text);
 
-                        txtValor.Focus();
+                        if (pagamento.Inserir() == 1)
+                        {
+                            txtValor.Clear();
+                            txtCod.Clear();
+                            txtDesc.Clear();
+                            txtPrazo.Clear();
 
-                        MessageBox.Show("Pagamento registrado", "Sucesso",
-                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtValor.Focus();
+
+                            MessageBox.Show("Pagamento registrado", "Sucesso",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Falha ao registrar pagamento", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Falha ao registrar pagamento", "Erro",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Insira uma data válida antes de continuar", "Aviso",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 catch (Exception ex)

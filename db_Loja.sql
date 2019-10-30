@@ -76,6 +76,7 @@ codigo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 valor NVARCHAR(7) NOT NULL,
 descricao NVARCHAR(50) NOT NULL,
 validade DATE NOT NULL,
+situacao NVARCHAR(8) NOT NULL,
 codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
@@ -84,7 +85,21 @@ CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 SELECT * FROM Fornecedor;
 select * from funcionario;
 select * from Produto;
-select * from pagamento
+
+
+select * from venda;
+select * from produto_venda;
+
+SELECT t1.*, t2.nome, t3.quantidade
+FROM Venda t1, Produto t2, produto_venda t3
+WHERE t1.codigo = t3.codigoVenda
+AND t2.codigo = t3.codigoProduto 
+
+SELECT t1.*, t2.nome, t3.datas FROM produto_venda t1, Produto t2, Venda t3 WHERE t1.codigoProduto = t2.codigo AND t1.codigoVenda = '2' AND t3.codigo = '2'
+
+
+
+
 
 
 

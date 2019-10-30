@@ -113,6 +113,18 @@
     <Compile Include="FrmNovoProduto.designer.cs">
       <DependentUpon>FrmNovoProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistroPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistroPagamento.Designer.cs">
+      <DependentUpon>FrmRegistroPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistroVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistroVenda.Designer.cs">
+      <DependentUpon>FrmRegistroVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNovoProduto.resx">
       <DependentUpon>FrmNovoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistroPagamento.resx">
+      <DependentUpon>FrmRegistroPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistroVenda.resx">
+      <DependentUpon>FrmRegistroVenda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTelaLogin.resx">
       <DependentUpon>FrmTelaLogin.cs</DependentUpon>

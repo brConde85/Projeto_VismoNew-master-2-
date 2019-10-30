@@ -95,5 +95,29 @@ namespace Control
                 }
             }
         }
+
+        public int Confirma()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT codigo FROM venda WHERE codigo = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1; 
+                }
+
+                return 0;
+            }
+        }
     }
 }

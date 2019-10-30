@@ -15,11 +15,14 @@ namespace Control
         private string descricao;
         private DateTime validade;
         private string valor;
+        private string situacao; 
 
         public Fornecedor fornecedor;
 
         public Pagamento()
         {
+            situacao = "Pendente";
+
             fornecedor = new Fornecedor();
         }
 
@@ -75,6 +78,18 @@ namespace Control
             }
         }
 
+        public string Situacao
+        {
+            get
+            {
+                return situacao;
+            }
+            set
+            {
+                situacao = value;
+            }
+        }
+
         //métodos
         public int Inserir()
         {
@@ -85,14 +100,57 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "INSERT INTO Pagamento VALUES (@valor, @descricao, @validade, @codFornecedor)";
+                cn.CommandText = "INSERT INTO Pagamento VALUES (@valor, @descricao, @validade, @situacao, @codFornecedor)";
                 cn.Parameters.Add("valor", SqlDbType.NVarChar).Value = valor;
                 cn.Parameters.Add("descricao", SqlDbType.NVarChar).Value = descricao;
                 cn.Parameters.Add("validade", SqlDbType.Date).Value = validade;
+                cn.Parameters.Add("situacao", SqlDbType.NVarChar).Value = situacao;
                 cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
+            }
+        }
+
+        public DataSet ListarDataGrid(string x)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM Pagamento WHERE situacao = '" + x + "'";
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
+            }
+        }
+
+        public void Atualiza()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Pagamento SET situacao = 'Atrasado' WHERE validade < GETDATE()";
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
             }
         }
     }

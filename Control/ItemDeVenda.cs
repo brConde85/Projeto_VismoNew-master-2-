@@ -14,6 +14,13 @@ namespace Control
         private int idProduto;
         private int qtd;
 
+        public Venda venda;
+
+        public ItemDeVenda()
+        {
+            venda = new Venda();
+        }
+
         public int IdVenda
         {
             get
@@ -47,6 +54,30 @@ namespace Control
             set
             {
                 qtd = value;
+            }
+        }
+
+        public DataSet Listar()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT t1.*, t2.nome, t3.datas FROM produto_venda t1, Produto t2, Venda t3 " +
+                    "WHERE t1.codigoProduto = t2.codigo AND t1.codigoVenda = @codigo AND t3.codigo = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = venda.Codigo;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
             }
         }
 

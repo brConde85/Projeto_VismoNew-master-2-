@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,9 +68,9 @@
             // id
             // 
             this.id.DataPropertyName = "Codigo";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.id.DefaultCellStyle = dataGridViewCellStyle4;
             this.id.HeaderText = "Código";
             this.id.MinimumWidth = 8;
             this.id.Name = "id";
@@ -87,9 +87,9 @@
             // ColumnPreco
             // 
             this.ColumnPreco.DataPropertyName = "Preco";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle5;
             this.ColumnPreco.HeaderText = "Preço";
             this.ColumnPreco.MinimumWidth = 8;
             this.ColumnPreco.Name = "ColumnPreco";
@@ -106,9 +106,9 @@
             // ColumncodForn
             // 
             this.ColumncodForn.DataPropertyName = "codFornecedor";
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle6;
             this.ColumncodForn.HeaderText = "Código Fornecedor";
             this.ColumncodForn.MinimumWidth = 8;
             this.ColumncodForn.Name = "ColumncodForn";
@@ -124,7 +124,7 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(241, 321);
+            this.btnAtualizar.Location = new System.Drawing.Point(243, 322);
             this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(101, 27);
@@ -135,7 +135,7 @@
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(375, 321);
+            this.btnDeletar.Location = new System.Drawing.Point(377, 322);
             this.btnDeletar.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(101, 27);

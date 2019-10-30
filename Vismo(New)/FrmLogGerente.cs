@@ -79,5 +79,17 @@ namespace Vismo_New_
 
             Close();
         }
+
+        private void PagamentoToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmRegistroPagamento tela = new FrmRegistroPagamento();
+            tela.Show();
+        }
+
+        private void VendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistroVenda tela = new FrmRegistroVenda();
+            tela.Show();
+        }
     }
 }

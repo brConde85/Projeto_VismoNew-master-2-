@@ -85,7 +85,7 @@
             // 
             this.produtoToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.ProdutoToolStripMenuItem_Click);
             // 
@@ -93,7 +93,7 @@
             // 
             this.funcionárioToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
@@ -101,7 +101,7 @@
             // 
             this.fornecedorToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.FornecedorToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             // 
             this.pagamentoToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.pagamentoToolStripMenuItem.Name = "pagamentoToolStripMenuItem";
-            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.pagamentoToolStripMenuItem.Text = "Pagamento";
             this.pagamentoToolStripMenuItem.Click += new System.EventHandler(this.pagamentoToolStripMenuItem_Click);
             // 
@@ -129,7 +129,7 @@
             // 
             this.produtoToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.produtoToolStripMenuItem3.Name = "produtoToolStripMenuItem3";
-            this.produtoToolStripMenuItem3.Size = new System.Drawing.Size(137, 22);
+            this.produtoToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem3.Text = "Produto";
             this.produtoToolStripMenuItem3.Click += new System.EventHandler(this.ProdutoToolStripMenuItem3_Click);
             // 
@@ -137,7 +137,7 @@
             // 
             this.funcionárioToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.funcionárioToolStripMenuItem3.Name = "funcionárioToolStripMenuItem3";
-            this.funcionárioToolStripMenuItem3.Size = new System.Drawing.Size(137, 22);
+            this.funcionárioToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem3.Text = "Funcionário";
             this.funcionárioToolStripMenuItem3.Click += new System.EventHandler(this.funcionárioToolStripMenuItem3_Click);
             // 
@@ -145,7 +145,7 @@
             // 
             this.fornecedorToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.fornecedorToolStripMenuItem3.Name = "fornecedorToolStripMenuItem3";
-            this.fornecedorToolStripMenuItem3.Size = new System.Drawing.Size(137, 22);
+            this.fornecedorToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.fornecedorToolStripMenuItem3.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem3.Click += new System.EventHandler(this.fornecedorToolStripMenuItem3_Click);
             // 
@@ -153,15 +153,17 @@
             // 
             this.pagamentoToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.pagamentoToolStripMenuItem3.Name = "pagamentoToolStripMenuItem3";
-            this.pagamentoToolStripMenuItem3.Size = new System.Drawing.Size(137, 22);
+            this.pagamentoToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.pagamentoToolStripMenuItem3.Text = "Pagamento";
+            this.pagamentoToolStripMenuItem3.Click += new System.EventHandler(this.PagamentoToolStripMenuItem3_Click);
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
+            this.vendasToolStripMenuItem.Click += new System.EventHandler(this.VendasToolStripMenuItem_Click);
             // 
             // estoqueToolStripMenuItem
             // 
@@ -209,7 +211,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1535, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1722, 24);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -219,7 +221,7 @@
             this.realizarVendaToolStripMenuItem,
             this.cancelarPagamentoToolStripMenuItem});
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
             this.vendaToolStripMenuItem.Text = "Venda";
             // 
             // realizarVendaToolStripMenuItem
@@ -317,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1535, 747);
+            this.ClientSize = new System.Drawing.Size(1722, 749);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
