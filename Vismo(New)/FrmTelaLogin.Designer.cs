@@ -47,9 +47,10 @@
             // btnEntrar
             // 
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEntrar.Location = new System.Drawing.Point(687, 402);
+            this.btnEntrar.Location = new System.Drawing.Point(787, 591);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.Size = new System.Drawing.Size(112, 35);
             this.btnEntrar.TabIndex = 13;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label3.Location = new System.Drawing.Point(823, 407);
+            this.label3.Location = new System.Drawing.Point(991, 599);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.Size = new System.Drawing.Size(101, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Cadastrar-se";
             this.label3.Click += new System.EventHandler(this.Label3_Click);
@@ -74,9 +76,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(640, 353);
+            this.label2.Location = new System.Drawing.Point(717, 516);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 17;
             this.label2.Text = "Senha:";
             // 
@@ -84,27 +87,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(640, 319);
+            this.label1.Location = new System.Drawing.Point(717, 464);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "Login:";
             // 
             // txtSenha
             // 
             this.txtSenha.BackColor = System.Drawing.Color.White;
-            this.txtSenha.Location = new System.Drawing.Point(687, 349);
+            this.txtSenha.Location = new System.Drawing.Point(787, 510);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(202, 20);
+            this.txtSenha.Size = new System.Drawing.Size(301, 26);
             this.txtSenha.TabIndex = 15;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // txtLogin
             // 
             this.txtLogin.BackColor = System.Drawing.Color.White;
-            this.txtLogin.Location = new System.Drawing.Point(687, 316);
+            this.txtLogin.Location = new System.Drawing.Point(787, 459);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(202, 20);
+            this.txtLogin.Size = new System.Drawing.Size(301, 26);
             this.txtLogin.TabIndex = 14;
             // 
             // pictureBox5
@@ -113,9 +119,10 @@
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = global::Vismo_New_.Properties.Resources.olho;
-            this.pictureBox5.Location = new System.Drawing.Point(895, 349);
+            this.pictureBox5.Location = new System.Drawing.Point(1099, 510);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(23, 25);
+            this.pictureBox5.Size = new System.Drawing.Size(34, 38);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 22;
             this.pictureBox5.TabStop = false;
@@ -124,40 +131,46 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(631, 275);
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Location = new System.Drawing.Point(703, 396);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(299, 181);
+            this.pictureBox2.Size = new System.Drawing.Size(448, 278);
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox3.Location = new System.Drawing.Point(621, 268);
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(689, 385);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(318, 195);
+            this.pictureBox3.Size = new System.Drawing.Size(477, 300);
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::Vismo_New_.Properties.Resources.oie_transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(687, 211);
+            this.pictureBox1.Location = new System.Drawing.Point(787, 298);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 51);
+            this.pictureBox1.Size = new System.Drawing.Size(276, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
             // FrmTelaLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vismo_New_.Properties.Resources.tela_loguin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(942, 576);
+            this.ClientSize = new System.Drawing.Size(1413, 886);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.label3);
@@ -169,7 +182,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmTelaLogin";
             this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
