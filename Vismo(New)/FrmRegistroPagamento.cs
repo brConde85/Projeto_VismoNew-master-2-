@@ -101,5 +101,15 @@ namespace Vismo_New_
             Pagamento pagamento = new Pagamento();
             pagamento.Atualiza();
         }
+
+        private void BtnAtualizar_Click(object sender, EventArgs e)
+        {
+            int setarGrid = Convert.ToInt32(dgPagamento.CurrentRow.Cells[0].Value.ToString());
+            MessageBox.Show("Pagamento: '" + dgPagamento.CurrentRow.Cells[2].Value.ToString() + "' foi atualizado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Pagamento pagamento = new Pagamento();
+            pagamento.AtualizaPagamento(setarGrid);
+
+        }
     }
 }

@@ -153,5 +153,25 @@ namespace Control
                 adapter.Fill(dataSet);
             }
         }
+        public void AtualizaPagamento(int x)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Pagamento SET situacao = 'Realizado com atraso' WHERE codigo = " + x ;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);                             
+            }
+        }
     }
 }
+

@@ -97,7 +97,9 @@ AND t2.codigo = t3.codigoProduto
 
 SELECT t1.*, t2.nome, t3.datas FROM produto_venda t1, Produto t2, Venda t3 WHERE t1.codigoProduto = t2.codigo AND t1.codigoVenda = '2' AND t3.codigo = '2'
 
-
+SELECT id_produto, SUM(quantidade) quantidade FROM permutados
+GROUP BY id_produto
+ORDER BY quantidade DESC
 
 
 

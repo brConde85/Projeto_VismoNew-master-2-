@@ -31,13 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgPagamento = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descrição = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prazo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situação = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.lblRes = new System.Windows.Forms.Label();
             this.lblPen = new System.Windows.Forms.Label();
@@ -51,10 +51,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(236, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(354, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 47);
+            this.label1.Size = new System.Drawing.Size(464, 70);
             this.label1.TabIndex = 9;
             this.label1.Text = "Registro de Pagamentos";
             // 
@@ -70,28 +69,15 @@
             this.Prazo,
             this.Situação,
             this.Fornecedor});
-            this.dgPagamento.Location = new System.Drawing.Point(28, 68);
-            this.dgPagamento.Margin = new System.Windows.Forms.Padding(2);
+            this.dgPagamento.Location = new System.Drawing.Point(42, 105);
             this.dgPagamento.Name = "dgPagamento";
             this.dgPagamento.ReadOnly = true;
             this.dgPagamento.RowHeadersWidth = 62;
             this.dgPagamento.RowTemplate.Height = 28;
             this.dgPagamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPagamento.Size = new System.Drawing.Size(643, 229);
+            this.dgPagamento.Size = new System.Drawing.Size(964, 352);
             this.dgPagamento.TabIndex = 10;
             this.dgPagamento.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(669, 250);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // id
             // 
@@ -112,11 +98,13 @@
             this.ColumnNome.MinimumWidth = 8;
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 150;
             // 
             // Descrição
             // 
             this.Descrição.DataPropertyName = "descricao";
             this.Descrição.HeaderText = "Descrição";
+            this.Descrição.MinimumWidth = 8;
             this.Descrição.Name = "Descrição";
             this.Descrição.ReadOnly = true;
             this.Descrição.Width = 120;
@@ -125,29 +113,45 @@
             // 
             this.Prazo.DataPropertyName = "validade";
             this.Prazo.HeaderText = "Prazo";
+            this.Prazo.MinimumWidth = 8;
             this.Prazo.Name = "Prazo";
             this.Prazo.ReadOnly = true;
+            this.Prazo.Width = 150;
             // 
             // Situação
             // 
             this.Situação.DataPropertyName = "situacao";
             this.Situação.HeaderText = "Situação";
+            this.Situação.MinimumWidth = 8;
             this.Situação.Name = "Situação";
             this.Situação.ReadOnly = true;
+            this.Situação.Width = 150;
             // 
             // Fornecedor
             // 
             this.Fornecedor.DataPropertyName = "codFornecedor";
             this.Fornecedor.HeaderText = "ID Fornecedor";
+            this.Fornecedor.MinimumWidth = 8;
             this.Fornecedor.Name = "Fornecedor";
             this.Fornecedor.ReadOnly = true;
+            this.Fornecedor.Width = 150;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1002, 384);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(309, 321);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVoltar.Location = new System.Drawing.Point(464, 494);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(101, 27);
+            this.btnVoltar.Size = new System.Drawing.Size(152, 42);
             this.btnVoltar.TabIndex = 13;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -160,9 +164,10 @@
             this.lblRes.BackColor = System.Drawing.Color.LightGreen;
             this.lblRes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRes.Font = new System.Drawing.Font("Tw Cen MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRes.Location = new System.Drawing.Point(255, 80);
+            this.lblRes.Location = new System.Drawing.Point(382, 123);
+            this.lblRes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRes.Name = "lblRes";
-            this.lblRes.Size = new System.Drawing.Size(80, 24);
+            this.lblRes.Size = new System.Drawing.Size(121, 38);
             this.lblRes.TabIndex = 14;
             this.lblRes.Text = "Realizados";
             this.lblRes.Click += new System.EventHandler(this.LblRes_Click);
@@ -173,9 +178,10 @@
             this.lblPen.BackColor = System.Drawing.Color.Khaki;
             this.lblPen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblPen.Font = new System.Drawing.Font("Tw Cen MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPen.Location = new System.Drawing.Point(351, 80);
+            this.lblPen.Location = new System.Drawing.Point(526, 123);
+            this.lblPen.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPen.Name = "lblPen";
-            this.lblPen.Size = new System.Drawing.Size(78, 24);
+            this.lblPen.Size = new System.Drawing.Size(118, 38);
             this.lblPen.TabIndex = 15;
             this.lblPen.Text = "Pendentes";
             this.lblPen.Click += new System.EventHandler(this.LblPen_Click);
@@ -186,29 +192,30 @@
             this.lblAtra.BackColor = System.Drawing.Color.LightCoral;
             this.lblAtra.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAtra.Font = new System.Drawing.Font("Tw Cen MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAtra.Location = new System.Drawing.Point(446, 80);
+            this.lblAtra.Location = new System.Drawing.Point(669, 123);
+            this.lblAtra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAtra.Name = "lblAtra";
-            this.lblAtra.Size = new System.Drawing.Size(76, 24);
+            this.lblAtra.Size = new System.Drawing.Size(114, 38);
             this.lblAtra.TabIndex = 16;
             this.lblAtra.Text = "Atrasados";
             this.lblAtra.Click += new System.EventHandler(this.LblAtra_Click);
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(194, 321);
-            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAtualizar.Location = new System.Drawing.Point(291, 494);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(101, 27);
+            this.btnAtualizar.Size = new System.Drawing.Size(152, 42);
             this.btnAtualizar.TabIndex = 17;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Visible = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.BtnAtualizar_Click);
             // 
             // FrmRegistroPagamento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 369);
+            this.ClientSize = new System.Drawing.Size(1096, 568);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.lblAtra);
             this.Controls.Add(this.lblPen);
@@ -217,6 +224,7 @@
             this.Controls.Add(this.dgPagamento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmRegistroPagamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Pagamentos - Vismo";
