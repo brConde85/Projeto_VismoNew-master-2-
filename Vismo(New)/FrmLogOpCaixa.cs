@@ -17,21 +17,6 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
-        private void ProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SairToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -44,6 +29,11 @@ namespace Vismo_New_
             tela.Show();
 
             this.Close();
+        }
+
+        private void AbrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
