@@ -111,5 +111,17 @@ namespace Vismo_New_
             TelaAutonomo tela = new TelaAutonomo();
             tela.Show();
         }
+
+        private void PedidosDeReposiçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPedidoReposicao tela = new FrmPedidoReposicao();
+            tela.Show();
+        }
+
+        private void MaisEMenosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMaisVendidos tela = new FrmMaisVendidos();
+            tela.Show();
+        }
     }
 }

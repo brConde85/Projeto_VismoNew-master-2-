@@ -362,5 +362,53 @@ namespace Control
 
         }
 
+        public DataSet Pedido()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT t1.*, t2.nome AS nomeFornec FROM Produto t1, Fornecedor t2 " +
+                "WHERE t1.codFornecedor = t2.codFornecedor AND t1.qtdEstoque <= 10 ORDER BY nome";
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
+            }
+        }
+
+        public DataSet MaisVendidos()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT t1.codigoProduto, t2.nome, SUM(t1.quantidade) AS quantidadeVendida, t3.datas " +
+                "FROM produto_venda t1, produto t2, venda t3 WHERE " +
+                "t1.codigoProduto = t2.codigo AND t3.codigo = t1.codigoVenda AND MONTH(t3.datas)BETWEEN '9' AND '10' " +
+                "GROUP BY t1.codigoProduto, t2.nome, t3.datas " +
+                "ORDER BY quantidadeVendida DESC;";
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
+            }
+        }
     }
 }
