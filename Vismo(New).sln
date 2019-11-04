@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vismo(View)", "Vismo(New)\Vismo(View).csproj", "{C73605BD-5277-4BA5-AFB9-14DC8AFA4FE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VismoControl", "Control\VismoControl.csproj", "{AC11CE00-EBB5-4A51-9516-6D703D6847B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModoGerente", "WindowsFormsApplication2\ViewModoGerente.csproj", "{CD02FDCB-83FC-4B60-B7F1-DB229ECCEBEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AC11CE00-EBB5-4A51-9516-6D703D6847B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC11CE00-EBB5-4A51-9516-6D703D6847B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC11CE00-EBB5-4A51-9516-6D703D6847B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD02FDCB-83FC-4B60-B7F1-DB229ECCEBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD02FDCB-83FC-4B60-B7F1-DB229ECCEBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD02FDCB-83FC-4B60-B7F1-DB229ECCEBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD02FDCB-83FC-4B60-B7F1-DB229ECCEBEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

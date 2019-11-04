@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using WindowsFormsApplication2;
+using WindowsFormsApplication2;
 
 
 namespace Vismo_New_
@@ -121,6 +121,24 @@ namespace Vismo_New_
         private void MaisEMenosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmMaisVendidos tela = new FrmMaisVendidos();
+            tela.Show();
+        }
+
+        private void AusenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TelaAusente tela = new TelaAusente();
+            tela.Show();
+        }
+
+        private void DisponívelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TelaDisponivel tela = new TelaDisponivel();
+            tela.Show();
+        }
+
+        private void AutônomoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TelaAusente tela = new TelaAusente();
             tela.Show();
         }
     }
