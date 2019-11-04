@@ -112,7 +112,7 @@ namespace Control
             }
         }
 
-        public DataSet ListarDataGrid(string x)
+        public DataSet ListarDataGrid(string comando)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -121,7 +121,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Pagamento WHERE situacao = '" + x + "'";
+                cn.CommandText = comando;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -143,7 +143,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "UPDATE Pagamento SET situacao = 'Atrasado' WHERE validade < GETDATE()";
+                cn.CommandText = "UPDATE Pagamento SET situacao = 'Atrasado' WHERE validade < GETDATE() AND situacao != 'Realizado com atraso'";
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -153,7 +153,8 @@ namespace Control
                 adapter.Fill(dataSet);
             }
         }
-        public void AtualizaPagamento(int x)
+
+        public void AtualizaPagamento(string comando)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -162,7 +163,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "UPDATE Pagamento SET situacao = 'Realizado com atraso' WHERE codigo = " + x ;
+                cn.CommandText = comando;
+                cn.Parameters.Add("codPagamento", SqlDbType.Int).Value = codPagamento;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();

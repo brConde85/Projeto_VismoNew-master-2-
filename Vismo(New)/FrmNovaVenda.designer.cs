@@ -42,11 +42,6 @@
             this.txtCod = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pchave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -66,6 +61,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pchave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -201,51 +201,6 @@
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.Size = new System.Drawing.Size(353, 86);
             this.dataGridView2.TabIndex = 4;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.MinimumWidth = 8;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 35;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.MinimumWidth = 8;
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 90;
-            // 
-            // Preco
-            // 
-            this.Preco.DataPropertyName = "Preco";
-            this.Preco.HeaderText = "Preço";
-            this.Preco.MinimumWidth = 8;
-            this.Preco.Name = "Preco";
-            this.Preco.ReadOnly = true;
-            this.Preco.Width = 50;
-            // 
-            // QtdEstoque
-            // 
-            this.QtdEstoque.DataPropertyName = "QtdEstoque";
-            this.QtdEstoque.HeaderText = "Qtd.Estoque";
-            this.QtdEstoque.MinimumWidth = 8;
-            this.QtdEstoque.Name = "QtdEstoque";
-            this.QtdEstoque.ReadOnly = true;
-            this.QtdEstoque.Width = 35;
-            // 
-            // Pchave
-            // 
-            this.Pchave.DataPropertyName = "Pchave";
-            this.Pchave.HeaderText = "Palavra-Chave";
-            this.Pchave.MinimumWidth = 8;
-            this.Pchave.Name = "Pchave";
-            this.Pchave.ReadOnly = true;
-            this.Pchave.Width = 150;
             // 
             // btnOk
             // 
@@ -440,6 +395,51 @@
             this.Numero.ReadOnly = true;
             this.Numero.Width = 150;
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 35;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.MinimumWidth = 8;
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 90;
+            // 
+            // Preco
+            // 
+            this.Preco.DataPropertyName = "Preco";
+            this.Preco.HeaderText = "Preço";
+            this.Preco.MinimumWidth = 8;
+            this.Preco.Name = "Preco";
+            this.Preco.ReadOnly = true;
+            this.Preco.Width = 50;
+            // 
+            // QtdEstoque
+            // 
+            this.QtdEstoque.DataPropertyName = "QtdEstoque";
+            this.QtdEstoque.HeaderText = "Qtd.Estoque";
+            this.QtdEstoque.MinimumWidth = 8;
+            this.QtdEstoque.Name = "QtdEstoque";
+            this.QtdEstoque.ReadOnly = true;
+            this.QtdEstoque.Width = 35;
+            // 
+            // Pchave
+            // 
+            this.Pchave.DataPropertyName = "Pchave";
+            this.Pchave.HeaderText = "Palavra-Chave";
+            this.Pchave.MinimumWidth = 8;
+            this.Pchave.Name = "Pchave";
+            this.Pchave.ReadOnly = true;
+            this.Pchave.Width = 150;
+            // 
             // frmNovaVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,13 +509,13 @@
         private System.Windows.Forms.TextBox txtQtd;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnValidar;
+        private System.Windows.Forms.TextBox txtRow;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtdEstoque;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pchave;
-        private System.Windows.Forms.TextBox txtRow;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

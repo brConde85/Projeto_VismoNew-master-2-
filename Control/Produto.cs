@@ -385,7 +385,7 @@ namespace Control
             }
         }
 
-        public DataSet MaisVendidos()
+        public DataSet MaisVendidos(int a, int b)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -394,10 +394,10 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT t1.codigoProduto, t2.nome, SUM(t1.quantidade) AS quantidadeVendida, t3.datas " +
+                cn.CommandText = "SELECT t1.codigoProduto, t2.nome, SUM(t1.quantidade) AS quantidadeVendida " +
                 "FROM produto_venda t1, produto t2, venda t3 WHERE " +
-                "t1.codigoProduto = t2.codigo AND t3.codigo = t1.codigoVenda AND MONTH(t3.datas)BETWEEN '9' AND '10' " +
-                "GROUP BY t1.codigoProduto, t2.nome, t3.datas " +
+                "t1.codigoProduto = t2.codigo AND t3.codigo = t1.codigoVenda AND MONTH(t3.datas)BETWEEN "+ a +" AND "+ b +" " +
+                "GROUP BY t1.codigoProduto, t2.nome " +
                 "ORDER BY quantidadeVendida DESC;";
                 cn.Connection = con;
 

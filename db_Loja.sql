@@ -63,8 +63,13 @@ codigo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 valor NVARCHAR(7) NOT NULL,
 descricao NVARCHAR(50) NOT NULL,
 validade DATE NOT NULL,
-situacao NVARCHAR(8) NOT NULL,
+situacao NVARCHAR(20) NOT NULL,
 codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
+
+select * from produto_venda
+select * from venda
+select * from produto
+

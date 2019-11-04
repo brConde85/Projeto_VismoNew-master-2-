@@ -233,10 +233,6 @@
       <Project>{ac11ce00-ebb5-4a51-9516-6d703d6847b8}</Project>
       <Name>VismoControl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modos-do-Gerente-master\WindowsFormsApplication2\ViewModoGerente.csproj">
-      <Project>{cd02fdcb-83fc-4b60-b7f1-db229eccebeb}</Project>
-      <Name>ViewModoGerente</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo2.png" />

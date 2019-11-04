@@ -37,8 +37,10 @@ namespace Vismo_New_
             Pagamento pagamento = new Pagamento();
 
             dgPagamento.AutoGenerateColumns = false;
-            dgPagamento.DataSource = pagamento.ListarDataGrid("Realizado");
-            dgPagamento.DataMember = pagamento.ListarDataGrid("Realizado").Tables[0].TableName;
+
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Realizado' OR situacao = 'Realizado com atraso'";
+            dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
+            dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 
             dgPagamento.Visible = true;
             pictureBox1.Visible = true;
@@ -55,8 +57,10 @@ namespace Vismo_New_
             Pagamento pagamento = new Pagamento();
 
             dgPagamento.AutoGenerateColumns = false;
-            dgPagamento.DataSource = pagamento.ListarDataGrid("Pendente");
-            dgPagamento.DataMember = pagamento.ListarDataGrid("Pendente").Tables[0].TableName;
+
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Pendente'";
+            dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
+            dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 
             dgPagamento.Visible = true;
             pictureBox1.Visible = true;
@@ -78,8 +82,10 @@ namespace Vismo_New_
             Pagamento pagamento = new Pagamento();
 
             dgPagamento.AutoGenerateColumns = false;
-            dgPagamento.DataSource = pagamento.ListarDataGrid("Atrasado");
-            dgPagamento.DataMember = pagamento.ListarDataGrid("Atrasado").Tables[0].TableName;
+
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Atrasado'";
+            dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
+            dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 
             dgPagamento.Visible = true;
             pictureBox1.Visible = true;
@@ -104,12 +110,26 @@ namespace Vismo_New_
 
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
-            int setarGrid = Convert.ToInt32(dgPagamento.CurrentRow.Cells[0].Value.ToString());
-            MessageBox.Show("Pagamento: '" + dgPagamento.CurrentRow.Cells[2].Value.ToString() + "' foi atualizado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             Pagamento pagamento = new Pagamento();
-            pagamento.AtualizaPagamento(setarGrid);
+            pagamento.CodPagamento = Convert.ToInt32(dgPagamento.CurrentRow.Cells[0].Value.ToString());
 
+            MessageBox.Show("Pagamento: '" + dgPagamento.CurrentRow.Cells[2].Value.ToString() +
+                   "' foi atualizado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (Convert.ToString(dgPagamento.CurrentRow.Cells[4].Value) == "Atrasado")
+            {
+                string comando = "UPDATE Pagamento SET situacao = 'Realizado com atraso' WHERE codigo = @codPagamento";
+                pagamento.AtualizaPagamento(comando);
+
+                LblAtra_Click(sender, e);
+            }
+            else
+            {
+                string comando = "UPDATE Pagamento SET situacao = 'Realizado' WHERE codigo = @codPagamento";
+                pagamento.AtualizaPagamento(comando);
+
+                LblPen_Click(sender, e);
+            }  
         }
     }
 }
