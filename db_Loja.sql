@@ -68,8 +68,9 @@ codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
-
+drop table pagamento
+alter table pagamento 
 select * from produto_venda
 select * from venda
-select * from produto
+select * from pagamento
 

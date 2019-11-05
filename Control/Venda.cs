@@ -119,5 +119,74 @@ namespace Control
                 return 0;
             }
         }
+        public void CancelarVenda(string venda)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {                
+                con.ConnectionString = Properties.Settings.Default.banco;
+                con.Open();
+                SqlCommand cn = con.CreateCommand();                                
+               
+                cn.CommandText = venda;                
+                cn.Parameters.Add("@codigo", SqlDbType.Int).Value = Codigo;               
+                
+                cn.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        public void CancelarProdutoVenda(string vendaProduto)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                con.Open();
+                SqlCommand cn = con.CreateCommand();
+
+                cn.CommandText = vendaProduto;
+                cn.Parameters.Add("@codigoVenda", SqlDbType.Int).Value = Codigo;
+                
+
+                cn.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        //SqlConnection connection = new SqlConnection(connectionString);  //Conectando o Projeto ao BD
+        //connection.Open();  //Abrindo a conexão com o MySQL
+        //        SqlCommand comandoDelete = connection.CreateCommand();  //Criando um comando 
+        //                                                                //Colocando o método para linkar o database e a ide
+        //                                                                // selecionando a coluna do datagrid que sera capturada pelo atributo
+
+        //string delete = "DELETE FROM produto where codigo ='" + produto.Codigo + "';";
+        //string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto ='" + produto.Codigo + "';";
+
+        ////MessageBox.Show(delete);  //Exibindo o que acabei de update
+        //comandoDelete.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)                
+        //        comandoDelete.CommandText = delete; //Setar a query dentro do comando (extração de informações)
+        //        comandoDelete.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
+        //        connection.Close();
+        public DataSet Listar()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM venda";
+                
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
+            }
+        }
+
     }
 }

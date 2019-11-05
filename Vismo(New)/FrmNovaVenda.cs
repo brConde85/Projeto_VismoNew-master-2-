@@ -275,5 +275,11 @@ namespace Vismo_New_
             FrmLogGerente tela = new FrmLogGerente();
             tela.Show();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            FrmRegistroVenda tela = new FrmRegistroVenda();
+            tela.Show();
+        }
     }
 }

@@ -141,5 +141,11 @@ namespace Vismo_New_
             TelaAusente tela = new TelaAusente();
             tela.Show();
         }
+
+        private void CancelarVendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegistroVenda tela = new FrmRegistroVenda();
+            tela.Show();
+        }
     }
 }
