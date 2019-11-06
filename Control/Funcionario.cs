@@ -191,6 +191,7 @@ namespace Control
         }
         // verifica se o login existe no banco
         SqlCommand cmd = new SqlCommand(); // comando sql para procurar no banco 
+
         SqlDataReader dr;
         public bool VerificarLogin(String login, String senha)
         {
@@ -271,6 +272,31 @@ namespace Control
                 adapter.Fill(dataSet);
 
                 return dataSet;
+            }
+        }
+
+        public void PegaStatus()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+               
+                con.Open();
+                cn.CommandText = "SELECT statuss FROM funcionario WHERE logins = @login AND senha = @senha";
+                cn.Parameters.Add("login", SqlDbType.VarChar).Value = login;
+                cn.Parameters.Add("senha", SqlDbType.VarChar).Value = senha;
+ 
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    status = reader.GetString(0);
+                }
             }
         }
     }

@@ -32,15 +32,10 @@ namespace Vismo_New_
             funcionario.Acessar(txtLogin.Text, txtSenha.Text);
             if (funcionario.ConfirmCadast)
             {
-                txtLogin.Clear();
-                txtSenha.Clear();
-
-                txtLogin.Focus();
-
                 MessageBox.Show("Logado com Sucesso!","Entrando",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 if(funcionario.Tipo == "Gerente")
                 {
-                    FrmLogGerente frmGer = new FrmLogGerente();
+                    FrmLogGerente frmGer = new FrmLogGerente(txtLogin.Text, txtSenha.Text);
                     frmGer.Show();
                     Hide();
                 }
@@ -48,8 +43,13 @@ namespace Vismo_New_
                 {
                     FrmLogOpCaixa frmCx = new FrmLogOpCaixa();
                     frmCx.Show();
+                    Hide();
                 }
-                
+
+                txtLogin.Clear();
+                txtSenha.Clear();
+
+                txtLogin.Focus();
             }
             else
             {

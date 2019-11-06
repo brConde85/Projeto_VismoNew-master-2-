@@ -48,9 +48,6 @@
             this.vendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarVendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modosDoGerenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ausenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disponívelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autônomoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +60,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtModo = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -236,40 +234,16 @@
             // 
             this.realizarVendaToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.realizarVendaToolStripMenuItem.Name = "realizarVendaToolStripMenuItem";
-            this.realizarVendaToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.realizarVendaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.realizarVendaToolStripMenuItem.Text = "Realizar venda";
             this.realizarVendaToolStripMenuItem.Click += new System.EventHandler(this.realizarVendaToolStripMenuItem_Click);
             // 
             // modosDoGerenteToolStripMenuItem
             // 
-            this.modosDoGerenteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ausenteToolStripMenuItem,
-            this.disponívelToolStripMenuItem,
-            this.autônomoToolStripMenuItem});
             this.modosDoGerenteToolStripMenuItem.Name = "modosDoGerenteToolStripMenuItem";
             this.modosDoGerenteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.modosDoGerenteToolStripMenuItem.Text = "Modos do Gerente";
-            // 
-            // ausenteToolStripMenuItem
-            // 
-            this.ausenteToolStripMenuItem.Name = "ausenteToolStripMenuItem";
-            this.ausenteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.ausenteToolStripMenuItem.Text = "Ausente";
-            this.ausenteToolStripMenuItem.Click += new System.EventHandler(this.AusenteToolStripMenuItem_Click);
-            // 
-            // disponívelToolStripMenuItem
-            // 
-            this.disponívelToolStripMenuItem.Name = "disponívelToolStripMenuItem";
-            this.disponívelToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.disponívelToolStripMenuItem.Text = "Disponível";
-            this.disponívelToolStripMenuItem.Click += new System.EventHandler(this.DisponívelToolStripMenuItem_Click);
-            // 
-            // autônomoToolStripMenuItem
-            // 
-            this.autônomoToolStripMenuItem.Name = "autônomoToolStripMenuItem";
-            this.autônomoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.autônomoToolStripMenuItem.Text = "Autônomo";
-            this.autônomoToolStripMenuItem.Click += new System.EventHandler(this.AutônomoToolStripMenuItem_Click);
+            this.modosDoGerenteToolStripMenuItem.Click += new System.EventHandler(this.ModosDoGerenteToolStripMenuItem_Click);
             // 
             // produtoToolStripMenuItem2
             // 
@@ -376,11 +350,20 @@
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
             // 
+            // txtModo
+            // 
+            this.txtModo.Location = new System.Drawing.Point(246, 27);
+            this.txtModo.Name = "txtModo";
+            this.txtModo.Size = new System.Drawing.Size(26, 20);
+            this.txtModo.TabIndex = 69;
+            this.txtModo.Visible = false;
+            // 
             // FrmLogGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 487);
+            this.Controls.Add(this.txtModo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
@@ -432,10 +415,8 @@
         private System.Windows.Forms.ToolStripMenuItem realizarVendaToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ToolStripMenuItem modosDoGerenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ausenteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem disponívelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autônomoToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtModo;
     }
 }

@@ -129,9 +129,9 @@ namespace Control
                     WHERE CODIGODEP = 1
                     codigo = 
                  */
-                cn.CommandText = ("UPDATE produto SET nome = @nome, preco = @preco, " +
+                cn.CommandText = "UPDATE produto SET nome = @nome, preco = @preco, " +
                     "qtdEstoque = @qtdEstoque, codFornecedor = @codFornecedor, pchave = @pchave " +
-                    "WHERE codigo = @codigo");
+                    "WHERE codigo = @codigo";
 
                 cn.Parameters.Add("codigo", SqlDbType.Int).Value = codProduto;
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;

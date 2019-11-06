@@ -20,13 +20,12 @@ namespace Vismo_New_
         public FrmAtualizarProduto(int id, string nome, double preco, int qtd, int fornec, string pchave)
         {
             InitializeComponent();
-            txtId.Text = Convert.ToString(id);
+            produto.Codigo = id;
+            txtId.Text = Convert.ToString(fornec);
             txtNome.Text = nome;
             txtPreco.Text = Convert.ToString(preco);
             txtQtd.Text = Convert.ToString(qtd);
-            cboPalavra.Text = pchave;
-
-           
+            cboPalavra.Text = pchave;   
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -41,8 +40,10 @@ namespace Vismo_New_
                 !txtPreco.Text.Equals("") &&
                 !txtQtd.Text.Equals("") &&
                 !cboPalavra.Text.Equals("") &&
-                txtId.Text.Equals(""))
+                !txtId.Text.Equals(""))
             {
+                fornecedor.CodigoF = Convert.ToInt32(txtId.Text);
+
                 if (fornecedor.PegaId() == 1)
                 {
                     try
@@ -51,7 +52,6 @@ namespace Vismo_New_
                         produto.Preco = Convert.ToDouble(txtPreco.Text);
                         produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
                         produto.Pchave = cboPalavra.Text;
-                        fornecedor.PegaId();
                         produto.fornecedor.CodigoF = fornecedor.CodigoF;
                         produto.Pchave = cboPalavra.Text;
 

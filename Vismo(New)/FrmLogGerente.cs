@@ -8,15 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApplication2;
+using Control;
 
 
 namespace Vismo_New_
 {
     public partial class FrmLogGerente : Form
     {
-        public FrmLogGerente()
+        public FrmLogGerente(string login, string senha)
         {
             InitializeComponent();
+
+            Funcionario funcionario = new Funcionario();
+
+            funcionario.Login = login;
+            funcionario.Senha = senha;
+
+            funcionario.PegaStatus();
+            txtModo.Text = funcionario.Status;
         }
 
         private void SairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,22 +146,23 @@ namespace Vismo_New_
             }   
         }
 
-        private void AusenteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ModosDoGerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TelaAusente tela = new TelaAusente();
-            tela.Show();
-        }
-
-        private void DisponívelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TelaDisponivel tela = new TelaDisponivel();
-            tela.Show();
-        }
-
-        private void AutônomoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TelaAutonomo tela = new TelaAutonomo();
-            tela.Show();
+            if (Convert.ToInt32(txtModo.Text) == 1)
+            {
+                TelaDisponivel tela = new TelaDisponivel();
+                tela.Show();
+            }
+            else if (Convert.ToInt32(txtModo.Text) == 2)
+            {
+                TelaAusente tela = new TelaAusente();
+                tela.Show();
+            }
+            else
+            {
+                TelaAutonomo tela = new TelaAutonomo();
+                tela.Show();
+            }
         }
 
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
@@ -221,6 +231,6 @@ namespace Vismo_New_
             {
                 Application.OpenForms["frmNovaVenda"].Close();
             }
-        }
+        } 
     }
 }
