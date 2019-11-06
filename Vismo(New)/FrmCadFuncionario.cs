@@ -28,7 +28,7 @@ namespace Vismo_New_
         private void BtnOk_Click(object sender, EventArgs e)
         {
             if ((!textNome.Text.Equals("")) &&
-                    (!textCpf.Text.Equals("")) &&
+                    (!txtCpf.Text.Equals("")) &&
                     (!texLogin.Text.Equals("")) &&
                     (!textSenha.Text.Equals("")) &&
                     (!textSenhaAux.Text.Equals("")) &&
@@ -44,8 +44,17 @@ namespace Vismo_New_
                         funcionario.Login = texLogin.Text;
                         funcionario.Senha = textSenha.Text;
                         funcionario.Nome = textNome.Text;
-                        funcionario.Cpf = textCpf.Text;
-                        funcionario.Status = "0";
+                        funcionario.Cpf = txtCpf.Text;
+
+                        if (comboTipo.SelectedIndex == 0)
+                        {
+                            funcionario.Status = "1";
+                        }
+                        else
+                        {
+                            funcionario.Status = "0";
+                        }
+                        
                         funcionario.Tipo = comboTipo.Text;
 
                         int x = funcionario.Inserir(funcionario);
@@ -53,6 +62,15 @@ namespace Vismo_New_
                         if (x > 0)
                         {
                             MessageBox.Show(String.Format("Funcionário: {0} inserido com sucesso.", textNome.Text));
+
+                            textNome.Clear();
+                            txtCpf.Clear();
+                            texLogin.Clear();
+                            textSenha.Clear();
+                            textSenhaAux.Clear();
+                            comboTipo.Text = "";
+
+                            textNome.Focus();
                         }
                         else
                         {
@@ -75,6 +93,11 @@ namespace Vismo_New_
             {
                 MessageBox.Show("Preencha todos os campos antes de continuar.");
             }        
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

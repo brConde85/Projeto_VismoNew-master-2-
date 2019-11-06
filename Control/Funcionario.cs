@@ -231,9 +231,9 @@ namespace Control
         {
             //conexão com o banco "Botão direito no banco de dados, propriedades e depois copiar cadeia de conxão "  
 
-            con.ConnectionString = @"Data Source=BRCONDE\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=BRCONDE\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
             //con.ConnectionString = @"Data Source=LAB606-09\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
-            //con.ConnectionString = @"Data Source=LAPTOP-JJ2FBRH8\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
+            con.ConnectionString = @"Data Source=LAPTOP-JJ2FBRH8\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
         }
         // metoda para conferir se a conexão do cliente
         public SqlConnection conectar()

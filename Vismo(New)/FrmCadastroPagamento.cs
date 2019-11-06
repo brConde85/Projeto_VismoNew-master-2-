@@ -81,9 +81,6 @@ namespace Vismo_New_
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            FrmLogGerente tela = new FrmLogGerente();
-            tela.Show();
-
             Close();
         }
     }

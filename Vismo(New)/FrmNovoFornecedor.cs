@@ -20,14 +20,6 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
-        private void BtnVoltar_Click(object sender, EventArgs e)
-        {
-            FrmLogGerente tela = new FrmLogGerente();
-            tela.Show();
-
-            Close();
-        }
-
         private void BtnOk_Click(object sender, EventArgs e)
         {
 
@@ -72,13 +64,10 @@ namespace Vismo_New_
             }
         }
 
-        private void FrmNovoFornecedor_FormClosed(object sender, FormClosedEventArgs e)
+
+        private void Button1_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmLogGerente>().Count() == 0)
-            {
-                FrmLogGerente tela = new FrmLogGerente();
-                tela.Show();
-            }  
+            Close();
         }
     }
 }

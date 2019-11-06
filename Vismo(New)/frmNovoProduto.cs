@@ -24,9 +24,6 @@ namespace Vismo_New_
 
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
-            FrmLogGerente tela = new FrmLogGerente();
-            tela.Show();
-
             Close();
         }
 
@@ -143,15 +140,6 @@ namespace Vismo_New_
                 btnOk.Enabled = false;
                 cboPalavra.Enabled = false;
                 lblMsg.Text = "* Obrigatório.";
-            }
-        }
-
-        private void FrmNovoProduto_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (Application.OpenForms.OfType<FrmLogGerente>().Count() == 0)
-            {
-                FrmLogGerente tela = new FrmLogGerente();
-                tela.Show();
             }
         }
     }

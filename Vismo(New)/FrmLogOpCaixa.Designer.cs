@@ -56,7 +56,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pictureBox1.Image = global::Vismo_New_.Properties.Resources.Untitled1;
             this.pictureBox1.Location = new System.Drawing.Point(1108, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(389, 660);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +100,7 @@
             // 
             this.toolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(135, 22);
             this.toolStripMenuItem3.Text = "Pagamento";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -119,7 +119,7 @@
             // 
             this.produtoToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.produtoToolStripMenuItem3.Name = "produtoToolStripMenuItem3";
-            this.produtoToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.produtoToolStripMenuItem3.Size = new System.Drawing.Size(135, 22);
             this.produtoToolStripMenuItem3.Text = "Produto";
             this.produtoToolStripMenuItem3.Click += new System.EventHandler(this.produtoToolStripMenuItem3_Click);
             // 
@@ -127,7 +127,7 @@
             // 
             this.fornecedorToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.fornecedorToolStripMenuItem3.Name = "fornecedorToolStripMenuItem3";
-            this.fornecedorToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.fornecedorToolStripMenuItem3.Size = new System.Drawing.Size(135, 22);
             this.fornecedorToolStripMenuItem3.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem3.Click += new System.EventHandler(this.fornecedorToolStripMenuItem3_Click);
             // 
@@ -135,7 +135,7 @@
             // 
             this.pagamentoToolStripMenuItem3.BackColor = System.Drawing.Color.Silver;
             this.pagamentoToolStripMenuItem3.Name = "pagamentoToolStripMenuItem3";
-            this.pagamentoToolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.pagamentoToolStripMenuItem3.Size = new System.Drawing.Size(135, 22);
             this.pagamentoToolStripMenuItem3.Text = "Pagamento";
             this.pagamentoToolStripMenuItem3.Click += new System.EventHandler(this.pagamentoToolStripMenuItem3_Click);
             // 
@@ -143,7 +143,7 @@
             // 
             this.vendasToolStripMenuItem.BackColor = System.Drawing.Color.Silver;
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             this.vendasToolStripMenuItem.Click += new System.EventHandler(this.vendasToolStripMenuItem_Click);
             // 
@@ -177,7 +177,7 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(52, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(51, 22);
             this.toolStripMenuItem4.Text = "Venda";
             // 
             // toolStripMenuItem5
@@ -233,7 +233,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogOpCaixa";
             this.Text = "Login Operador de Caixa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
