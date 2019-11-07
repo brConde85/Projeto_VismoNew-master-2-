@@ -83,7 +83,7 @@ namespace Control
             }
         }
 
-        public void PegaId()
+        public int PegaId()
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -102,7 +102,11 @@ namespace Control
                 {
                     reader.Read();
                     id = reader.GetInt32(0);
+
+                    return 1;
                 }
+
+                return 0;
             }
         }
 

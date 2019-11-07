@@ -68,13 +68,5 @@ codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
-drop table pagamento
-alter table pagamento 
-select * from produto_venda	
-select * from venda
-select * from pagamento
 
-SELECT t1.codigoVenda AS codigo,t1.codigoProduto, t1.quantidade, t2.nome, t3.datas, t3.valor FROM produto_venda t1, Produto t2, Venda t3
-                    WHERE t1.codigoProduto = t2.codigo;
-DELETE FROM produto_venda WHERE codigoVenda = 9;
-DELETE FROM venda WHERE codigo = 9;
+select * from fornecedor

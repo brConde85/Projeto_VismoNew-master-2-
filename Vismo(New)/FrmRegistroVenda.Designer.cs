@@ -28,34 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgVenda = new System.Windows.Forms.DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCod = new System.Windows.Forms.TextBox();
-            this.btnPenquisar = new System.Windows.Forms.Button();
-            this.btnCanVenda = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCod = new System.Windows.Forms.TextBox();
+            this.btnPenquisar = new System.Windows.Forms.Button();
+            this.btnCanVenda = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(490, 9);
+            this.label1.Location = new System.Drawing.Point(248, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(373, 70);
+            this.label1.Size = new System.Drawing.Size(253, 47);
             this.label1.TabIndex = 10;
             this.label1.Text = "Registro de Vendas";
             // 
@@ -71,64 +79,15 @@
             this.CodProduto,
             this.Data,
             this.Valor});
-            this.dgVenda.Location = new System.Drawing.Point(310, 115);
+            this.dgVenda.Location = new System.Drawing.Point(214, 122);
+            this.dgVenda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgVenda.Name = "dgVenda";
             this.dgVenda.ReadOnly = true;
             this.dgVenda.RowHeadersWidth = 62;
             this.dgVenda.RowTemplate.Height = 28;
             this.dgVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgVenda.Size = new System.Drawing.Size(723, 352);
+            this.dgVenda.Size = new System.Drawing.Size(482, 229);
             this.dgVenda.TabIndex = 13;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(291, 98);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(761, 384);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 38);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Código de Venda:";
-            // 
-            // txtCod
-            // 
-            this.txtCod.Location = new System.Drawing.Point(22, 155);
-            this.txtCod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(56, 26);
-            this.txtCod.TabIndex = 16;
-            // 
-            // btnPenquisar
-            // 
-            this.btnPenquisar.Location = new System.Drawing.Point(22, 432);
-            this.btnPenquisar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPenquisar.Name = "btnPenquisar";
-            this.btnPenquisar.Size = new System.Drawing.Size(112, 63);
-            this.btnPenquisar.TabIndex = 17;
-            this.btnPenquisar.Text = "Pesquisar Venda";
-            this.btnPenquisar.UseVisualStyleBackColor = true;
-            this.btnPenquisar.Click += new System.EventHandler(this.BtnPenquisar_Click);
-            // 
-            // btnCanVenda
-            // 
-            this.btnCanVenda.Location = new System.Drawing.Point(155, 432);
-            this.btnCanVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCanVenda.Name = "btnCanVenda";
-            this.btnCanVenda.Size = new System.Drawing.Size(112, 63);
-            this.btnCanVenda.TabIndex = 18;
-            this.btnCanVenda.Text = "Cancelar Venda";
-            this.btnCanVenda.UseVisualStyleBackColor = true;
-            this.btnCanVenda.Click += new System.EventHandler(this.BtnCanVenda_Click);
             // 
             // Codigo
             // 
@@ -142,9 +101,9 @@
             // Produto
             // 
             this.Produto.DataPropertyName = "nome";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Produto.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Produto.DefaultCellStyle = dataGridViewCellStyle5;
             this.Produto.HeaderText = "Produto";
             this.Produto.MinimumWidth = 8;
             this.Produto.Name = "Produto";
@@ -155,8 +114,8 @@
             // Quantidade
             // 
             this.Quantidade.DataPropertyName = "quantidade";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle6;
             this.Quantidade.HeaderText = "Quantidade";
             this.Quantidade.MinimumWidth = 8;
             this.Quantidade.Name = "Quantidade";
@@ -167,8 +126,8 @@
             // CodProduto
             // 
             this.CodProduto.DataPropertyName = "codigoProduto";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CodProduto.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CodProduto.DefaultCellStyle = dataGridViewCellStyle7;
             this.CodProduto.HeaderText = "ID Produto";
             this.CodProduto.MinimumWidth = 8;
             this.CodProduto.Name = "CodProduto";
@@ -188,20 +147,119 @@
             // Valor
             // 
             this.Valor.DataPropertyName = "valor";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle8;
             this.Valor.HeaderText = "Valor";
             this.Valor.MinimumWidth = 8;
             this.Valor.Name = "Valor";
             this.Valor.ReadOnly = true;
             this.Valor.Width = 150;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(201, 111);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(508, 250);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 24);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Código de Venda:";
+            // 
+            // txtCod
+            // 
+            this.txtCod.Location = new System.Drawing.Point(15, 149);
+            this.txtCod.Name = "txtCod";
+            this.txtCod.Size = new System.Drawing.Size(39, 20);
+            this.txtCod.TabIndex = 16;
+            // 
+            // btnPenquisar
+            // 
+            this.btnPenquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPenquisar.Location = new System.Drawing.Point(15, 281);
+            this.btnPenquisar.Name = "btnPenquisar";
+            this.btnPenquisar.Size = new System.Drawing.Size(75, 41);
+            this.btnPenquisar.TabIndex = 17;
+            this.btnPenquisar.Text = "Pesquisar Venda";
+            this.btnPenquisar.UseVisualStyleBackColor = true;
+            this.btnPenquisar.Click += new System.EventHandler(this.BtnPenquisar_Click);
+            // 
+            // btnCanVenda
+            // 
+            this.btnCanVenda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCanVenda.Location = new System.Drawing.Point(103, 281);
+            this.btnCanVenda.Name = "btnCanVenda";
+            this.btnCanVenda.Size = new System.Drawing.Size(75, 41);
+            this.btnCanVenda.TabIndex = 18;
+            this.btnCanVenda.Text = "Cancelar Venda";
+            this.btnCanVenda.UseVisualStyleBackColor = true;
+            this.btnCanVenda.Click += new System.EventHandler(this.BtnCanVenda_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sobreToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(755, 24);
+            this.menuStrip1.TabIndex = 48;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::Vismo_New_.Properties.Resources.Logo2;
+            this.pictureBox1.Location = new System.Drawing.Point(-22, 383);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(158, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 83;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(-599, 410);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1926, 28);
+            this.pictureBox3.TabIndex = 82;
+            this.pictureBox3.TabStop = false;
+            // 
             // FrmRegistroVenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 568);
+            this.ClientSize = new System.Drawing.Size(755, 430);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnCanVenda);
             this.Controls.Add(this.btnPenquisar);
             this.Controls.Add(this.txtCod);
@@ -209,12 +267,16 @@
             this.Controls.Add(this.dgVenda);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmRegistroVenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Vendas - Vismo";
             this.Load += new System.EventHandler(this.FrmRegistroVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +297,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

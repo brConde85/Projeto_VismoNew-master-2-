@@ -17,25 +17,6 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
-        private void SairToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-
-        }
-
-        private void realizarVendaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmNovaVenda tela = new frmNovaVenda();
-            tela.Show();
-
-            this.Close();
-        }
-
-        private void AbrirCaixaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             FrmCadastroPagamento tela = new FrmCadastroPagamento();
@@ -76,6 +57,59 @@ namespace Vismo_New_
         {
             frmNovaVenda tela = new frmNovaVenda();
             tela.Show();
+        }
+
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmete sair?", "Confirmação",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+                Application.OpenForms["FrmTelaLogin"].Show();
+            }
+        }
+
+        private void FrmLogOpCaixa_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms.OfType<FrmTelaLogin>().Count() == 1)
+            {
+                Application.OpenForms["FrmTelaLogin"].Show();
+            }
+
+            if (Application.OpenForms.OfType<FrmCadastroPagamento>().Count() == 1)
+            {
+                Application.OpenForms["FrmCadastroPagamento"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmListarProduto>().Count() == 1)
+            {
+                Application.OpenForms["FrmListarProduto"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmListarFuncionario>().Count() == 1)
+            {
+                Application.OpenForms["FrmListarFuncionario"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmListarFornecedor>().Count() == 1)
+            {
+                Application.OpenForms["FrmListarFornecedor"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmRegistroPagamento>().Count() == 1)
+            {
+                Application.OpenForms["FrmRegistroPagamento"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmRegistroVenda>().Count() == 1)
+            {
+                Application.OpenForms["FrmRegistroVenda"].Close();
+            }
+
+            if (Application.OpenForms.OfType<frmNovaVenda>().Count() == 1)
+            {
+                Application.OpenForms["frmNovaVenda"].Close();
+            }
         }
     }
 }

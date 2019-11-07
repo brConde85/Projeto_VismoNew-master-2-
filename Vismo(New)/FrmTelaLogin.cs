@@ -35,15 +35,21 @@ namespace Vismo_New_
                 MessageBox.Show("Logado com Sucesso!","Entrando",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 if(funcionario.Tipo == "Gerente")
                 {
-                    FrmLogGerente frmGer = new FrmLogGerente();
+                    FrmLogGerente frmGer = new FrmLogGerente(txtLogin.Text, txtSenha.Text);
                     frmGer.Show();
+                    Hide();
                 }
                 else 
                 {
                     FrmLogOpCaixa frmCx = new FrmLogOpCaixa();
                     frmCx.Show();
+                    Hide();
                 }
-                
+
+                txtLogin.Clear();
+                txtSenha.Clear();
+
+                txtLogin.Focus();
             }
             else
             {

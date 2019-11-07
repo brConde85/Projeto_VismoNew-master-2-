@@ -155,7 +155,8 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Name = "TelaAusente";
-            this.Text = "TelaAusente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modo Ausente - Vismo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

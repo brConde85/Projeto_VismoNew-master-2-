@@ -271,9 +271,6 @@ namespace Vismo_New_
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
-
-            FrmLogGerente tela = new FrmLogGerente();
-            tela.Show();
         }
 
         private void Button1_Click(object sender, EventArgs e)
