@@ -8,21 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication2
+namespace Vismo_New_
 {
-
-    public partial class TelaDisponivel : Form
+    public partial class FrmModoDisponivel : Form
     {
-        public TelaAutonomo telaAutonomo = new TelaAutonomo();
-
-
-        TelaAusente telaAusente = new TelaAusente();
-        public TelaDisponivel()
+        
+        public FrmModoAusente telaAusente = new FrmModoAusente();
+        public FrmModoAutonomo telaAutonomo = new FrmModoAutonomo();
+        public FrmModoDisponivel()
         {
             InitializeComponent();
         }
 
-        public void label1_MouseMove(object sender, MouseEventArgs e)
+        private void Label1_MouseMove(object sender, MouseEventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
 
@@ -30,7 +28,7 @@ namespace WindowsFormsApplication2
             label1.Visible = true;
         }
 
-        public void label1_MouseLeave(object sender, EventArgs e)
+        private void Label1_MouseLeave(object sender, EventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
 
@@ -38,26 +36,19 @@ namespace WindowsFormsApplication2
             label1.Visible = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            TelaDisponivel telaDisponivel = new TelaDisponivel();
-            this.telaAusente.Show();
-            this.Show();
-            this.Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
             this.telaAutonomo.Show();
             this.Show();
             this.Hide();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            
+            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel();
+            this.telaAusente.Show();
+            this.Show();
+            this.Hide();
         }
     }
 }
-

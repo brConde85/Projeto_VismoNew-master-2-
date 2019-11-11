@@ -69,4 +69,7 @@ CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
 
-select * from fornecedor
+select * from funcionario
+
+UPDATE Funcionario set statuss = '1' WHERE logins = '3'
+                    AND senha = 3

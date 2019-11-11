@@ -63,6 +63,56 @@ namespace Vismo_New_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background_amarelo_textura_6 {
+            get {
+                object obj = ResourceManager.GetObject("background-amarelo-textura-6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap depositphotos_122114868_stock_photo_yellow_grunge_wall_for_texture {
+            get {
+                object obj = ResourceManager.GetObject("depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap depositphotos_87873200_stock_photo_yellow_background_texture {
+            get {
+                object obj = ResourceManager.GetObject("depositphotos_87873200-stock-photo-yellow-background-texture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap depositphotos_87873200_stock_photo_yellow_background_texture1 {
+            get {
+                object obj = ResourceManager.GetObject("depositphotos_87873200-stock-photo-yellow-background-texture1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Green_texture_paper_1920x1200 {
+            get {
+                object obj = ResourceManager.GetObject("Green-texture-paper_1920x1200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo2 {
             get {
                 object obj = ResourceManager.GetObject("Logo2", resourceCulture);
@@ -103,9 +153,39 @@ namespace Vismo_New_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Seta_direita_azul_200x200px {
+            get {
+                object obj = ResourceManager.GetObject("Seta-direita-azul-200x200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Seta_direita_azul_200x200px1 {
+            get {
+                object obj = ResourceManager.GetObject("Seta-direita-azul-200x200px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tela_loguin {
             get {
                 object obj = ResourceManager.GetObject("tela loguin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thumb2_blue_texture_background_blue_paint_texture_painted_wall_stone_texture {
+            get {
+                object obj = ResourceManager.GetObject("thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

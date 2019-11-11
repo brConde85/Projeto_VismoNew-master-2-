@@ -231,10 +231,7 @@ namespace Control
         public Funcionario()
         {
             //conexão com o banco "Botão direito no banco de dados, propriedades e depois copiar cadeia de conxão "  
-
-            //con.ConnectionString = @"Data Source=BRCONDE\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
-            //con.ConnectionString = @"Data Source=LAB606-09\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
-            con.ConnectionString = @"Data Source=LAPTOP-JJ2FBRH8\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True";
+            con.ConnectionString = Properties.Settings.Default.banco;            
         }
         // metoda para conferir se a conexão do cliente
         public SqlConnection conectar()
@@ -298,6 +295,26 @@ namespace Control
                     status = reader.GetString(0);
                 }
             }
+        }
+
+        public int AlteraStatus(int num)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Funcionario set statuss = '" + num + "' WHERE logins = @login " +
+                    "AND senha = @senha";
+                cn.Parameters.AddWithValue("@login", login);
+                cn.Parameters.AddWithValue("@senha", senha);
+
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }    
         }
     }
 }

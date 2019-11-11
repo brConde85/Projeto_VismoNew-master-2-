@@ -117,47 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Seta-direita-azul-200x200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seta-direita-azul-200x200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oie_transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oie_transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oie_transparent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oie_transparent1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Green-texture-paper_1920x1200" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Green-texture-paper_1920x1200.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seta-direita-azul-200x200px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seta-direita-azul-200x200px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tela loguin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tela loguin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Untitled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="olho" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\olho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_87873200-stock-photo-yellow-background-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_87873200-stock-photo-yellow-background-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_87873200-stock-photo-yellow-background-texture1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_87873200-stock-photo-yellow-background-texture1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background-amarelo-textura-6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background-amarelo-textura-6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,12 @@
     </Compile>
     <Compile Include="FrmAtualizarProduto.Designer.cs">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAutenGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutenGerente.Designer.cs">
+      <DependentUpon>FrmAutenGerente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadastroPagamento.cs">
       <SubType>Form</SubType>
@@ -101,6 +108,30 @@
     <Compile Include="FrmMaisVendidos.designer.cs">
       <DependentUpon>FrmMaisVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModoAusente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModoAusente.Designer.cs">
+      <DependentUpon>FrmModoAusente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModoAusente2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModoAusente2.Designer.cs">
+      <DependentUpon>FrmModoAusente2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModoAutonomo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModoAutonomo.Designer.cs">
+      <DependentUpon>FrmModoAutonomo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModoDisponivel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModoDisponivel.Designer.cs">
+      <DependentUpon>FrmModoDisponivel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNovaVenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +179,9 @@
     <EmbeddedResource Include="FrmAtualizarProduto.resx">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutenGerente.resx">
+      <DependentUpon>FrmAutenGerente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroPagamento.resx">
       <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +205,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMaisVendidos.resx">
       <DependentUpon>FrmMaisVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModoAusente.resx">
+      <DependentUpon>FrmModoAusente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModoAusente2.resx">
+      <DependentUpon>FrmModoAusente2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModoAutonomo.resx">
+      <DependentUpon>FrmModoAutonomo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModoDisponivel.resx">
+      <DependentUpon>FrmModoDisponivel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNovaVenda.resx">
       <DependentUpon>FrmNovaVenda.cs</DependentUpon>
@@ -243,6 +289,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\oie_transparent1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Green-texture-paper_1920x1200.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta-direita-azul-200x200px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seta-direita-azul-200x200px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_87873200-stock-photo-yellow-background-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_87873200-stock-photo-yellow-background-texture1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background-amarelo-textura-6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

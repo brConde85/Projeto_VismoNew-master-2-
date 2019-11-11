@@ -54,6 +54,12 @@
       <DependentUpon>ChatCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="ConexãoChat.cs" />
+    <Compile Include="FrmAutentGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutentGerente.Designer.cs">
+      <DependentUpon>FrmAutentGerente.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaAusente2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="ChatCaixa.resx">
       <DependentUpon>ChatCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutentGerente.resx">
+      <DependentUpon>FrmAutentGerente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaAusente2.resx">
       <DependentUpon>TelaAusente2.cs</DependentUpon>
@@ -141,6 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Seta-direita-azul-200x200px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Control\VismoControl.csproj">
+      <Project>{ac11ce00-ebb5-4a51-9516-6d703d6847b8}</Project>
+      <Name>VismoControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -150,17 +150,17 @@ namespace Vismo_New_
         {
             if (Convert.ToInt32(txtModo.Text) == 1)
             {
-                TelaDisponivel tela = new TelaDisponivel();
+                FrmModoDisponivel tela = new FrmModoDisponivel();
                 tela.Show();
             }
             else if (Convert.ToInt32(txtModo.Text) == 2)
             {
-                TelaAusente tela = new TelaAusente();
+                FrmModoAusente tela = new FrmModoAusente();
                 tela.Show();
             }
             else
             {
-                TelaAutonomo tela = new TelaAutonomo();
+               FrmModoAutonomo tela = new FrmModoAutonomo();
                 tela.Show();
             }
         }
@@ -231,6 +231,6 @@ namespace Vismo_New_
             {
                 Application.OpenForms["frmNovaVenda"].Close();
             }
-        } 
+        }
     }
 }

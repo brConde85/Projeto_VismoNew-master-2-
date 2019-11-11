@@ -8,41 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication2
+namespace Vismo_New_
 {
-    public partial class TelaAusente2 : Form
+    public partial class FrmModoAusente2 : Form
     {
-        public TelaAusente2()
+        public FrmModoAusente2()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TelaAusente2_Load(object sender, EventArgs e)
+        private void FrmModoAusente2_Load(object sender, EventArgs e)
         {
             radioButton4.Checked = true;
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            TelaAusente telaAusente = new TelaAusente();
-            TelaDisponivel telaDisponivel = new TelaDisponivel();
+            FrmModoAusente telaAusente = new FrmModoAusente();
+            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel();
             telaAusente.Show();
             this.Show();
             this.Hide();
         }
-
+        
         private void Button1_Click(object sender, EventArgs e)
         {
-            //    FrmAutentGerente tela = new FrmAutentGerente();
-            //    tela.Show();
+            FrmAutenGerente tela = new FrmAutenGerente();
+            tela.Show();
 
-            //    this.Close(); 
-            //}
+            this.Close();
         }
     }
 }
