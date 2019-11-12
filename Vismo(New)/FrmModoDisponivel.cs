@@ -45,10 +45,8 @@ namespace Vismo_New_
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel();
-            this.telaAusente.Show();
-            this.Show();
-            this.Hide();
+            FrmAutenGerente tela = new FrmAutenGerente();
+            tela.Show();
         }
     }
 }

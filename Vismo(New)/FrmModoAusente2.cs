@@ -35,8 +35,6 @@ namespace Vismo_New_
         {
             FrmAutenGerente tela = new FrmAutenGerente();
             tela.Show();
-
-            this.Close();
         }
     }
 }

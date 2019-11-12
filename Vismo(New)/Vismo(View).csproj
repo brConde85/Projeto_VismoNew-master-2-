@@ -314,5 +314,8 @@
   <ItemGroup>
     <None Include="Resources\background-amarelo-textura-6.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo21.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

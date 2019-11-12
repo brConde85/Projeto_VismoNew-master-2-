@@ -122,5 +122,11 @@ namespace Vismo_New_
             this.Show();
             this.Hide();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            FrmAutenGerente tela = new FrmAutenGerente();
+            tela.Show();
+        }
     }
 }

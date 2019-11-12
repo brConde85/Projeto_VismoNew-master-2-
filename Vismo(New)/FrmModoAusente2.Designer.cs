@@ -194,7 +194,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox2);
             this.Name = "FrmModoAusente2";
-            this.Text = "FrmModoAusente2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modo Ausente - Vismo";
             this.Load += new System.EventHandler(this.FrmModoAusente2_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

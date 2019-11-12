@@ -151,9 +151,12 @@
             // 
             // FrmModoAusente
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 892);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(608, 920);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnProsseguir);
             this.Controls.Add(this.radioButton4);
@@ -164,7 +167,9 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);
             this.Name = "FrmModoAusente";
-            this.Text = "FrmModoAusente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modo Ausente - Vismo";
+            this.Load += new System.EventHandler(this.FrmModoAusente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

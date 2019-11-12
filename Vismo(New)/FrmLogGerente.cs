@@ -232,5 +232,209 @@ namespace Vismo_New_
                 Application.OpenForms["frmNovaVenda"].Close();
             }
         }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+            FrmModoDisponivel tela = new FrmModoDisponivel();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+        }
+
+        private void PictureBox7_Click(object sender, EventArgs e)
+        {
+            FrmModoDisponivel tela = new FrmModoDisponivel();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+        }
+
+        private void PictureBox3_Click(object sender, EventArgs e)
+        {
+            FrmModoDisponivel tela = new FrmModoDisponivel();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+            FrmModoAutonomo tela = new FrmModoAutonomo();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void PictureBox8_Click(object sender, EventArgs e)
+        {
+            FrmModoAutonomo tela = new FrmModoAutonomo();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void PictureBox5_Click(object sender, EventArgs e)
+        {
+            FrmModoAutonomo tela = new FrmModoAutonomo();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+            FrmModoAusente tela = new FrmModoAusente();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void PictureBox9_Click(object sender, EventArgs e)
+        {
+            FrmModoAusente tela = new FrmModoAusente();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void PictureBox6_Click(object sender, EventArgs e)
+        {
+            FrmModoAusente tela = new FrmModoAusente();
+            tela.Show();
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+        }
+
+        private void PictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogGerente_Load(object sender, EventArgs e)
+        {
+            txtModo.Refresh();
+            if(txtModo.Text == "1")
+            {
+                pcbAusente.Visible = false;
+                pcbAutomo.Visible = false;
+            }
+            else if (txtModo.Text == "2")
+            {
+                pcbDisponivel.Visible = false;
+                pcbAutomo.Visible = false;
+                label5.Text = "Ausente";
+            }
+            else
+            {
+                pcbAusente.Visible = false;
+                pcbDisponivel.Visible = false;
+                label5.Text = "Autônomo";
+            }
+
+
+        }
     }
+    
 }

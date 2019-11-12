@@ -81,5 +81,10 @@ namespace Vismo_New_
             this.Show();
             this.Hide();
         }
+
+        private void FrmModoAusente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

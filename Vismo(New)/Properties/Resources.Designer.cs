@@ -123,6 +123,16 @@ namespace Vismo_New_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo21 {
+            get {
+                object obj = ResourceManager.GetObject("Logo21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap oie_transparent {
             get {
                 object obj = ResourceManager.GetObject("oie_transparent", resourceCulture);
