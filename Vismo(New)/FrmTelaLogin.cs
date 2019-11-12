@@ -14,17 +14,20 @@ namespace Vismo_New_
     public partial class FrmTelaLogin : Form
     {
         Funcionario funcionario = new Funcionario();
+
         public FrmTelaLogin()
         {
             InitializeComponent();
         }
 
+        // Ação para abrir a tela de cadastro
         private void Label3_Click(object sender, EventArgs e)
         {
             FrmCadFuncionario TelaFunc = new FrmCadFuncionario();
             TelaFunc.Show();
         }
 
+        // Ação para validação de Login
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             Funcionario funcionario = new Funcionario();
@@ -58,6 +61,7 @@ namespace Vismo_New_
             
         }
 
+        // Ação para exibir ou ocultar senha
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             if (txtSenha.UseSystemPasswordChar == true)
@@ -70,6 +74,7 @@ namespace Vismo_New_
             }
         }
 
+        // Design da label de cadastro
         private void label3_MouseEnter(object sender, EventArgs e)
         {
             label3.ForeColor = Color.SkyBlue;

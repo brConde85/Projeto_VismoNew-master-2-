@@ -21,6 +21,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // Ação para pesquisar um produto já registrado
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             if (!txtCod.Text.Equals(""))
@@ -103,6 +104,7 @@ namespace Vismo_New_
             }
         }
 
+        // Ação para adicionar um produto na lista, a um segundo datagrid
         private void BtnAdicionar_Click(object sender, EventArgs e)
         {
             if (dataGridView2.Rows[0].Cells[0].Value != null)
@@ -160,6 +162,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para validar venda
         private void BtnValidar_Click(object sender, EventArgs e)
         {
             if (Convert.ToDouble(txtTotal.Text) == 0)
@@ -189,6 +192,7 @@ namespace Vismo_New_
 
         }
 
+        //Ação para remover um produto inserido na lista
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) != "X")
@@ -215,6 +219,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para efetuar a venda 
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Produto produto = new Produto();
@@ -267,12 +272,14 @@ namespace Vismo_New_
             }
 
         }
-
+        
+        //Ação de voltar ao menu principal
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        // Ação para abrir o registro de venda para o cancelamento de uma venda 
         private void Button1_Click(object sender, EventArgs e)
         {
             FrmRegistroVenda tela = new FrmRegistroVenda();

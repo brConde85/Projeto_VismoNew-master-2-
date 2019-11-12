@@ -15,7 +15,7 @@ namespace Control
         private DateTime data;
         private double valor;
 
-        // Gette e Setter
+        // Getter e Setter
         public int Codigo
         {
             get
@@ -53,7 +53,8 @@ namespace Control
                 valor = value;
             }
         }
-
+        
+        //
         public int Inserir()
         {
             using (SqlConnection con = new SqlConnection())
@@ -119,6 +120,7 @@ namespace Control
                 return 0;
             }
         }
+
         public void CancelarVenda(string venda)
         {
             using (SqlConnection con = new SqlConnection())
@@ -134,6 +136,7 @@ namespace Control
                 con.Close();
             }
         }
+
         public void CancelarProdutoVenda(string vendaProduto)
         {
             using (SqlConnection con = new SqlConnection())
@@ -149,22 +152,8 @@ namespace Control
                 cn.ExecuteNonQuery();
                 con.Close();
             }
-        }
+        }        
 
-        //SqlConnection connection = new SqlConnection(connectionString);  //Conectando o Projeto ao BD
-        //connection.Open();  //Abrindo a conexão com o MySQL
-        //        SqlCommand comandoDelete = connection.CreateCommand();  //Criando um comando 
-        //                                                                //Colocando o método para linkar o database e a ide
-        //                                                                // selecionando a coluna do datagrid que sera capturada pelo atributo
-
-        //string delete = "DELETE FROM produto where codigo ='" + produto.Codigo + "';";
-        //string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto ='" + produto.Codigo + "';";
-
-        ////MessageBox.Show(delete);  //Exibindo o que acabei de update
-        //comandoDelete.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)                
-        //        comandoDelete.CommandText = delete; //Setar a query dentro do comando (extração de informações)
-        //        comandoDelete.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
-        //        connection.Close();
         public DataSet Listar()
         {
             using (SqlConnection con = new SqlConnection())

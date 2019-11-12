@@ -18,6 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        //Ação para pesquisa 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (!cboMes1.Text.Equals("") && !cboMes2.Text.Equals(""))
@@ -56,6 +57,7 @@ namespace Vismo_New_
             }  
         }
 
+        //Ação para exibir conteúdo do banco ao entrar no form
         private void FrmMaisVendidos_Load(object sender, EventArgs e)
         {
             try

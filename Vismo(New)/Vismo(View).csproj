@@ -48,6 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_lojaDataSet.cs">
+      <DependentUpon>db_lojaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_lojaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_lojaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmAtualizarProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +257,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="db_lojaDataSet.xsc">
+      <DependentUpon>db_lojaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_lojaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_lojaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_lojaDataSet.xss">
+      <DependentUpon>db_lojaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -15,11 +15,16 @@ namespace Vismo_New_
     public partial class FrmListarProduto : Form
     {
         Produto produto = new Produto();
+
+        //Preenche o datagrid quando o form for aberto 
         public FrmListarProduto()
         {
             InitializeComponent();
+           
+            ListarGrid();
         }
 
+        //Ação para abrir form de atualização de produto
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
@@ -32,6 +37,8 @@ namespace Vismo_New_
             FrmAtualizarProduto tela = new FrmAtualizarProduto(id, nome, preco, qtd, fornec, pchave);
             tela.Show();
         }
+
+        //Para carregar o datagrid ao entrar no form
         private void ListarGrid()
         {
             try
@@ -42,7 +49,6 @@ namespace Vismo_New_
                
                dataGridView1.DataMember = produto.ListarDataGrid().Tables[0].TableName;
                
-               //dataGridView1.Rows[0].Cells[0].Value = produto.Id;
             }
             catch (Exception ex)
             {
@@ -51,45 +57,22 @@ namespace Vismo_New_
             }
         }
 
-        private void FrmListarProduto_Load(object sender, EventArgs e)
-        {
-            ListarGrid();            
-        }
-
+        //Ação de excluir produto
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
-            //.CurrentRow.Cells[0].Value.ToString();
-            //this.DataGridView.Rows[ IndiceDaLinha ].Cells[ IndiceDaCelula ].Value.ToString();
+            Produto produto = new Produto();
             produto.Codigo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-
-            DelProd();// chamando metodo para apagar produto
-            
-        }
-        public void DelProd()
-        {
 
             try  //Tenta fazer algo (executar qualquer sequência de código), se não der certo
             {
-
-                //URL de conexão
-                string connectionString = @"Data Source=BRCONDE\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True;";
-                //Se tivesse senha "...Password = 123456"
-                SqlConnection connection = new SqlConnection(connectionString);  //Conectando o Projeto ao BD
-                connection.Open();  //Abrindo a conexão com o MySQL
-                SqlCommand comandoDelete = connection.CreateCommand();  //Criando um comando 
-                                                                        //Colocando o método para linkar o database e a ide
-                                                                        // selecionando a coluna do datagrid que sera capturada pelo atributo
-
-                string delete = "DELETE FROM produto where codigo ='" + produto.Codigo + "';";
-                string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto ='" + produto.Codigo + "';";
-
-                //MessageBox.Show(delete);  //Exibindo o que acabei de update
-                comandoDelete.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)                
-                comandoDelete.CommandText = delete; //Setar a query dentro do comando (extração de informações)
-                comandoDelete.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
-                connection.Close();
+                // chamando metodo para apagar produto
+                if (produto.DelProd() == 1)
+                {
+                    MessageBox.Show("Produto removido", "Informação",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            catch (Exception ex) //Entra no catch (tratamento do erro) e o programa não fecha 
+             catch (Exception ex) //Entra no catch (tratamento do erro) e o programa não fecha 
             //Quando o erro acontecer um objeto da classe Exception vai armazenar as informações do erro
             {
                 MessageBox.Show("Falha no sistema: " + ex.Message);  //Atributo que descreve a falha que aconteceu

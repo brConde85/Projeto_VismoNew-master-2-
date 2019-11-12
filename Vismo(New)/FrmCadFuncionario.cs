@@ -19,12 +19,13 @@ namespace Vismo_New_
         {
             InitializeComponent();
         }
-
+        //Fecha o form
         private void SairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Ação para cadastrar um funcionário
         private void BtnOk_Click(object sender, EventArgs e)
         {
             if ((!textNome.Text.Equals("")) &&
@@ -95,6 +96,7 @@ namespace Vismo_New_
             }        
         }
 
+        // Fechar o Form
         private void Button1_Click(object sender, EventArgs e)
         {
             Close();

@@ -18,6 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // para carregar o datagrid ao entrar no form
         private void FrmPedidoReposicao_Load(object sender, EventArgs e)
         {
             try

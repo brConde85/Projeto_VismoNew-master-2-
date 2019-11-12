@@ -18,6 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // Ação de preencher o datagrid ao entrar no form
         private void FrmListarFuncionario_Load(object sender, EventArgs e)
         {
             try

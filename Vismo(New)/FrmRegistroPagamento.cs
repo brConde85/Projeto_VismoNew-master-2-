@@ -18,7 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
-    
+        // Ação de voltar para alterar esconder e exibir os objetos do form (datagrid, imagens, botões e exibir labels)
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             dgPagamento.Visible = false;
@@ -32,6 +32,7 @@ namespace Vismo_New_
             lblAtra.Visible = true;
         }
 
+        // Ação para exibir os pagamentos realizados
         private void LblRes_Click(object sender, EventArgs e)
         {
             Pagamento pagamento = new Pagamento();
@@ -52,6 +53,7 @@ namespace Vismo_New_
             lblAtra.Visible = false;
         }
 
+        // Ação para exibir os pagamentos pendentes
         private void LblPen_Click(object sender, EventArgs e)
         {
             Pagamento pagamento = new Pagamento();
@@ -77,6 +79,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para exibir os pagamentos atrasados
         private void LblAtra_Click(object sender, EventArgs e)
         {
             Pagamento pagamento = new Pagamento();
@@ -102,12 +105,14 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para atualizar o status de pagamento ao carregar o form
         private void FrmRegistroPagamento_Load(object sender, EventArgs e)
         {
             Pagamento pagamento = new Pagamento();
             pagamento.Atualiza();
         }
 
+        //Ação para atualizar pagamentos pendentes e atrasados 
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
             Pagamento pagamento = new Pagamento();

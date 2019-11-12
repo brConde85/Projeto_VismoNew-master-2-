@@ -18,12 +18,14 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        //Ação para abrir o registro de fornecedores
         private void txtCod_Enter(object sender, EventArgs e)
         {
             FrmListarFornecedor tela = new FrmListarFornecedor();
             tela.Show();
         }
 
+        // Ação para cadastrar um pagamento
         private void btnOk_Click(object sender, EventArgs e)
         {
             if(!txtValor.Text.Equals("") &&
@@ -79,6 +81,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação de voltar ao menu principal
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Close();

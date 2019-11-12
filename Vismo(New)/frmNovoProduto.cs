@@ -22,11 +22,13 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // volta ao menu principal
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        //Ação de cadastramento de produto 
         private void BtnOk_Click(object sender, EventArgs e)
         {
             //caso todos os campos forem preenchidos
@@ -74,6 +76,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para validação do fornecedor inserido 
         private void TxtFornec_Leave(object sender, EventArgs e)
         {
             if (!txtFornec.Text.Equals(""))

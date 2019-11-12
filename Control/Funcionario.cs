@@ -19,6 +19,11 @@ namespace Control
         private string senha;
         private string senhaAux;
         private string status;
+        // metodo para acessar o sistema
+        private bool confirmAcess = false;
+        private bool confirmCadast;
+        public string mensagemControle;
+        public string mensagem = "";
 
 
         // getter's e setter's funcionario   
@@ -140,6 +145,11 @@ namespace Control
 
         public string Tipo { get; set; }
 
+        public Funcionario()
+        {
+            //conexão com o banco "Botão direito no banco de dados, propriedades e depois copiar cadeia de conxão "  
+            con.ConnectionString = Properties.Settings.Default.banco;
+        }
 
         // metodos de inserção no banco de dados
         public int Inserir(Funcionario objTabela)
@@ -150,13 +160,8 @@ namespace Control
                 con.ConnectionString = Properties.Settings.Default.banco;
                 SqlCommand cn = new SqlCommand();
                 cn.CommandType = CommandType.Text;
-                // abrindo conexão com o banco
-                /*
-                 * logins NVARCHAR(30) NOT NULL,
-                 * senha NVARCHAR(20) NOT NULL,
-                 * nome NVARCHAR(70) NOT NULL,
-                 * cpf NVARCHAR(11) NOT NULL,               
-                 */
+
+                // abrindo conexão com o banco                
                 con.Open();
                 cn.CommandText = "INSERT INTO funcionario ([logins],[senha],[nome],[cpf],[statuss],[tipo]) VALUES (@logins, @senha,@nome,@cpf,@statuss,@tipo)";
                 cn.Parameters.Add("logins", SqlDbType.VarChar).Value = objTabela.Login;
@@ -174,11 +179,8 @@ namespace Control
             }
         }
 
-        // metodos para acessar o sistema
-        private bool confirmAcess = false;
-        private bool confirmCadast;
-        public string mensagemControle;
-        public string mensagem = "";
+      
+
         // confirmação de acesso
         public bool Acessar (String login, String senha)
         {
@@ -225,14 +227,10 @@ namespace Control
             }
             return ConfirmCadast;
         }
+        
         // metodo para conferencia no banco
         SqlConnection con = new SqlConnection();
         
-        public Funcionario()
-        {
-            //conexão com o banco "Botão direito no banco de dados, propriedades e depois copiar cadeia de conxão "  
-            con.ConnectionString = Properties.Settings.Default.banco;            
-        }
         // metoda para conferir se a conexão do cliente
         public SqlConnection conectar()
         {

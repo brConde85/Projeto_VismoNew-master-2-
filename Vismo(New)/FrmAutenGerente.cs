@@ -18,6 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        //Ação para validar login e senha de gerente
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             Funcionario funcionario = new Funcionario();
@@ -31,6 +32,7 @@ namespace Vismo_New_
                     funcionario.Login = txtLogin.Text;
                     funcionario.Senha = txtSenha.Text;
 
+                    //Fecha as telas dos forms de gerente que estiverem abertas 
                     if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 1)
                     {
                         if (funcionario.AlteraStatus(1) == 1)
@@ -58,14 +60,18 @@ namespace Vismo_New_
                     }
 
                     MessageBox.Show("Seu status foi alterado com sucesso.","Alteração",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    Close();
 
+                    // Fecha a tela de altenticação
+                    Close();
+                    
+                    // Atualiza a tela de gerente com o novo status
                     Application.OpenForms["FrmLogGerente"].Close();
 
                     FrmLogGerente tela = new FrmLogGerente(funcionario.Login, funcionario.Senha);
                     tela.Show();
                 }
             }
+            // Caso o login e senha estejam errados o usuario será informado
             else
             {
                 MessageBox.Show("Login não encontrado, verifique login e senha!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);

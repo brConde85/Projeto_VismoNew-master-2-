@@ -18,6 +18,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // Ação para pesquisar uma venda com base em um código inserido 
         private void BtnPenquisar_Click(object sender, EventArgs e)
         {
             if (!txtCod.Text.Equals(""))
@@ -33,8 +34,7 @@ namespace Vismo_New_
                     {
                         dgVenda.Columns["CodProduto"].Visible = true;
                         dgVenda.Columns["Produto"].Visible = true;
-                        dgVenda.Columns["Quantidade"].Visible = true;
-                        //dgVenda.Columns["CodVenda"].Visible = true;
+                        dgVenda.Columns["Quantidade"].Visible = true;                        
                         dgVenda.Columns["Codigo"].Visible = false;
                         dgVenda.AutoGenerateColumns = false;
                         dgVenda.DataSource = item.Listar();
@@ -60,6 +60,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ação para cancelamento de venda
         private void BtnCanVenda_Click(object sender, EventArgs e)
         {
             Venda venda = new Venda();
@@ -69,9 +70,7 @@ namespace Vismo_New_
             
             string comandoVenda = "DELETE FROM venda WHERE codigo = @codigo ;";
             string comandoProdVenda = "DELETE FROM produto_venda WHERE codigoVenda = @codigoVenda ;";
-
-
-            //MessageBox.Show(Convert.ToString(venda.Codigo));
+                                   
             venda.CancelarProdutoVenda(comandoProdVenda);
             venda.CancelarVenda(comandoVenda);
             dgVenda.DataSource = venda.Listar();
@@ -79,6 +78,7 @@ namespace Vismo_New_
 
         }
 
+        // Ação para preencher o datagrid ao ser carregado
         private void FrmRegistroVenda_Load(object sender, EventArgs e)
         {
             Venda venda = new Venda();

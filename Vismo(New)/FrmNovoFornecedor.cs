@@ -20,6 +20,7 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        // Ação para cadastrar um novo fornecedor
         private void BtnOk_Click(object sender, EventArgs e)
         {
 
@@ -64,7 +65,7 @@ namespace Vismo_New_
             }
         }
 
-
+        // Ação para voltar ao menu principal
         private void Button1_Click(object sender, EventArgs e)
         {
             Close();

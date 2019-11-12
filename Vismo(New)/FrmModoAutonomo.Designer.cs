@@ -29,14 +29,34 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel2 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel3 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel4 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel5 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel6 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel7 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine1 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine2 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine3 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine4 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine5 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel8 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel9 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel10 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel11 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel12 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel13 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel14 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.StripLine stripLine6 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.graficoCancelamento = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -82,23 +102,27 @@
             // 
             // graficoCancelamento
             // 
-            chartArea11.Name = "ChartArea1";
-            this.graficoCancelamento.ChartAreas.Add(chartArea11);
-            legend11.Name = "Legend1";
-            this.graficoCancelamento.Legends.Add(legend11);
-            this.graficoCancelamento.Location = new System.Drawing.Point(20, 581);
+            this.graficoCancelamento.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            this.graficoCancelamento.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Name = "ChartArea1";
+            this.graficoCancelamento.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.graficoCancelamento.Legends.Add(legend1);
+            this.graficoCancelamento.Location = new System.Drawing.Point(20, 582);
             this.graficoCancelamento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.graficoCancelamento.Name = "graficoCancelamento";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.graficoCancelamento.Series.Add(series11);
-            this.graficoCancelamento.Size = new System.Drawing.Size(441, 195);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.graficoCancelamento.Series.Add(series1);
+            this.graficoCancelamento.Size = new System.Drawing.Size(450, 233);
             this.graficoCancelamento.TabIndex = 11;
             this.graficoCancelamento.Text = "Cancelamentos";
-            title11.Name = "Title2";
-            title11.Text = "Cancelamentos";
-            this.graficoCancelamento.Titles.Add(title11);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            title1.Name = "Title2";
+            title1.Text = "Cancelamentos";
+            this.graficoCancelamento.Titles.Add(title1);
             // 
             // label3
             // 
@@ -112,26 +136,78 @@
             // 
             // graficoVenda
             // 
-            chartArea12.Name = "ChartArea1";
-            this.graficoVenda.ChartAreas.Add(chartArea12);
-            legend12.Name = "Legend1";
-            legend12.Title = "Produtos";
-            this.graficoVenda.Legends.Add(legend12);
+            this.graficoVenda.BackSecondaryColor = System.Drawing.Color.White;
+            this.graficoVenda.BorderlineColor = System.Drawing.Color.DarkGray;
+            this.graficoVenda.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            this.graficoVenda.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea2.Area3DStyle.Enable3D = true;
+            customLabel1.ForeColor = System.Drawing.Color.Black;
+            customLabel1.Text = "Dom";
+            customLabel2.ForeColor = System.Drawing.Color.White;
+            customLabel2.Text = "Seg";
+            customLabel3.Text = "Ter";
+            customLabel4.Text = "Qua";
+            customLabel5.Text = "Qui";
+            customLabel6.ForeColor = System.Drawing.Color.White;
+            customLabel6.Text = "Sex";
+            customLabel7.Text = "Sáb";
+            chartArea2.AxisX.CustomLabels.Add(customLabel1);
+            chartArea2.AxisX.CustomLabels.Add(customLabel2);
+            chartArea2.AxisX.CustomLabels.Add(customLabel3);
+            chartArea2.AxisX.CustomLabels.Add(customLabel4);
+            chartArea2.AxisX.CustomLabels.Add(customLabel5);
+            chartArea2.AxisX.CustomLabels.Add(customLabel6);
+            chartArea2.AxisX.CustomLabels.Add(customLabel7);
+            stripLine1.Text = "Sáb";
+            stripLine2.Text = "Seg";
+            stripLine3.Text = "Ter";
+            stripLine4.Text = "Qua";
+            stripLine5.Text = "Qui";
+            chartArea2.AxisX.StripLines.Add(stripLine1);
+            chartArea2.AxisX.StripLines.Add(stripLine2);
+            chartArea2.AxisX.StripLines.Add(stripLine3);
+            chartArea2.AxisX.StripLines.Add(stripLine4);
+            chartArea2.AxisX.StripLines.Add(stripLine5);
+            chartArea2.AxisX.Title = "Semana";
+            chartArea2.AxisY.Title = "Valor(R$)";
+            customLabel8.Text = "Sáb";
+            customLabel9.Text = "Seg";
+            customLabel10.Text = "Ter";
+            customLabel11.Text = "Qua";
+            customLabel12.Text = "Qui";
+            customLabel13.Text = "Sex";
+            customLabel14.Text = "Dom";
+            chartArea2.AxisY2.CustomLabels.Add(customLabel8);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel9);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel10);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel11);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel12);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel13);
+            chartArea2.AxisY2.CustomLabels.Add(customLabel14);
+            stripLine6.Text = "Dom";
+            chartArea2.AxisY2.StripLines.Add(stripLine6);
+            chartArea2.Name = "ChartArea1";
+            this.graficoVenda.ChartAreas.Add(chartArea2);
+            this.graficoVenda.Cursor = System.Windows.Forms.Cursors.Default;
+            legend2.Name = "Legend1";
+            legend2.Title = "Produtos";
+            this.graficoVenda.Legends.Add(legend2);
             this.graficoVenda.Location = new System.Drawing.Point(20, 329);
             this.graficoVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.graficoVenda.Name = "graficoVenda";
             this.graficoVenda.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series12.ChartArea = "ChartArea1";
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.graficoVenda.Series.Add(series12);
-            this.graficoVenda.Size = new System.Drawing.Size(450, 217);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.graficoVenda.Series.Add(series2);
+            this.graficoVenda.Size = new System.Drawing.Size(450, 233);
             this.graficoVenda.TabIndex = 13;
             this.graficoVenda.Text = "Vendas";
-            title12.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            title12.Name = "Title1";
-            title12.Text = "Vendas";
-            this.graficoVenda.Titles.Add(title12);
+            title2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            title2.Name = "Title1";
+            title2.Text = "Vendas";
+            this.graficoVenda.Titles.Add(title2);
             // 
             // toolTip1
             // 
@@ -139,7 +215,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(463, 817);
+            this.button2.Location = new System.Drawing.Point(463, 853);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(116, 36);
             this.button2.TabIndex = 15;
@@ -178,6 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(608, 920);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.graficoVenda);

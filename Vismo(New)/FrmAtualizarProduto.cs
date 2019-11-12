@@ -17,6 +17,7 @@ namespace Vismo_New_
         Produto produto = new Produto();
         Fornecedor fornecedor = new Fornecedor();
         
+        //Preenche o formulário com o registro do produto que será atualizado
         public FrmAtualizarProduto(int id, string nome, double preco, int qtd, int fornec, string pchave)
         {
             InitializeComponent();
@@ -28,11 +29,13 @@ namespace Vismo_New_
             cboPalavra.Text = pchave;   
         }
 
+        //Volta para o registro de produtos 
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        //Para atualizar
         private void BtnOk_Click(object sender, EventArgs e)
         {
             //caso todos os campos forem preenchidos
@@ -89,15 +92,12 @@ namespace Vismo_New_
             }
         }
 
+        //Abre o registro de fornecedores
         private void TxtId_Enter(object sender, EventArgs e)
         {
             FrmListarFornecedor tela = new FrmListarFornecedor();
             tela.Show();
         }
-
-        private void FrmAtualizarProduto_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

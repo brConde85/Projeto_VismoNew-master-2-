@@ -410,5 +410,26 @@ namespace Control
                 return dataSet;
             }
         }
+
+        public int DelProd()
+        {
+            //URL de conexão
+            string connectionString = @"Data Source=BRCONDE\SQLEXPRESS;Initial Catalog=db_loja;Integrated Security=True;";
+            //Se tivesse senha "...Password = 123456"
+            SqlConnection connection = new SqlConnection(connectionString);  //Conectando o Projeto ao BD
+            connection.Open();  //Abrindo a conexão com o MySQL
+            SqlCommand comandoDelete = connection.CreateCommand();  //Criando um comando 
+                                                                    //Colocando o método para linkar o database e a ide
+                                                                    // selecionando a coluna do datagrid que sera capturada pelo atributo
+
+            string delete = "DELETE FROM produto where codigo ='" + codProduto + "';";
+            string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto ='" + codProduto + "';";
+
+            comandoDelete.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)                
+            comandoDelete.CommandText = delete; //Setar a query dentro do comando (extração de informações)
+
+            //connection.Close();
+            return comandoDelete.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
+        }  
     }
 }

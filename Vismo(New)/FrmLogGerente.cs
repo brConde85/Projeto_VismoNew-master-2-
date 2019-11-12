@@ -15,6 +15,7 @@ namespace Vismo_New_
 {
     public partial class FrmLogGerente : Form
     {
+        //Guarda o status do gerente logado
         public FrmLogGerente(string login, string senha)
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Vismo_New_
             txtModo.Text = funcionario.Status;
         }
 
+        // Ação para sair ou realizar logoff do sistema
         private void SairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmete sair?", "Confirmação",
@@ -38,6 +40,7 @@ namespace Vismo_New_
             }  
         }
 
+        //Ações para abrir tela
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<FrmNovoFornecedor>().Count() == 0)
@@ -146,6 +149,7 @@ namespace Vismo_New_
             }   
         }
 
+        //Ações que abrem os modos de gerente
         private void ModosDoGerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Convert.ToInt32(txtModo.Text) == 1)
@@ -165,6 +169,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ações para fechar os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms.OfType<FrmTelaLogin>().Count() == 1)
@@ -233,6 +238,7 @@ namespace Vismo_New_
             }
         }
 
+        //Ações para fechar modos de gerente caso estejam abertos
         private void Label1_Click(object sender, EventArgs e)
         {
             FrmModoDisponivel tela = new FrmModoDisponivel();
@@ -412,6 +418,7 @@ namespace Vismo_New_
 
         }
 
+        //Ação para alterar o status do gerente
         private void FrmLogGerente_Load(object sender, EventArgs e)
         {
             txtModo.Refresh();
