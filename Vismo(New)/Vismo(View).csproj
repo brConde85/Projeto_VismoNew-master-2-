@@ -116,6 +116,12 @@
     <Compile Include="FrmMaisVendidos.designer.cs">
       <DependentUpon>FrmMaisVendidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModo.Designer.cs">
+      <DependentUpon>FrmModo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmModoAusente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     <EmbeddedResource Include="FrmMaisVendidos.resx">
       <DependentUpon>FrmMaisVendidos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModo.resx">
+      <DependentUpon>FrmModo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModoAusente.resx">
       <DependentUpon>FrmModoAusente.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,10 +306,6 @@
     <ProjectReference Include="..\Control\VismoControl.csproj">
       <Project>{ac11ce00-ebb5-4a51-9516-6d703d6847b8}</Project>
       <Name>VismoControl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApplication2\ViewModoGerente.csproj">
-      <Project>{cd02fdcb-83fc-4b60-b7f1-db229eccebeb}</Project>
-      <Name>ViewModoGerente</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

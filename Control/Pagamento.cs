@@ -10,23 +10,28 @@ namespace Control
 {
     public class Pagamento
     {
-        //atributos pagamento
+        //atributos
         private int codPagamento;
         private string descricao;
         private DateTime validade;
         private string valor;
-        private string situacao; 
+        private string situacao;
 
+
+        //relacionamento com a classe Fornecedor
         public Fornecedor fornecedor;
 
         public Pagamento()
         {
+            //ao cadastrar um pagamento, ele é por padrão pendente
             situacao = "Pendente";
 
+            //instânciamento da classe relacionada
             fornecedor = new Fornecedor();
         }
 
-        // Getter e setter pagamento
+
+        //encapsulamento de atributos da classe
         public int CodPagamento
         {
             get
@@ -90,7 +95,11 @@ namespace Control
             }
         }
 
+
+
         //métodos
+
+        //insere um novo pagamento
         public int Inserir()
         {
             using (SqlConnection con = new SqlConnection())
@@ -112,6 +121,7 @@ namespace Control
             }
         }
 
+        //faz a listagem de pagamentos registrados
         public DataSet ListarDataGrid(string comando)
         {
             using (SqlConnection con = new SqlConnection())
@@ -134,6 +144,7 @@ namespace Control
             }
         }
 
+        //atualiza o status de pagamentos que ultrapassaram o prazo
         public void Atualiza()
         {
             using (SqlConnection con = new SqlConnection())
@@ -154,6 +165,7 @@ namespace Control
             }
         }
 
+        //atualiza o status de pagamentos finalizados
         public void AtualizaPagamento(string comando)
         {
             using (SqlConnection con = new SqlConnection())

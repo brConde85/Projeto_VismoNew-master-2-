@@ -16,7 +16,9 @@ namespace Vismo_New_
         {
             InitializeComponent();
         }
-        // Ações para abrir tela
+
+
+        //Ações para abrir as telas do sistema
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             FrmCadastroPagamento tela = new FrmCadastroPagamento();
@@ -59,6 +61,9 @@ namespace Vismo_New_
             tela.Show();
         }
 
+
+
+        //sai do programa e abre a tela de Login        
         private void SairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmete sair?", "Confirmação",
@@ -69,6 +74,8 @@ namespace Vismo_New_
             }
         }
 
+
+        //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogOpCaixa_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms.OfType<FrmTelaLogin>().Count() == 1)

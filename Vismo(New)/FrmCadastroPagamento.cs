@@ -28,6 +28,7 @@ namespace Vismo_New_
         // Ação para cadastrar um pagamento
         private void btnOk_Click(object sender, EventArgs e)
         {
+            //compara se todos os campos foram preenchidos
             if(!txtValor.Text.Equals("") &&
                 !txtCod.Text.Equals("") &&
                 !txtDesc.Text.Equals("") &&
@@ -37,16 +38,21 @@ namespace Vismo_New_
                 {
                     Pagamento pagamento = new Pagamento();
 
+                    //atribuição dos campos do formulário aos atributos da classe Pagamento
                     pagamento.Valor = txtValor.Text;
                     pagamento.fornecedor.CodigoF = Convert.ToInt32(txtCod.Text);
                     pagamento.Descricao = txtDesc.Text;
 
+                    /*compara se a data inserida como prazo de pagamento é válida;
+                      o prazo deve ser de no mínimo um dia*/
                     if (Convert.ToDateTime(txtPrazo.Text) > DateTime.Now)
                     {
                         pagamento.Validade = Convert.ToDateTime(txtPrazo.Text);
 
+                        //chamada do método de inserção
                         if (pagamento.Inserir() == 1)
                         {
+                            //limpa o formulário para um possível novo cadastro
                             txtValor.Clear();
                             txtCod.Clear();
                             txtDesc.Clear();
@@ -59,12 +65,14 @@ namespace Vismo_New_
                         }
                         else
                         {
+                            //em caso de erro
                             MessageBox.Show("Falha ao registrar pagamento", "Erro",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
+                        //caso a data estiver inválida
                         MessageBox.Show("Insira uma data válida antes de continuar", "Aviso",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -76,12 +84,13 @@ namespace Vismo_New_
             }
             else
             {
+                //caso algum campo não for preenchido
                 MessageBox.Show("Preencha todos os campos antes de continuar", "Aviso",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        //Ação de voltar ao menu principal
+        //volta ao Menu Principal
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Close();

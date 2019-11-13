@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Funcionario.cs" />
-    <Compile Include="ItemDeReposicao.cs" />
     <Compile Include="ItemDeVenda.cs" />
     <Compile Include="Pagamento.cs" />
     <Compile Include="Produto.cs" />

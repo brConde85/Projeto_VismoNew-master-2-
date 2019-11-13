@@ -22,8 +22,10 @@ namespace WindowsFormsApplication2
         {
             Funcionario funcionario = new Funcionario();
 
-            funcionario.Acessar(txtLogin.Text, txtSenha.Text);
-            if (funcionario.ConfirmCadast)
+            funcionario.Login = txtLogin.Text;
+            funcionario.Senha = txtSenha.Text;
+
+            if (funcionario.VerificarLogin() == true)
             {
                 MessageBox.Show("Aturização realizada com sucesso!", "Autorização", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (funcionario.Tipo == "Gerente")

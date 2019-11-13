@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApplication2;
 using Control;
 
 
@@ -15,7 +14,7 @@ namespace Vismo_New_
 {
     public partial class FrmLogGerente : Form
     {
-        //Guarda o status do gerente logado
+        //Guarda o status e nome do gerente logado
         public FrmLogGerente(string login, string senha)
         {
             InitializeComponent();
@@ -27,20 +26,11 @@ namespace Vismo_New_
 
             funcionario.PegaStatus();
             txtModo.Text = funcionario.Status;
+            lblNome.Text = funcionario.Nome;
         }
 
-        // Ação para sair ou realizar logoff do sistema
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseja realmete sair?", "Confirmação",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Close();
-                Application.OpenForms["FrmTelaLogin"].Show();
-            }  
-        }
-
-        //Ações para abrir tela
+ 
+        //Ações para abrir as telas do sistema
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<FrmNovoFornecedor>().Count() == 0)
@@ -149,34 +139,25 @@ namespace Vismo_New_
             }   
         }
 
-        //Ações que abrem os modos de gerente
+
+
+        //abre o Form para selecionar um Modo de Gerente
         private void ModosDoGerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtModo.Text) == 1)
-            {
-                FrmModoDisponivel tela = new FrmModoDisponivel();
-                tela.Show();
-            }
-            else if (Convert.ToInt32(txtModo.Text) == 2)
-            {
-                FrmModoAusente tela = new FrmModoAusente();
-                tela.Show();
-            }
-            else
-            {
-               FrmModoAutonomo tela = new FrmModoAutonomo();
-                tela.Show();
-            }
+            FrmModo tela = new FrmModo();
+            tela.Show();
         }
 
-        //Ações para fechar os forms abertos no sistema se existentes e voltar para tela de login
+
+
+        //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmTelaLogin>().Count() == 1)
+            if (Application.OpenForms.OfType<FrmAutenGerente>().Count() == 0)
             {
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
-
+                
             if (Application.OpenForms.OfType<FrmNovoProduto>().Count() == 1)
             {
                 Application.OpenForms["FrmNovoProduto"].Close();
@@ -238,185 +219,7 @@ namespace Vismo_New_
             }
         }
 
-        //Ações para fechar modos de gerente caso estejam abertos
-        private void Label1_Click(object sender, EventArgs e)
-        {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
-            tela.Show();
 
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-        }
-
-        private void PictureBox7_Click(object sender, EventArgs e)
-        {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-        }
-
-        private void PictureBox3_Click(object sender, EventArgs e)
-        {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-        }
-
-        private void Label4_Click(object sender, EventArgs e)
-        {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void PictureBox8_Click(object sender, EventArgs e)
-        {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void PictureBox5_Click(object sender, EventArgs e)
-        {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-            FrmModoAusente tela = new FrmModoAusente();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void PictureBox9_Click(object sender, EventArgs e)
-        {
-            FrmModoAusente tela = new FrmModoAusente();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void PictureBox6_Click(object sender, EventArgs e)
-        {
-            FrmModoAusente tela = new FrmModoAusente();
-            tela.Show();
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() > 0)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-        }
-
-        private void PictureBox12_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //Ação para alterar o status do gerente
         private void FrmLogGerente_Load(object sender, EventArgs e)
@@ -431,17 +234,54 @@ namespace Vismo_New_
             {
                 pcbDisponivel.Visible = false;
                 pcbAutomo.Visible = false;
-                label5.Text = "Ausente";
+                lblModo.Text = "Ausente";
             }
             else
             {
                 pcbAusente.Visible = false;
                 pcbDisponivel.Visible = false;
-                label5.Text = "Autônomo";
+                lblModo.Text = "Autônomo";
             }
 
 
         }
-    }
-    
+
+        private void LblModo_Click(object sender, EventArgs e)
+        {
+            FrmModo tela = new FrmModo();
+            tela.Show();
+        }
+
+        private void PcbAutomo_Click(object sender, EventArgs e)
+        {
+            FrmModo tela = new FrmModo();
+            tela.Show();
+        }
+
+        private void PcbAusente_Click(object sender, EventArgs e)
+        {
+            FrmModo tela = new FrmModo();
+            tela.Show();
+        }
+
+        private void PcbDisponivel_Click(object sender, EventArgs e)
+        {
+            FrmModo tela = new FrmModo();
+            tela.Show();
+        }
+
+
+
+        //sai do programa e abre a tela de Login
+        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmete sair?", "Confirmação",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+
+                Application.OpenForms["FrmTelaLogin"].Show();
+            }
+        }
+    } 
 }

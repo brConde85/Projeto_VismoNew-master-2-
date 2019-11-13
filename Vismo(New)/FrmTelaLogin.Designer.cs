@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.btnEntrar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCadastrar = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pcbSenha = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,21 +56,21 @@
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.BtnEntrar_Click);
             // 
-            // label3
+            // lblCadastrar
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label3.Location = new System.Drawing.Point(397, 288);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Cadastrar-se";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
-            this.label3.MouseEnter += new System.EventHandler(this.label3_MouseEnter);
-            this.label3.MouseLeave += new System.EventHandler(this.label3_MouseLeave);
+            this.lblCadastrar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblCadastrar.AutoSize = true;
+            this.lblCadastrar.BackColor = System.Drawing.Color.White;
+            this.lblCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCadastrar.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblCadastrar.Location = new System.Drawing.Point(397, 288);
+            this.lblCadastrar.Name = "lblCadastrar";
+            this.lblCadastrar.Size = new System.Drawing.Size(66, 13);
+            this.lblCadastrar.TabIndex = 18;
+            this.lblCadastrar.Text = "Cadastrar-se";
+            this.lblCadastrar.Click += new System.EventHandler(this.LblCadastrar_Click);
+            this.lblCadastrar.MouseEnter += new System.EventHandler(this.LblCadastrar_MouseEnter);
+            this.lblCadastrar.MouseLeave += new System.EventHandler(this.LblCadastrar_MouseLeave);
             // 
             // label2
             // 
@@ -113,20 +113,20 @@
             this.txtLogin.Size = new System.Drawing.Size(202, 20);
             this.txtLogin.TabIndex = 14;
             // 
-            // pictureBox5
+            // pcbSenha
             // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.BackColor = System.Drawing.Color.White;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::Vismo_New_.Properties.Resources.olho;
-            this.pictureBox5.Location = new System.Drawing.Point(469, 230);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(23, 25);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 22;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pcbSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pcbSenha.BackColor = System.Drawing.Color.White;
+            this.pcbSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pcbSenha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcbSenha.Image = global::Vismo_New_.Properties.Resources.olho;
+            this.pcbSenha.Location = new System.Drawing.Point(469, 230);
+            this.pcbSenha.Name = "pcbSenha";
+            this.pcbSenha.Size = new System.Drawing.Size(23, 25);
+            this.pcbSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbSenha.TabIndex = 22;
+            this.pcbSenha.TabStop = false;
+            this.pcbSenha.Click += new System.EventHandler(this.PcbSenha_Click);
             // 
             // pictureBox2
             // 
@@ -172,8 +172,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(733, 488);
             this.Controls.Add(this.btnEntrar);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pcbSenha);
+            this.Controls.Add(this.lblCadastrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSenha);
@@ -186,7 +186,7 @@
             this.Name = "FrmTelaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login - Vismo";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSenha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -198,8 +198,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnEntrar;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pcbSenha;
+        private System.Windows.Forms.Label lblCadastrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSenha;

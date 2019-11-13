@@ -13,21 +13,15 @@ namespace Vismo_New_
 {
     public partial class FrmCadFuncionario : Form
     {
-        Funcionario funcionario = new Funcionario();
-
         public FrmCadFuncionario()
         {
             InitializeComponent();
-        }
-        //Fecha o form
-        private void SairToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         // Ação para cadastrar um funcionário
         private void BtnOk_Click(object sender, EventArgs e)
         {
+            //compara se todos os campos foram preenchidos
             if ((!textNome.Text.Equals("")) &&
                     (!txtCpf.Text.Equals("")) &&
                     (!texLogin.Text.Equals("")) &&
@@ -35,18 +29,29 @@ namespace Vismo_New_
                     (!textSenhaAux.Text.Equals("")) &&
                     (!comboTipo.Text.Equals("")))
             {
+                Funcionario funcionario = new Funcionario();
+
                 funcionario.Senha = textSenha.Text;
                 funcionario.SenhaAux = textSenhaAux.Text;
 
+                //compara se os campos de senha e confirmação de senha estão iguais
                 if (funcionario.Senha == funcionario.SenhaAux)
                 {
                     try
                     {
+                        //atribuição dos campos do formulário nos atributos da classe Funcionario
                         funcionario.Login = texLogin.Text;
                         funcionario.Senha = textSenha.Text;
                         funcionario.Nome = textNome.Text;
                         funcionario.Cpf = txtCpf.Text;
+                        funcionario.Tipo = comboTipo.Text;
 
+                        /*checa se a conta criada é do tipo "Gerente" ou "Operador de Caixa";
+                          a primeira posição do ComboBox do formulário (0) é referente a Gerente
+                          e a segunda (1) a Operador de Caixa*/
+
+                        /*uma conta Gerente recebe o status 1, que representa um status "Disponível",
+                          uma conta Operador de Caixa não têm status e recebe valor 0*/
                         if (comboTipo.SelectedIndex == 0)
                         {
                             funcionario.Status = "1";
@@ -56,14 +61,11 @@ namespace Vismo_New_
                             funcionario.Status = "0";
                         }
                         
-                        funcionario.Tipo = comboTipo.Text;
-
-                        int x = funcionario.Inserir(funcionario);
-
-                        if (x > 0)
+                        if (funcionario.Inserir() == 1)
                         {
                             MessageBox.Show(String.Format("Funcionário: {0} inserido com sucesso.", textNome.Text));
 
+                            //limpa o formulário
                             textNome.Clear();
                             txtCpf.Clear();
                             texLogin.Clear();
@@ -75,28 +77,31 @@ namespace Vismo_New_
                         }
                         else
                         {
-                            MessageBox.Show("Dado não inserido!");
+                            MessageBox.Show("Erro ao realizar cadastro.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ocorreu um erro, cadastro não efetuado!" + ex.Message);
-                        throw;
+                        MessageBox.Show(ex.Message);
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Senhas cadastradas não conferem, favor conferir a senha digitada.", "Aviso");
+                    //caso os campos de senha e confirmação de senha estiverem diferentes
+                    MessageBox.Show("Senhas cadastradas não conferem, favor conferir a senha digitada.", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
+                //caso algum campo não for preenchido
                 MessageBox.Show("Preencha todos os campos antes de continuar.");
             }        
         }
 
-        // Fechar o Form
+        //fecha o formulário
         private void Button1_Click(object sender, EventArgs e)
         {
             Close();

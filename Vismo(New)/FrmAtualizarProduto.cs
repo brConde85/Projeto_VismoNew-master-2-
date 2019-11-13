@@ -15,12 +15,12 @@ namespace Vismo_New_
     public partial class FrmAtualizarProduto : Form
     {
         Produto produto = new Produto();
-        Fornecedor fornecedor = new Fornecedor();
         
-        //Preenche o formulário com o registro do produto que será atualizado
+        //Preenche o formulário com o registro do produto que será atualizado ao carregar o Form
         public FrmAtualizarProduto(int id, string nome, double preco, int qtd, int fornec, string pchave)
         {
             InitializeComponent();
+
             produto.Codigo = id;
             txtId.Text = Convert.ToString(fornec);
             txtNome.Text = nome;
@@ -33,9 +33,12 @@ namespace Vismo_New_
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
+
+            FrmListarProduto tela = new FrmListarProduto();
+            tela.Show();
         }
 
-        //Para atualizar
+        // Ação para atualizar o produto
         private void BtnOk_Click(object sender, EventArgs e)
         {
             //caso todos os campos forem preenchidos
@@ -45,28 +48,30 @@ namespace Vismo_New_
                 !cboPalavra.Text.Equals("") &&
                 !txtId.Text.Equals(""))
             {
-                fornecedor.CodigoF = Convert.ToInt32(txtId.Text);
+                //atribuição do campo de ID de funcionário ao atributo da classe Funcionário
+                produto.fornecedor.CodigoF = Convert.ToInt32(txtId.Text);
 
-                if (fornecedor.PegaId() == 1)
+                //checa se ID de funcionário está registrado
+                if (produto.fornecedor.PegaId() == 1)
                 {
                     try
                     {
+                        //atribuição dos campos do formulário aos atributos da classe Produto
                         produto.Nome = txtNome.Text;
                         produto.Preco = Convert.ToDouble(txtPreco.Text);
                         produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
                         produto.Pchave = cboPalavra.Text;
-                        produto.fornecedor.CodigoF = fornecedor.CodigoF;
                         produto.Pchave = cboPalavra.Text;
 
+                        //chama o método de atualização de registro de produto
                         if (produto.Update() == 1)
                         {
                             MessageBox.Show("Produto atualizado com sucesso.");
 
-                            txtNome.Clear();
-                            txtPreco.Clear();
-                            txtQtd.Clear();
-                            cboPalavra.Text = "";
-                            txtNome.Focus();
+                            Close();
+
+                            FrmListarProduto tela = new FrmListarProduto();
+                            tela.Show();
                         }
                     }
 
@@ -92,12 +97,11 @@ namespace Vismo_New_
             }
         }
 
-        //Abre o registro de fornecedores
+        //Abre o registro de fornecedores para que o usuário possa selecionar o ID correspondente
         private void TxtId_Enter(object sender, EventArgs e)
         {
             FrmListarFornecedor tela = new FrmListarFornecedor();
             tela.Show();
-        }
-        
+        } 
     }
 }

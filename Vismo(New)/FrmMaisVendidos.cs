@@ -21,16 +21,28 @@ namespace Vismo_New_
         //Ação para pesquisa 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            //compara se os campos de intervalo de tempo foram preenchidos
             if (!cboMes1.Text.Equals("") && !cboMes2.Text.Equals(""))
             {
+                //compara se o mês de início e inferior ao mês final
                 if (cboMes1.SelectedIndex <= cboMes2.SelectedIndex)
                 {
                     try
                     {
+                        //limpa o dataGrig
                         dgVendidos.DataSource = null;
 
                         Produto produto = new Produto();
 
+                        /*as variáveis são usadas como parâmetro para pesquisa no banco de dados sendo que,
+                          os comboBox têm seu SelectedIndex representando a numeração dos meses do ano.
+
+                          Ex: cboMes1.SelectedIndex = 0 representa o mês de Janeiro,
+                          cboMes1.SelectedIndex = 1 representa o mês de Fevereiro, etc.
+                          Como inicia em 0, as variáveis recebem +1, assim igualando a numeração dos meses.
+                          
+                          Os parâmetros são usados na string de conexão, limitando a pesquisa
+                          de produtos mais vendidos em um intervalo de meses*/
                         int mes1 = cboMes1.SelectedIndex + 1;
                         int mes2 = cboMes2.SelectedIndex + 1;
 
@@ -40,39 +52,45 @@ namespace Vismo_New_
                     }
                     catch (Exception ex)
                     {
+                        //em aso de erro ao listar
                         MessageBox.Show("Erro ao listar produtos", "Erro" + MessageBoxButtons.OK
                             + MessageBoxIcon.Error + ex.Message);
                     }
                 }
                 else
                 {
+                    //caso o intervalo de meses for inválido
                     MessageBox.Show("Escolha um intervalo válido para continuar", "Aviso",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
+                //caso não for fornecido um intervalo
                 MessageBox.Show("Escolha os meses para a pesquisa antes de continuar", "Aviso",
                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }  
         }
 
-        //Ação para exibir conteúdo do banco ao entrar no form
+        //ao entrar no Form, é exibido o registro de produtos mais vendidos no mês passado
         private void FrmMaisVendidos_Load(object sender, EventArgs e)
         {
             try
             {
+                //aqui as variáveis recebem a numeração do mês passado e do atual para o parâmetro
                 int mes1 = Convert.ToInt32(DateTime.Now.Month.ToString());
-                int mes2 = Convert.ToInt32(mes1 - 1);
+                int mes2 = mes1 - 1;
 
                 Produto produto = new Produto();
 
+                //preenche o dataGrid
                 dgVendidos.AutoGenerateColumns = false;
                 dgVendidos.DataSource = produto.MaisVendidos(mes2, mes1);
                 dgVendidos.DataMember = produto.MaisVendidos(mes2, mes1).Tables[0].TableName;
             }
             catch (Exception ex)
             {
+                //em caso de erro
                 MessageBox.Show("Erro ao listar produtos", "Erro" + MessageBoxButtons.OK
                     + MessageBoxIcon.Error + ex.Message);
             }

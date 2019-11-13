@@ -10,12 +10,13 @@ namespace Control
 {
     public class Venda
     {
-        // atributo venda
+        //atributos
         private int codigo;
         private DateTime data;
         private double valor;
 
-        // Getter e Setter
+
+        //encapsulamento de atributos da classe
         public int Codigo
         {
             get
@@ -54,7 +55,10 @@ namespace Control
             }
         }
         
-        //
+
+        //métodos
+
+        //insere um registro de venda
         public int Inserir()
         {
             using (SqlConnection con = new SqlConnection())
@@ -74,6 +78,7 @@ namespace Control
             }
         }
 
+        //busca um código de uma venda baseado em uma data informada 
         public void PegaId()
         {
             using (SqlConnection con = new SqlConnection())
@@ -97,6 +102,7 @@ namespace Control
             }
         }
 
+        //confirma se código de venda informado está nos registros
         public int Confirma()
         {
             using (SqlConnection con = new SqlConnection())
@@ -121,7 +127,8 @@ namespace Control
             }
         }
 
-        public void CancelarVenda(string venda)
+        //realiza cancelamento de venda
+        public void CancelarVenda()
         {
             using (SqlConnection con = new SqlConnection())
             {                
@@ -129,7 +136,7 @@ namespace Control
                 con.Open();
                 SqlCommand cn = con.CreateCommand();                                
                
-                cn.CommandText = venda;                
+                cn.CommandText = "DELETE FROM venda WHERE codigo = @codigo";                
                 cn.Parameters.Add("@codigo", SqlDbType.Int).Value = Codigo;               
                 
                 cn.ExecuteNonQuery();
@@ -137,23 +144,7 @@ namespace Control
             }
         }
 
-        public void CancelarProdutoVenda(string vendaProduto)
-        {
-            using (SqlConnection con = new SqlConnection())
-            {
-                con.ConnectionString = Properties.Settings.Default.banco;
-                con.Open();
-                SqlCommand cn = con.CreateCommand();
-
-                cn.CommandText = vendaProduto;
-                cn.Parameters.Add("@codigoVenda", SqlDbType.Int).Value = Codigo;
-                
-
-                cn.ExecuteNonQuery();
-                con.Close();
-            }
-        }        
-
+        //faz a listagem de vendas registradas
         public DataSet Listar()
         {
             using (SqlConnection con = new SqlConnection())
@@ -163,8 +154,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM venda";
-                
+                cn.CommandText = "SELECT * FROM Venda";
+
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -176,6 +167,5 @@ namespace Control
                 return dataSet;
             }
         }
-
     }
 }

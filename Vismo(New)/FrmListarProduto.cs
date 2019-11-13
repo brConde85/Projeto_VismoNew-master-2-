@@ -36,6 +36,8 @@ namespace Vismo_New_
 
             FrmAtualizarProduto tela = new FrmAtualizarProduto(id, nome, preco, qtd, fornec, pchave);
             tela.Show();
+
+            Close();
         }
 
         //Para carregar o datagrid ao entrar no form

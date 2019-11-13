@@ -13,56 +13,71 @@ namespace Vismo_New_
 {
     public partial class FrmTelaLogin : Form
     {
-        Funcionario funcionario = new Funcionario();
-
         public FrmTelaLogin()
         {
             InitializeComponent();
         }
 
         // Ação para abrir a tela de cadastro
-        private void Label3_Click(object sender, EventArgs e)
+        private void LblCadastrar_Click(object sender, EventArgs e)
         {
             FrmCadFuncionario TelaFunc = new FrmCadFuncionario();
             TelaFunc.Show();
         }
 
+
         // Ação para validação de Login
         private void BtnEntrar_Click(object sender, EventArgs e)
         {
             Funcionario funcionario = new Funcionario();
-                        
-            funcionario.Acessar(txtLogin.Text, txtSenha.Text);
-            if (funcionario.ConfirmCadast)
-            {
-                MessageBox.Show("Logado com Sucesso!","Entrando",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                if(funcionario.Tipo == "Gerente")
-                {
-                    FrmLogGerente frmGer = new FrmLogGerente(txtLogin.Text, txtSenha.Text);
-                    frmGer.Show();
-                    Hide();
-                }
-                else 
-                {
-                    FrmLogOpCaixa frmCx = new FrmLogOpCaixa();
-                    frmCx.Show();
-                    Hide();
-                }
 
-                txtLogin.Clear();
-                txtSenha.Clear();
+            //atribuição dos campos de login e senha aos atributos da classe Funcionario
+            funcionario.Login = txtLogin.Text;
+            funcionario.Senha = txtSenha.Text;
 
-                txtLogin.Focus();
-            }
-            else
+            try
             {
-                MessageBox.Show("Login não encontrado, verifique login e senha!","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                //chamada do método qye verifica login e senha informados
+                if (funcionario.VerificarLogin() == true)
+                {
+                    //compara o tipo de conta que utilizará o sistema
+                    if (funcionario.Tipo == "Gerente")
+                    {
+                        //caso for um gerente
+                        FrmLogGerente frmGer = new FrmLogGerente(txtLogin.Text, txtSenha.Text);
+                        frmGer.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        //caso for um operador de caixa
+                        FrmLogOpCaixa frmCx = new FrmLogOpCaixa();
+                        frmCx.Show();
+                        Hide();
+                    }
+
+                    //limpa os campos de login e senha
+                    txtLogin.Clear();
+                    txtSenha.Clear();
+
+                    txtLogin.Focus();
+                }
+                else
+                {
+                    //caso login ou senha inválidos
+                    MessageBox.Show("Login não encontrado, verifique login e senha!", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }  
         }
 
+
         // Ação para exibir ou ocultar senha
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void PcbSenha_Click(object sender, EventArgs e)
         {
             if (txtSenha.UseSystemPasswordChar == true)
             {
@@ -74,15 +89,16 @@ namespace Vismo_New_
             }
         }
 
-        // Design da label de cadastro
-        private void label3_MouseEnter(object sender, EventArgs e)
+
+        // Design da label "Cadastrar-se"
+        private void LblCadastrar_MouseEnter(object sender, EventArgs e)
         {
-            label3.ForeColor = Color.SkyBlue;
+            lblCadastrar.ForeColor = Color.SkyBlue;
         }
 
-        private void label3_MouseLeave(object sender, EventArgs e)
+        private void LblCadastrar_MouseLeave(object sender, EventArgs e)
         {
-            label3.ForeColor = Color.SteelBlue;
+            lblCadastrar.ForeColor = Color.SteelBlue;
         }
     }
 }

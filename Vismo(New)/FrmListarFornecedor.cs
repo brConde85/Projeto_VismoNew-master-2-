@@ -17,6 +17,7 @@ namespace Vismo_New_
         {
             InitializeComponent();
         }
+
         // Ação de preencher o datagrid ao entrar no form
         private void FrmListarFornecedor_Load(object sender, EventArgs e)
         {
@@ -24,6 +25,7 @@ namespace Vismo_New_
             {
                 Fornecedor fornecedor = new Fornecedor();
 
+                //preecnhe o dataGrid
                 dataGridView1.AutoGenerateColumns = false;
                 dataGridView1.DataSource = fornecedor.ListarDataGrid();
                 dataGridView1.DataMember = fornecedor.ListarDataGrid().Tables[0].TableName;

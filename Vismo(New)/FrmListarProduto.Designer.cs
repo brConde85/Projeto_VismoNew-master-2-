@@ -44,13 +44,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -63,12 +63,13 @@
             this.ColumnQtdEstoque,
             this.ColumncodForn,
             this.ColumnPalChave});
-            this.dataGridView1.Location = new System.Drawing.Point(60, 143);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 93);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(964, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 229);
             this.dataGridView1.TabIndex = 0;
             // 
             // id
@@ -131,9 +132,10 @@
             // btnAtualizar
             // 
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAtualizar.Location = new System.Drawing.Point(384, 555);
+            this.btnAtualizar.Location = new System.Drawing.Point(256, 361);
+            this.btnAtualizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(152, 42);
+            this.btnAtualizar.Size = new System.Drawing.Size(101, 27);
             this.btnAtualizar.TabIndex = 1;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
@@ -142,9 +144,10 @@
             // btnDeletar
             // 
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeletar.Location = new System.Drawing.Point(585, 555);
+            this.btnDeletar.Location = new System.Drawing.Point(390, 361);
+            this.btnDeletar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(152, 42);
+            this.btnDeletar.Size = new System.Drawing.Size(101, 27);
             this.btnDeletar.TabIndex = 2;
             this.btnDeletar.Text = "Apagar";
             this.btnDeletar.UseVisualStyleBackColor = true;
@@ -154,9 +157,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(372, 51);
+            this.label1.Location = new System.Drawing.Point(248, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 70);
+            this.label1.Size = new System.Drawing.Size(230, 47);
             this.label1.TabIndex = 3;
             this.label1.Text = "Lista de Produtos";
             // 
@@ -164,9 +168,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(40, 126);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 82);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1002, 384);
+            this.pictureBox1.Size = new System.Drawing.Size(669, 250);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -178,7 +183,8 @@
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1132, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(755, 24);
             this.menuStrip1.TabIndex = 45;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -186,37 +192,39 @@
             // 
             this.sobreToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
             this.sobreToolStripMenuItem.Text = "Sobre";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Image = global::Vismo_New_.Properties.Resources.Logo2;
-            this.pictureBox2.Location = new System.Drawing.Point(-33, 589);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(237, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 77;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(-898, 631);
+            this.pictureBox3.Location = new System.Drawing.Point(-599, 410);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(2888, 42);
+            this.pictureBox3.Size = new System.Drawing.Size(1926, 28);
             this.pictureBox3.TabIndex = 76;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Image = global::Vismo_New_.Properties.Resources.Logo21;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 381);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(145, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 77;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmListarProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 662);
+            this.ClientSize = new System.Drawing.Size(755, 430);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.menuStrip1);
@@ -225,6 +233,7 @@
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmListarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Produto - Vismo";
@@ -232,8 +241,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +263,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPalChave;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

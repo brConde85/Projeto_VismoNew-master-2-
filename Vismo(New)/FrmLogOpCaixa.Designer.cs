@@ -183,7 +183,7 @@
             // 
             this.toolStripMenuItem5.BackColor = System.Drawing.Color.Silver;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(184, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 22);
             this.toolStripMenuItem5.Text = "Realizar venda";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
@@ -203,15 +203,15 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Image = global::Vismo_New_.Properties.Resources.Logo2;
-            this.pictureBox2.Location = new System.Drawing.Point(-52, 365);
+            this.pictureBox2.Image = global::Vismo_New_.Properties.Resources.Logo21;
+            this.pictureBox2.Location = new System.Drawing.Point(-10, 365);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(216, 45);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 69;
+            this.pictureBox2.TabIndex = 71;
             this.pictureBox2.TabStop = false;
             // 
             // FrmLogOpCaixa
@@ -219,8 +219,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 452);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
