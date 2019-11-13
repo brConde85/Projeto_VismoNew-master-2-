@@ -10,12 +10,12 @@ namespace Control
 {
    public class Fornecedor
     {
-        // atributos fornecedor
+        //atributos
         private int id;
         private string nomeFornecedor;
 
-        //Getter e setter fornecedor
-      
+
+        //encapsulamento de atributos da classe
         public int CodigoF
         {
             get
@@ -42,7 +42,10 @@ namespace Control
             }
         }
 
+
         //métodos
+
+        //insere um novo fornecedor
         public int Inserir()
         {
             using (SqlConnection con = new SqlConnection())
@@ -60,29 +63,7 @@ namespace Control
             }
         }
 
-        public void PegaNome()
-        {
-            using (SqlConnection con = new SqlConnection())
-            {
-                con.ConnectionString = Properties.Settings.Default.banco;
-                SqlCommand cn = new SqlCommand();
-                cn.CommandType = CommandType.Text;
-
-                con.Open();
-                cn.CommandText = "SELECT nome FROM Fornecedor WHERE codFornecedor = @id";
-                cn.Parameters.Add("id", SqlDbType.Int).Value = id;
-                cn.Connection = con;
-
-                SqlDataReader reader = cn.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    reader.Read();
-                    nomeFornecedor = reader.GetString(0);
-                }
-            }
-        }
-
+        //confere se ID de fornecedor inrofmado é existente nos registros
         public int PegaId()
         {
             using (SqlConnection con = new SqlConnection())
@@ -110,6 +91,7 @@ namespace Control
             }
         }
 
+        //confere se nome de fornecedor inrofmado é existente nos registros
         public int Checa()
         {
             using (SqlConnection con = new SqlConnection())
@@ -138,6 +120,7 @@ namespace Control
             }
         }
 
+        //realiza a listagem de funcionários registrados
         public DataSet ListarDataGrid()
         {
             using (SqlConnection con = new SqlConnection())

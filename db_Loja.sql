@@ -46,18 +46,6 @@ statuss NVARCHAR(20),
 tipo NVARCHAR (20) NOT NULL
 ); 
 
-CREATE TABLE itemReposicao(
-codReposicao INT PRIMARY KEY IDENTITY(1,1),
-datas date NOT NULL,
-codigoProduto INT NOT NULL,
-codigoGerente INT NOT NULL,
-CONSTRAINT FK_codProdutoReposicao FOREIGN KEY(codigoProduto)
-	REFERENCES dbo.produto (codigo),
-
-CONSTRAINT FK_codGerente FOREIGN KEY(codigoGerente)
-	REFERENCES dbo.funcionario (codigo)
-);
-
 CREATE TABLE pagamento(
 codigo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 valor NVARCHAR(7) NOT NULL,
@@ -68,8 +56,3 @@ codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
-
-select * from funcionario
-
-UPDATE Funcionario set statuss = '1' WHERE logins = '3'
-                    AND senha = 3

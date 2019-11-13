@@ -25,6 +25,7 @@ namespace Vismo_New_
             {
                 Produto produto = new Produto();
 
+                //preenchimento do dataGrid
                 dgPedido.AutoGenerateColumns = false;
                 dgPedido.DataSource = produto.Pedido();
                 dgPedido.DataMember = produto.Pedido().Tables[0].TableName;

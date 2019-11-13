@@ -23,58 +23,55 @@ namespace Vismo_New_
         {
             Funcionario funcionario = new Funcionario();
 
-            funcionario.Acessar(txtLogin.Text, txtSenha.Text);
-            if (funcionario.ConfirmCadast)
+            //atribuição dos campos de login e senha aos atributos da classe Funcionario
+            funcionario.Login = txtLogin.Text;
+            funcionario.Senha = txtSenha.Text;
+
+            //verifica se login e senha são válidos
+            if (funcionario.VerificarLogin() == true)
             {
-                MessageBox.Show("Aturização realizada com sucesso!", "Autorização", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (funcionario.Tipo == "Gerente")
+                /*Fecha as telas de Modos do Gerente abertas e atualiza o status do Gerente.
+                  O método "AlteraStatus()" recebe como parâmetro um número inteiro que representa
+                  o atual status do gerente, sendo: 1 - Disponível; 2 - Ausente; 3 - Autônomo*/
+                if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 1)
                 {
-                    funcionario.Login = txtLogin.Text;
-                    funcionario.Senha = txtSenha.Text;
-
-                    //Fecha as telas dos forms de gerente que estiverem abertas 
-                    if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 1)
+                    if (funcionario.AlteraStatus(1) == 1)
                     {
-                        if (funcionario.AlteraStatus(1) == 1)
-                        {
-                            Application.OpenForms["FrmModoDisponivel"].Close();
-                        }                       
+                        Application.OpenForms["FrmModoDisponivel"].Close();
                     }
-
-
-                    if (Application.OpenForms.OfType<FrmModoAusente2>().Count() == 1)
-                    {
-                        if (funcionario.AlteraStatus(2) == 1)
-                        {
-                            Application.OpenForms["FrmModoAusente2"].Close();
-                        }
-                    }
-
-
-                    if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 1)
-                    {
-                        if (funcionario.AlteraStatus(3) == 1)
-                        {
-                            Application.OpenForms["FrmModoAutonomo"].Close();
-                        }
-                    }
-
-                    MessageBox.Show("Seu status foi alterado com sucesso.","Alteração",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                    // Fecha a tela de altenticação
-                    Close();
-                    
-                    // Atualiza a tela de gerente com o novo status
-                    Application.OpenForms["FrmLogGerente"].Close();
-
-                    FrmLogGerente tela = new FrmLogGerente(funcionario.Login, funcionario.Senha);
-                    tela.Show();
                 }
+                if (Application.OpenForms.OfType<FrmModoAusente2>().Count() == 1)
+                {
+                    if (funcionario.AlteraStatus(2) == 1)
+                    {
+                        Application.OpenForms["FrmModoAusente2"].Close();
+                    }
+                }
+                if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 1)
+                {
+                    if (funcionario.AlteraStatus(3) == 1)
+                    {
+                        Application.OpenForms["FrmModoAutonomo"].Close();
+                    }
+                }
+
+                //Exibe a mensagem de confirmação e fecha a tela de autenticação
+                MessageBox.Show("Seu status foi alterado com sucesso.",
+                    "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Atualiza a tela de gerente com o novo status
+                Application.OpenForms["FrmLogGerente"].Close();
+
+                FrmLogGerente tela = new FrmLogGerente(funcionario.Login, funcionario.Senha);
+                tela.Show();
+
+                Close();
             }
-            // Caso o login e senha estejam errados o usuario será informado
             else
             {
-                MessageBox.Show("Login não encontrado, verifique login e senha!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Caso o login e senha estejam inválidos
+                MessageBox.Show("Login não encontrado, verifique login e senha!",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -24,6 +24,7 @@ namespace Vismo_New_
         // Ação para pesquisar um produto já registrado
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
+            //compara se o ID de produto foi inserido
             if (!txtCod.Text.Equals(""))
             {
                 //atribuição do campo de id ao atributo de id do produto
@@ -51,6 +52,7 @@ namespace Vismo_New_
                 }
             }
 
+            //caso não houver um ID de produto, é feita a pesquisa por nome de produto
             else if (!txtNome.Text.Equals(""))
             {
                 produto.Nome = txtNome.Text;
@@ -77,6 +79,7 @@ namespace Vismo_New_
                 }
             }
 
+            //caso não houver um nome de produto, é feito a pesquisa por tipo de produto
             else if (!cboPalavra.Text.Equals(""))
             {
                 produto.Pchave = cboPalavra.Text;
@@ -101,6 +104,13 @@ namespace Vismo_New_
                     MessageBox.Show(ex.Message);
                     throw;
                 }
+            }
+
+            //caso não for inserido ID, nome ou tipo de produto
+            else
+            {
+                MessageBox.Show("Informe ID, nome ou um tipo de produto para pesquisa", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -162,7 +172,7 @@ namespace Vismo_New_
             }
         }
 
-        //Ação para validar venda
+        // Ação para validar venda
         private void BtnValidar_Click(object sender, EventArgs e)
         {
             if (Convert.ToDouble(txtTotal.Text) == 0)
@@ -192,7 +202,7 @@ namespace Vismo_New_
 
         }
 
-        //Ação para remover um produto inserido na lista
+        // Ação para remover um produto inserido na lista
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) != "X")
@@ -219,7 +229,7 @@ namespace Vismo_New_
             }
         }
 
-        //Ação para efetuar a venda 
+        // Ação para efetuar a venda 
         private void BtnOk_Click(object sender, EventArgs e)
         {
             Produto produto = new Produto();
@@ -273,7 +283,7 @@ namespace Vismo_New_
 
         }
         
-        //Ação de voltar ao menu principal
+        // Ação para voltar ao Menu Principal
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
