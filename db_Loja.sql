@@ -73,3 +73,21 @@ select * from funcionario
 
 UPDATE Funcionario set statuss = '1' WHERE logins = '3'
                     AND senha = 3
+
+select extract(month from datas) as mes,
+extract(year from datas) as ano,
+ sum(valor) as total from Venda 
+ group by mes, ano order by ano, mes;
+
+ select datas from venda where extract(month from datas) = 10 and
+ extract(year from datas) = 2019 group by datas
+
+ SELECT EXTRACT(month FROM venda) "Month", SUM(venda) "Total"
+  FROM dbo.venda
+  GROUP BY EXTRACT(month FROM datas) order by "Total" desc
+  
+
+  select getdate();
+  Select * from venda where Convert(varchar(10), datas) = Convert(varchar(10), getdate())
+
+
