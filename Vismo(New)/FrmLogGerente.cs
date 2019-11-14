@@ -14,12 +14,14 @@ namespace Vismo_New_
 {
     public partial class FrmLogGerente : Form
     {
+        Funcionario funcionario;
+
         //Guarda o status e nome do gerente logado
         public FrmLogGerente(string login, string senha)
         {
             InitializeComponent();
 
-            Funcionario funcionario = new Funcionario();
+            funcionario = new Funcionario();
 
             funcionario.Login = login;
             funcionario.Senha = senha;

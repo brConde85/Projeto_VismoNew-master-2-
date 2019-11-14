@@ -250,5 +250,30 @@ namespace Control
                 return cn.ExecuteNonQuery();
             }    
         }
+
+        //compara se login informado já está cadastrado
+        public int PegaLogin()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT logins FROM Funcionario WHERE logins = @login";
+                cn.Parameters.Add("login", SqlDbType.VarChar).Value = login;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 }

@@ -61,18 +61,28 @@ namespace Vismo_New_
                     txtSenha.Clear();
 
                     txtLogin.Focus();
+
+                    lblLogin.Visible = false;
                 }
                 else
                 {
                     //caso login ou senha inválidos
-                    MessageBox.Show("Login não encontrado, verifique login e senha!", "Erro",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblLogin.Visible = true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }  
+        }
+
+        // Ação para validação de Login por caixa de texto
+        private void TxtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnEntrar_Click(sender, e);
+            }
         }
 
 

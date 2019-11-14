@@ -38,6 +38,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblLogin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSenha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -103,6 +104,7 @@
             this.txtSenha.Size = new System.Drawing.Size(202, 20);
             this.txtSenha.TabIndex = 15;
             this.txtSenha.UseSystemPasswordChar = true;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSenha_KeyPress);
             // 
             // txtLogin
             // 
@@ -164,6 +166,19 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.Color.White;
+            this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblLogin.Location = new System.Drawing.Point(339, 253);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(124, 13);
+            this.lblLogin.TabIndex = 81;
+            this.lblLogin.Text = "Login ou senha inválidos";
+            this.lblLogin.Visible = false;
+            // 
             // FrmTelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +186,7 @@
             this.BackgroundImage = global::Vismo_New_.Properties.Resources.tela_loguin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(733, 488);
+            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.pcbSenha);
             this.Controls.Add(this.lblCadastrar);
@@ -207,6 +223,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblLogin;
     }
 }
 

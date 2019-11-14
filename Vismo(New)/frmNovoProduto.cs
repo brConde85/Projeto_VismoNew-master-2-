@@ -145,5 +145,15 @@ namespace Vismo_New_
                 lblMsg.Text = "* Obrigatório.";
             }
         }
+
+        //ação para permitir somente números na caixa de texto
+        private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
+    
 }

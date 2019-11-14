@@ -240,7 +240,7 @@
             this.vendaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarVendaToolStripMenuItem});
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.vendaToolStripMenuItem.Text = "Venda";
             // 
             // realizarVendaToolStripMenuItem
@@ -473,7 +473,7 @@
             this.Controls.Add(this.pcbAusente);
             this.Controls.Add(this.pcbDisponivel);
             this.Controls.Add(this.pictureBox11);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogGerente";
             this.Text = "Menu Principal (Gerente) - Vismo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

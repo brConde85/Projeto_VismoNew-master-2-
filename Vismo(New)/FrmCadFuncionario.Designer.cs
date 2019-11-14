@@ -48,6 +48,10 @@
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblCpf = new System.Windows.Forms.Label();
+            this.lblSenha = new System.Windows.Forms.Label();
+            this.lblLogin1 = new System.Windows.Forms.Label();
+            this.lblLogin2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -57,31 +61,35 @@
             // textSenhaAux
             // 
             this.textSenhaAux.Location = new System.Drawing.Point(170, 287);
-            this.textSenhaAux.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSenhaAux.Margin = new System.Windows.Forms.Padding(2);
             this.textSenhaAux.Name = "textSenhaAux";
             this.textSenhaAux.Size = new System.Drawing.Size(182, 20);
             this.textSenhaAux.TabIndex = 4;
+            this.textSenhaAux.UseSystemPasswordChar = true;
+            this.textSenhaAux.Leave += new System.EventHandler(this.textSenhaAux_Leave);
             // 
             // textSenha
             // 
             this.textSenha.Location = new System.Drawing.Point(170, 232);
-            this.textSenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textSenha.Margin = new System.Windows.Forms.Padding(2);
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(182, 20);
             this.textSenha.TabIndex = 3;
+            this.textSenha.UseSystemPasswordChar = true;
             // 
             // texLogin
             // 
             this.texLogin.Location = new System.Drawing.Point(170, 178);
-            this.texLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.texLogin.Margin = new System.Windows.Forms.Padding(2);
             this.texLogin.Name = "texLogin";
             this.texLogin.Size = new System.Drawing.Size(182, 20);
             this.texLogin.TabIndex = 2;
+            this.texLogin.Leave += new System.EventHandler(this.texLogin_Leave);
             // 
             // textNome
             // 
             this.textNome.Location = new System.Drawing.Point(72, 122);
-            this.textNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textNome.Margin = new System.Windows.Forms.Padding(2);
             this.textNome.Name = "textNome";
             this.textNome.Size = new System.Drawing.Size(280, 20);
             this.textNome.TabIndex = 0;
@@ -205,7 +213,7 @@
             "Gerente",
             "Operador de Caixa"});
             this.comboTipo.Location = new System.Drawing.Point(391, 215);
-            this.comboTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboTipo.Margin = new System.Windows.Forms.Padding(2);
             this.comboTipo.Name = "comboTipo";
             this.comboTipo.Size = new System.Drawing.Size(120, 24);
             this.comboTipo.TabIndex = 5;
@@ -225,7 +233,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(-801, 362);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1926, 28);
             this.pictureBox2.TabIndex = 62;
@@ -240,6 +248,7 @@
             this.txtCpf.Size = new System.Drawing.Size(124, 20);
             this.txtCpf.TabIndex = 1;
             this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCpf.Leave += new System.EventHandler(this.txtCpf_Leave);
             // 
             // button1
             // 
@@ -266,11 +275,63 @@
             this.pictureBox3.TabIndex = 79;
             this.pictureBox3.TabStop = false;
             // 
+            // lblCpf
+            // 
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpf.ForeColor = System.Drawing.Color.Red;
+            this.lblCpf.Location = new System.Drawing.Point(492, 147);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(66, 13);
+            this.lblCpf.TabIndex = 80;
+            this.lblCpf.Text = "CPF inválido";
+            this.lblCpf.Visible = false;
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSenha.ForeColor = System.Drawing.Color.Red;
+            this.lblSenha.Location = new System.Drawing.Point(232, 309);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(124, 13);
+            this.lblSenha.TabIndex = 81;
+            this.lblSenha.Text = "Senhas não confirmadas";
+            this.lblSenha.Visible = false;
+            // 
+            // lblLogin1
+            // 
+            this.lblLogin1.AutoSize = true;
+            this.lblLogin1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin1.ForeColor = System.Drawing.Color.Red;
+            this.lblLogin1.Location = new System.Drawing.Point(286, 200);
+            this.lblLogin1.Name = "lblLogin1";
+            this.lblLogin1.Size = new System.Drawing.Size(70, 13);
+            this.lblLogin1.TabIndex = 82;
+            this.lblLogin1.Text = "Login em uso";
+            this.lblLogin1.Visible = false;
+            // 
+            // lblLogin2
+            // 
+            this.lblLogin2.AutoSize = true;
+            this.lblLogin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogin2.ForeColor = System.Drawing.Color.Red;
+            this.lblLogin2.Location = new System.Drawing.Point(284, 200);
+            this.lblLogin2.Name = "lblLogin2";
+            this.lblLogin2.Size = new System.Drawing.Size(72, 13);
+            this.lblLogin2.TabIndex = 83;
+            this.lblLogin2.Text = "Login inválido";
+            this.lblLogin2.Visible = false;
+            // 
             // FrmCadFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 385);
+            this.Controls.Add(this.lblLogin2);
+            this.Controls.Add(this.lblLogin1);
+            this.Controls.Add(this.lblSenha);
+            this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtCpf);
@@ -291,7 +352,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCadFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionário - Vismo";
@@ -327,5 +388,9 @@
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblCpf;
+        private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.Label lblLogin1;
+        private System.Windows.Forms.Label lblLogin2;
     }
 }
