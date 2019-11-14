@@ -56,6 +56,13 @@
             System.Windows.Forms.DataVisualization.Charting.StripLine stripLine6 = new System.Windows.Forms.DataVisualization.Charting.StripLine();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -190,7 +197,7 @@
             this.graficoVenda.ChartAreas.Add(chartArea2);
             this.graficoVenda.Cursor = System.Windows.Forms.Cursors.Default;
             legend2.Name = "Legend1";
-            legend2.Title = "Produtos";
+            legend2.Title = "Total \\n de \\n vendas";
             this.graficoVenda.Legends.Add(legend2);
             this.graficoVenda.Location = new System.Drawing.Point(20, 329);
             this.graficoVenda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -198,7 +205,45 @@
             this.graficoVenda.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
+            series2.MarkerBorderColor = System.Drawing.SystemColors.Control;
             series2.Name = "Series1";
+            dataPoint1.AxisLabel = "Dom";
+            dataPoint1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint1.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Top;
+            dataPoint2.AxisLabel = "Seg\\n";
+            dataPoint2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint2.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint3.AxisLabel = "Ter\\n";
+            dataPoint3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint3.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint4.AxisLabel = "Qua\\n";
+            dataPoint4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint4.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint5.AxisLabel = "Qui";
+            dataPoint5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint5.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint6.AxisLabel = "Sex";
+            dataPoint6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint6.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            dataPoint7.AxisLabel = "Sab";
+            dataPoint7.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.VerticalCenter;
+            dataPoint7.BackImage = "C:\\Users\\bruno\\source\\repos\\Projeto_VismoNew-master-2-\\imagens\\thumb2-blue-textur" +
+    "e-background-blue-paint-texture-painted-wall-stone-texture.jpg";
+            series2.Points.Add(dataPoint1);
+            series2.Points.Add(dataPoint2);
+            series2.Points.Add(dataPoint3);
+            series2.Points.Add(dataPoint4);
+            series2.Points.Add(dataPoint5);
+            series2.Points.Add(dataPoint6);
+            series2.Points.Add(dataPoint7);
+            series2.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
             this.graficoVenda.Series.Add(series2);
             this.graficoVenda.Size = new System.Drawing.Size(450, 233);
             this.graficoVenda.TabIndex = 13;
