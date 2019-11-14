@@ -30,7 +30,7 @@ namespace Vismo_New_
         private void Label1_MouseMove(object sender, MouseEventArgs e)
         {
             ToolTip toolTip1 = new ToolTip();
-            label1.Text = "Neste modo o computador ira usar \n como base suas descisões para \n auxiliar o caixa e administrar a empresa.";
+            label1.Text = "Neste modo o computador ira usar como base suas \n descisões para auxiliar o caixa e administrar a empresa.";
             label1.Visible = true;
         }
 
@@ -93,7 +93,7 @@ namespace Vismo_New_
 
 
             string[] produtos = {
-                "coca" };
+                "" };
             graficoCancelamento.Visible = false;
             graficoVenda.Visible = false;
             label3.Visible = false;
@@ -102,6 +102,12 @@ namespace Vismo_New_
             for (int i = 0; i < produtos.Length; i++)
             {
                 Series series = this.graficoVenda.Series.Add(produtos[i]);
+                series.Points.Add(Percentual[i]);
+                series.Points.Add(Percentual[i]);
+                series.Points.Add(Percentual[i]);
+                series.Points.Add(Percentual[i]);
+                series.Points.Add(Percentual[i]);
+                series.Points.Add(Percentual[i]);
                 series.Points.Add(Percentual[i]);
             }
 
