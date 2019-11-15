@@ -49,6 +49,8 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgVenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -78,7 +80,7 @@
             this.CodProduto,
             this.Data,
             this.Valor});
-            this.dgVenda.Location = new System.Drawing.Point(321, 188);
+            this.dgVenda.Location = new System.Drawing.Point(321, 176);
             this.dgVenda.Name = "dgVenda";
             this.dgVenda.ReadOnly = true;
             this.dgVenda.RowHeadersWidth = 62;
@@ -86,8 +88,10 @@
             this.dgVenda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgVenda.Size = new System.Drawing.Size(723, 352);
             this.dgVenda.TabIndex = 13;
-            this.dgVenda.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgVenda_CellContentDoubleClick);
+            this.dgVenda.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgVenda_CellDoubleClick);
             this.dgVenda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgVenda_CellDoubleClick);
+            this.dgVenda.MouseLeave += new System.EventHandler(this.DgVenda_MouseLeave);
+            this.dgVenda.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DgVenda_MouseMove);
             // 
             // Codigo
             // 
@@ -160,7 +164,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(302, 171);
+            this.pictureBox2.Location = new System.Drawing.Point(302, 159);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(761, 384);
             this.pictureBox2.TabIndex = 14;
@@ -178,10 +182,11 @@
             // 
             // txtCod
             // 
+            this.txtCod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod.Location = new System.Drawing.Point(22, 229);
             this.txtCod.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(56, 26);
+            this.txtCod.Size = new System.Drawing.Size(56, 30);
             this.txtCod.TabIndex = 16;
             // 
             // btnPenquisar
@@ -252,11 +257,35 @@
             this.pictureBox4.TabIndex = 85;
             this.pictureBox4.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(338, 556);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 25);
+            this.label3.TabIndex = 86;
+            this.label3.Visible = false;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVoltar.Location = new System.Drawing.Point(951, 556);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(112, 63);
+            this.btnVoltar.TabIndex = 87;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // FrmRegistroVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 662);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.menuStrip1);
@@ -302,5 +331,7 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

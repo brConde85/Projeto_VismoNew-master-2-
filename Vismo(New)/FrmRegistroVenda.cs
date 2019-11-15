@@ -114,11 +114,6 @@ namespace Vismo_New_
             }
         }
 
-        private void DgVenda_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void DgVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //guarda o código no atributo da classe Venda
@@ -154,6 +149,28 @@ namespace Vismo_New_
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DgVenda_MouseMove(object sender, MouseEventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            label3.Text = "Para detalhes de dois click's na venda desejada \n" +
+                " ou informe o código para pesquisa.";
+            label3.Visible = true;
+        }
+
+        private void DgVenda_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            label3.Text = "";
+            label3.Visible = false;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Close();
+            FrmRegistroVenda tela = new FrmRegistroVenda();
+            tela.Show();
         }
     }
     
