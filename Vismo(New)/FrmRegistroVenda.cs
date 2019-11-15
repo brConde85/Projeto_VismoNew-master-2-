@@ -113,5 +113,48 @@ namespace Vismo_New_
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void DgVenda_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void DgVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //guarda o código no atributo da classe Venda
+            ItemDeVenda item = new ItemDeVenda();
+
+            //gurda o código da venda no atributo da classe Venda
+            item.venda.Codigo = Convert.ToInt32(dgVenda.CurrentRow.Cells[0].Value.ToString());
+
+            try
+            {
+                //compara se código de venda é existente nos registros
+                if (item.venda.Confirma() == 1)
+                {
+                    //altera modo de exibição do dataGrid
+                    dgVenda.Columns["CodProduto"].Visible = true;
+                    dgVenda.Columns["Produto"].Visible = true;
+                    dgVenda.Columns["Quantidade"].Visible = true;
+                    dgVenda.Columns["Codigo"].Visible = false;
+                    dgVenda.AutoGenerateColumns = false;
+                    dgVenda.DataSource = item.Listar();
+                    dgVenda.DataMember = item.Listar().Tables[0].TableName;
+                }
+                else
+                {
+                    //limpa o dataGrid
+                    dgVenda.DataSource = null;
+
+                    MessageBox.Show("Registro de venda não encontrado", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
+    
 }
