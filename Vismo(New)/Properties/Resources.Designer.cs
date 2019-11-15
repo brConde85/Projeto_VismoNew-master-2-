@@ -163,6 +163,16 @@ namespace Vismo_New_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red_exclamation_point_button_henrik_lehnerer {
+            get {
+                object obj = ResourceManager.GetObject("red-exclamation-point-button-henrik-lehnerer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Seta_direita_azul_200x200px {
             get {
                 object obj = ResourceManager.GetObject("Seta-direita-azul-200x200px", resourceCulture);
@@ -196,6 +206,16 @@ namespace Vismo_New_.Properties {
         internal static System.Drawing.Bitmap thumb2_blue_texture_background_blue_paint_texture_painted_wall_stone_texture {
             get {
                 object obj = ResourceManager.GetObject("thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled {
+            get {
+                object obj = ResourceManager.GetObject("Untitled", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

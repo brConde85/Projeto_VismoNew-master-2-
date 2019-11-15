@@ -217,7 +217,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Produto WHERE nome = @nomeProduto";
+                cn.CommandText = "select * from produto where nome = @nomeProduto ";
                 cn.Parameters.Add("nomeProduto", SqlDbType.NVarChar).Value = nomeProduto;
                 cn.Connection = con;
 

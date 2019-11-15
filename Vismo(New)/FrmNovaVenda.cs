@@ -117,6 +117,7 @@ namespace Vismo_New_
         // Ação para adicionar um produto na lista, a um segundo datagrid
         private void BtnAdicionar_Click(object sender, EventArgs e)
         {
+            
             if (dataGridView2.Rows[0].Cells[0].Value != null)
             {
                 //compara se a quantidade em estoque do produto é maior que 0
@@ -175,31 +176,45 @@ namespace Vismo_New_
         // Ação para validar venda
         private void BtnValidar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(txtTotal.Text) == 0)
-            {
-                MessageBox.Show("Nenhum registro de produto encontrado", "Erro");
-                txtPago.Text = "";
-            }
-            else
-            {
-                //calculo do troco da venda
-                double x = Convert.ToDouble(txtPago.Text) - Convert.ToDouble(txtTotal.Text);
+            txtPago.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-                txtTroco.Text = x.ToString("N2");
-
-                if (x >= 0)
+            if (!txtPago.Text.Equals(""))
+            {
+                txtPago.TextMaskFormat = MaskFormat.IncludeLiterals;
+                pctExclamation.Visible = false;
+                if (Convert.ToDouble(txtTotal.Text) == 0)
                 {
-                    txtTroco.BackColor = Color.White;
-                    btnOk.Enabled = true;
+                    MessageBox.Show("Nenhum registro de produto encontrado", "Erro");
+                    txtPago.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Erro de validação", "Erro");
-                    txtTroco.BackColor = Color.Red;
-                    btnOk.Enabled = false;
+                    //calculo do troco da venda
+                    double x = Convert.ToDouble(txtPago.Text) - Convert.ToDouble(txtTotal.Text);
+
+                    txtTroco.Text = x.ToString("N2");
+
+                    if (x >= 0)
+                    {
+                        txtTroco.BackColor = Color.White;
+                        btnOk.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro de validação, valor informado menor \nque o total de compras", "Erro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        txtTroco.BackColor = Color.Red;
+                        btnOk.Enabled = false;
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Favor preencher o valor a ser pago.","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                pctExclamation.Visible = true;
+                txtTroco.Text = null;
+            }
 
+            txtPago.TextMaskFormat = MaskFormat.IncludeLiterals;
         }
 
         // Ação para remover um produto inserido na lista

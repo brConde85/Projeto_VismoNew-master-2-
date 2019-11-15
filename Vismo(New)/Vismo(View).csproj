@@ -341,5 +341,11 @@
   <ItemGroup>
     <None Include="Resources\Logo21.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-exclamation-point-button-henrik-lehnerer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
