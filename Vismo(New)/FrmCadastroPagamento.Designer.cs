@@ -116,10 +116,12 @@
             // txtCod
             // 
             this.txtCod.Location = new System.Drawing.Point(426, 138);
+            this.txtCod.MaxLength = 4;
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(60, 20);
             this.txtCod.TabIndex = 1;
             this.txtCod.Enter += new System.EventHandler(this.txtCod_Enter);
+            this.txtCod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCod_KeyPress);
             // 
             // txtValor
             // 

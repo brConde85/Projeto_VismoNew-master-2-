@@ -199,16 +199,15 @@ namespace Control
 
                 if (reader.HasRows)
                 {
-                    reader.Read();
-                    codProduto = reader.GetInt32(0);
+                    return dataSet;
                 }
 
-                return dataSet;
+                return null;
             }
         }
 
         //faz a listagem de produto por nome
-        public DataSet Listar2()
+        public DataSet Listar2(string nome)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -217,8 +216,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "select * from produto where nome = @nomeProduto ";
-                cn.Parameters.Add("nomeProduto", SqlDbType.NVarChar).Value = nomeProduto;
+                cn.CommandText = "SELECT * FROM produto WHERE lower(nome) like lower('%"+ nome +"%')";
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -231,11 +229,10 @@ namespace Control
 
                 if (reader.HasRows)
                 {
-                    reader.Read();
-                    codProduto = reader.GetInt32(0);
+                    return dataSet;
                 }
 
-                return dataSet;
+                return null;
             }
         }
 
@@ -263,11 +260,42 @@ namespace Control
 
                 if (reader.HasRows)
                 {
-                    reader.Read();
-                    codProduto = reader.GetInt32(0);
+                    return dataSet;
                 }
 
-                return dataSet;
+                return null;
+            }
+        }
+
+        //faz a listagem de produtos por tipo e nome
+        public DataSet Listar4(string nome)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM produto WHERE lower(nome) like lower('%" + nome + "%') " +
+                    "AND pchave = @pchave";
+                cn.Parameters.Add("pchave", SqlDbType.NVarChar).Value = pchave;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return dataSet;
+                }
+
+                return null;
             }
         }
 
@@ -361,6 +389,6 @@ namespace Control
 
                 return cn.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
             } 
-        }  
+        }
     }
 }

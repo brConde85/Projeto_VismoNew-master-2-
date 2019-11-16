@@ -146,7 +146,8 @@ namespace Vismo_New_
             }
         }
 
-        //ação para permitir somente números na caixa de texto
+
+        //tratamento da caixa de texto para receber somente valores numéricos
         private void txtQtd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)

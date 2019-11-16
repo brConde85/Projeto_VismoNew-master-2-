@@ -24,51 +24,66 @@ namespace Vismo_New_
         // Ação para pesquisar um produto já registrado
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
+            lblAdicionar.Visible = false;
+
             //compara se o ID de produto foi inserido
             if (!txtCod.Text.Equals(""))
             {
                 //atribuição do campo de id ao atributo de id do produto
                 produto.Codigo = Convert.ToInt32(txtCod.Text);
 
-                try
+                if (produto.Listar1() != null)
                 {
-                    dataGridView2.AutoGenerateColumns = false;
-
-                    //chamada do método de listagem de produto
-                    dataGridView2.DataSource = produto.Listar1();
-                    dataGridView2.DataMember = produto.Listar1().Tables[0].TableName;
-
-                    if (dataGridView2.Rows[0].Cells[1].Value != null)
+                    try
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        lblFalhaPesquisa2.Visible = false;
+
+                        dataGridView2.AutoGenerateColumns = false;
+
+                        //chamada do método de listagem de produto
+                        dataGridView2.DataSource = produto.Listar1();
+                        dataGridView2.DataMember = produto.Listar1().Tables[0].TableName;
+                    }
+
+                    catch (Exception ex)
+                    {
+                        //exibe mensagem em caso de erro
+                        MessageBox.Show(ex.Message);
                     }
                 }
-
-                catch (Exception ex)
+                else
                 {
-                    //exibe mensagem em caso de erro
-                    MessageBox.Show(ex.Message);
-                    throw;
+                    dataGridView2.DataSource = null;
+
+                    lblFalhaPesquisa2.Visible = true;
                 }
+
+                lblFalhaPesquisa1.Visible = false;
             }
 
-            //caso não houver um ID de produto, é feita a pesquisa por nome de produto
-            else if (!txtNome.Text.Equals(""))
+            //pesquisa por nome de produto e palavra chave se ambos selecionados
+            else if (!txtNome.Text.Equals("") && cboPalavra.Text.Equals(""))
             {
-                produto.Nome = txtNome.Text;
-
                 try
                 {
-                    dataGridView2.AutoGenerateColumns = false;
-
                     //chamada do método de listagem de produto
-                    dataGridView2.DataSource = produto.Listar2();
-                    dataGridView2.DataMember = produto.Listar2().Tables[0].TableName;
-
-                    if (dataGridView2.Rows[0].Cells[1].Value != null)
+                    if (produto.Listar2(txtNome.Text) != null)
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        lblFalhaPesquisa2.Visible = false;
+
+                        dataGridView2.AutoGenerateColumns = false;
+
+                        dataGridView2.DataSource = produto.Listar2(txtNome.Text);
+                        dataGridView2.DataMember = produto.Listar2(txtNome.Text).Tables[0].TableName;
                     }
+                    else
+                    {
+                        dataGridView2.DataSource = null;
+
+                        lblFalhaPesquisa2.Visible = true;
+                    }
+
+                    lblFalhaPesquisa1.Visible = false;
                 }
 
                 catch (Exception ex)
@@ -79,23 +94,66 @@ namespace Vismo_New_
                 }
             }
 
-            //caso não houver um nome de produto, é feito a pesquisa por tipo de produto
-            else if (!cboPalavra.Text.Equals(""))
+            //pesquisa por nome de produto
+            else if (!txtNome.Text.Equals("") && !cboPalavra.Text.Equals(""))
             {
                 produto.Pchave = cboPalavra.Text;
 
                 try
                 {
-                    dataGridView2.AutoGenerateColumns = false;
-
                     //chamada do método de listagem de produto
-                    dataGridView2.DataSource = produto.Listar3();
-                    dataGridView2.DataMember = produto.Listar3().Tables[0].TableName;
-
-                    if (dataGridView2.Rows[0].Cells[1].Value != null)
+                    if (produto.Listar4(txtNome.Text) != null)
                     {
-                        dataGridView2.Rows[0].Cells[0].Value = produto.Codigo;
+                        lblFalhaPesquisa2.Visible = false;
+
+                        dataGridView2.AutoGenerateColumns = false;
+
+                        dataGridView2.DataSource = produto.Listar4(txtNome.Text);
+                        dataGridView2.DataMember = produto.Listar4(txtNome.Text).Tables[0].TableName;
                     }
+                    else
+                    {
+                        dataGridView2.DataSource = null;
+
+                        lblFalhaPesquisa2.Visible = true;
+                    }
+
+                    lblFalhaPesquisa1.Visible = false;
+                }
+
+                catch (Exception ex)
+                {
+                    //exibe mensagem em caso de erro
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+
+            //pesquisa por tipo de produto
+            else if (!cboPalavra.Text.Equals("") && txtNome.Text.Equals(""))
+            {
+                produto.Pchave = cboPalavra.Text;
+
+                try
+                {
+                    if (produto.Listar3() != null)
+                    {
+                        lblFalhaPesquisa2.Visible = false;
+
+                        dataGridView2.AutoGenerateColumns = false;
+
+                        //chamada do método de listagem de produto
+                        dataGridView2.DataSource = produto.Listar3();
+                        dataGridView2.DataMember = produto.Listar3().Tables[0].TableName;
+                    }
+                    else
+                    {
+                        dataGridView2.DataSource = null;
+
+                        lblFalhaPesquisa2.Visible = true;
+                    }
+
+                    lblFalhaPesquisa1.Visible = false;
                 }
 
                 catch (Exception ex)
@@ -109,79 +167,145 @@ namespace Vismo_New_
             //caso não for inserido ID, nome ou tipo de produto
             else
             {
-                MessageBox.Show("Informe ID, nome ou um tipo de produto para pesquisa", "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dataGridView2.DataSource = null;
+
+                lblFalhaPesquisa1.Visible = true;
+                lblFalhaPesquisa2.Visible = false;
             }
         }
 
-        // Ação para adicionar um produto na lista, a um segundo datagrid
+        // Ação para adicionar um produto na lista, a um segundo datagrid (automático)
         private void BtnAdicionar_Click(object sender, EventArgs e)
-        {
-            
-            if (dataGridView2.Rows[0].Cells[0].Value != null)
+        { 
+            if (dataGridView2.DataSource != null)
             {
-                //compara se a quantidade em estoque do produto é maior que 0
-                if (Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) > 0)
+                if (dataGridView2.RowCount > 1)
                 {
-                    //compara se a o valor presente na caixa de texto de quantidade é maior que 0
-                    if (Convert.ToInt32(txtQtd.Text) > 0)
+                    MessageBox.Show("Mais de um produto encontrado.\nSelecione quais irão ser adicionados à fila", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    //compara se a quantidade em estoque do produto é maior que 0
+                    if (Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) > 0)
                     {
-                        //existe um campo no segundo datagrid que guarda a quantidade de peças de produtos que serão vendidas
-                        if (Convert.ToInt32(txtQtd.Text) <= Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value))
+                        //compara se a o valor presente na caixa de texto de quantidade é maior que 0
+                        if (Convert.ToInt32(txtQtd.Text) > 0)
                         {
-                            //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
-                            double preco = Convert.ToDouble(dataGridView2.Rows[0].Cells[2].Value);
-                            preco *= Convert.ToDouble(txtQtd.Text);
-
-                            //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
-                            double soma = Convert.ToDouble(txtTotal.Text) + preco;
-                            txtTotal.Text = soma.ToString("N2");
-
-                            //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
-                            dataGridView1.RowCount += 1;
-
-                            //preenchimento do segundo datagrid com o registro do produto adicionado
-                            for (int i = 0; i < 5; i++)
+                            //existe um campo no segundo datagrid que guarda a quantidade de peças de produtos que serão vendidas
+                            if (Convert.ToInt32(txtQtd.Text) <= Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value))
                             {
-                                dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
-                                    dataGridView2.Rows[0].Cells[i].Value;
+                                //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
+                                double preco = Convert.ToDouble(dataGridView2.Rows[0].Cells[2].Value);
+                                preco *= Convert.ToDouble(txtQtd.Text);
+
+                                //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
+                                double soma = Convert.ToDouble(txtTotal.Text) + preco;
+                                txtTotal.Text = soma.ToString("N2");
+
+                                //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
+                                dataGridView1.RowCount += 1;
+
+                                //preenchimento do segundo datagrid com o registro do produto adicionado
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                        dataGridView2.Rows[0].Cells[i].Value;
+                                }
+                                dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+
+                                dataGridView2.Rows[0].Cells[3].Value = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) - Convert.ToInt32(txtQtd.Text);
+                                txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
+
+                                //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                                int x = Convert.ToInt32(txtRow.Text) + 1;
+                                txtRow.Text = Convert.ToString(x);
                             }
-                            dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-
-                            dataGridView2.Rows[0].Cells[3].Value = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) - Convert.ToInt32(txtQtd.Text);
-                            txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
-
-                            //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
-                            int x = Convert.ToInt32(txtRow.Text) + 1;
-                            txtRow.Text = Convert.ToString(x);
+                            else
+                            {
+                                MessageBox.Show("Quantidade superior a presente em estoque.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Quantidade superior a presente em estoque.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Insira uma quantidade válida antes de continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Insira uma quantidade válida antes de continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //exibe mensagem caso o produto estiver em falta
+                        MessageBox.Show("Produto em falta nos registros, não é possível adicioná-lo na fila", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }  
+            }
+            else
+            {
+                lblAdicionar.Visible = true;
+            }
+        }
+
+        // Ação para adicionar um produto na lista, a um segundo datagrid (por clique de célula)
+        private void DataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //compara se a quantidade em estoque do produto é maior que 0
+            if (Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) > 0)
+            {
+                //compara se a o valor presente na caixa de texto de quantidade é maior que 0
+                if (Convert.ToInt32(txtQtd.Text) > 0)
+                {
+                    //existe um campo no segundo datagrid que guarda a quantidade de peças de produtos que serão vendidas
+                    if (Convert.ToInt32(txtQtd.Text) <= Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value))
+                    {
+                        //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
+                        double preco = Convert.ToDouble(dataGridView2.CurrentRow.Cells[2].Value);
+                        preco *= Convert.ToDouble(txtQtd.Text);
+
+                        //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
+                        double soma = Convert.ToDouble(txtTotal.Text) + preco;
+                        txtTotal.Text = soma.ToString("N2");
+
+                        //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
+                        dataGridView1.RowCount += 1;
+
+                        //preenchimento do segundo datagrid com o registro do produto adicionado
+                        for (int i = 0; i < 5; i++)
+                        {
+                            dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                dataGridView2.CurrentRow.Cells[i].Value;
+                        }
+                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+
+                        dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) - Convert.ToInt32(txtQtd.Text);
+                        txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
+
+                        //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                        int x = Convert.ToInt32(txtRow.Text) + 1;
+                        txtRow.Text = Convert.ToString(x);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantidade superior a presente em estoque.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    //exibe mensagem caso o produto estiver em falta
-                    MessageBox.Show("Produto em falta nos registros, não é possível adicioná-lo na fila", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Insira uma quantidade válida antes de continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                //exibe mensagem caso o produto estiver em falta
+                MessageBox.Show("Produto em falta nos registros, não é possível adicioná-lo na fila", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // Ação para validar venda
         private void BtnValidar_Click(object sender, EventArgs e)
         {
-            txtPago.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-
             if (!txtPago.Text.Equals(""))
             {
-                txtPago.TextMaskFormat = MaskFormat.IncludeLiterals;
                 pctExclamation.Visible = false;
+
                 if (Convert.ToDouble(txtTotal.Text) == 0)
                 {
                     MessageBox.Show("Nenhum registro de produto encontrado", "Erro");
@@ -189,22 +313,34 @@ namespace Vismo_New_
                 }
                 else
                 {
-                    //calculo do troco da venda
-                    double x = Convert.ToDouble(txtPago.Text) - Convert.ToDouble(txtTotal.Text);
-
-                    txtTroco.Text = x.ToString("N2");
-
-                    if (x >= 0)
+                    if (Double.TryParse(txtPago.Text, out double pago) == true)
                     {
-                        txtTroco.BackColor = Color.White;
-                        btnOk.Enabled = true;
+                        pctExclamation.Visible = false;
+                        lblValor.Visible = false;
+
+                        //calculo do troco da venda
+                        double x = pago - Convert.ToDouble(txtTotal.Text);
+
+                        txtTroco.Text = x.ToString("N2");
+
+                        if (x >= 0)
+                        {
+                            txtTroco.BackColor = Color.White;
+                            btnOk.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro de validação, valor informado menor \nque o total de compras", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtTroco.BackColor = Color.Red;
+                            btnOk.Enabled = false;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Erro de validação, valor informado menor \nque o total de compras", "Erro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                        txtTroco.BackColor = Color.Red;
-                        btnOk.Enabled = false;
+                        pctExclamation.Visible = true;
+                        lblValor.Visible = true;
                     }
+                   
                 }
             }
             else
@@ -213,8 +349,6 @@ namespace Vismo_New_
                 pctExclamation.Visible = true;
                 txtTroco.Text = null;
             }
-
-            txtPago.TextMaskFormat = MaskFormat.IncludeLiterals;
         }
 
         // Ação para remover um produto inserido na lista
@@ -247,48 +381,61 @@ namespace Vismo_New_
         // Ação para efetuar a venda 
         private void BtnOk_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto();
-
-            for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
-            {
-                //atualizando a quantidade em estoque dos produtos
-                produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
-                produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
-            }
-
-            Venda venda = new Venda();
-
-            venda.Data = DateTime.Now; //pega a data e hora em que foi realizado a venda
-            venda.Valor = Convert.ToDouble(txtTotal.Text);
-
             try
             {
-                if (venda.Inserir() == 1)
+                int var = 0;
+
+                for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
                 {
-                    venda.PegaId();
-
-                    ItemDeVenda ivenda = new ItemDeVenda();
-                    ivenda.IdVenda = venda.Codigo;
-
-                    for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
+                    if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) != "X")
                     {
-                        if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) != "X")
+                        var += 1;
+
+                        Venda venda = new Venda();
+
+                        venda.Data = DateTime.Now; //pega a data e hora em que foi realizado a venda
+                        venda.Valor = Convert.ToDouble(txtTotal.Text);
+
+                        if (venda.Inserir() == 1)
                         {
+                            venda.PegaId();
+
+                            ItemDeVenda ivenda = new ItemDeVenda();
+                            ivenda.IdVenda = venda.Codigo;
+
                             ivenda.IdProduto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
                             ivenda.Qtd = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
-                            ivenda.Inserir();
-                        }
-                        else
-                        {
-                            MessageBox.Show("ok");
-                        }
+
+                            if (ivenda.Inserir() == 1)
+                            {
+                                Produto produto = new Produto();
+
+                                //atualizando a quantidade em estoque dos produtos
+                                produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                                produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao concluir venda.", "Erro",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        } 
                     }
 
-                    MessageBox.Show("Venda realizada com sucesso.");
+                    if (i == Convert.ToInt32(txtRow.Text) - 1 && var > 0)
+                    {
+                        MessageBox.Show("Venda realizada com sucesso.");
 
-                    Close();
-                    frmNovaVenda tela = new frmNovaVenda();
-                    tela.Show();
+                        Close();
+
+                        frmNovaVenda tela = new frmNovaVenda();
+                        tela.Show();
+                    }
+                }
+
+                if (var == 0)
+                {
+                    MessageBox.Show("A fila está vazia.");
                 }
             }
             catch (Exception ex)
@@ -301,14 +448,190 @@ namespace Vismo_New_
         // Ação para voltar ao Menu Principal
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("Fechar tela de venda e voltar ao Menu Principal?", "Confirmação",
+                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }  
         }
 
         // Ação para abrir o registro de venda para o cancelamento de uma venda 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnRelatorio_Click(object sender, EventArgs e)
         {
             FrmRegistroVenda tela = new FrmRegistroVenda();
             tela.Show();
+        }
+
+        // Ações das teclas de atalho
+        private void FrmNovaVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.Q)
+            {
+                BtnPesquisar_Click(sender, e);
+            }
+
+            if (e.Control == true && e.KeyCode == Keys.W)
+            {
+                BtnAdicionar_Click(sender, e);
+            }
+
+            if (e.Control && e.KeyCode == Keys.E)
+            {
+                BtnValidar_Click(sender, e);
+            }
+
+            if (e.Control && e.KeyCode == Keys.R)
+            {
+                if (btnOk.Enabled == true)
+                {
+                    BtnOk_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível concluir a venda", "Aviso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+            if (e.Control == true && e.KeyCode == Keys.T)
+            {
+                BtnRelatorio_Click(sender, e);
+            }
+        }
+
+
+        // Tratamento das caixas de texto 
+        private void TxtCod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnPesquisar_Click(sender, e);
+            }
+        }
+
+        private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtNome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BtnPesquisar_Click(sender, e);
+            }
+        }
+
+
+        // Opções de pesquisa de produto
+        private void LblOpcao_MouseEnter(object sender, EventArgs e)
+        {
+            lblOpcao.BackColor = Color.Gainsboro;
+        }
+
+        private void LblOpcao_MouseLeave(object sender, EventArgs e)
+        {
+            lblOpcao.BackColor = Color.Transparent;
+        }
+
+        private void LblOpcao_Click(object sender, EventArgs e)
+        {
+            if (lblCod.Visible == true)
+            {
+                lblNome.Visible = true;
+                lblChave.Visible = true;
+                txtNome.Visible = true;
+                cboPalavra.Visible = true;
+
+                lblCod.Visible = false;
+                txtCod.Visible = false;
+
+                txtCod.Clear();
+            }
+            else
+            {
+                lblNome.Visible = false;
+                lblChave.Visible = false;
+                txtNome.Visible = false;
+                cboPalavra.Visible = false;
+
+                txtNome.Clear();
+
+                cboPalavra.DropDownStyle = ComboBoxStyle.DropDown;
+                cboPalavra.Text = "";
+
+                lblCod.Visible = true;
+                txtCod.Visible = true;
+            } 
+        }
+
+        private void CboPalavra_Enter(object sender, EventArgs e)
+        {
+            cboPalavra.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboPalavra.SelectedIndex = -1;
+        }
+
+
+        // Ações do ToolTip dos botões do Form
+        private void BtnPesquisar_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnPesquisar, "Pesquisar um produto (Ctrl+Q)");
+        }
+
+        private void BtnAdicionar_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnAdicionar, "Adicionar um produto na fila (Ctrl+W)");
+        }
+
+        private void BtnValidar_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnValidar, "Confirmar valor pago (Ctrl+E)");
+        }
+
+        private void BtnOk_MouseEnter(object sender, EventArgs e)
+        {
+            if (btnOk.Enabled == true)
+            {
+                toolTip1.SetToolTip(btnOk, "Realizar venda (Ctrl+R)");
+            }
+        }
+
+        private void BtnRelatorio_MouseEnter(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnRelatorio, "Exibir relátorio de vendas (Ctrl+T)");
+        }
+
+
+        // Tratamento de aviso de pesquisa de produto
+        private void TxtCod_Click(object sender, EventArgs e)
+        {
+            lblAdicionar.Visible = false;
+        }
+
+        private void TxtNome_Click(object sender, EventArgs e)
+        {
+            lblAdicionar.Visible = false;
+        }
+
+        private void CboPalavra_Click(object sender, EventArgs e)
+        {
+            lblAdicionar.Visible = false;
         }
     }
 }

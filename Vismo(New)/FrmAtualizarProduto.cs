@@ -102,6 +102,24 @@ namespace Vismo_New_
         {
             FrmListarFornecedor tela = new FrmListarFornecedor();
             tela.Show();
-        } 
+        }
+
+
+        //tratamento da caixa de texto para receber somente valores numéricos
+        private void TxtQtd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

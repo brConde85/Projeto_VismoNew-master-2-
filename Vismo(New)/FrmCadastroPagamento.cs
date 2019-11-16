@@ -95,5 +95,14 @@ namespace Vismo_New_
         {
             Close();
         }
+
+        //tratamento da caixa de texto para receber somente valores numéricos
+        private void TxtCod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

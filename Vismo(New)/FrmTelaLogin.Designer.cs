@@ -52,7 +52,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(261, 283);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(75, 23);
-            this.btnEntrar.TabIndex = 13;
+            this.btnEntrar.TabIndex = 3;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             this.btnEntrar.Click += new System.EventHandler(this.BtnEntrar_Click);
@@ -102,7 +102,7 @@
             this.txtSenha.Location = new System.Drawing.Point(261, 230);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(202, 20);
-            this.txtSenha.TabIndex = 15;
+            this.txtSenha.TabIndex = 2;
             this.txtSenha.UseSystemPasswordChar = true;
             this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSenha_KeyPress);
             // 
@@ -113,7 +113,7 @@
             this.txtLogin.Location = new System.Drawing.Point(261, 197);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(202, 20);
-            this.txtLogin.TabIndex = 14;
+            this.txtLogin.TabIndex = 1;
             // 
             // pcbSenha
             // 

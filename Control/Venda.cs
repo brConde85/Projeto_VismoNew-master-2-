@@ -154,7 +154,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Venda";
+                cn.CommandText = "SELECT * FROM Venda ORDER BY datas DESC";
 
                 cn.Connection = con;
 

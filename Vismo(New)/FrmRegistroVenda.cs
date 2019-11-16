@@ -42,6 +42,8 @@ namespace Vismo_New_
                         dgVenda.AutoGenerateColumns = false;
                         dgVenda.DataSource = item.Listar();
                         dgVenda.DataMember = item.Listar().Tables[0].TableName;
+
+                        txtVoltar.Text = "1";
                     }
                     else
                     {
@@ -116,6 +118,8 @@ namespace Vismo_New_
 
         private void DgVenda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtVoltar.Text = "1";
+
             //guarda o código no atributo da classe Venda
             ItemDeVenda item = new ItemDeVenda();
 
@@ -168,10 +172,26 @@ namespace Vismo_New_
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Close();
-            FrmRegistroVenda tela = new FrmRegistroVenda();
-            tela.Show();
+            if (txtVoltar.Text == "1")
+            {
+                Close();
+
+                FrmRegistroVenda tela = new FrmRegistroVenda();
+                tela.Show();
+            }
+            else
+            {
+                Close();
+            }      
+        }
+
+        //tratamento da caixa de texto para receber somente valores numéricos
+        private void TxtCod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
         }
     }
-    
 }

@@ -101,7 +101,7 @@
             // txtPreco
             // 
             this.txtPreco.Location = new System.Drawing.Point(470, 182);
-            this.txtPreco.Mask = "9,99";
+            this.txtPreco.Mask = "99,99";
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(63, 20);
             this.txtPreco.TabIndex = 3;
@@ -110,9 +110,11 @@
             // txtQtd
             // 
             this.txtQtd.Location = new System.Drawing.Point(228, 182);
+            this.txtQtd.MaxLength = 5;
             this.txtQtd.Name = "txtQtd";
-            this.txtQtd.Size = new System.Drawing.Size(31, 20);
+            this.txtQtd.Size = new System.Drawing.Size(46, 20);
             this.txtQtd.TabIndex = 2;
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtQtd_KeyPress);
             // 
             // txtNome
             // 
@@ -174,11 +176,13 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(479, 115);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtId.MaxLength = 4;
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(45, 20);
             this.txtId.TabIndex = 1;
             this.txtId.Enter += new System.EventHandler(this.TxtId_Enter);
+            this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtId_KeyPress);
             // 
             // menuStrip1
             // 
@@ -206,7 +210,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(-801, 362);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1926, 28);
             this.pictureBox2.TabIndex = 68;
@@ -218,7 +222,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Image = global::Vismo_New_.Properties.Resources.Logo21;
             this.pictureBox3.Location = new System.Drawing.Point(0, 333);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(145, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -246,7 +250,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAtualizarProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atualizar Produto - Vismo";
