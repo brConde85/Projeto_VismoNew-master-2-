@@ -57,31 +57,6 @@ CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
 
-SELECT datas Y, SUM(valor) X FROM dbo.venda WHERE datetime.now;
 
-select * from venda;
-select * from produto_venda
-select * from produto
-
-select * from Produto
-
-SELECT pv.codigoVenda Código, p.nome Item , v.valor R$, SUM(pv.quantidade) Quantidade, v.datas Dia 
-FROM venda AS v, produto AS p, produto_venda AS pv
-WHERE p.codigo  = pv.codigoProduto AND v.codigo = pv.codigoVenda 
-GROUP BY pv.codigoVenda
-
-SELECT p.nome, v.* 
-FROM venda AS v,produto AS p, produto_venda AS pv 
-WHERE p.codigo = pv.codigoProduto and pv.codigoVenda = v.codigo 
-
- 
-SELECT pv.codigoVenda Código , SUM(pv.quantidade) Quantidade 
-FROM venda AS v, produto AS p, produto_venda AS pv
-WHERE p.codigo  = pv.codigoProduto AND v.codigo = pv.codigoVenda 
-GROUP BY pv.codigoVenda;
-
-select * from produto
-select TOP 100 * from venda ORDER BY datas;
-select * from pagamento
-delete from Funcionario
+	
 
