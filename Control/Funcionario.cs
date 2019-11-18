@@ -213,9 +213,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
                
                 con.Open();
-                cn.CommandText = "SELECT statuss, nome FROM funcionario WHERE logins = @login AND senha = @senha";
+                cn.CommandText = "SELECT statuss, nome FROM funcionario WHERE logins = @login";
                 cn.Parameters.Add("login", SqlDbType.VarChar).Value = login;
-                cn.Parameters.Add("senha", SqlDbType.VarChar).Value = senha;
  
                 cn.Connection = con;
 
@@ -301,6 +300,102 @@ namespace Control
                 }
 
                 return 0;
+            }
+        }
+
+        public int AchaGerenteDisponivel()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT statuss, nome, logins FROM funcionario WHERE statuss = 1";
+
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        status = reader.GetString(0);
+
+                        if (status == "1")
+                        {
+                            nome = reader.GetString(1);
+                            login = reader.GetString(2);
+
+                            return 1;
+                        }
+                    }
+                }
+
+                return 0;
+            }
+        }
+
+        public int AchaGerenteAutonomo()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT statuss, nome, logins FROM funcionario WHERE statuss = 3";
+
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        status = reader.GetString(0);
+
+                        if (status == "3")
+                        {
+                            nome = reader.GetString(1);
+                            login = reader.GetString(2);
+
+                            return 1;
+                        }
+                    }
+                }
+
+                return 0;
+            }
+        }
+
+        public void AchaGerenteAusente()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT statuss, nome, logins  FROM funcionario";
+
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Read();
+
+                    status = reader.GetString(0);
+                    nome = reader.GetString(1);
+                    login = reader.GetString(2);
+                }
             }
         }
     }

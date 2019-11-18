@@ -65,10 +65,30 @@ namespace Vismo_New_
                     }
                     else
                     {
-                        //caso for um operador de caixa
-                        FrmLogOpCaixa frmCx = new FrmLogOpCaixa();
-                        frmCx.Show();
-                        Hide();
+                        if (funcionario.AchaGerenteDisponivel() == 1)
+                        {
+                            //caso for um operador de caixa
+                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
+                            frmCx.Show();
+                            Hide();
+                        }
+                        else if (funcionario.AchaGerenteAutonomo() == 1)
+                        {
+                            //caso for um operador de caixa
+                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
+                            frmCx.Show();
+                            Hide();
+                        }
+                        else
+                        {
+                            funcionario.AchaGerenteAusente();
+
+                            //caso for um operador de caixa
+                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
+                            frmCx.Show();
+                            Hide();
+                        }
+                       
                     }
 
                     //limpa os campos de login e senha

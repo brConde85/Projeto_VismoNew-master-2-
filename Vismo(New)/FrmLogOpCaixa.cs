@@ -7,14 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Control;
 
 namespace Vismo_New_
 {
     public partial class FrmLogOpCaixa : Form
     {
-        public FrmLogOpCaixa()
+        Funcionario funcionario;
+
+        public FrmLogOpCaixa(string login)
         {
             InitializeComponent();
+
+            funcionario = new Funcionario();
+
+            funcionario.Login = login;
+
+            funcionario.PegaStatus();
+            txtModo.Text = funcionario.Status;
+            lblNome.Text = funcionario.Nome;
         }
 
 
@@ -116,6 +127,28 @@ namespace Vismo_New_
             if (Application.OpenForms.OfType<frmNovaVenda>().Count() == 1)
             {
                 Application.OpenForms["frmNovaVenda"].Close();
+            }
+        }
+
+        private void FrmLogOpCaixa_Load(object sender, EventArgs e)
+        {
+            txtModo.Refresh();
+            if (txtModo.Text == "1")
+            {
+                pcbAusente.Visible = false;
+                pcbAutomo.Visible = false;
+            }
+            else if (txtModo.Text == "2")
+            {
+                pcbDisponivel.Visible = false;
+                pcbAutomo.Visible = false;
+                lblModo.Text = "Ausente";
+            }
+            else
+            {
+                pcbAusente.Visible = false;
+                pcbDisponivel.Visible = false;
+                lblModo.Text = "Autônomo";
             }
         }
     }
