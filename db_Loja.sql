@@ -82,4 +82,6 @@ GROUP BY pv.codigoVenda;
 
 select * from produto
 select TOP 100 * from venda ORDER BY datas;
-select * from produto_venda
+select * from pagamento
+delete from Funcionario
+

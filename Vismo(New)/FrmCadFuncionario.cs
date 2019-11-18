@@ -72,6 +72,9 @@ namespace Vismo_New_
                             texLogin.Clear();
                             textSenha.Clear();
                             textSenhaAux.Clear();
+
+                            comboTipo.Enabled = true;
+                            comboTipo.DropDownStyle = ComboBoxStyle.DropDown;
                             comboTipo.Text = "";
 
                             textNome.Focus();
@@ -103,7 +106,7 @@ namespace Vismo_New_
         }
 
         //fecha o formulário
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -125,6 +128,12 @@ namespace Vismo_New_
                     lblCpf.Visible = true;
                 }
             } 
+        }
+
+        //tratamento do design do comboBox
+        private void ComboTipo_Enter(object sender, EventArgs e)
+        {
+            comboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         //compara se a senha e confiramção estão iguais
@@ -177,6 +186,17 @@ namespace Vismo_New_
                 {
                     lblLogin2.Visible = true;
                 }
+            }
+        }
+
+        private void FrmCadFuncionario_Load(object sender, EventArgs e)
+        {
+            Funcionario funcionario = new Funcionario();
+
+            if (funcionario.AchaGerente() == 0)
+            {
+                comboTipo.Text = "Gerente";
+                comboTipo.Enabled = false;
             }
         }
     }

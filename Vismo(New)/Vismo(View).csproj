@@ -62,11 +62,11 @@
     <Compile Include="FrmAtualizarProduto.Designer.cs">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAutenGerente.cs">
+    <Compile Include="FrmAuten.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAutenGerente.Designer.cs">
-      <DependentUpon>FrmAutenGerente.cs</DependentUpon>
+    <Compile Include="FrmAuten.Designer.cs">
+      <DependentUpon>FrmAuten.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadastroPagamento.cs">
       <SubType>Form</SubType>
@@ -193,8 +193,8 @@
     <EmbeddedResource Include="FrmAtualizarProduto.resx">
       <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAutenGerente.resx">
-      <DependentUpon>FrmAutenGerente.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAuten.resx">
+      <DependentUpon>FrmAuten.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroPagamento.resx">
       <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>

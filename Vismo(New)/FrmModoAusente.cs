@@ -12,9 +12,11 @@ namespace Vismo_New_
 {
     public partial class FrmModoAusente : Form
     {
-        public FrmModoAusente()
+        public FrmModoAusente(string login)
         {
             InitializeComponent();
+
+            txtLogin.Text = login;
         }
 
         private void Label1_MouseLeave(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace Vismo_New_
 
         private void BtnProsseguir_Click(object sender, EventArgs e)
         {
-            FrmModoAusente2 frmModoAusente2 = new FrmModoAusente2();
+            FrmModoAusente2 frmModoAusente2 = new FrmModoAusente2(txtLogin.Text);
             frmModoAusente2.Show();
             this.Hide();
 
@@ -63,10 +65,6 @@ namespace Vismo_New_
                         {
 
                         }
-
-
-
-
                     }
 
                 }
@@ -75,16 +73,10 @@ namespace Vismo_New_
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-
-            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel();
+            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel(txtLogin.Text);
             telaDisponivel.Show();
             this.Show();
             this.Hide();
-        }
-
-        private void FrmModoAusente_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Control;
 
 
 namespace Vismo_New_
 {
     public partial class FrmModoAutonomo : Form
     {
-        public FrmModoAutonomo()
+        public FrmModoAutonomo(string login)
         {
             InitializeComponent();
+
+            txtLogin.Text = login;
         }
 
         private void Label1_MouseLeave(object sender, EventArgs e)
@@ -123,7 +126,7 @@ namespace Vismo_New_
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
-            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel();
+            FrmModoDisponivel telaDisponivel = new FrmModoDisponivel(txtLogin.Text);
             telaDisponivel.Show();
             this.Show();
             this.Hide();
@@ -131,8 +134,31 @@ namespace Vismo_New_
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            FrmAutenGerente tela = new FrmAutenGerente();
-            tela.Show();
+            Funcionario funcionario = new Funcionario();
+
+            funcionario.Login = txtLogin.Text;
+
+            if (funcionario.AlteraStatus(3) == 1)
+            {
+                funcionario.PegaLogin();
+
+                //Exibe a mensagem de confirmação e fecha a tela de autenticação
+                MessageBox.Show("Seu status foi alterado com sucesso.",
+                    "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Atualiza a tela de gerente com o novo status
+                Application.OpenForms["FrmLogGerente"].Close();
+
+                FrmLogGerente tela = new FrmLogGerente(funcionario.Login, funcionario.Senha);
+                tela.Show();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao alterar status do Usuário", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            Close();
         }
     }
 }

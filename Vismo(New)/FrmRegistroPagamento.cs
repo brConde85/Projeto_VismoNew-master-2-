@@ -41,7 +41,8 @@ namespace Vismo_New_
 
             /*preencimento do dataGrid com pagamentos realizados,
               o comando é passado por parâmetro do método ListarDataGrid()*/
-            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Realizado' OR situacao = 'Realizado com atraso'";
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Realizado' OR situacao = 'Realizado com atraso' " +
+                "ORDER BY validade DESC";
             dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
             dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 
@@ -65,7 +66,8 @@ namespace Vismo_New_
 
             /*preencimento do dataGrid com pagamentos pendentes,
               o comando é passado por parâmetro do método ListarDataGrid()*/
-            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Pendente'";
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Pendente' " +
+                "ORDER BY validade DESC";
             dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
             dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 
@@ -94,7 +96,8 @@ namespace Vismo_New_
 
             /*preencimento do dataGrid com pagamentos atrasados,
               o comando é passado por parâmetro do método ListarDataGrid()*/
-            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Atrasado'";
+            string comando = "SELECT * FROM Pagamento WHERE situacao = 'Atrasado' " +
+                "ORDER BY validade DESC";
             dgPagamento.DataSource = pagamento.ListarDataGrid(comando);
             dgPagamento.DataMember = pagamento.ListarDataGrid(comando).Tables[0].TableName;
 

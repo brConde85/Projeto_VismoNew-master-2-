@@ -40,6 +40,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcb2Aus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb2Aut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb2Dis)).BeginInit();
@@ -199,11 +200,20 @@
             this.label2.TabIndex = 90;
             this.label2.Text = "Modos de Gerente:";
             // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(266, 12);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtLogin.TabIndex = 91;
+            this.txtLogin.Visible = false;
+            // 
             // FrmModo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 297);
+            this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblAut);
@@ -246,5 +256,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtLogin;
     }
 }

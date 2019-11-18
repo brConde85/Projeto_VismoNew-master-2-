@@ -240,10 +240,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "UPDATE Funcionario set statuss = '" + num + "' WHERE logins = @login " +
-                    "AND senha = @senha";
+                cn.CommandText = "UPDATE Funcionario set statuss = '" + num + "' WHERE logins = @login";
                 cn.Parameters.AddWithValue("@login", login);
-                cn.Parameters.AddWithValue("@senha", senha);
 
                 cn.Connection = con;
 
@@ -261,8 +259,38 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT logins FROM Funcionario WHERE logins = @login";
+                cn.CommandText = "SELECT logins, senha FROM Funcionario WHERE logins = @login";
                 cn.Parameters.Add("login", SqlDbType.VarChar).Value = login;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        login = reader.GetString(0);
+                        senha = reader.GetString(1);
+                    }
+                   
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
+
+        //compara se já existe uma conta do tipo Gerente registrada
+        public int AchaGerente()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT logins FROM Funcionario";
                 cn.Connection = con;
 
                 SqlDataReader reader = cn.ExecuteReader();

@@ -7,20 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Control;
 
 namespace Vismo_New_
 {
     public partial class FrmModo : Form
     {
-        public FrmModo()
+        public FrmModo(string login)
         {
             InitializeComponent();
+
+            txtLogin.Text = login;
         }
 
         //abre formulário para Modo Disponível
         private void LblDis_Click(object sender, EventArgs e)
         {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
+            FrmModoDisponivel tela = new FrmModoDisponivel(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -43,7 +46,7 @@ namespace Vismo_New_
 
         private void Pcb1Dis_Click(object sender, EventArgs e)
         {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
+            FrmModoDisponivel tela = new FrmModoDisponivel(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -66,7 +69,7 @@ namespace Vismo_New_
 
         private void Pcb2Dis_Click(object sender, EventArgs e)
         {
-            FrmModoDisponivel tela = new FrmModoDisponivel();
+            FrmModoDisponivel tela = new FrmModoDisponivel(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -91,7 +94,7 @@ namespace Vismo_New_
         //abre formulário para Modo Autônomo
         private void LblAut_Click(object sender, EventArgs e)
         {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
+            FrmModoAutonomo tela = new FrmModoAutonomo(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -114,7 +117,7 @@ namespace Vismo_New_
 
         private void Pcb1Aut_Click(object sender, EventArgs e)
         {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
+            FrmModoAutonomo tela = new FrmModoAutonomo(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -137,7 +140,7 @@ namespace Vismo_New_
 
         private void Pcb2Aut_Click(object sender, EventArgs e)
         {
-            FrmModoAutonomo tela = new FrmModoAutonomo();
+            FrmModoAutonomo tela = new FrmModoAutonomo(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -162,7 +165,7 @@ namespace Vismo_New_
         //abre formulário para Modo Ausente
         private void LblAus_Click(object sender, EventArgs e)
         {
-            FrmModoAusente tela = new FrmModoAusente();
+            FrmModoAusente tela = new FrmModoAusente(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -180,7 +183,7 @@ namespace Vismo_New_
 
         private void Pcb1Aus_Click(object sender, EventArgs e)
         {
-            FrmModoAusente tela = new FrmModoAusente();
+            FrmModoAusente tela = new FrmModoAusente(txtLogin.Text);
             tela.Show();
 
             Close();
@@ -198,7 +201,7 @@ namespace Vismo_New_
 
         private void Pcb2Aus_Click(object sender, EventArgs e)
         {
-            FrmModoAusente tela = new FrmModoAusente();
+            FrmModoAusente tela = new FrmModoAusente(txtLogin.Text);
             tela.Show();
 
             Close();

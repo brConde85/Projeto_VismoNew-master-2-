@@ -46,7 +46,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
@@ -206,7 +206,6 @@
             // 
             // comboTipo
             // 
-            this.comboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTipo.FormattingEnabled = true;
             this.comboTipo.Items.AddRange(new object[] {
@@ -217,6 +216,7 @@
             this.comboTipo.Name = "comboTipo";
             this.comboTipo.Size = new System.Drawing.Size(120, 24);
             this.comboTipo.TabIndex = 5;
+            this.comboTipo.Enter += new System.EventHandler(this.ComboTipo_Enter);
             // 
             // pictureBox4
             // 
@@ -250,17 +250,17 @@
             this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtCpf.Leave += new System.EventHandler(this.txtCpf_Leave);
             // 
-            // button1
+            // btnVoltar
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.button1.Location = new System.Drawing.Point(540, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 41);
-            this.button1.TabIndex = 71;
-            this.button1.Text = "Voltar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVoltar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.btnVoltar.Location = new System.Drawing.Point(540, 298);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(79, 41);
+            this.btnVoltar.TabIndex = 71;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
             // pictureBox3
             // 
@@ -333,7 +333,7 @@
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
@@ -356,6 +356,7 @@
             this.Name = "FrmCadFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionário - Vismo";
+            this.Load += new System.EventHandler(this.FrmCadFuncionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -386,7 +387,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MaskedTextBox txtCpf;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label lblSenha;

@@ -162,7 +162,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Produto;";
+                cn.CommandText = "SELECT * FROM Produto ORDER BY nome";
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -216,7 +216,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM produto WHERE lower(nome) like lower('%"+ nome +"%')";
+                cn.CommandText = "SELECT * FROM produto WHERE lower(nome) like lower('%"+ nome +"%') " +
+                    "ORDER BY nome";
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -246,7 +247,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Produto WHERE pchave = @pchave";
+                cn.CommandText = "SELECT * FROM Produto WHERE pchave = @pchave ORDER BY nome";
                 cn.Parameters.Add("pchave", SqlDbType.NVarChar).Value = pchave;
                 cn.Connection = con;
 
@@ -278,7 +279,7 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM produto WHERE lower(nome) like lower('%" + nome + "%') " +
-                    "AND pchave = @pchave";
+                    "AND pchave = @pchave ORDER BY nome";
                 cn.Parameters.Add("pchave", SqlDbType.NVarChar).Value = pchave;
                 cn.Connection = con;
 

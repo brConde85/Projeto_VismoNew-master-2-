@@ -28,6 +28,7 @@ namespace Vismo_New_
 
             funcionario.PegaStatus();
             txtModo.Text = funcionario.Status;
+            txtLogin.Text = funcionario.Login;
             lblNome.Text = funcionario.Nome;
         }
 
@@ -141,25 +142,20 @@ namespace Vismo_New_
             }   
         }
 
-
-
-        //abre o Form para selecionar um Modo de Gerente
         private void ModosDoGerenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmModo tela = new FrmModo();
-            tela.Show();
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
+            {
+                FrmModo tela = new FrmModo(txtLogin.Text);
+                tela.Show();
+            }          
         }
 
 
 
         //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (Application.OpenForms.OfType<FrmAutenGerente>().Count() == 0)
-            {
-                Application.OpenForms["FrmTelaLogin"].Show();
-            }
-                
+        {               
             if (Application.OpenForms.OfType<FrmNovoProduto>().Count() == 1)
             {
                 Application.OpenForms["FrmNovoProduto"].Close();
@@ -250,26 +246,38 @@ namespace Vismo_New_
 
         private void LblModo_Click(object sender, EventArgs e)
         {
-            FrmModo tela = new FrmModo();
-            tela.Show();
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
+            {
+                FrmModo tela = new FrmModo(txtLogin.Text);
+                tela.Show();
+            }
         }
 
         private void PcbAutomo_Click(object sender, EventArgs e)
         {
-            FrmModo tela = new FrmModo();
-            tela.Show();
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
+            {
+                FrmModo tela = new FrmModo(txtLogin.Text);
+                tela.Show();
+            }
         }
 
         private void PcbAusente_Click(object sender, EventArgs e)
         {
-            FrmModo tela = new FrmModo();
-            tela.Show();
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
+            {
+                FrmModo tela = new FrmModo(txtLogin.Text);
+                tela.Show();
+            }
         }
 
         private void PcbDisponivel_Click(object sender, EventArgs e)
         {
-            FrmModo tela = new FrmModo();
-            tela.Show();
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
+            {
+                FrmModo tela = new FrmModo(txtLogin.Text);
+                tela.Show();
+            }
         }
 
 

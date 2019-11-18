@@ -21,8 +21,23 @@ namespace Vismo_New_
         // Ação para abrir a tela de cadastro
         private void LblCadastrar_Click(object sender, EventArgs e)
         {
-            FrmCadFuncionario TelaFunc = new FrmCadFuncionario();
-            TelaFunc.Show();
+            Funcionario funcionario = new Funcionario();
+
+            if (funcionario.AchaGerente() == 0)
+            {
+                FrmCadFuncionario tela = new FrmCadFuncionario();
+                tela.Show();
+            }
+            else
+            {
+                MessageBox.Show("Notamos que já existe uma ou mais contas registradas,\n" +
+                    "para continuar você deve antes informar Login e Senha de um conta como Gerente.\n\n" +
+                    "Esse procedimento pode ser evitado logando no sistema como Gerente e seguir:\n" +
+                    "(Cadastrar --> Funcionário)", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FrmAuten tela = new FrmAuten();
+                tela.Show();
+            }
         }
 
 
@@ -73,7 +88,7 @@ namespace Vismo_New_
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }  
+            }
         }
 
         // Ação para validação de Login por caixa de texto

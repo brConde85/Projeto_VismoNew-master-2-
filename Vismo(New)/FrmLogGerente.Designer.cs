@@ -69,6 +69,7 @@
             this.pcbAusente = new System.Windows.Forms.PictureBox();
             this.pcbDisponivel = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -240,7 +241,7 @@
             this.vendaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realizarVendaToolStripMenuItem});
             this.vendaToolStripMenuItem.Name = "vendaToolStripMenuItem";
-            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
+            this.vendaToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
             this.vendaToolStripMenuItem.Text = "Venda";
             // 
             // realizarVendaToolStripMenuItem
@@ -455,11 +456,20 @@
             this.pictureBox11.TabIndex = 85;
             this.pictureBox11.TabStop = false;
             // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(242, 422);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(117, 20);
+            this.txtLogin.TabIndex = 86;
+            this.txtLogin.Visible = false;
+            // 
             // FrmLogGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 487);
+            this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.lblModo);
@@ -527,7 +537,6 @@
         private System.Windows.Forms.ToolStripMenuItem modosDoGerenteToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtModo;
         private System.Windows.Forms.PictureBox pcbDisponivel;
         private System.Windows.Forms.Label lblModo;
         private System.Windows.Forms.PictureBox pcbAusente;
@@ -535,5 +544,8 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
+
+        public System.Windows.Forms.TextBox txtModo;
+        public System.Windows.Forms.TextBox txtLogin;
     }
 }
