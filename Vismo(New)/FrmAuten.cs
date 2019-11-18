@@ -33,6 +33,8 @@ namespace Vismo_New_
                     tela.Show();
 
                     Close();
+
+                    Application.OpenForms["FrmTelaLogin"].Hide();
                 }
                 else
                 {

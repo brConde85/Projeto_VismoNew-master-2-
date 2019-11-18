@@ -54,9 +54,9 @@ namespace Vismo_New_
 
         private void realizarVendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<frmNovaVenda>().Count() == 0)
+            if (Application.OpenForms.OfType<FrmNovaVenda>().Count() == 0)
             {
-                frmNovaVenda tela = new frmNovaVenda();
+                FrmNovaVenda tela = new FrmNovaVenda();
                 tela.Show();
             }  
         }
@@ -211,10 +211,42 @@ namespace Vismo_New_
                 Application.OpenForms["FrmPedidoReposicao"].Close();
             }
 
-            if (Application.OpenForms.OfType<frmNovaVenda>().Count() == 1)
+            if (Application.OpenForms.OfType<FrmNovaVenda>().Count() == 1)
             {
-                Application.OpenForms["frmNovaVenda"].Close();
+                Application.OpenForms["FrmNovaVenda"].Close();
             }
+
+            if (Application.OpenForms.OfType<FrmModo>().Count() == 1)
+            {
+                Application.OpenForms["FrmModo"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 1)
+            {
+                Application.OpenForms["FrmModoDisponivel"].Close();
+            }
+
+            if(Application.OpenForms.OfType<FrmModoAusente>().Count() == 1)
+            {
+                Application.OpenForms["FrmModoAusente"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() == 1)
+            {
+                Application.OpenForms["FrmModoAusente2"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 1)
+            {
+                Application.OpenForms["FrmModoAutonomo"].Close();
+            }
+
+            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 0 &&
+                Application.OpenForms.OfType<FrmModoAusente2>().Count() == 0 &&
+                Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 0)
+            {
+                Application.OpenForms["FrmTelaLogin"].Show();
+            } 
         }
 
 
@@ -279,7 +311,6 @@ namespace Vismo_New_
                 tela.Show();
             }
         }
-
 
 
         //sai do programa e abre a tela de Login
