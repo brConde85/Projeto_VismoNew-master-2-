@@ -356,6 +356,7 @@
             this.Name = "FrmCadFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionário - Vismo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCadFuncionario_FormClosed);
             this.Load += new System.EventHandler(this.FrmCadFuncionario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

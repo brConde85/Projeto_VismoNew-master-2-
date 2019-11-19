@@ -12,11 +12,11 @@ using System.Data.SqlClient;
 
 namespace Vismo_New_
 {
-    public partial class frmNovaVenda : Form
+    public partial class FrmNovaVenda : Form
     {
         Produto produto = new Produto();
 
-        public frmNovaVenda()
+        public FrmNovaVenda()
         {
             InitializeComponent();
         }
@@ -313,7 +313,9 @@ namespace Vismo_New_
                 }
                 else
                 {
-                    if (Double.TryParse(txtPago.Text, out double pago) == true)
+                    double pago;
+
+                    if (Double.TryParse(txtPago.Text, out pago) == true)
                     {
                         pctExclamation.Visible = false;
                         lblValor.Visible = false;
@@ -428,7 +430,7 @@ namespace Vismo_New_
 
                         Close();
 
-                        frmNovaVenda tela = new frmNovaVenda();
+                        FrmNovaVenda tela = new FrmNovaVenda();
                         tela.Show();
                     }
                 }
@@ -535,6 +537,14 @@ namespace Vismo_New_
             if (e.KeyChar == (char)Keys.Enter)
             {
                 BtnPesquisar_Click(sender, e);
+            }
+        }
+
+        private void TxtQtd_Leave(object sender, EventArgs e)
+        {
+            if (txtQtd.Text == "")
+            {
+                txtQtd.Text = "1";
             }
         }
 

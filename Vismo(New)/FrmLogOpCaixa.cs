@@ -68,7 +68,7 @@ namespace Vismo_New_
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            frmNovaVenda tela = new frmNovaVenda();
+            FrmNovaVenda tela = new FrmNovaVenda();
             tela.Show();
         }
 
@@ -81,6 +81,7 @@ namespace Vismo_New_
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
+
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
         }
@@ -89,11 +90,6 @@ namespace Vismo_New_
         //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogOpCaixa_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmTelaLogin>().Count() == 1)
-            {
-                Application.OpenForms["FrmTelaLogin"].Show();
-            }
-
             if (Application.OpenForms.OfType<FrmCadastroPagamento>().Count() == 1)
             {
                 Application.OpenForms["FrmCadastroPagamento"].Close();
@@ -124,10 +120,12 @@ namespace Vismo_New_
                 Application.OpenForms["FrmRegistroVenda"].Close();
             }
 
-            if (Application.OpenForms.OfType<frmNovaVenda>().Count() == 1)
+            if (Application.OpenForms.OfType<FrmNovaVenda>().Count() == 1)
             {
-                Application.OpenForms["frmNovaVenda"].Close();
+                Application.OpenForms["FrmNovaVenda"].Close();
             }
+
+            Application.OpenForms["FrmTelaLogin"].Show();
         }
 
         private void FrmLogOpCaixa_Load(object sender, EventArgs e)

@@ -18,6 +18,18 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        //produra por Gerentes cadastrados
+        private void FrmCadFuncionario_Load(object sender, EventArgs e)
+        {
+            Funcionario funcionario = new Funcionario();
+
+            if (funcionario.AchaGerente() == 0)
+            {
+                comboTipo.Text = "Gerente";
+                comboTipo.Enabled = false;
+            }
+        }
+
         // Ação para cadastrar um funcionário
         private void BtnOk_Click(object sender, EventArgs e)
         {
@@ -115,10 +127,25 @@ namespace Vismo_New_
         private void txtCpf_Leave(object sender, EventArgs e)
         {
             if (!txtCpf.Text.Equals(""))
-            {                int aux = Convert.ToInt32(txtCpf.Text);
-                string cpf = Convert.ToString(aux);
+            {
+                char[] cpf = new char[11];
 
-                if (cpf.Length == 11)
+                int var = 0;
+
+                for (int i = 0; i <txtCpf.Text.Length; i++)
+                {
+                    cpf[i] = txtCpf.Text.ElementAt(i);
+
+                    for (int num = 0; num<=9; num ++)
+                    {
+                        if (Convert.ToString(cpf[i]) == Convert.ToString(num))
+                        {
+                            var += 1;
+                        }
+                    }
+                }
+
+                if (var == 11)
                 {
                     lblCpf.Visible = false;
                 }
@@ -188,14 +215,12 @@ namespace Vismo_New_
             }
         }
 
-        private void FrmCadFuncionario_Load(object sender, EventArgs e)
+        //volta para a tela de login se o Form for aberto fora da tela de Gerente
+        private void FrmCadFuncionario_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
-
-            if (funcionario.AchaGerente() == 0)
+            if (Application.OpenForms.OfType<FrmLogGerente>().Count() == 0)
             {
-                comboTipo.Text = "Gerente";
-                comboTipo.Enabled = false;
+                Application.OpenForms["FrmTelaLogin"].Show();
             }
         }
     }

@@ -27,6 +27,8 @@ namespace Vismo_New_
             {
                 FrmCadFuncionario tela = new FrmCadFuncionario();
                 tela.Show();
+
+                Hide();
             }
             else
             {
