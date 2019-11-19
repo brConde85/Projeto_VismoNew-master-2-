@@ -115,8 +115,7 @@ namespace Vismo_New_
         private void txtCpf_Leave(object sender, EventArgs e)
         {
             if (!txtCpf.Text.Equals(""))
-            {
-                double aux = Convert.ToDouble(txtCpf.Text);
+            {                int aux = Convert.ToInt32(txtCpf.Text);
                 string cpf = Convert.ToString(aux);
 
                 if (cpf.Length == 11)
