@@ -120,6 +120,26 @@ namespace Control
                 return cn.ExecuteNonQuery();
             }
         }
+        public int InserirProdutoCasa()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "INSERT INTO produtoCasa ([nome], [preco], [pChave])" +
+                    " VALUES (@nome, @preco, @pChave)";
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
+                cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
+                cn.Parameters.Add("pChave", SqlDbType.VarChar).Value = pchave;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }
+        }
+
 
         //atualiza o produto
         public int Update()
@@ -172,6 +192,37 @@ namespace Control
                 adapter.Fill(dataSet);
 
                 return dataSet;
+            }
+        }
+
+        //faz a listagem de produto contido em Produtos da Casa
+        public DataSet ListarProdCasa(string nome)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM dbo.produtoCasa WHERE lower(nome) like lower('%" + nome + "%') " +
+                    "ORDER BY nome";
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return dataSet;
+                }
+                con.Close();
+                return null;
             }
         }
 

@@ -26,8 +26,42 @@ namespace Vismo_New_
         {
             lblAdicionar.Visible = false;
 
+            //compara se o nome informado está contido em Produto da Casa
+            if (!txtNome.Text.Equals(""))
+            {
+                produto.Nome = txtNome.Text;
+                try
+                {
+                    //chamada do método de listagem de produto
+                    if (produto.ListarProdCasa(produto.Nome) != null)
+                    {
+                        lblFalhaPesquisa2.Visible = false;
+
+                        dataGridView2.AutoGenerateColumns = false;
+
+                        dataGridView2.DataSource = produto.ListarProdCasa(txtNome.Text);
+                        dataGridView2.DataMember = produto.ListarProdCasa(txtNome.Text).Tables[0].TableName;
+                    }
+                    else
+                    {
+                        dataGridView2.DataSource = null;
+
+                        lblFalhaPesquisa2.Visible = true;
+                    }
+
+                    lblFalhaPesquisa1.Visible = false;
+                }
+
+                catch (Exception ex)
+                {
+                    //exibe mensagem em caso de erro
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+
             //compara se o ID de produto foi inserido
-            if (!txtCod.Text.Equals(""))
+            else if (!txtCod.Text.Equals(""))
             {
                 //atribuição do campo de id ao atributo de id do produto
                 produto.Codigo = Convert.ToInt32(txtCod.Text);
@@ -172,6 +206,7 @@ namespace Vismo_New_
                 lblFalhaPesquisa1.Visible = true;
                 lblFalhaPesquisa2.Visible = false;
             }
+
         }
 
         // Ação para adicionar um produto na lista, a um segundo datagrid (automático)
@@ -186,8 +221,39 @@ namespace Vismo_New_
                 }
                 else
                 {
+                    // insere no datagrid1 os valores do datagrid2 que não precisaam de quantidade 
+                    if ((dataGridView2.Rows[0].Cells[3].Value) == null)
+                    {
+                        //-----------------------------------------------
+                        
+                        //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
+                        double preco = Convert.ToDouble(dataGridView2.Rows[0].Cells[2].Value);
+                        preco *= Convert.ToDouble(txtQtd.Text);
+
+                        //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
+                        double soma = Convert.ToDouble(txtTotal.Text) + preco;
+                        txtTotal.Text = soma.ToString("N2");
+
+                        //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
+                        dataGridView1.RowCount += 1;
+
+                        //preenchimento do segundo datagrid com o registro do produto adicionado
+                        for (int i = 0; i < 5; i++)
+                        {
+                            dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                dataGridView2.Rows[0].Cells[i].Value;                            
+                        }
+                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value =
+                                        txtQtd.Text;
+                        //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                        int x = Convert.ToInt32(txtRow.Text) + 1;
+                        txtRow.Text = Convert.ToString(x);
+
+                        //-------------------------------------------------------
+                    }
+
                     //compara se a quantidade em estoque do produto é maior que 0
-                    if (Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) > 0)
+                    else if (Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) > 0) // Aplicação não entra nesse bloco por causa do IF acima
                     {
                         //compara se a o valor presente na caixa de texto de quantidade é maior que 0
                         if (Convert.ToInt32(txtQtd.Text) > 0)
@@ -207,14 +273,33 @@ namespace Vismo_New_
                                 dataGridView1.RowCount += 1;
 
                                 //preenchimento do segundo datagrid com o registro do produto adicionado
-                                for (int i = 0; i < 5; i++)
+                                for (int i = 0; i < 6; i++)
                                 {
-                                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
-                                        dataGridView2.Rows[0].Cells[i].Value;
+                                    if (i < 5)
+                                    {
+                                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                        dataGridView2.CurrentRow.Cells[i].Value;
+                                    }
+                                    else
+                                    {
+                                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                        txtQtd.Text;
+                                    }
                                 }
-                                dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
 
-                                dataGridView2.Rows[0].Cells[3].Value = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) - Convert.ToInt32(txtQtd.Text);
+                                //dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+
+
+                                if (dataGridView2.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value != null)
+                                {
+                                    dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) -
+                                        Convert.ToInt32(txtQtd.Text);
+                                }
+                                //else
+                                //{
+                                //    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+                                //}
+
                                 txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
 
                                 //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
@@ -247,55 +332,108 @@ namespace Vismo_New_
         // Ação para adicionar um produto na lista, a um segundo datagrid (por clique de célula)
         private void DataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //compara se a quantidade em estoque do produto é maior que 0
-            if (Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) > 0)
+            if (dataGridView2.DataSource != null)
             {
-                //compara se a o valor presente na caixa de texto de quantidade é maior que 0
-                if (Convert.ToInt32(txtQtd.Text) > 0)
+                // insere no datagrid2 os valores do datagrid1 que não precisaam de quantidade 
+                if ((dataGridView2.CurrentRow.Cells[3].Value) == null)
                 {
-                    //existe um campo no segundo datagrid que guarda a quantidade de peças de produtos que serão vendidas
-                    if (Convert.ToInt32(txtQtd.Text) <= Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value))
+                    //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
+                    double preco = Convert.ToDouble(dataGridView2.CurrentRow.Cells[2].Value);
+                    preco *= Convert.ToDouble(txtQtd.Text);
+
+                    //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
+                    double soma = Convert.ToDouble(txtTotal.Text) + preco;
+                    txtTotal.Text = soma.ToString("N2");
+
+                    //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
+                    dataGridView1.RowCount += 1;
+
+                    //preenchimento do segundo datagrid com o registro do produto adicionado
+                    for (int i = 0; i < 5; i++)
                     {
-                        //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
-                        double preco = Convert.ToDouble(dataGridView2.CurrentRow.Cells[2].Value);
-                        preco *= Convert.ToDouble(txtQtd.Text);
+                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                            dataGridView2.CurrentRow.Cells[i].Value;
+                    }
+                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value =
+                                        txtQtd.Text;
+                    //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                    int x = Convert.ToInt32(txtRow.Text) + 1;
+                    txtRow.Text = Convert.ToString(x);
+                }
 
-                        //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
-                        double soma = Convert.ToDouble(txtTotal.Text) + preco;
-                        txtTotal.Text = soma.ToString("N2");
-
-                        //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
-                        dataGridView1.RowCount += 1;
-
-                        //preenchimento do segundo datagrid com o registro do produto adicionado
-                        for (int i = 0; i < 5; i++)
+                //compara se a quantidade em estoque do produto é maior que 0
+                else if (Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) > 0)
+                {
+                    //compara se a o valor presente na caixa de texto de quantidade é maior que 0
+                    if (Convert.ToInt32(txtQtd.Text) > 0)
+                    {
+                        //existe um campo no segundo datagrid que guarda a quantidade de peças de produtos que serão vendidas
+                        if (Convert.ToInt32(txtQtd.Text) <= Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value))
                         {
-                            dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
-                                dataGridView2.CurrentRow.Cells[i].Value;
+                            //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
+                            double preco = Convert.ToDouble(dataGridView2.CurrentRow.Cells[2].Value);
+                            preco *= Convert.ToDouble(txtQtd.Text);
+
+                            //a variável "soma" soma o valor presente no campo de Total com o preço do novo produto 
+                            double soma = Convert.ToDouble(txtTotal.Text) + preco;
+                            txtTotal.Text = soma.ToString("N2");
+
+                            //adiciona um campo vazio no datagrid responsável por guardar os registros da venda
+                            dataGridView1.RowCount += 1;
+
+                            //preenchimento do segundo datagrid com o registro do produto adicionado
+                            for (int i = 0; i < 6; i++)
+                            {
+                                if (i <= 4)
+                                {
+                                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
+                                   dataGridView2.CurrentRow.Cells[i].Value;
+                                }
+                                else
+                                {
+                                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+
+                                }
+
+                            }
+                            //dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+                            
+
+                            if (dataGridView2.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value != null)
+                            {
+                                dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) -
+                                    Convert.ToInt32(txtQtd.Text);
+                            }
+                            //else
+                            //{
+                            //    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+                            //}
+                            
+                            txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
+
+                            //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                            int x = Convert.ToInt32(txtRow.Text) + 1;
+                            txtRow.Text = Convert.ToString(x);
                         }
-                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-
-                        dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) - Convert.ToInt32(txtQtd.Text);
-                        txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
-
-                        //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
-                        int x = Convert.ToInt32(txtRow.Text) + 1;
-                        txtRow.Text = Convert.ToString(x);
+                        else
+                        {
+                            MessageBox.Show("Quantidade superior a presente em estoque.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Quantidade superior a presente em estoque.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Insira uma quantidade válida antes de continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Insira uma quantidade válida antes de continuar.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //exibe mensagem caso o produto estiver em falta
+                    MessageBox.Show("Produto em falta nos registros, não é possível adicioná-lo na fila", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                //exibe mensagem caso o produto estiver em falta
-                MessageBox.Show("Produto em falta nos registros, não é possível adicioná-lo na fila", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblAdicionar.Visible = true;
             }
         }
 
@@ -405,7 +543,9 @@ namespace Vismo_New_
                             ItemDeVenda ivenda = new ItemDeVenda();
                             ivenda.IdVenda = venda.Codigo;
 
+                            ivenda.IdProdCasa = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
                             ivenda.IdProduto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                            
                             ivenda.Qtd = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
 
                             if (ivenda.Inserir() == 1)
@@ -414,7 +554,12 @@ namespace Vismo_New_
 
                                 //atualizando a quantidade em estoque dos produtos
                                 produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
-                                produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
+
+                                if (Convert.ToString(dataGridView1.Rows[i].Cells[4].Value) != "Produto da casa")
+                                {
+                                    produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
+                                }
+                               
                             }
                             else
                             {

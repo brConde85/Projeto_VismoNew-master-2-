@@ -324,5 +324,11 @@ namespace Vismo_New_
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
         }
+
+        private void ProdutoDaCasaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNovoProdutoCasa tela = new FrmNovoProdutoCasa();
+            tela.Show();
+        }
     } 
 }

@@ -25,15 +25,19 @@ CONSTRAINT FK_codFornecedor FOREIGN KEY (codFornecedor)
 );
 
 CREATE TABLE produto_venda(
-codigoProduto INT NOT NULL,
+codigoProduto INT,
 codigoVenda INT NOT NULL,
 quantidade INT NOT NULL,
+codigoProdCasa INT,
 
 CONSTRAINT FK_codProduto FOREIGN KEY (codigoProduto)
 	REFERENCES dbo.produto (codigo),
 
-	CONSTRAINT FK_codVenda FOREIGN KEY (codigoVenda)
-	REFERENCES dbo.venda (codigo)
+CONSTRAINT FK_codVenda FOREIGN KEY (codigoVenda)
+	REFERENCES dbo.venda (codigo),
+
+CONSTRAINT FK_codProdCasa FOREIGN KEY (codigoProdCasa)
+	REFERENCES dbo.produtoCasa (codigo)
 );
 
 CREATE TABLE funcionario(
@@ -56,7 +60,16 @@ codFornecedor INT NOT NULL,
 CONSTRAINT codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
+create table produtoCasa(
+codigo INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+nome NVARCHAR(50) NOT NULL,
+preco FLOAT NOT NULL,
+pChave NVARCHAR(50) NOT NULL
+);
 
+drop table dbo.produto_venda
+select* from dbo.produtoCasa
 
-	
-
+SELECT * FROM dbo.produtoCasa WHERE lower(nome) like lower('%Refresco%') 
+select * from produto where lower(nome) like lower('%est%')
+SELECT * FROM dbo.produtoCasa WHERE lower(nome) like lower('%ref%') ORDER BY nome
