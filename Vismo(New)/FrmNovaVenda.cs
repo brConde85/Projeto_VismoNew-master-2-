@@ -21,45 +21,82 @@ namespace Vismo_New_
             InitializeComponent();
         }
 
+        //método usado para atualizar quantidade em estoque de produto conforme for adiconado na fila
+        public void AtualizaQtd()
+        {
+            if (txtRow.Value != 0)
+            {
+                int aux = 0;
+                int qtd;
+
+                for (int i = 0; i < txtRow.Value; i++)
+                {
+                    if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) ==
+                        Convert.ToString(dataGridView2.Rows[0].Cells[0].Value))
+                    {
+                        aux += Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
+
+                        if (i == txtRow.Value - 1)
+                        {
+                            qtd = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value);
+                            qtd -= aux;
+                            dataGridView2.Rows[0].Cells[3].Value = qtd;
+                        }
+                    }
+                }
+            }
+        }
+
+
         // Ação para pesquisar um produto já registrado
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             lblAdicionar.Visible = false;
 
             //compara se o nome informado está contido em Produto da Casa
-            if (!txtNome.Text.Equals(""))
+            if (lblOpPesquisa.Text == "3")
             {
-                produto.Nome = txtNome.Text;
-                try
+                if (!txtNome.Text.Equals(""))
                 {
-                    //chamada do método de listagem de produto
-                    if (produto.ListarProdCasa(produto.Nome) != null)
+                    lblFalhaPesquisa3.Visible = false;
+
+                    produto.Nome = txtNome.Text;
+
+                    try
                     {
-                        lblFalhaPesquisa2.Visible = false;
+                        //chamada do método de listagem de produto
+                        if (produto.ListarProdCasa(produto.Nome) != null)
+                        {
+                            lblFalhaPesquisa2.Visible = false;
 
-                        dataGridView2.AutoGenerateColumns = false;
+                            dataGridView2.AutoGenerateColumns = false;
 
-                        dataGridView2.DataSource = produto.ListarProdCasa(txtNome.Text);
-                        dataGridView2.DataMember = produto.ListarProdCasa(txtNome.Text).Tables[0].TableName;
+                            dataGridView2.DataSource = produto.ListarProdCasa(txtNome.Text);
+                            dataGridView2.DataMember = produto.ListarProdCasa(txtNome.Text).Tables[0].TableName;   
+                        }
+                        else
+                        {
+                            dataGridView2.DataSource = null;
+
+                            lblFalhaPesquisa2.Visible = true;
+                        }
+
+                        lblFalhaPesquisa1.Visible = false;
                     }
-                    else
+
+                    catch (Exception ex)
                     {
-                        dataGridView2.DataSource = null;
-
-                        lblFalhaPesquisa2.Visible = true;
+                        //exibe mensagem em caso de erro
+                        MessageBox.Show(ex.Message);
+                        throw;
                     }
-
-                    lblFalhaPesquisa1.Visible = false;
                 }
-
-                catch (Exception ex)
+                else
                 {
-                    //exibe mensagem em caso de erro
-                    MessageBox.Show(ex.Message);
-                    throw;
+                    lblFalhaPesquisa3.Visible = true;
                 }
             }
-
+            
             //compara se o ID de produto foi inserido
             else if (!txtCod.Text.Equals(""))
             {
@@ -77,6 +114,8 @@ namespace Vismo_New_
                         //chamada do método de listagem de produto
                         dataGridView2.DataSource = produto.Listar1();
                         dataGridView2.DataMember = produto.Listar1().Tables[0].TableName;
+
+                        AtualizaQtd();
                     }
 
                     catch (Exception ex)
@@ -109,6 +148,8 @@ namespace Vismo_New_
 
                         dataGridView2.DataSource = produto.Listar2(txtNome.Text);
                         dataGridView2.DataMember = produto.Listar2(txtNome.Text).Tables[0].TableName;
+
+                        AtualizaQtd();
                     }
                     else
                     {
@@ -144,6 +185,8 @@ namespace Vismo_New_
 
                         dataGridView2.DataSource = produto.Listar4(txtNome.Text);
                         dataGridView2.DataMember = produto.Listar4(txtNome.Text).Tables[0].TableName;
+
+                        AtualizaQtd();
                     }
                     else
                     {
@@ -179,6 +222,8 @@ namespace Vismo_New_
                         //chamada do método de listagem de produto
                         dataGridView2.DataSource = produto.Listar3();
                         dataGridView2.DataMember = produto.Listar3().Tables[0].TableName;
+
+                        AtualizaQtd();
                     }
                     else
                     {
@@ -222,7 +267,7 @@ namespace Vismo_New_
                 else
                 {
                     // insere no datagrid1 os valores do datagrid2 que não precisaam de quantidade 
-                    if ((dataGridView2.Rows[0].Cells[3].Value) == null)
+                    if (dataGridView2.Rows[0].Cells[3].Value == null)
                     {
                         //-----------------------------------------------
                         
@@ -243,8 +288,10 @@ namespace Vismo_New_
                             dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
                                 dataGridView2.Rows[0].Cells[i].Value;                            
                         }
-                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value =
-                                        txtQtd.Text;
+
+                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value = "-";
+                        dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+                       
                         //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
                         int x = Convert.ToInt32(txtRow.Text) + 1;
                         txtRow.Text = Convert.ToString(x);
@@ -287,24 +334,28 @@ namespace Vismo_New_
                                     }
                                 }
 
-                                //dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-
-
-                                if (dataGridView2.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value != null)
-                                {
-                                    dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) -
-                                        Convert.ToInt32(txtQtd.Text);
-                                }
-                                //else
-                                //{
-                                //    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-                                //}
-
-                                txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
-
-                                //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
+                                //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrid
                                 int x = Convert.ToInt32(txtRow.Text) + 1;
                                 txtRow.Text = Convert.ToString(x);
+
+                                int aux;
+                                int qtd = 0;
+
+                                //atualiza a quantidade disponível de produto
+                                for (int i = 0; i < txtRow.Value; i++)
+                                {
+                                    if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) ==
+                                        Convert.ToString(dataGridView2.Rows[0].Cells[0].Value))
+                                    {
+                                        aux = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
+                                        qtd = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value);
+                                        qtd -= aux;  
+                                    }
+                                }
+
+                                dataGridView2.Rows[0].Cells[3].Value = qtd;
+
+                                txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
                             }
                             else
                             {
@@ -335,7 +386,7 @@ namespace Vismo_New_
             if (dataGridView2.DataSource != null)
             {
                 // insere no datagrid2 os valores do datagrid1 que não precisaam de quantidade 
-                if ((dataGridView2.CurrentRow.Cells[3].Value) == null)
+                if (dataGridView2.CurrentRow.Cells[3].Value == null)
                 {
                     //a variável "preco" recebe o valor do produto e é multiplicada pela quantidade que será vendida
                     double preco = Convert.ToDouble(dataGridView2.CurrentRow.Cells[2].Value);
@@ -354,8 +405,10 @@ namespace Vismo_New_
                         dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
                             dataGridView2.CurrentRow.Cells[i].Value;
                     }
-                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value =
-                                        txtQtd.Text;
+
+                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value = "-";
+                    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
+
                     //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
                     int x = Convert.ToInt32(txtRow.Text) + 1;
                     txtRow.Text = Convert.ToString(x);
@@ -387,33 +440,36 @@ namespace Vismo_New_
                                 if (i <= 4)
                                 {
                                     dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
-                                   dataGridView2.CurrentRow.Cells[i].Value;
+                                    dataGridView2.CurrentRow.Cells[i].Value;
                                 }
                                 else
                                 {
                                     dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-
                                 }
-
                             }
-                            //dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-                            
-
-                            if (dataGridView2.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value != null)
-                            {
-                                dataGridView2.CurrentRow.Cells[3].Value = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value) -
-                                    Convert.ToInt32(txtQtd.Text);
-                            }
-                            //else
-                            //{
-                            //    dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-                            //}
-                            
-                            txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
-
+               
                             //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
                             int x = Convert.ToInt32(txtRow.Text) + 1;
                             txtRow.Text = Convert.ToString(x);
+
+                            int aux;
+                            int qtd = 0;
+
+                            //atualiza a quantidade disponível de produto
+                            for (int i = 0; i < txtRow.Value; i++)
+                            {
+                                if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) ==
+                                    Convert.ToString(dataGridView2.Rows[0].Cells[0].Value))
+                                {
+                                    aux = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
+                                    qtd = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value);
+                                    qtd -= aux;
+                                }
+                            }
+
+                            dataGridView2.Rows[0].Cells[3].Value = qtd;
+
+                            txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
                         }
                         else
                         {
@@ -494,27 +550,36 @@ namespace Vismo_New_
         // Ação para remover um produto inserido na lista
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) != "X")
-            {
-                if (MessageBox.Show("Cancelar registro?",
+            if (MessageBox.Show("Cancelar registro?",
                             "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //guarda o valor do preço do produto que será cancelado e sua quantidade
+                double preco = Convert.ToDouble(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value);
+                int qtd = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value);
+                preco *= qtd;
+
+                int x;
+                int aux;
+
+                for (int i = 0; i < dataGridView2.RowCount; i++)
                 {
-                    //guarda o valor do preço do produto que será cancelado e sua quantidade
-                    double preco = Convert.ToDouble(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value);
-                    int qtd = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value);
-                    preco *= qtd;
-
-                    //retira o registro do produto cancelado do segundo datagrig
-                    for (int i = 0; i < 6; i++)
+                    if (Convert.ToString(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value) ==
+                        Convert.ToString(dataGridView2.Rows[i].Cells[0].Value))
                     {
-                        dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[i].Value = "X";
-                    }
+                        x = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value);
+                        aux = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) + x;
 
-                    //subtração do valor total da venda com o produto removido
-                    double total = Convert.ToDouble(txtTotal.Text);
-                    total -= preco;
-                    txtTotal.Text = Convert.ToString(total);
+                        dataGridView2.Rows[0].Cells[3].Value = aux;
+                    }
                 }
+
+                dataGridView1.Rows.RemoveAt(e.RowIndex);
+                txtRow.Value -= 1;
+
+                //subtração do valor total da venda com o produto removido
+                double total = Convert.ToDouble(txtTotal.Text);
+                total -= preco;
+                txtTotal.Text = Convert.ToString(total);
             }
         }
 
@@ -527,26 +592,24 @@ namespace Vismo_New_
 
                 for (int i = 0; i <= Convert.ToInt32(txtRow.Text) - 1; i++)
                 {
-                    if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) != "X")
+                    var += 1;
+
+                    Venda venda = new Venda();
+
+                    venda.Data = DateTime.Now; //pega a data e hora em que foi realizado a venda
+                    venda.Valor = Convert.ToDouble(txtTotal.Text);
+
+                    if (venda.Inserir() == 1)
                     {
-                        var += 1;
+                        venda.PegaId();
 
-                        Venda venda = new Venda();
+                        ItemDeVenda ivenda = new ItemDeVenda();
+                        ivenda.IdVenda = venda.Codigo;
+                        ivenda.Qtd = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
 
-                        venda.Data = DateTime.Now; //pega a data e hora em que foi realizado a venda
-                        venda.Valor = Convert.ToDouble(txtTotal.Text);
-
-                        if (venda.Inserir() == 1)
+                        if (Convert.ToString(dataGridView1.Rows[i].Cells[4].Value) != "Produto da casa")
                         {
-                            venda.PegaId();
-
-                            ItemDeVenda ivenda = new ItemDeVenda();
-                            ivenda.IdVenda = venda.Codigo;
-
-                            ivenda.IdProdCasa = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
                             ivenda.IdProduto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
-                            
-                            ivenda.Qtd = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
 
                             if (ivenda.Inserir() == 1)
                             {
@@ -559,14 +622,38 @@ namespace Vismo_New_
                                 {
                                     produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
                                 }
-                               
+
                             }
                             else
                             {
                                 MessageBox.Show("Erro ao concluir venda.", "Erro",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        } 
+                        }
+                        else
+                        {
+                            ivenda.IdProdCasa = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+
+
+                            if (ivenda.Inserir2() == 1)
+                            {
+                                Produto produto = new Produto();
+
+                                //atualizando a quantidade em estoque dos produtos
+                                produto.Codigo = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+
+                                if (Convert.ToString(dataGridView1.Rows[i].Cells[4].Value) != "Produto da casa")
+                                {
+                                    produto.NovaQtd(Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value));
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao concluir venda.", "Erro",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
 
                     if (i == Convert.ToInt32(txtRow.Text) - 1 && var > 0)
@@ -693,6 +780,16 @@ namespace Vismo_New_
             }
         }
 
+        private void TxtRow_ValueChanged(object sender, EventArgs e)
+        {
+            //desabilita a opção de validar venda e limpa o campo de troco
+            if (txtRow.Value == 0)
+            {
+                btnOk.Enabled = false;
+                txtTroco.Clear();
+            }
+        }
+
 
         // Opções de pesquisa de produto
         private void LblOpcao_MouseEnter(object sender, EventArgs e)
@@ -707,33 +804,69 @@ namespace Vismo_New_
 
         private void LblOpcao_Click(object sender, EventArgs e)
         {
-            if (lblCod.Visible == true)
+            short opcao = Convert.ToInt16(lblOpPesquisa.Text);
+
+            switch (opcao)
             {
-                lblNome.Visible = true;
-                lblChave.Visible = true;
-                txtNome.Visible = true;
-                cboPalavra.Visible = true;
+                case 1:
+                    lblNome.Visible = true;
+                    lblChave.Visible = true;
+                    txtNome.Visible = true;
+                    cboPalavra.Visible = true;
 
-                lblCod.Visible = false;
-                txtCod.Visible = false;
+                    lblCod.Visible = false;
+                    txtCod.Visible = false;
 
-                txtCod.Clear();
+                    txtCod.Clear();
+
+                    lblOpPesquisa.Text = "2";
+
+                    dataGridView2.DataSource = null;
+                    dataGridView2.Columns["QtdEstoque"].Visible = true;
+
+                    break;
+
+                case 2:
+                    txtNome.Clear();
+
+                    cboPalavra.Items.Add("Produto da casa");
+                    cboPalavra.SelectedIndex = 6;
+                    cboPalavra.Enabled = false;
+
+                    lblOpPesquisa.Text = "3";
+
+                    dataGridView2.DataSource = null;
+                    dataGridView2.Columns["QtdEstoque"].Visible = false;
+
+                    break;
+
+                case 3:
+                    lblNome.Visible = false;
+                    lblChave.Visible = false;
+                    txtNome.Visible = false;
+                    cboPalavra.Visible = false;
+
+                    txtNome.Clear();
+
+                    cboPalavra.DropDownStyle = ComboBoxStyle.DropDown;
+                    cboPalavra.Text = "";
+                    cboPalavra.Items.Remove("Produto casa");
+                    cboPalavra.Enabled = true;
+
+                    lblCod.Visible = true;
+                    txtCod.Visible = true;
+
+                    lblOpPesquisa.Text = "1";
+
+                    dataGridView2.DataSource = null;
+                    dataGridView2.Columns["QtdEstoque"].Visible = true;
+
+                    break;
             }
-            else
-            {
-                lblNome.Visible = false;
-                lblChave.Visible = false;
-                txtNome.Visible = false;
-                cboPalavra.Visible = false;
 
-                txtNome.Clear();
-
-                cboPalavra.DropDownStyle = ComboBoxStyle.DropDown;
-                cboPalavra.Text = "";
-
-                lblCod.Visible = true;
-                txtCod.Visible = true;
-            } 
+            lblFalhaPesquisa1.Visible = false;
+            lblFalhaPesquisa2.Visible = false;
+            lblFalhaPesquisa3.Visible = false;
         }
 
         private void CboPalavra_Enter(object sender, EventArgs e)

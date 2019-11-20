@@ -105,7 +105,7 @@ namespace Control
             }
         }
 
-        //insere um item de venda
+        //insere um item de venda para um produto com quantidade em estoque
         public int Inserir()
         {
             using (SqlConnection con = new SqlConnection())
@@ -115,17 +115,18 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "INSERT INTO produto_venda ([codigoProduto], [codigoVenda], [quantidade],[codigoProdCasa])" +
-                    "VALUES (@idProduto, @idVenda, @qtd, @idProdCasa)";
+                cn.CommandText = "INSERT INTO produto_venda ([codigoProduto], [codigoVenda], [quantidade])" +
+                    "VALUES (@idProduto, @idVenda, @qtd)";
                 cn.Parameters.Add("idProduto", SqlDbType.Int).Value = idProduto;
                 cn.Parameters.Add("idVenda", SqlDbType.Int).Value = idVenda;
                 cn.Parameters.Add("qtd", SqlDbType.Int).Value = qtd;
-                cn.Parameters.Add("idProdCasa", SqlDbType.Int).Value = idProdCasa;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
             }
         }
+
+        //insere um item de venda para um produto da casa
         public int Inserir2()
         {
             using (SqlConnection con = new SqlConnection())
@@ -135,9 +136,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "INSERT INTO produto_venda ([codigoProduto], [codigoVenda], [quantidade],[codigoProdCasa])" +
-                    "VALUES (@idProduto, @idVenda, @qtd, @idProdCasa)";
-                cn.Parameters.Add("idProduto", SqlDbType.Int).Value = idProduto;
+                cn.CommandText = "INSERT INTO produto_venda ([codigoVenda], [quantidade], [codigoProdCasa])" +
+                    "VALUES (@idVenda, @qtd, @idProdCasa)";
                 cn.Parameters.Add("idVenda", SqlDbType.Int).Value = idVenda;
                 cn.Parameters.Add("qtd", SqlDbType.Int).Value = qtd;
                 cn.Parameters.Add("idProdCasa", SqlDbType.Int).Value = idProdCasa;
@@ -146,7 +146,6 @@ namespace Control
                 return cn.ExecuteNonQuery();
             }
         }
-
 
         //remove registro de um item de venda
         public void CancelarProdutoVenda()
