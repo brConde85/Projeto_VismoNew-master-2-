@@ -850,7 +850,7 @@ namespace Vismo_New_
 
                     cboPalavra.DropDownStyle = ComboBoxStyle.DropDown;
                     cboPalavra.Text = "";
-                    cboPalavra.Items.Remove("Produto casa");
+                    cboPalavra.Items.Remove("Produto da casa");
                     cboPalavra.Enabled = true;
 
                     lblCod.Visible = true;
