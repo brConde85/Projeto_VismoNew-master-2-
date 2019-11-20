@@ -30,7 +30,8 @@ namespace Vismo_New_
             //caso todos os campos forem preenchidos
             if (!txtNome.Text.Equals("") &&
                 !txtPreco.Text.Equals("") &&
-               (!cboPalavra.Text.Equals("")))
+                !cboPalavra.Text.Equals("") &&
+                lblValor.Visible == false)
             {
                 try
                 {
@@ -64,13 +65,34 @@ namespace Vismo_New_
             else
             {
                 //caso algum campo não for preenchido
-                MessageBox.Show("Preencha todos os campos antes de continuar.");
+                MessageBox.Show("Preencha todos os campos corretamente antes de continuar.");
             }
         }
 
         private void FrmNovoProdutoCasa_Load(object sender, EventArgs e)
         {
             cboPalavra.SelectedIndex = 0;
+        }
+
+        private void TxtPreco_Leave(object sender, EventArgs e)
+        {
+            txtPreco.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            if (!txtPreco.Text.Equals(""))
+            {
+                txtPreco.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                double pago;
+
+                if (Double.TryParse(txtPreco.Text, out pago) == true)
+                {
+                    lblValor.Visible = false;
+                }
+                else
+                {
+                    lblValor.Visible = true;
+                }
+            }
         }
     }
 }

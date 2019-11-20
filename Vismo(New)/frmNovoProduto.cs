@@ -20,6 +20,11 @@ namespace Vismo_New_
         public FrmNovoProduto()
         {
             InitializeComponent();
+
+            FrmListarFornecedor tela = new FrmListarFornecedor();
+
+            tela.StartPosition = FormStartPosition.WindowsDefaultLocation;
+            tela.Show();
         }
 
         // volta ao menu principal
@@ -35,7 +40,8 @@ namespace Vismo_New_
             if (!txtNome.Text.Equals("") &&
                 !txtPreco.Text.Equals("") &&
                 !txtQtd.Text.Equals("") &&
-                (!cboPalavra.Text.Equals("")))
+                !cboPalavra.Text.Equals("") &&
+                lblValor.Visible == false)
             {
                 try
                 {
@@ -72,7 +78,7 @@ namespace Vismo_New_
             else
             {
                 //caso algum campo não for preenchido
-                MessageBox.Show("Preencha todos os campos antes de continuar.");
+                MessageBox.Show("Preencha todos os campos corretamente antes de continuar.");
             }
         }
 
@@ -155,6 +161,27 @@ namespace Vismo_New_
                 e.Handled = true;
             }
         }
+
+        //validação do campo de preço do formulário
+        private void TxtPreco_Leave(object sender, EventArgs e)
+        {
+            txtPreco.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            if (!txtPreco.Text.Equals(""))
+            {
+                txtPreco.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                double pago;
+
+                if (Double.TryParse(txtPreco.Text, out pago) == true)
+                {
+                    lblValor.Visible = false;
+                }
+                else
+                {
+                    lblValor.Visible = true;
+                }
+            } 
+        }
     }
-    
 }

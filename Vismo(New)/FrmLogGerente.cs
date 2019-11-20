@@ -152,6 +152,16 @@ namespace Vismo_New_
         }
 
 
+        private void ProdutoDaCasaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<FrmNovoProdutoCasa>().Count() == 0)
+            {
+                FrmNovoProdutoCasa tela = new FrmNovoProdutoCasa();
+                tela.Show();
+            }
+        }
+
+
 
         //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
@@ -241,6 +251,11 @@ namespace Vismo_New_
                 Application.OpenForms["FrmModoAutonomo"].Close();
             }
 
+            if (Application.OpenForms.OfType<FrmNovoProdutoCasa>().Count() == 1)
+            {
+                Application.OpenForms["FrmNovoProdutoCasa"].Close();
+            }
+
             if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAusente2>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 0)
@@ -323,12 +338,6 @@ namespace Vismo_New_
 
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
-        }
-
-        private void ProdutoDaCasaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmNovoProdutoCasa tela = new FrmNovoProdutoCasa();
-            tela.Show();
         }
     } 
 }

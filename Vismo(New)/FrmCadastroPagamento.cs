@@ -104,5 +104,26 @@ namespace Vismo_New_
                 e.Handled = true;
             }
         }
+
+        private void TxtValor_Leave(object sender, EventArgs e)
+        {
+            txtValor.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
+            if (!txtValor.Text.Equals(""))
+            {
+                txtValor.TextMaskFormat = MaskFormat.IncludeLiterals;
+
+                double pago;
+
+                if (Double.TryParse(txtValor.Text, out pago) == true)
+                {
+                    lblValor.Visible = false;
+                }
+                else
+                {
+                    lblValor.Visible = true;
+                }
+            }
+        }
     }
 }

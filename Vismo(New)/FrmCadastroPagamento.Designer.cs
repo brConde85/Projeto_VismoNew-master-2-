@@ -44,6 +44,7 @@
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblValor = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -130,6 +131,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(88, 20);
             this.txtValor.TabIndex = 0;
+            this.txtValor.Leave += new System.EventHandler(this.TxtValor_Leave);
             // 
             // label4
             // 
@@ -216,11 +218,24 @@
             this.pictureBox3.TabIndex = 78;
             this.pictureBox3.TabStop = false;
             // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Tw Cen MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValor.ForeColor = System.Drawing.Color.Red;
+            this.lblValor.Location = new System.Drawing.Point(106, 160);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(74, 15);
+            this.lblValor.TabIndex = 79;
+            this.lblValor.Text = "Valor inválido";
+            this.lblValor.Visible = false;
+            // 
             // FrmCadastroPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 385);
+            this.Controls.Add(this.lblValor);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnVoltar);
@@ -268,5 +283,6 @@
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblValor;
     }
 }

@@ -67,9 +67,7 @@ preco FLOAT NOT NULL,
 pChave NVARCHAR(50) NOT NULL
 );
 
-drop table dbo.produto_venda
-select* from dbo.produtoCasa
+select * from dbo.produtoCasa;
+select * from produto_venda;
 
-SELECT * FROM dbo.produtoCasa WHERE lower(nome) like lower('%Refresco%') 
-select * from produto where lower(nome) like lower('%est%')
-SELECT * FROM dbo.produtoCasa WHERE lower(nome) like lower('%ref%') ORDER BY nome
+select * from venda

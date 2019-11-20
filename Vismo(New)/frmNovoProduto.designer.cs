@@ -46,9 +46,12 @@
             this.cboPalavra = new System.Windows.Forms.ComboBox();
             this.txtFornec = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.db_lojaDataSet1 = new Vismo_New_.db_lojaDataSet();
+            this.lblValor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_lojaDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -71,6 +74,7 @@
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(63, 20);
             this.txtPreco.TabIndex = 2;
+            this.txtPreco.Leave += new System.EventHandler(this.TxtPreco_Leave);
             // 
             // btnOk
             // 
@@ -188,6 +192,7 @@
             this.txtQtd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtQtd.Enabled = false;
             this.txtQtd.Location = new System.Drawing.Point(227, 250);
+            this.txtQtd.MaxLength = 4;
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(40, 20);
             this.txtQtd.TabIndex = 3;
@@ -239,7 +244,7 @@
             this.txtFornec.Location = new System.Drawing.Point(130, 127);
             this.txtFornec.Name = "txtFornec";
             this.txtFornec.Size = new System.Drawing.Size(130, 20);
-            this.txtFornec.TabIndex = 10;
+            this.txtFornec.TabIndex = 0;
             this.txtFornec.Leave += new System.EventHandler(this.TxtFornec_Leave);
             // 
             // pictureBox3
@@ -255,11 +260,29 @@
             this.pictureBox3.TabIndex = 72;
             this.pictureBox3.TabStop = false;
             // 
+            // db_lojaDataSet1
+            // 
+            this.db_lojaDataSet1.DataSetName = "db_lojaDataSet";
+            this.db_lojaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Font = new System.Drawing.Font("Tw Cen MT", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValor.ForeColor = System.Drawing.Color.Red;
+            this.lblValor.Location = new System.Drawing.Point(535, 217);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(74, 15);
+            this.lblValor.TabIndex = 73;
+            this.lblValor.Text = "Valor inválido";
+            this.lblValor.Visible = false;
+            // 
             // FrmNovoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 385);
+            this.Controls.Add(this.lblValor);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox2);
@@ -285,6 +308,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_lojaDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +333,7 @@
         private System.Windows.Forms.ComboBox cboPalavra;
         private System.Windows.Forms.TextBox txtFornec;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private db_lojaDataSet db_lojaDataSet1;
+        private System.Windows.Forms.Label lblValor;
     }
 }
