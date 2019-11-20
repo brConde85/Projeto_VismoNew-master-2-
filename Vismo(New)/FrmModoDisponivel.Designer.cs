@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModoDisponivel));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -37,9 +38,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(179, 427);
+            this.button1.Location = new System.Drawing.Point(268, 657);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 6;
             this.button1.Text = "Confirmar";
             this.button1.UseVisualStyleBackColor = true;
@@ -49,9 +51,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 109);
+            this.label1.Location = new System.Drawing.Point(10, 168);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 22);
+            this.label1.Size = new System.Drawing.Size(123, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "Disponível";
             this.label1.MouseLeave += new System.EventHandler(this.Label1_MouseLeave);
@@ -60,30 +63,32 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Vismo_New_.Properties.Resources.Green_texture_paper_1920x1200;
-            this.pictureBox1.Location = new System.Drawing.Point(-39, -19);
+            this.pictureBox1.Location = new System.Drawing.Point(-58, -29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(431, 112);
+            this.pictureBox1.Size = new System.Drawing.Size(646, 172);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(240, 109);
+            this.txtLogin.Location = new System.Drawing.Point(360, 168);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtLogin.Size = new System.Drawing.Size(148, 26);
             this.txtLogin.TabIndex = 7;
             this.txtLogin.Visible = false;
             // 
             // FrmModoDisponivel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 462);
+            this.ClientSize = new System.Drawing.Size(528, 711);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmModoDisponivel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modo Disponível - Vismo";

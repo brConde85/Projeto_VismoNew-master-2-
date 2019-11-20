@@ -459,15 +459,15 @@ namespace Vismo_New_
                             for (int i = 0; i < txtRow.Value; i++)
                             {
                                 if (Convert.ToString(dataGridView1.Rows[i].Cells[0].Value) ==
-                                    Convert.ToString(dataGridView2.Rows[0].Cells[0].Value))
+                                    Convert.ToString(dataGridView2.CurrentRow.Cells[0].Value))
                                 {
                                     aux = Convert.ToInt32(dataGridView1.Rows[i].Cells[5].Value);
-                                    qtd = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value);
+                                    qtd = Convert.ToInt32(dataGridView2.CurrentRow.Cells[3].Value);
                                     qtd -= aux;
                                 }
                             }
 
-                            dataGridView2.Rows[0].Cells[3].Value = qtd;
+                            dataGridView2.CurrentRow.Cells[3].Value = qtd;
 
                             txtQtd.Text = "1"; //resseta a quantidade de produto a ser vendida
                         }
@@ -567,9 +567,9 @@ namespace Vismo_New_
                         Convert.ToString(dataGridView2.Rows[i].Cells[0].Value))
                     {
                         x = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[5].Value);
-                        aux = Convert.ToInt32(dataGridView2.Rows[0].Cells[3].Value) + x;
+                        aux = Convert.ToInt32(dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[3].Value) + x;
 
-                        dataGridView2.Rows[0].Cells[3].Value = aux;
+                        dataGridView2.Rows[dataGridView2.CurrentRow.Index].Cells[3].Value = aux;
                     }
                 }
 

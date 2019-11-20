@@ -32,6 +32,7 @@
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtoDaCasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,6 @@
             this.pcbDisponivel = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.produtoDaCasaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -105,15 +105,22 @@
             // 
             this.produtoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.ProdutoToolStripMenuItem_Click);
+            // 
+            // produtoDaCasaToolStripMenuItem
+            // 
+            this.produtoDaCasaToolStripMenuItem.Name = "produtoDaCasaToolStripMenuItem";
+            this.produtoDaCasaToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
+            this.produtoDaCasaToolStripMenuItem.Text = "Produto da Casa";
+            this.produtoDaCasaToolStripMenuItem.Click += new System.EventHandler(this.ProdutoDaCasaToolStripMenuItem_Click);
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
@@ -121,7 +128,7 @@
             // 
             this.fornecedorToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.FornecedorToolStripMenuItem_Click);
             // 
@@ -129,7 +136,7 @@
             // 
             this.pagamentoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.pagamentoToolStripMenuItem.Name = "pagamentoToolStripMenuItem";
-            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(246, 34);
             this.pagamentoToolStripMenuItem.Text = "Pagamento";
             this.pagamentoToolStripMenuItem.Click += new System.EventHandler(this.pagamentoToolStripMenuItem_Click);
             // 
@@ -234,7 +241,6 @@
             this.modosDoGerenteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1924, 33);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
@@ -466,13 +472,6 @@
             this.txtLogin.TabIndex = 86;
             this.txtLogin.Visible = false;
             // 
-            // produtoDaCasaToolStripMenuItem
-            // 
-            this.produtoDaCasaToolStripMenuItem.Name = "produtoDaCasaToolStripMenuItem";
-            this.produtoDaCasaToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.produtoDaCasaToolStripMenuItem.Text = "Produto da Casa";
-            this.produtoDaCasaToolStripMenuItem.Click += new System.EventHandler(this.ProdutoDaCasaToolStripMenuItem_Click);
-            // 
             // FrmLogGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -492,6 +491,7 @@
             this.Controls.Add(this.pcbAusente);
             this.Controls.Add(this.pcbDisponivel);
             this.Controls.Add(this.pictureBox11);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogGerente";
             this.Text = "Menu Principal (Gerente) - Vismo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
