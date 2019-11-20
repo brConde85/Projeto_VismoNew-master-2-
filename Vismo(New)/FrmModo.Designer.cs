@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmModo));
             this.lblAut = new System.Windows.Forms.Label();
             this.lblAus = new System.Windows.Forms.Label();
             this.lblDis = new System.Windows.Forms.Label();
@@ -57,10 +58,9 @@
             this.lblAut.BackColor = System.Drawing.Color.DodgerBlue;
             this.lblAut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAut.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F);
-            this.lblAut.Location = new System.Drawing.Point(153, 154);
-            this.lblAut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAut.Location = new System.Drawing.Point(230, 237);
             this.lblAut.Name = "lblAut";
-            this.lblAut.Size = new System.Drawing.Size(124, 28);
+            this.lblAut.Size = new System.Drawing.Size(180, 40);
             this.lblAut.TabIndex = 84;
             this.lblAut.Text = "Autônomo";
             this.lblAut.Click += new System.EventHandler(this.LblAut_Click);
@@ -71,10 +71,9 @@
             this.lblAus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(82)))));
             this.lblAus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAus.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F);
-            this.lblAus.Location = new System.Drawing.Point(153, 217);
-            this.lblAus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAus.Location = new System.Drawing.Point(230, 334);
             this.lblAus.Name = "lblAus";
-            this.lblAus.Size = new System.Drawing.Size(101, 28);
+            this.lblAus.Size = new System.Drawing.Size(147, 40);
             this.lblAus.TabIndex = 83;
             this.lblAus.Text = "Ausente";
             this.lblAus.Click += new System.EventHandler(this.LblAus_Click);
@@ -85,10 +84,9 @@
             this.lblDis.BackColor = System.Drawing.Color.YellowGreen;
             this.lblDis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDis.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDis.Location = new System.Drawing.Point(152, 95);
-            this.lblDis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDis.Location = new System.Drawing.Point(228, 146);
             this.lblDis.Name = "lblDis";
-            this.lblDis.Size = new System.Drawing.Size(125, 28);
+            this.lblDis.Size = new System.Drawing.Size(183, 40);
             this.lblDis.TabIndex = 82;
             this.lblDis.Text = "Disponível";
             this.lblDis.Click += new System.EventHandler(this.LblDis_Click);
@@ -97,10 +95,9 @@
             // 
             this.pcb2Aus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb2Aus.Image = global::Vismo_New_.Properties.Resources.background_amarelo_textura_6;
-            this.pcb2Aus.Location = new System.Drawing.Point(115, 214);
-            this.pcb2Aus.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb2Aus.Location = new System.Drawing.Point(172, 329);
             this.pcb2Aus.Name = "pcb2Aus";
-            this.pcb2Aus.Size = new System.Drawing.Size(33, 32);
+            this.pcb2Aus.Size = new System.Drawing.Size(50, 49);
             this.pcb2Aus.TabIndex = 81;
             this.pcb2Aus.TabStop = false;
             this.pcb2Aus.Click += new System.EventHandler(this.Pcb2Aus_Click);
@@ -109,10 +106,9 @@
             // 
             this.pcb2Aut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb2Aut.Image = global::Vismo_New_.Properties.Resources.thumb2_blue_texture_background_blue_paint_texture_painted_wall_stone_texture;
-            this.pcb2Aut.Location = new System.Drawing.Point(115, 154);
-            this.pcb2Aut.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb2Aut.Location = new System.Drawing.Point(172, 237);
             this.pcb2Aut.Name = "pcb2Aut";
-            this.pcb2Aut.Size = new System.Drawing.Size(33, 32);
+            this.pcb2Aut.Size = new System.Drawing.Size(50, 49);
             this.pcb2Aut.TabIndex = 80;
             this.pcb2Aut.TabStop = false;
             this.pcb2Aut.Click += new System.EventHandler(this.Pcb2Aut_Click);
@@ -121,10 +117,9 @@
             // 
             this.pcb2Dis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb2Dis.Image = global::Vismo_New_.Properties.Resources.Green_texture_paper_1920x1200;
-            this.pcb2Dis.Location = new System.Drawing.Point(114, 93);
-            this.pcb2Dis.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb2Dis.Location = new System.Drawing.Point(171, 143);
             this.pcb2Dis.Name = "pcb2Dis";
-            this.pcb2Dis.Size = new System.Drawing.Size(33, 32);
+            this.pcb2Dis.Size = new System.Drawing.Size(50, 49);
             this.pcb2Dis.TabIndex = 79;
             this.pcb2Dis.TabStop = false;
             this.pcb2Dis.Click += new System.EventHandler(this.Pcb2Dis_Click);
@@ -133,10 +128,9 @@
             // 
             this.pcb1Dis.BackColor = System.Drawing.Color.YellowGreen;
             this.pcb1Dis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb1Dis.Location = new System.Drawing.Point(109, 82);
-            this.pcb1Dis.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb1Dis.Location = new System.Drawing.Point(164, 126);
             this.pcb1Dis.Name = "pcb1Dis";
-            this.pcb1Dis.Size = new System.Drawing.Size(173, 52);
+            this.pcb1Dis.Size = new System.Drawing.Size(260, 80);
             this.pcb1Dis.TabIndex = 85;
             this.pcb1Dis.TabStop = false;
             this.pcb1Dis.Click += new System.EventHandler(this.Pcb1Dis_Click);
@@ -145,10 +139,9 @@
             // 
             this.pcb1Aut.BackColor = System.Drawing.Color.DodgerBlue;
             this.pcb1Aut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb1Aut.Location = new System.Drawing.Point(110, 144);
-            this.pcb1Aut.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb1Aut.Location = new System.Drawing.Point(165, 222);
             this.pcb1Aut.Name = "pcb1Aut";
-            this.pcb1Aut.Size = new System.Drawing.Size(173, 52);
+            this.pcb1Aut.Size = new System.Drawing.Size(260, 80);
             this.pcb1Aut.TabIndex = 86;
             this.pcb1Aut.TabStop = false;
             this.pcb1Aut.Click += new System.EventHandler(this.Pcb1Aut_Click);
@@ -157,10 +150,9 @@
             // 
             this.pcb1Aus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(82)))));
             this.pcb1Aus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb1Aus.Location = new System.Drawing.Point(108, 205);
-            this.pcb1Aus.Margin = new System.Windows.Forms.Padding(2);
+            this.pcb1Aus.Location = new System.Drawing.Point(162, 315);
             this.pcb1Aus.Name = "pcb1Aus";
-            this.pcb1Aus.Size = new System.Drawing.Size(175, 52);
+            this.pcb1Aus.Size = new System.Drawing.Size(262, 80);
             this.pcb1Aus.TabIndex = 87;
             this.pcb1Aus.TabStop = false;
             this.pcb1Aus.Click += new System.EventHandler(this.Pcb1Aus_Click);
@@ -170,10 +162,9 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(-775, 279);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Location = new System.Drawing.Point(-1162, 429);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1926, 26);
+            this.pictureBox2.Size = new System.Drawing.Size(2888, 39);
             this.pictureBox2.TabIndex = 88;
             this.pictureBox2.TabStop = false;
             // 
@@ -182,10 +173,9 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = global::Vismo_New_.Properties.Resources.Logo21;
-            this.pictureBox1.Location = new System.Drawing.Point(-13, 249);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(-20, 383);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 21);
+            this.pictureBox1.Size = new System.Drawing.Size(213, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 89;
             this.pictureBox1.TabStop = false;
@@ -194,25 +184,27 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT Condensed", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 28);
+            this.label2.Location = new System.Drawing.Point(18, 43);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 31);
+            this.label2.Size = new System.Drawing.Size(247, 47);
             this.label2.TabIndex = 90;
             this.label2.Text = "Modos de Gerente:";
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(266, 12);
+            this.txtLogin.Location = new System.Drawing.Point(399, 18);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtLogin.Size = new System.Drawing.Size(148, 26);
             this.txtLogin.TabIndex = 91;
             this.txtLogin.Visible = false;
             // 
             // FrmModo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 297);
+            this.ClientSize = new System.Drawing.Size(567, 457);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
@@ -226,6 +218,8 @@
             this.Controls.Add(this.pcb1Aut);
             this.Controls.Add(this.pcb1Aus);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmModo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modos de Gerente - Vismo";
