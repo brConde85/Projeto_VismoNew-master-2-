@@ -286,12 +286,12 @@ namespace Vismo_New_
                         for (int i = 0; i < 5; i++)
                         {
                             dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[i].Value =
-                                dataGridView2.Rows[0].Cells[i].Value;                            
+                                dataGridView2.Rows[0].Cells[i].Value;
                         }
 
                         dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[3].Value = "-";
                         dataGridView1.Rows[Convert.ToInt32(txtRow.Text)].Cells[5].Value = txtQtd.Text;
-                       
+
                         //txtRow é um texbox não visível que guarda o número de linhas existenes no segundo datagrig
                         int x = Convert.ToInt32(txtRow.Text) + 1;
                         txtRow.Text = Convert.ToString(x);
