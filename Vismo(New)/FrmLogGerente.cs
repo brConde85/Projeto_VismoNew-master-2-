@@ -165,7 +165,7 @@ namespace Vismo_New_
 
         //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
-        {               
+        {
             if (Application.OpenForms.OfType<FrmNovoProduto>().Count() == 1)
             {
                 Application.OpenForms["FrmNovoProduto"].Close();
@@ -236,7 +236,7 @@ namespace Vismo_New_
                 Application.OpenForms["FrmModoDisponivel"].Close();
             }
 
-            if(Application.OpenForms.OfType<FrmModoAusente>().Count() == 1)
+            if (Application.OpenForms.OfType<FrmModoAusente>().Count() == 1)
             {
                 Application.OpenForms["FrmModoAusente"].Close();
             }
@@ -256,12 +256,17 @@ namespace Vismo_New_
                 Application.OpenForms["FrmNovoProdutoCasa"].Close();
             }
 
+            if (Application.OpenForms.OfType<Frm_logGerenteAjuda>().Count() == 1)
+            {
+                Application.OpenForms["Frm_logGerenteAjuda"].Close();
+            }
+
             if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAusente2>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 0)
             {
                 Application.OpenForms["FrmTelaLogin"].Show();
-            } 
+            }
         }
 
 
@@ -338,6 +343,15 @@ namespace Vismo_New_
 
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
+        }
+
+        private void SobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Frm_logGerenteAjuda>().Count() == 0)
+            {
+                Frm_logGerenteAjuda tela = new Frm_logGerenteAjuda();
+                tela.Show();
+            }  
         }
     } 
 }

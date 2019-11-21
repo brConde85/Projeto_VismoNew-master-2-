@@ -117,62 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="oie_transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oie_transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Green-texture-paper_1920x1200" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Green-texture-paper_1920x1200.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_87873200-stock-photo-yellow-background-texture1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_87873200-stock-photo-yellow-background-texture1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red-exclamation-point-button-henrik-lehnerer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red-exclamation-point-button-henrik-lehnerer.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="help" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background-amarelo-textura-6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background-amarelo-textura-6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_122114868-stock-photo-yellow-grunge-wall-for-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oie_transparent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oie_transparent1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="depositphotos_87873200-stock-photo-yellow-background-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\depositphotos_87873200-stock-photo-yellow-background-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seta-direita-azul-200x200px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seta-direita-azul-200x200px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Untitled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Seta-direita-azul-200x200px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seta-direita-azul-200x200px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thumb2-blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="olho" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\olho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tela loguin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tela loguin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Untitled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Untitled1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="oie_transparent2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oie_transparent2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Você está no formulário de nova venda do programa, aonde registrar
+uma nova venda.
+
+Os produtos que você pesquisar irão aparecer nop campo da esquerda;
+existem 3 formas de pesquisa de produto:
+
+1 - Pesquisa de produto por código;
+2 - Pesquisa por nome e palavra-chave de produto;
+3 - Pesquisa por nome de produtos sem quantidade fixa em estoque
+(produtos da casa) ;
+
+  Após encontrar um produto correspondente daquela venda, você pode
+adicioná-lo no campo da direita. Certifique de que a quantidade
+que irá adicionar está correta e se não excede a presente em estoque,
+produtos da casa são desconsiderados essa parte.
+  Se existir mais de um produto no campo de pesquisa você deve
+selecionar o próprio campo qual irá ser adicionado com um duplo
+clique em seu registro.
+  Para remover um produto no campo da direita, basta dar um duplo
+clique no egistro que deseja remover e confirmar a ação.
+
+Após ter informado todos os produtos, basta informar o valor pago e
+validar a venda, será calculado o valor do troco e, se for validado
+a opção de concluir a venda ficará habilitada.</value>
   </data>
 </root>

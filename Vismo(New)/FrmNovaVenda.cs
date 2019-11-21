@@ -921,5 +921,24 @@ namespace Vismo_New_
         {
             lblAdicionar.Visible = false;
         }
+
+
+
+        private void SobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Frm_novaVendaAjuda>().Count() == 0)
+            {
+                Frm_novaVendaAjuda tela = new Frm_novaVendaAjuda();
+                tela.Show();
+            }  
+        }
+
+        private void FrmNovaVenda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms.OfType<Frm_novaVendaAjuda>().Count() == 1)
+            {
+                Application.OpenForms["Frm_novaVendaAjuda"].Close();
+            }
+        }
     }
 }

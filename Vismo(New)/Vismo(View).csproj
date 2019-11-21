@@ -194,6 +194,18 @@
     <Compile Include="FrmTelaLogin.Designer.cs">
       <DependentUpon>FrmTelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_logGerenteAjuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_logGerenteAjuda.Designer.cs">
+      <DependentUpon>Frm_logGerenteAjuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_novaVendaAjuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_novaVendaAjuda.Designer.cs">
+      <DependentUpon>Frm_novaVendaAjuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAtualizarProduto.resx">
@@ -264,6 +276,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTelaLogin.resx">
       <DependentUpon>FrmTelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_logGerenteAjuda.resx">
+      <DependentUpon>Frm_logGerenteAjuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_novaVendaAjuda.resx">
+      <DependentUpon>Frm_novaVendaAjuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -355,6 +373,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oie_transparent2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
