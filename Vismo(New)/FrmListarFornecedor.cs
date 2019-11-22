@@ -34,6 +34,29 @@ namespace Vismo_New_
         }
 
 
+        //tratamento do Form para opção de editar registro
+        private void FrmListarFornecedor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtNome.Focused == false)
+            {
+                EditarRegistro();
+            }
+        }
+
+        //tratamento de interface
+        private void LblRegistro_Click(object sender, EventArgs e)
+        {
+            FrmListarFornecedor_Load(sender, e);
+
+            lblRegistro.Visible = false;
+            lblNome.Visible = false;
+            lblEncontrado.Visible = false;
+
+            txtNome.Clear();
+            txtNome.Focus();
+        }
+
+
         //lista todos os fornecedore registrados
         private void FrmListarFornecedor_Load(object sender, EventArgs e)
         {
@@ -113,26 +136,6 @@ namespace Vismo_New_
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void FrmListarFornecedor_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter && txtNome.Focused == false)
-            {
-                EditarRegistro();  
-            }
-        }
-
-        private void LblRegistro_Click(object sender, EventArgs e)
-        {
-            FrmListarFornecedor_Load(sender, e);
-
-            lblRegistro.Visible = false;
-            lblNome.Visible = false;
-            lblEncontrado.Visible = false;
-
-            txtNome.Clear();
-            txtNome.Focus();
         }
     }
 }

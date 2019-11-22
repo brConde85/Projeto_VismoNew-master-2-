@@ -229,6 +229,32 @@ namespace Control
             }
         }
 
+        //checha se o CPF informado já está registrado
+        public int ChecaCpf()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT cpf FROM Funcionario WHERE cpf = @cpf";
+                cn.Parameters.Add("cpf", SqlDbType.VarChar).Value = cpf;
+
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
+
         //altera o status do funcionário logado
         public int AlteraStatus(int num)
         {

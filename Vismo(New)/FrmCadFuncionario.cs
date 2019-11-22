@@ -13,9 +13,13 @@ namespace Vismo_New_
 {
     public partial class FrmCadFuncionario : Form
     {
+        Funcionario funcionario;
+
         public FrmCadFuncionario()
         {
             InitializeComponent();
+
+            funcionario = new Funcionario();
         }
 
         //produra por Gerentes cadastrados
@@ -40,10 +44,9 @@ namespace Vismo_New_
                     (!textSenha.Text.Equals("")) &&
                     (!textSenhaAux.Text.Equals("")) &&
                     (!comboTipo.Text.Equals("")) &&
-                    lblCpf.Visible == false && lblLogin1.Visible == false && lblLogin2.Visible == false == lblSenha.Visible == false)
+                    lblCpf.Visible == false && lblLogin1.Visible == false &&
+                    lblLogin2.Visible == false == lblSenha.Visible == false && lblCpfUso.Visible == false)
             {
-                Funcionario funcionario = new Funcionario();
-
                 funcionario.Senha = textSenha.Text;
                 funcionario.SenhaAux = textSenhaAux.Text;
 
@@ -148,9 +151,21 @@ namespace Vismo_New_
                 if (var == 11)
                 {
                     lblCpf.Visible = false;
+
+                    funcionario.Cpf = txtCpf.Text;
+
+                    if (funcionario.ChecaCpf() == 0)
+                    {
+                        lblCpfUso.Visible = false;
+                    }
+                    else
+                    {
+                        lblCpfUso.Visible = true;
+                    }
                 }
                 else
                 {
+                    lblCpfUso.Visible = false;
                     lblCpf.Visible = true;
                 }
             } 
@@ -189,8 +204,6 @@ namespace Vismo_New_
                         i = texLogin.Text.Length;
 
                         lblLogin2.Visible = false;
-
-                        Funcionario funcionario = new Funcionario();
 
                         funcionario.Login = texLogin.Text;
 
