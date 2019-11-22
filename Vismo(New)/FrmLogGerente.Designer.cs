@@ -99,8 +99,8 @@
             this.fornecedorToolStripMenuItem,
             this.pagamentoToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
-            this.cadastroToolStripMenuItem.Text = "Cadastrar";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 22);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
             // 
             // produtoToolStripMenuItem
             // 
@@ -150,8 +150,8 @@
             this.pagamentoToolStripMenuItem3,
             this.vendasToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
-            this.registroToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
-            this.registroToolStripMenuItem.Text = "Listar";
+            this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 22);
+            this.registroToolStripMenuItem.Text = "Registro";
             // 
             // produtoToolStripMenuItem3
             // 
@@ -335,9 +335,9 @@
             this.label2.Location = new System.Drawing.Point(11, 445);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(814, 31);
+            this.label2.Size = new System.Drawing.Size(828, 31);
             this.label2.TabIndex = 68;
-            this.label2.Text = "Seu sitema mais: \"Viável, Inteligente, Seguro, Modular e Objetivo\".";
+            this.label2.Text = "Seu sistema mais: \"Viável, Inteligente, Seguro, Modular e Objetivo\".";
             // 
             // txtModo
             // 
@@ -494,7 +494,7 @@
             this.Controls.Add(this.pcbDisponivel);
             this.Controls.Add(this.pictureBox11);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmLogGerente";
             this.Text = "Menu Principal (Gerente) - Vismo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -14,17 +14,58 @@ namespace Vismo_New_
 {
     public partial class FrmNovoFornecedor : Form
     {
-        Fornecedor fornecedor = new Fornecedor();
-        public FrmNovoFornecedor()
+        Fornecedor fornecedor;
+
+        public FrmNovoFornecedor(int codigo)
         {
             InitializeComponent();
+
+            fornecedor = new Fornecedor();
+
+            fornecedor.CodigoF = codigo;
+
+            if (codigo > 0)
+            {
+                if (fornecedor.PegaNome() == 1)
+                {
+                    txtNome.Text = fornecedor.Nome;
+
+                    Text = "Editar Fornecedor - Vismo";
+                    lblTitulo.Text = "Editar fornecedor";
+
+                    btnSalvar.Visible = false;
+                    btnEditar.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao procurar pelo registro.", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    Close();
+                }
+            }  
         }
 
-        // Ação para cadastrar um novo fornecedor
-        private void BtnOk_Click(object sender, EventArgs e)
+        //checa se nome informado já está registrado
+        private void TxtNome_Leave(object sender, EventArgs e)
         {
+            fornecedor.Nome = txtNome.Text;
 
-            if (!txtNome.Text.Equals("")) //caso o campo dor preenchido
+            if (fornecedor.Checa() == 1)
+            {
+                lblNome.Visible = true;
+            }
+            else
+            {
+                lblNome.Visible = false;
+            }
+        }
+
+        //ação para cadastrar um novo fornecedor
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            //caso o campo for preenchido e nome já não estiver registrado
+            if (!txtNome.Text.Equals("") && lblNome.Visible == false) 
             {
                 //mensagem de confirmação
                 if (MessageBox.Show("Adicionar o fornecedor " + txtNome.Text
@@ -32,29 +73,18 @@ namespace Vismo_New_
                 {
                     try
                     {
-                        //atribui o valor da caixa de texto ao atributo de nome do fornecedor 
-                        fornecedor.Nome = txtNome.Text;
-
-                        //método Checa(), compara se o nome recebido já está nos registros do sistema
-                        if (fornecedor.Checa() == 0)
+                        if (fornecedor.Inserir() == 1) 
                         {
-                           
-                            //caso não esteja é chamado o método Inserir(), que insere um novo registro
-                            int x = fornecedor.Inserir();
+                            MessageBox.Show("Fornecedor cadastrado com sucesso.");
 
-                            if (x > 0) //o retorno do método Inserir() deve ser mais que 0 para o sucesso
-                            {
-                                MessageBox.Show("Fornecedor cadastrado com sucesso.");
-                                txtNome.Text = "";
-                            }
+                            txtNome.Clear();
                         }
                         else
                         {
-                            //caso o nome já estiver nos registros
-                            MessageBox.Show("Erro, fornecedor já cadastrado.");
+                            MessageBox.Show("Ocorreu algum erro ao tentar cadastrar registro.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
                     catch (Exception ex)
                     {
                         //exibe mensagem em caso de erro
@@ -65,9 +95,47 @@ namespace Vismo_New_
             }
         }
 
-        // Ação para voltar ao menu principal
-        private void Button1_Click(object sender, EventArgs e)
+        //ação para editar um fornecedor
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
+            //caso o campo for preenchido e nome já não estiver registrado
+            if (!txtNome.Text.Equals("") && lblNome.Visible == false)
+            {
+                try
+                {
+                    if (fornecedor.Atualizar() == 1)
+                    {
+                        MessageBox.Show("Fornecedor atualizado com sucesso.");
+
+                        FrmListarFornecedor tela = new FrmListarFornecedor();
+                        tela.Show();
+
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu algum erro ao tentar cadastrar registro.", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //exibe mensagem em caso de erro
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+            }
+        }
+
+        //ação para voltar ao menu principal
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            if (Text == "Editar Fornecedor - Vismo")
+            {
+                FrmListarFornecedor tela = new FrmListarFornecedor();
+                tela.Show();
+            }
+
             Close();
         }
     }

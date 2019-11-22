@@ -38,7 +38,7 @@ namespace Vismo_New_
         {
             if (Application.OpenForms.OfType<FrmNovoFornecedor>().Count() == 0)
             {
-                FrmNovoFornecedor tela = new FrmNovoFornecedor();
+                FrmNovoFornecedor tela = new FrmNovoFornecedor(0);
                 tela.Show();
             } 
         }

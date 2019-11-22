@@ -102,7 +102,7 @@ namespace Vismo_New_
                             "Confirmação", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             Close();
-                            FrmNovoFornecedor tela = new FrmNovoFornecedor();
+                            FrmNovoFornecedor tela = new FrmNovoFornecedor(0);
                             tela.Show();
                         }
 

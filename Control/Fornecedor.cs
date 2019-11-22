@@ -11,8 +11,8 @@ namespace Control
    public class Fornecedor
     {
         //atributos
-        private int id;
-        private string nomeFornecedor;
+        private int codigo;
+        private string nome;
 
 
         //encapsulamento de atributos da classe
@@ -20,12 +20,12 @@ namespace Control
         {
             get
             {            
-                return id;
+                return codigo;
             }
 
             set
             {
-                id = value;
+                codigo = value;
             }
         }
 
@@ -33,12 +33,12 @@ namespace Control
         {
             get
             {
-                return nomeFornecedor;
+                return nome;
             }
 
             set
             {
-                nomeFornecedor = value;
+                nome = value;
             }
         }
 
@@ -56,7 +56,7 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "INSERT INTO Fornecedor ([nome]) VALUES (@nome)";
-                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeFornecedor;
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
@@ -73,8 +73,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT codFornecedor FROM Fornecedor WHERE codFornecedor = @id";
-                cn.Parameters.Add("id", SqlDbType.Int).Value = id;
+                cn.CommandText = "SELECT codFornecedor FROM Fornecedor WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
                 cn.Connection = con;
 
                 SqlDataReader reader = cn.ExecuteReader();
@@ -82,12 +82,36 @@ namespace Control
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    id = reader.GetInt32(0);
+                    codigo = reader.GetInt32(0);
 
                     return 1;
                 }
 
                 return 0;
+            }
+        }
+
+        //faz uma busca de fornecedor por nome
+        public DataSet ListarNome()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT * FROM Fornecedor WHERE lower(nome) like lower('%" + nome + "%')";
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
             }
         }
 
@@ -102,8 +126,8 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM Fornecedor WHERE nome = @nome";
-                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = id;
-                cn.Parameters.Add("nome", SqlDbType.NVarChar).Value = nomeFornecedor;
+                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = codigo;
+                cn.Parameters.Add("nome", SqlDbType.NVarChar).Value = nome;
                 cn.Connection = con;
 
                 SqlDataReader reader = cn.ExecuteReader();
@@ -117,6 +141,25 @@ namespace Control
                 }
 
                 return 0;
+            }
+        }
+
+        //atualiza o registro de um fornecedor
+        public int Atualizar()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Fornecedor SET nome = @nome WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Parameters.Add("nome", SqlDbType.NVarChar).Value = nome;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
             }
         }
 
@@ -140,6 +183,35 @@ namespace Control
                 adapter.Fill(dataSet);
 
                 return dataSet;
+            }
+        }
+
+        public int PegaNome()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT nome FROM Fornecedor WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        nome = reader.GetString(0);
+                    }
+                   
+                    return 1;
+                }
+
+                return 0;
             }
         }
     }

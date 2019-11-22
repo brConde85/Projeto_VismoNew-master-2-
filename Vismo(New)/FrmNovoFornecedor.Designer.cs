@@ -31,13 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNovoFornecedor));
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblNome = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -45,58 +47,54 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(160, 212);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNome.Location = new System.Drawing.Point(89, 124);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(292, 26);
+            this.txtNome.Size = new System.Drawing.Size(196, 20);
             this.txtNome.TabIndex = 10;
+            this.txtNome.Leave += new System.EventHandler(this.TxtNome_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT", 14.25F);
-            this.label1.Location = new System.Drawing.Point(62, 208);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 121);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 34);
+            this.label1.Size = new System.Drawing.Size(60, 22);
             this.label1.TabIndex = 14;
             this.label1.Text = "Nome:";
             // 
-            // label5
+            // lblTitulo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(32, 77);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(309, 48);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Novo fornecedor";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lblTitulo.Location = new System.Drawing.Point(21, 50);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(199, 31);
+            this.lblTitulo.TabIndex = 13;
+            this.lblTitulo.Text = "Novo fornecedor";
             // 
-            // btnOk
+            // btnSalvar
             // 
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOk.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.btnOk.Location = new System.Drawing.Point(620, 423);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(118, 63);
-            this.btnOk.TabIndex = 11;
-            this.btnOk.Text = "Salvar";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.btnSalvar.Location = new System.Drawing.Point(349, 205);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(79, 41);
+            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(963, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(564, 24);
             this.menuStrip1.TabIndex = 44;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -104,7 +102,7 @@
             // 
             this.sobreToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(75, 29);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // pictureBox2
@@ -112,52 +110,82 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(-1202, 557);
+            this.pictureBox2.Location = new System.Drawing.Point(-840, 264);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(2888, 42);
+            this.pictureBox2.Size = new System.Drawing.Size(1926, 28);
             this.pictureBox2.TabIndex = 63;
             this.pictureBox2.TabStop = false;
             // 
-            // button1
+            // btnVoltar
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.button1.Location = new System.Drawing.Point(770, 423);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 63);
-            this.button1.TabIndex = 70;
-            this.button1.Text = "Voltar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVoltar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.btnVoltar.Location = new System.Drawing.Point(449, 205);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(79, 41);
+            this.btnVoltar.TabIndex = 70;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Image = global::Vismo_New_.Properties.Resources.Logo21;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 512);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 235);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(218, 38);
+            this.pictureBox3.Size = new System.Drawing.Size(145, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 71;
             this.pictureBox3.TabStop = false;
             // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.BackColor = System.Drawing.Color.Transparent;
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.Color.Red;
+            this.lblNome.Location = new System.Drawing.Point(190, 153);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(95, 13);
+            this.lblNome.TabIndex = 82;
+            this.lblNome.Text = "Nome já registrado";
+            this.lblNome.Visible = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.btnEditar.Location = new System.Drawing.Point(349, 205);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(79, 41);
+            this.btnEditar.TabIndex = 83;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
             // FrmNovoFornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 592);
+            this.ClientSize = new System.Drawing.Size(564, 287);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.lblNome);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.btnSalvar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmNovoFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novo Fornecedor - Vismo";
@@ -174,12 +202,14 @@
 
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
