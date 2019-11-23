@@ -12,11 +12,12 @@ namespace Control
     public class Produto
     {
         //atributos
-        private int codProduto;
-        private string nomeProduto;
+        private int codigo;
+        private string nome;
         private double preco;
         private int qtdEstoque;
         private string pchave;
+        private string status;
 
 
         //relacionamento com a classe Fornecedor
@@ -24,6 +25,8 @@ namespace Control
 
         public Produto()
         {
+            status = "Habilitado";
+
             //instânciamento da classe relacionada
             fornecedor = new Fornecedor();
         }
@@ -34,12 +37,12 @@ namespace Control
         {
             get
             {
-                return codProduto;
+                return codigo;
             }
 
             set
             {
-                codProduto = value;
+                codigo = value;
             }
         }
 
@@ -47,12 +50,12 @@ namespace Control
         {
             get
             {
-                return nomeProduto;
+                return nome;
             }
 
             set
             {
-                nomeProduto = value;
+                nome = value;
             }
         }
 
@@ -95,6 +98,18 @@ namespace Control
             }
         }
 
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
+
 
         //métodos
 
@@ -108,18 +123,37 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "INSERT INTO Produto ([nome], [preco], [qtdEstoque], [codFornecedor], [pchave])" +
-                    " VALUES (@nome, @preco, @qtdEstoque, @codFornecedor, @pchave)";
-                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
+                cn.CommandText = "INSERT INTO Produto VALUES (@nome, @preco, @qtdEstoque, @codFornecedor, @pchave, @status)";
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
                 cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
                 cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;
                 cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
                 cn.Parameters.Add("pchave", SqlDbType.VarChar).Value = pchave;
+                cn.Parameters.Add("status", SqlDbType.VarChar).Value = status;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
             }
         }
+
+        public int MudaStatus()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Produto SET status = 'Desabilitado' " +
+                    "WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }
+        }
+
         public int InserirProdutoCasa()
         {
             using (SqlConnection con = new SqlConnection())
@@ -131,7 +165,7 @@ namespace Control
                 con.Open();
                 cn.CommandText = "INSERT INTO produtoCasa ([nome], [preco], [pChave])" +
                     " VALUES (@nome, @preco, @pChave)";
-                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
                 cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
                 cn.Parameters.Add("pChave", SqlDbType.VarChar).Value = pchave;
                 cn.Connection = con;
@@ -139,7 +173,6 @@ namespace Control
                 return cn.ExecuteNonQuery();
             }
         }
-
 
         //atualiza o produto
         public int Update()
@@ -151,17 +184,12 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                /*  UPDATE DEPARTAMENTO
-                    SET SALARIO = 1000
-                    WHERE CODIGODEP = 1
-                    codigo = 
-                 */
-                cn.CommandText = "UPDATE produto SET nome = @nome, preco = @preco, " +
+                cn.CommandText = "UPDATE Produto SET nome = @nome, preco = @preco, " +
                     "qtdEstoque = @qtdEstoque, codFornecedor = @codFornecedor, pchave = @pchave " +
                     "WHERE codigo = @codigo";
 
-                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codProduto;
-                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nomeProduto;
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
                 cn.Parameters.Add("preco", SqlDbType.Money).Value = preco;
                 cn.Parameters.Add("qtdEstoque", SqlDbType.Int).Value = qtdEstoque;
                 cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
@@ -236,8 +264,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Produto WHERE codigo = @codProduto";
-                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.CommandText = "SELECT * FROM Produto WHERE codigo = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -250,6 +278,16 @@ namespace Control
 
                 if (reader.HasRows)
                 {
+                    while (reader.Read())
+                    {
+                        nome = reader.GetString(1);
+                        preco = reader.GetDouble(2);
+                        qtdEstoque = reader.GetInt32(3);
+                        fornecedor.CodigoF = reader.GetInt32(4);
+                        pchave = reader.GetString(5);
+                        status = reader.GetString(6);
+                    }
+
                     return dataSet;
                 }
 
@@ -361,8 +399,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "UPDATE Produto SET qtdEstoque -=" + x + "WHERE codigo = @codProduto";
-                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.CommandText = "UPDATE Produto SET qtdEstoque -=" + x + "WHERE codigo = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
@@ -430,17 +468,41 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                string delete = "DELETE FROM produto where codigo = @codProduto";
-                string deletePV = " DELETE FROM dbo.produto_venda where codigoProduto = @codProduto";
+                string delete = "DELETE FROM Produto where codigo = @codigo";
+                string deletePV = " DELETE FROM produto_venda where codigoProduto = @codigo";
 
                 cn.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)  
-                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
 
                 cn.CommandText = delete; //Setar a query dentro do comando (extração de informações)
-                cn.Parameters.Add("codProduto", SqlDbType.Int).Value = codProduto;
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
 
                 return cn.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
             } 
+        }
+
+        public int Busca()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT codigo FROM Produto WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
         }
     }
 }

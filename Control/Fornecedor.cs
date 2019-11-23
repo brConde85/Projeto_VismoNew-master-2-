@@ -13,6 +13,12 @@ namespace Control
         //atributos
         private int codigo;
         private string nome;
+        private string status;
+
+        public Fornecedor()
+        {
+            status = "Habilitado";
+        }
 
 
         //encapsulamento de atributos da classe
@@ -42,6 +48,18 @@ namespace Control
             }
         }
 
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
+
 
         //métodos
 
@@ -55,8 +73,9 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "INSERT INTO Fornecedor ([nome]) VALUES (@nome)";
+                cn.CommandText = "INSERT INTO Fornecedor VALUES (@nome, @status)";
                 cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
+                cn.Parameters.Add("status", SqlDbType.VarChar).Value = status;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
@@ -88,6 +107,24 @@ namespace Control
                 }
 
                 return 0;
+            }
+        }
+
+        public int MudaStatus(string status)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Fornecedor SET status = '"+ status +"' " +
+                    "WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
             }
         }
 
@@ -126,7 +163,6 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM Fornecedor WHERE nome = @nome";
-                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = codigo;
                 cn.Parameters.Add("nome", SqlDbType.NVarChar).Value = nome;
                 cn.Connection = con;
 
@@ -186,6 +222,23 @@ namespace Control
             }
         }
 
+        public int Remover()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "DELETE FROM Fornecedor WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery(); 
+            }
+        }
+
         public int PegaNome()
         {
             using (SqlConnection con = new SqlConnection())
@@ -195,7 +248,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT nome FROM Fornecedor WHERE codFornecedor = @codigo";
+                cn.CommandText = "SELECT nome, status FROM Fornecedor WHERE codFornecedor = @codigo";
                 cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
                 cn.Connection = con;
 
@@ -206,6 +259,7 @@ namespace Control
                     while (reader.Read())
                     {
                         nome = reader.GetString(0);
+                        status = reader.GetString(1);
                     }
                    
                     return 1;

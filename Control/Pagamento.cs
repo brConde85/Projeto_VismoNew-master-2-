@@ -186,6 +186,30 @@ namespace Control
                 adapter.Fill(dataSet);                             
             }
         }
+
+        public int Busca()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT codigo FROM Pagamento WHERE codFornecedor = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 }
 

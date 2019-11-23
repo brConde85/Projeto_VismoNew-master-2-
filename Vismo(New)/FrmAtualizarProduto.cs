@@ -14,19 +14,32 @@ namespace Vismo_New_
 {
     public partial class FrmAtualizarProduto : Form
     {
-        Produto produto = new Produto();
+        Produto produto;
         
         //Preenche o formulário com o registro do produto que será atualizado ao carregar o Form
-        public FrmAtualizarProduto(int id, string nome, double preco, int qtd, int fornec, string pchave)
+        public FrmAtualizarProduto(int codigo)
         {
             InitializeComponent();
 
-            produto.Codigo = id;
-            txtId.Text = Convert.ToString(fornec);
-            txtNome.Text = nome;
-            txtPreco.Text = Convert.ToString(preco);
-            txtQtd.Text = Convert.ToString(qtd);
-            cboPalavra.Text = pchave;   
+            produto = new Produto();
+
+            produto.Codigo = codigo;
+
+            if (produto.Listar1() != null)
+            {
+                txtId.Text = Convert.ToString(produto.fornecedor.CodigoF);
+                txtNome.Text = produto.Nome;
+                txtPreco.Text = Convert.ToString(produto.Preco);
+                txtQtd.Text = Convert.ToString(produto.QtdEstoque);
+                cboPalavra.Text = produto.Pchave;
+            }
+            else
+            {
+                MessageBox.Show("Ocorreu algum erro ao pesquisar pelo registro.", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                Close();
+            }
         }
 
         //Volta para o registro de produtos 

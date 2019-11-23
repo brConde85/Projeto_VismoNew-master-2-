@@ -71,6 +71,7 @@
             this.pcbAusente = new System.Windows.Forms.PictureBox();
             this.pcbDisponivel = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.reposiçãoDeEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -106,14 +107,14 @@
             // 
             this.produtoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.ProdutoToolStripMenuItem_Click);
             // 
             // produtoDaCasaToolStripMenuItem
             // 
             this.produtoDaCasaToolStripMenuItem.Name = "produtoDaCasaToolStripMenuItem";
-            this.produtoDaCasaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.produtoDaCasaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoDaCasaToolStripMenuItem.Text = "Produto da Casa";
             this.produtoDaCasaToolStripMenuItem.Click += new System.EventHandler(this.ProdutoDaCasaToolStripMenuItem_Click);
             // 
@@ -121,7 +122,7 @@
             // 
             this.funcionárioToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
@@ -129,7 +130,7 @@
             // 
             this.fornecedorToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             this.fornecedorToolStripMenuItem.Click += new System.EventHandler(this.FornecedorToolStripMenuItem_Click);
             // 
@@ -137,7 +138,7 @@
             // 
             this.pagamentoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.pagamentoToolStripMenuItem.Name = "pagamentoToolStripMenuItem";
-            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.pagamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pagamentoToolStripMenuItem.Text = "Pagamento";
             this.pagamentoToolStripMenuItem.Click += new System.EventHandler(this.pagamentoToolStripMenuItem_Click);
             // 
@@ -197,7 +198,8 @@
             // 
             this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maisEMenosVendidosToolStripMenuItem,
-            this.pedidosDeReposiçãoToolStripMenuItem});
+            this.pedidosDeReposiçãoToolStripMenuItem,
+            this.reposiçãoDeEstoqueToolStripMenuItem});
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(61, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
@@ -474,6 +476,12 @@
             this.pictureBox11.TabIndex = 85;
             this.pictureBox11.TabStop = false;
             // 
+            // reposiçãoDeEstoqueToolStripMenuItem
+            // 
+            this.reposiçãoDeEstoqueToolStripMenuItem.Name = "reposiçãoDeEstoqueToolStripMenuItem";
+            this.reposiçãoDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.reposiçãoDeEstoqueToolStripMenuItem.Text = "Reposição de estoque";
+            // 
             // FrmLogGerente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,5 +567,6 @@
         public System.Windows.Forms.TextBox txtModo;
         public System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.ToolStripMenuItem produtoDaCasaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reposiçãoDeEstoqueToolStripMenuItem;
     }
 }

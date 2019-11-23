@@ -14,27 +14,47 @@ namespace Vismo_New_
 {
     public partial class FrmNovoFornecedor : Form
     {
-        Fornecedor fornecedor;
+        Produto produto;
 
         public FrmNovoFornecedor(int codigo)
         {
             InitializeComponent();
 
-            fornecedor = new Fornecedor();
+            produto = new Produto();
 
-            fornecedor.CodigoF = codigo;
+            produto.fornecedor.CodigoF = codigo;
 
             if (codigo > 0)
             {
-                if (fornecedor.PegaNome() == 1)
+                if (produto.fornecedor.PegaNome() == 1)
                 {
-                    txtNome.Text = fornecedor.Nome;
+                    txtNome.Text = produto.fornecedor.Nome;
 
                     Text = "Editar Fornecedor - Vismo";
                     lblTitulo.Text = "Editar fornecedor";
 
                     btnSalvar.Visible = false;
                     btnEditar.Visible = true;
+
+                    if (produto.fornecedor.Status == "Desabilitado")
+                    {
+                        lblStatus.Text = "Habilitar fornecedor";
+                    }
+
+                    lblStatus.Visible = true;
+                    lblRemover.Visible = true;
+
+                    if (produto.Busca() == 0)
+                    {
+                        Pagamento pagamento = new Pagamento();
+
+                        pagamento.fornecedor.CodigoF = produto.fornecedor.CodigoF;
+
+                        if (pagamento.Busca() == 0)
+                        {
+                            lblRemover.Enabled = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -46,12 +66,13 @@ namespace Vismo_New_
             }  
         }
 
+
         //checa se nome informado já está registrado
         private void TxtNome_Leave(object sender, EventArgs e)
         {
-            fornecedor.Nome = txtNome.Text;
+            produto.fornecedor.Nome = txtNome.Text;
 
-            if (fornecedor.Checa() == 1)
+            if (produto.fornecedor.Checa() == 1)
             {
                 lblNome.Visible = true;
             }
@@ -73,7 +94,7 @@ namespace Vismo_New_
                 {
                     try
                     {
-                        if (fornecedor.Inserir() == 1) 
+                        if (produto.fornecedor.Inserir() == 1) 
                         {
                             MessageBox.Show("Fornecedor cadastrado com sucesso.");
 
@@ -103,7 +124,7 @@ namespace Vismo_New_
             {
                 try
                 {
-                    if (fornecedor.Atualizar() == 1)
+                    if (produto.fornecedor.Atualizar() == 1)
                     {
                         MessageBox.Show("Fornecedor atualizado com sucesso.");
 
@@ -137,6 +158,101 @@ namespace Vismo_New_
             }
 
             Close();
+        }
+
+        private void LblDesabilitar_Click(object sender, EventArgs e)
+        {
+            if (lblStatus.Text == "Desabilitar fornecedor")
+            {
+                if (MessageBox.Show("Essa ação não removerá o registro, mas fará com que não " +
+               "esteja disponível em relacionamentos com o sistema.\n\n" +
+               "Todos os produtos registrados em nome do fornecedor também serão " +
+               "desabalitados, ficando indisponíveis para venda.\n\n" +
+               "Você poderá desfazer essa ação futuramente.\n\n" +
+               "Continuar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (produto.Busca() > 0)
+                    {
+                        if (produto.MudaStatus() >= 1)
+                        {
+                            if (produto.fornecedor.MudaStatus("Desabilitado") == 1)
+                            {
+                                MessageBox.Show("Registro desabilitado.", "Confirmação",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Falha ao alterar registro", "Erro",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Falha ao alterar registro", "Erro",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        if (produto.fornecedor.MudaStatus("Desabilitado") == 1)
+                        {
+                            MessageBox.Show("Registro desabilitado.", "Confirmação",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Falha ao alterar registro", "Erro",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Habilitar registro de fornecedor e permitir relacionamentos " +
+                    "com o sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (produto.fornecedor.MudaStatus("Habilitado") == 1)
+                    {
+                        MessageBox.Show("Registro habilitado.", "Confirmação",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Close();
+
+                        FrmListarProduto tela = new FrmListarProduto();
+                        tela.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao alterar registro", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }  
+        }
+
+        private void LblRemover_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Remover registro?", "Confirmação",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (produto.fornecedor.Remover() == 1)
+                {
+                    MessageBox.Show("Registro removido.", "Confirmação",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao remover registro", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

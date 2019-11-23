@@ -20,50 +20,43 @@ namespace Vismo_New_
         public FrmListarProduto()
         {
             InitializeComponent();
-           
-            ListarGrid();
+        }
+
+        //lista os registros de produtos ao entrar no Form
+        private void FrmListarProduto_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvProduto.AutoGenerateColumns = false;
+
+                dgvProduto.DataSource = produto.ListarDataGrid();
+
+                dgvProduto.DataMember = produto.ListarDataGrid().Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao listar produtos", "Erro" + MessageBoxButtons.OK
+                    + MessageBoxIcon.Error + ex.Message);
+            }
         }
 
         //Ação para abrir form de atualização de produto
         private void BtnAtualizar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            string nome = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            double preco = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-            int qtd = Convert.ToInt32(dataGridView1.CurrentRow.Cells[3].Value.ToString());
-            int fornec = Convert.ToInt32(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-            string pchave = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-
-            FrmAtualizarProduto tela = new FrmAtualizarProduto(id, nome, preco, qtd, fornec, pchave);
+            int codigo = Convert.ToInt32(dgvProduto.CurrentRow.Cells[1].Value.ToString());
+    
+            FrmAtualizarProduto tela = new FrmAtualizarProduto(codigo);
             tela.Show();
 
             Close();
         }
 
-        //Para carregar o datagrid ao entrar no form
-        private void ListarGrid()
-        {
-            try
-            {
-               dataGridView1.AutoGenerateColumns = false;
-
-               dataGridView1.DataSource = produto.ListarDataGrid();
-               
-               dataGridView1.DataMember = produto.ListarDataGrid().Tables[0].TableName;
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao listar produtos","Erro"+ MessageBoxButtons.OK
-                    + MessageBoxIcon.Error + ex.Message);
-            }
-        }
-
+   
         //Ação de excluir produto
         private void BtnDeletar_Click(object sender, EventArgs e)
         {
             Produto produto = new Produto();
-            produto.Codigo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            produto.Codigo = Convert.ToInt32(dgvProduto.CurrentRow.Cells[0].Value.ToString());
 
             try  //Tenta fazer algo (executar qualquer sequência de código), se não der certo
             {
@@ -82,7 +75,7 @@ namespace Vismo_New_
             }
 
             // exibindo o nome capturado pelo usuario
-            MessageBox.Show("Você escolheu a receita: " + dataGridView1.CurrentRow.Cells[1].Value.ToString() + " ID: " + dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            MessageBox.Show("Você escolheu a receita: " + dgvProduto.CurrentRow.Cells[1].Value.ToString() + " ID: " + dgvProduto.CurrentRow.Cells[0].Value.ToString());
         }
     }
 }

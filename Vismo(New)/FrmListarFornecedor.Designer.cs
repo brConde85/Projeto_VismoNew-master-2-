@@ -31,8 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListarFornecedor));
             this.dgvFornecedor = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -47,6 +45,9 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblEncontrado = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -62,48 +63,28 @@
             this.dgvFornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFornecedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.ColumnNome});
-            this.dgvFornecedor.Location = new System.Drawing.Point(40, 151);
+            this.ColumnNome,
+            this.Status});
+            this.dgvFornecedor.Location = new System.Drawing.Point(53, 151);
             this.dgvFornecedor.Margin = new System.Windows.Forms.Padding(2);
             this.dgvFornecedor.Name = "dgvFornecedor";
             this.dgvFornecedor.ReadOnly = true;
             this.dgvFornecedor.RowHeadersWidth = 62;
             this.dgvFornecedor.RowTemplate.Height = 28;
             this.dgvFornecedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFornecedor.Size = new System.Drawing.Size(643, 229);
+            this.dgvFornecedor.Size = new System.Drawing.Size(625, 229);
             this.dgvFornecedor.TabIndex = 2;
             this.dgvFornecedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "codFornecedor";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
-            this.id.HeaderText = "Código";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 60;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.DataPropertyName = "nome";
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.MinimumWidth = 8;
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            this.ColumnNome.Width = 520;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 140);
+            this.pictureBox1.Location = new System.Drawing.Point(40, 140);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(669, 250);
+            this.pictureBox1.Size = new System.Drawing.Size(649, 250);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -199,7 +180,7 @@
             // 
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVoltar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.btnVoltar.Location = new System.Drawing.Point(614, 400);
+            this.btnVoltar.Location = new System.Drawing.Point(610, 398);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(79, 26);
             this.btnVoltar.TabIndex = 3;
@@ -212,11 +193,11 @@
             this.lblRegistro.AutoSize = true;
             this.lblRegistro.BackColor = System.Drawing.Color.Transparent;
             this.lblRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblRegistro.Font = new System.Drawing.Font("Tw Cen MT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistro.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblRegistro.Location = new System.Drawing.Point(594, 112);
+            this.lblRegistro.Location = new System.Drawing.Point(586, 114);
             this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(99, 16);
+            this.lblRegistro.Size = new System.Drawing.Size(107, 19);
             this.lblRegistro.TabIndex = 93;
             this.lblRegistro.Text = "Registros gerais";
             this.lblRegistro.Visible = false;
@@ -240,11 +221,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.label2.Location = new System.Drawing.Point(499, 31);
+            this.label2.Location = new System.Drawing.Point(520, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 19);
+            this.label2.Size = new System.Drawing.Size(223, 38);
             this.label2.TabIndex = 95;
-            this.label2.Text = "Selecione um registro se quiser editá-lo.";
+            this.label2.Text = "Selecione um registro para editar,\r\ndesabilitar ou remover.";
             // 
             // lblEncontrado
             // 
@@ -258,6 +239,35 @@
             this.lblEncontrado.TabIndex = 96;
             this.lblEncontrado.Text = "Nenhum registro encontrado";
             this.lblEncontrado.Visible = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "codFornecedor";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "Código";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 60;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.DataPropertyName = "nome";
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.MinimumWidth = 8;
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 300;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 200;
             // 
             // FrmListarFornecedor
             // 
@@ -301,8 +311,6 @@
         private System.Windows.Forms.DataGridView dgvFornecedor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -315,5 +323,8 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblEncontrado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }
