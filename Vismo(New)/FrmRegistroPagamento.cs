@@ -157,8 +157,8 @@ namespace Vismo_New_
                 }
 
                 //mensagem de confirmação de alteração
-                MessageBox.Show("Pagamento: '" + dgPagamento.CurrentRow.Cells[2].Value.ToString() +
-                     "' foi atualizado!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Pagamento atualizado!", "Informação",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
         }
     }
