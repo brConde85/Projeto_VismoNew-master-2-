@@ -10,7 +10,8 @@ valor float NOT NULL
 
 CREATE TABLE fornecedor(
 codFornecedor INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-nome NVARCHAR (50) NOT NULL
+nome NVARCHAR (50) NOT NULL,
+status NVARCHAR (20) NOT NULL
 );
 
 CREATE TABLE produto(
@@ -20,6 +21,7 @@ preco FLOAT NOT NULL,
 qtdEstoque INT NOT NULL,
 codFornecedor INT NOT NULL,
 pchave NVARCHAR (25) NOT NULL,
+status NVARCHAR (20) NOT NULL,
 CONSTRAINT FK_codFornecedor FOREIGN KEY (codFornecedor)
 	REFERENCES dbo.fornecedor (codFornecedor)
 );
@@ -66,8 +68,3 @@ nome NVARCHAR(50) NOT NULL,
 preco FLOAT NOT NULL,
 pChave NVARCHAR(50) NOT NULL
 );
-
-select * from dbo.produtoCasa;
-select * from produto_venda;
-
-select * from venda
