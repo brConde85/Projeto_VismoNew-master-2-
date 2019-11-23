@@ -22,112 +22,28 @@ namespace Vismo_New_
             funcionario = new Funcionario();
         }
 
-        //produra por Gerentes cadastrados
+        //procura por Gerentes cadastrados
         private void FrmCadFuncionario_Load(object sender, EventArgs e)
         {
             Funcionario funcionario = new Funcionario();
 
             if (funcionario.AchaGerente() == 0)
             {
-                comboTipo.Text = "Gerente";
-                comboTipo.Enabled = false;
+                cboTipo.Text = "Gerente";
+                cboTipo.Enabled = false;
             }
         }
 
-        // Ação para cadastrar um funcionário
-        private void BtnOk_Click(object sender, EventArgs e)
+
+        //tratamento de interface
+        private void CboTipo_Enter(object sender, EventArgs e)
         {
-            //compara se todos os campos foram preenchidos corretamente
-            if ((!textNome.Text.Equals("")) &&
-                    (!txtCpf.Text.Equals("")) &&
-                    (!texLogin.Text.Equals("")) &&
-                    (!textSenha.Text.Equals("")) &&
-                    (!textSenhaAux.Text.Equals("")) &&
-                    (!comboTipo.Text.Equals("")) &&
-                    lblCpf.Visible == false && lblLogin1.Visible == false &&
-                    lblLogin2.Visible == false == lblSenha.Visible == false && lblCpfUso.Visible == false)
-            {
-                funcionario.Senha = textSenha.Text;
-                funcionario.SenhaAux = textSenhaAux.Text;
-
-                //compara se os campos de senha e confirmação de senha estão iguais
-                if (funcionario.Senha == funcionario.SenhaAux)
-                {
-                    try
-                    {
-                        //atribuição dos campos do formulário nos atributos da classe Funcionario
-                        funcionario.Login = texLogin.Text;
-                        funcionario.Senha = textSenha.Text;
-                        funcionario.Nome = textNome.Text;
-                        funcionario.Cpf = txtCpf.Text;
-                        funcionario.Tipo = comboTipo.Text;
-
-                        /*checa se a conta criada é do tipo "Gerente" ou "Operador de Caixa";
-                          a primeira posição do ComboBox do formulário (0) é referente a Gerente
-                          e a segunda (1) a Operador de Caixa*/
-
-                        /*uma conta Gerente recebe o status 1, que representa um status "Disponível",
-                          uma conta Operador de Caixa não têm status e recebe valor 0*/
-                        if (comboTipo.SelectedIndex == 0)
-                        {
-                            funcionario.Status = "1";
-                        }
-                        else
-                        {
-                            funcionario.Status = "0";
-                        }
-
-                        if (funcionario.Inserir() == 1)
-                        {
-                            MessageBox.Show(String.Format("Funcionário: {0} inserido com sucesso.", textNome.Text));
-
-                            //limpa o formulário
-                            textNome.Clear();
-                            txtCpf.Clear();
-                            texLogin.Clear();
-                            textSenha.Clear();
-                            textSenhaAux.Clear();
-
-                            comboTipo.Enabled = true;
-                            comboTipo.DropDownStyle = ComboBoxStyle.DropDown;
-                            comboTipo.Text = "";
-
-                            textNome.Focus();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro ao realizar cadastro.", "Erro",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                }
-                else
-                {
-                    //caso os campos de senha e confirmação de senha estiverem diferentes
-                    MessageBox.Show("Senhas cadastradas não conferem, favor conferir a senha digitada.", "Aviso",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                //caso algum campo não for preenchido
-                MessageBox.Show("Preencha todos os campos coretamente antes de continuar.");
-            }
+            cboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        //fecha o formulário
-        private void BtnVoltar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         //compara se CPF inserido é válido
-        private void txtCpf_Leave(object sender, EventArgs e)
+        private void TxtCpf_Leave(object sender, EventArgs e)
         {
             if (!txtCpf.Text.Equals(""))
             {
@@ -135,11 +51,11 @@ namespace Vismo_New_
 
                 int var = 0;
 
-                for (int i = 0; i <txtCpf.Text.Length; i++)
+                for (int i = 0; i < txtCpf.Text.Length; i++)
                 {
                     cpf[i] = txtCpf.Text.ElementAt(i);
 
-                    for (int num = 0; num<=9; num ++)
+                    for (int num = 0; num <= 9; num++)
                     {
                         if (Convert.ToString(cpf[i]) == Convert.ToString(num))
                         {
@@ -168,19 +84,13 @@ namespace Vismo_New_
                     lblCpfUso.Visible = false;
                     lblCpf.Visible = true;
                 }
-            } 
-        }
-
-        //tratamento do design do comboBox
-        private void ComboTipo_Enter(object sender, EventArgs e)
-        {
-            comboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
 
         //compara se a senha e confiramção estão iguais
-        private void textSenhaAux_Leave(object sender, EventArgs e)
+        private void TxtSenhaAux_Leave(object sender, EventArgs e)
         {
-            if (textSenha.Text == textSenhaAux.Text)
+            if (txtSenha.Text == txtSenhaAux.Text)
             {
                 lblSenha.Visible = false;
             }
@@ -191,21 +101,21 @@ namespace Vismo_New_
         }
 
         //compara se login inserido é válido
-        private void texLogin_Leave(object sender, EventArgs e)
+        private void TxtLogin_Leave(object sender, EventArgs e)
         {
-            string login = new string(texLogin.Text.Reverse().ToArray());
+            string login = new string(txtLogin.Text.Reverse().ToArray());
 
-            for (int i = 0; i < texLogin.Text.Length; i++)
+            for (int i = 0; i < txtLogin.Text.Length; i++)
             {
-                if (texLogin.Text.ElementAt(i) == '@')
+                if (txtLogin.Text.ElementAt(i) == '@')
                 {
                     if (login.Substring(0, 4) == "moc.")
                     {
-                        i = texLogin.Text.Length;
+                        i = txtLogin.Text.Length;
 
                         lblLogin2.Visible = false;
 
-                        funcionario.Login = texLogin.Text;
+                        funcionario.Login = txtLogin.Text;
 
                         if (funcionario.PegaLogin() == 0)
                         {
@@ -228,6 +138,79 @@ namespace Vismo_New_
             }
         }
 
+
+        //ação para cadastrar um funcionário
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            //compara se todos os campos foram preenchidos corretamente
+            if ((!txtNome.Text.Equals("")) &&
+                    (!txtCpf.Text.Equals("")) &&
+                    (!txtLogin.Text.Equals("")) &&
+                    (!txtSenha.Text.Equals("")) &&
+                    (!cboTipo.Text.Equals("")) &&
+                    lblCpf.Visible == false && lblLogin1.Visible == false &&
+                    lblLogin2.Visible == false == lblSenha.Visible == false && lblCpfUso.Visible == false)
+            {
+                try
+                {
+                    //atribuição dos campos do formulário nos atributos da classe Funcionario
+                    funcionario.Login = txtLogin.Text;
+                    funcionario.Senha = txtSenha.Text;
+                    funcionario.Nome = txtNome.Text;
+                    funcionario.Cpf = txtCpf.Text;
+                    funcionario.Tipo = cboTipo.Text;
+
+                    /*checa se a conta criada é do tipo "Gerente" ou "Operador de Caixa";
+                      a primeira posição do ComboBox do formulário (0) é referente a Gerente
+                      e a segunda (1) a Operador de Caixa*/
+
+                    /*uma conta Gerente recebe o status 1, que representa um status "Disponível",
+                      uma conta Operador de Caixa não têm status e recebe valor 0*/
+                    if (cboTipo.SelectedIndex == 0)
+                    {
+                        funcionario.Status = "1";
+                    }
+                    else
+                    {
+                        funcionario.Status = "0";
+                    }
+
+                    if (funcionario.Inserir() == 1)
+                    {
+                        MessageBox.Show(String.Format("Funcionário: {0} inserido com sucesso.", txtNome.Text));
+
+                        //limpa o formulário
+                        txtNome.Clear();
+                        txtCpf.Clear();
+                        txtLogin.Clear();
+                        txtSenha.Clear();
+                        txtSenhaAux.Clear();
+
+                        cboTipo.Enabled = true;
+                        cboTipo.DropDownStyle = ComboBoxStyle.DropDown;
+                        cboTipo.Text = "";
+
+                        txtNome.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao realizar cadastro.", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                //caso algum campo não for preenchido
+                MessageBox.Show("Preencha todos os campos coretamente antes de continuar.");
+            }
+        }
+
+
         //volta para a tela de login se o Form for aberto fora da tela de Gerente
         private void FrmCadFuncionario_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -235,6 +218,12 @@ namespace Vismo_New_
             {
                 Application.OpenForms["FrmTelaLogin"].Show();
             }
+        }
+
+        //fecha o formulário
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

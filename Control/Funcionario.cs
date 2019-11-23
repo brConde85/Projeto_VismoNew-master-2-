@@ -16,7 +16,6 @@ namespace Control
         private string cpf;
         private string login;
         private string senha;
-        private string senhaAux;
         private string status;
         private string tipo;
 
@@ -71,19 +70,6 @@ namespace Control
             set
             {
                 senha = value;
-            }
-        }
-
-        public string SenhaAux
-        {
-            get
-            {
-                return senhaAux;
-            }
-
-            set
-            {
-                senhaAux = value;
             }
         }
 

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadFuncionario));
-            this.textSenhaAux = new System.Windows.Forms.TextBox();
-            this.textSenha = new System.Windows.Forms.TextBox();
-            this.texLogin = new System.Windows.Forms.TextBox();
-            this.textNome = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.txtSenhaAux = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboTipo = new System.Windows.Forms.ComboBox();
+            this.cboTipo = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
@@ -60,53 +60,53 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // textSenhaAux
+            // txtSenhaAux
             // 
-            this.textSenhaAux.Location = new System.Drawing.Point(170, 287);
-            this.textSenhaAux.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textSenhaAux.Name = "textSenhaAux";
-            this.textSenhaAux.Size = new System.Drawing.Size(182, 20);
-            this.textSenhaAux.TabIndex = 4;
-            this.textSenhaAux.UseSystemPasswordChar = true;
-            this.textSenhaAux.Leave += new System.EventHandler(this.textSenhaAux_Leave);
+            this.txtSenhaAux.Location = new System.Drawing.Point(170, 287);
+            this.txtSenhaAux.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenhaAux.Name = "txtSenhaAux";
+            this.txtSenhaAux.Size = new System.Drawing.Size(182, 20);
+            this.txtSenhaAux.TabIndex = 4;
+            this.txtSenhaAux.UseSystemPasswordChar = true;
+            this.txtSenhaAux.Leave += new System.EventHandler(this.TxtSenhaAux_Leave);
             // 
-            // textSenha
+            // txtSenha
             // 
-            this.textSenha.Location = new System.Drawing.Point(170, 232);
-            this.textSenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textSenha.Name = "textSenha";
-            this.textSenha.Size = new System.Drawing.Size(182, 20);
-            this.textSenha.TabIndex = 3;
-            this.textSenha.UseSystemPasswordChar = true;
+            this.txtSenha.Location = new System.Drawing.Point(170, 232);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(182, 20);
+            this.txtSenha.TabIndex = 3;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
-            // texLogin
+            // txtLogin
             // 
-            this.texLogin.Location = new System.Drawing.Point(170, 178);
-            this.texLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.texLogin.Name = "texLogin";
-            this.texLogin.Size = new System.Drawing.Size(182, 20);
-            this.texLogin.TabIndex = 2;
-            this.texLogin.Leave += new System.EventHandler(this.texLogin_Leave);
+            this.txtLogin.Location = new System.Drawing.Point(170, 178);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(182, 20);
+            this.txtLogin.TabIndex = 2;
+            this.txtLogin.Leave += new System.EventHandler(this.TxtLogin_Leave);
             // 
-            // textNome
+            // txtNome
             // 
-            this.textNome.Location = new System.Drawing.Point(72, 122);
-            this.textNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(280, 20);
-            this.textNome.TabIndex = 0;
+            this.txtNome.Location = new System.Drawing.Point(72, 122);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(280, 20);
+            this.txtNome.TabIndex = 0;
             // 
-            // btnOk
+            // btnSalvar
             // 
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOk.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.btnOk.Location = new System.Drawing.Point(446, 298);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(79, 41);
-            this.btnOk.TabIndex = 6;
-            this.btnOk.Text = "Salvar";
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
+            this.btnSalvar.Location = new System.Drawing.Point(446, 298);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(79, 41);
+            this.btnSalvar.TabIndex = 6;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.BtnSalvar_Click);
             // 
             // label6
             // 
@@ -206,19 +206,19 @@
             this.label8.TabIndex = 59;
             this.label8.Text = "Cargo na empresa:";
             // 
-            // comboTipo
+            // cboTipo
             // 
-            this.comboTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboTipo.FormattingEnabled = true;
-            this.comboTipo.Items.AddRange(new object[] {
+            this.cboTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipo.FormattingEnabled = true;
+            this.cboTipo.Items.AddRange(new object[] {
             "Gerente",
             "Operador de Caixa"});
-            this.comboTipo.Location = new System.Drawing.Point(391, 215);
-            this.comboTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboTipo.Name = "comboTipo";
-            this.comboTipo.Size = new System.Drawing.Size(120, 24);
-            this.comboTipo.TabIndex = 5;
-            this.comboTipo.Enter += new System.EventHandler(this.ComboTipo_Enter);
+            this.cboTipo.Location = new System.Drawing.Point(391, 215);
+            this.cboTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.cboTipo.Name = "cboTipo";
+            this.cboTipo.Size = new System.Drawing.Size(120, 24);
+            this.cboTipo.TabIndex = 5;
+            this.cboTipo.Enter += new System.EventHandler(this.CboTipo_Enter);
             // 
             // pictureBox4
             // 
@@ -235,7 +235,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(-801, 362);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1926, 28);
             this.pictureBox2.TabIndex = 62;
@@ -250,7 +250,7 @@
             this.txtCpf.Size = new System.Drawing.Size(124, 20);
             this.txtCpf.TabIndex = 1;
             this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.txtCpf.Leave += new System.EventHandler(this.txtCpf_Leave);
+            this.txtCpf.Leave += new System.EventHandler(this.TxtCpf_Leave);
             // 
             // btnVoltar
             // 
@@ -270,7 +270,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox3.Image = global::Vismo_New_.Properties.Resources.Logo21;
             this.pictureBox3.Location = new System.Drawing.Point(0, 333);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(145, 25);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -352,13 +352,13 @@
             this.Controls.Add(this.txtCpf);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.comboTipo);
+            this.Controls.Add(this.cboTipo);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textSenhaAux);
-            this.Controls.Add(this.textSenha);
-            this.Controls.Add(this.texLogin);
-            this.Controls.Add(this.textNome);
-            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.txtSenhaAux);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtLogin);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -368,7 +368,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCadFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionário - Vismo";
@@ -386,11 +386,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textSenhaAux;
-        private System.Windows.Forms.TextBox textSenha;
-        private System.Windows.Forms.TextBox texLogin;
-        private System.Windows.Forms.TextBox textNome;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.TextBox txtSenhaAux;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
@@ -400,7 +400,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboTipo;
+        private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.MaskedTextBox txtCpf;
