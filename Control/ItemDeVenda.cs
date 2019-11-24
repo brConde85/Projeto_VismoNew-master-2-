@@ -163,5 +163,27 @@ namespace Control
                 con.Close();
             }
         }
+
+        public int Busca()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                con.Open();
+                SqlCommand cn = con.CreateCommand();
+
+                cn.CommandText = "SELECT codigoProduto FROM produto_venda WHERE codigoProduto = @codigo";
+                cn.Parameters.Add("@codigo", SqlDbType.Int).Value = idProduto;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 }

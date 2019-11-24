@@ -139,15 +139,16 @@ namespace Vismo_New_
             {
                 try
                 {
+                    produto.Nome = txtNome.Text;
                     //chamada do método de listagem de produto
-                    if (produto.Listar2(txtNome.Text) != null)
+                    if (produto.Listar2() != null)
                     {
                         lblFalhaPesquisa2.Visible = false;
 
                         dataGridView2.AutoGenerateColumns = false;
 
-                        dataGridView2.DataSource = produto.Listar2(txtNome.Text);
-                        dataGridView2.DataMember = produto.Listar2(txtNome.Text).Tables[0].TableName;
+                        dataGridView2.DataSource = produto.Listar2();
+                        dataGridView2.DataMember = produto.Listar2().Tables[0].TableName;
 
                         AtualizaQtd();
                     }

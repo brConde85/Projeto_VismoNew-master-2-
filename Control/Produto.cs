@@ -200,6 +200,24 @@ namespace Control
             }
         }
 
+        public int MudaStatus2(string status)
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "UPDATE Produto SET status = '"+ status +"' " +
+                    "WHERE codigo = @codigo";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
+
+                return cn.ExecuteNonQuery();
+            }
+        }
+
         //faz a listagem de produtos registrados
         public DataSet ListarDataGrid()
         {
@@ -210,7 +228,8 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Produto ORDER BY nome";
+                cn.CommandText = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
+                    "WHERE t1.codFornecedor = t2.codFornecedor ORDER BY nome";
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -251,6 +270,32 @@ namespace Control
                 }
                 con.Close();
                 return null;
+            }
+        }
+
+        public int AchaStatus()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT status FROM Produto WHERE codFornecedor = @codigo " +
+                    "AND status = 'Desabilitado'";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+
+                cn.Connection = con;
+
+                SqlDataReader reader = cn.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    return 1;
+                }
+
+                return 0;
             }
         }
 
@@ -296,7 +341,7 @@ namespace Control
         }
 
         //faz a listagem de produto por nome
-        public DataSet Listar2(string nome)
+        public DataSet Listar2()
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -459,7 +504,7 @@ namespace Control
         }
 
         //remove um produto dos registros
-        public int DelProd()
+        public int Remover()
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -468,18 +513,14 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                string delete = "DELETE FROM Produto where codigo = @codigo";
-                string deletePV = " DELETE FROM produto_venda where codigoProduto = @codigo";
-
-                cn.CommandText = deletePV; //Setar a query dentro do comando (extração de informações)  
+                cn.CommandText = "DELETE FROM Produto WHERE codigo = @codigo";
                 cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
+                cn.Connection = con;
 
-                cn.CommandText = delete; //Setar a query dentro do comando (extração de informações)
-                cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
-
-                return cn.ExecuteNonQuery();  //<---Executar a query e retorna a quantidade de linhas afetadas
-            } 
+                return cn.ExecuteNonQuery();
+            }
         }
+
 
         public int Busca()
         {
@@ -502,6 +543,31 @@ namespace Control
                 }
 
                 return 0;
+            }
+        }
+
+        public DataSet ProdutoFornec()
+        {
+            using (SqlConnection con = new SqlConnection())
+            {
+                con.ConnectionString = Properties.Settings.Default.banco;
+                SqlCommand cn = new SqlCommand();
+                cn.CommandType = CommandType.Text;
+
+                con.Open();
+                cn.CommandText = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
+                "WHERE t1.codFornecedor = @codigo AND t2.codFornecedor = @codigo " +
+                "AND t1.status = 'Desabilitado' ORDER BY t1.nome";
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Connection = con;
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cn;
+
+                DataSet dataSet = new DataSet();
+                adapter.Fill(dataSet);
+
+                return dataSet;
             }
         }
     }

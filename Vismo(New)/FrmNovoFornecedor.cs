@@ -180,6 +180,9 @@ namespace Vismo_New_
                                 MessageBox.Show("Registro desabilitado.", "Confirmação",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                FrmListarFornecedor tela = new FrmListarFornecedor();
+                                tela.Show();
+
                                 Close();
                             }
                             else
@@ -201,6 +204,9 @@ namespace Vismo_New_
                             MessageBox.Show("Registro desabilitado.", "Confirmação",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                            FrmListarFornecedor tela = new FrmListarFornecedor();
+                            tela.Show();
+
                             Close();
                         }
                         else
@@ -221,10 +227,32 @@ namespace Vismo_New_
                         MessageBox.Show("Registro habilitado.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Close();
+                        if (produto.AchaStatus() == 1)
+                        {
+                            FrmListarProduto tela = new FrmListarProduto();
 
-                        FrmListarProduto tela = new FrmListarProduto();
-                        tela.Show();
+                            tela.dgvProduto.Columns["Selecionar"].Visible = true;
+
+                            tela.lblMsg.Visible = false;
+                            tela.lblNomeProd.Visible = false;
+                            tela.txtNome.Visible = false;
+                            tela.btnPesquisar.Visible = false;
+                            tela.btnVoltar.Visible = false;
+
+                            tela.btnConfirmar.Visible = true;
+                            tela.lblSelecionar.Visible = true;
+                            tela.chkSelecionar.Visible = true;
+                            tela.lblCod.Text = Convert.ToString(produto.fornecedor.CodigoF);
+
+                            tela.Show();
+                        }
+                        else
+                        {
+                            FrmListarFornecedor tela = new FrmListarFornecedor();
+                            tela.Show();
+                        }
+                       
+                        Close();
                     }
                     else
                     {
@@ -244,6 +272,9 @@ namespace Vismo_New_
                 {
                     MessageBox.Show("Registro removido.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    FrmListarFornecedor tela = new FrmListarFornecedor();
+                    tela.Show();
 
                     Close();
                 }

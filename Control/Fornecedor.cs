@@ -139,7 +139,6 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT * FROM Fornecedor WHERE lower(nome) like lower('%" + nome + "%')";
-                cn.Parameters.Add("nome", SqlDbType.VarChar).Value = nome;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();

@@ -24,8 +24,9 @@ namespace Vismo_New_
             if (MessageBox.Show("Editar registro?", "Confirmação",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                FrmNovoFornecedor tela =
-                new FrmNovoFornecedor(Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value));
+                int codigo = Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value);
+
+                FrmNovoFornecedor tela = new FrmNovoFornecedor(codigo);
 
                 tela.Show();
 
@@ -65,7 +66,6 @@ namespace Vismo_New_
                 Fornecedor fornecedor = new Fornecedor();
 
                 //preecnhe o dataGrid
-                dgvFornecedor.AutoGenerateColumns = false;
                 dgvFornecedor.DataSource = fornecedor.ListarDataGrid();
                 dgvFornecedor.DataMember = fornecedor.ListarDataGrid().Tables[0].TableName;
             }
@@ -90,9 +90,7 @@ namespace Vismo_New_
                     fornecedor.Nome = txtNome.Text;
 
                     //preenche o dataGrid
-                    dgvFornecedor.AutoGenerateColumns = false;
                     dgvFornecedor.DataSource = fornecedor.ListarNome();
-                    dgvFornecedor.DataMember = fornecedor.ListarNome().Tables[0].TableName;
 
                     if (dgvFornecedor.RowCount > 0)
                     {
@@ -107,7 +105,7 @@ namespace Vismo_New_
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao listar produtos", "Erro" + MessageBoxButtons.OK
+                    MessageBox.Show("Erro ao listar fornecedores", "Erro" + MessageBoxButtons.OK
                         + MessageBoxIcon.Error + ex.Message);
                 }
             }
@@ -118,7 +116,7 @@ namespace Vismo_New_
         }
 
         //confirmação para edição de regitro de fornecedor
-        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvFornecedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             EditarRegistro();
         }

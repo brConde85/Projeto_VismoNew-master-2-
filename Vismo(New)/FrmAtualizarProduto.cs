@@ -32,6 +32,20 @@ namespace Vismo_New_
                 txtPreco.Text = Convert.ToString(produto.Preco);
                 txtQtd.Text = Convert.ToString(produto.QtdEstoque);
                 cboPalavra.Text = produto.Pchave;
+
+                if (produto.Status == "Desabilitado")
+                {
+                    lblStatus.Text = "Habilitar produto";
+                }
+
+                ItemDeVenda item = new ItemDeVenda();
+
+                item.IdProduto = produto.Codigo;
+
+                if (item.Busca() == 0)
+                {
+                    lblRemover.Enabled = true;
+                }
             }
             else
             {
@@ -132,6 +146,79 @@ namespace Vismo_New_
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void LblStatus_Click(object sender, EventArgs e)
+        {
+            if (lblStatus.Text == "Desabilitar produto")
+            {
+                if (MessageBox.Show("Essa ação não removerá o registro, mas fará com que não " +
+               "esteja disponível em relacionamentos com o sistema.\n\n" +
+               "Você poderá desfazer essa ação futuramente.\n\n" +
+               "Continuar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (produto.MudaStatus2("Desabilitado") == 1)
+                    {
+                        MessageBox.Show("Registro desabilitado.", "Confirmação",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Close();
+
+                        FrmListarProduto tela = new FrmListarProduto();
+                        tela.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao alterar registro", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Habilitar registro de fornecedor e permitir relacionamentos " +
+                    "com o sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (produto.MudaStatus2("Habilitado") == 1)
+                    {
+                        MessageBox.Show("Registro habilitado.", "Confirmação",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Close();
+
+                        FrmListarProduto tela = new FrmListarProduto();
+                        tela.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha ao alterar registro", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void LblRemover_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Remover registro?", "Confirmação",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (produto.Remover() == 1)
+                {
+                    MessageBox.Show("Registro removido.", "Confirmação",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    FrmListarProduto tela = new FrmListarProduto();
+                    tela.Show();
+
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao remover registro", "Erro",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
