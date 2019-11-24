@@ -11,9 +11,9 @@ using Control;
 
 namespace Vismo_New_
 {
-    public partial class FrmCadastroPagamento : Form
+    public partial class FrmCadPagamento : Form
     {
-        public FrmCadastroPagamento()
+        public FrmCadPagamento()
         {
             InitializeComponent();
         }

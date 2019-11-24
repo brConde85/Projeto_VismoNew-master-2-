@@ -61,8 +61,9 @@ namespace Vismo_New_
                     if (funcionario.Tipo == "Gerente")
                     {
                         //caso for um gerente
-                        FrmLogGerente frmGer = new FrmLogGerente(txtLogin.Text, txtSenha.Text);
-                        frmGer.Show();
+                        FrmLogGerente tela = new FrmLogGerente(funcionario.Login, funcionario.Senha);
+                        tela.Show();
+
                         Hide();
                     }
                     else
@@ -70,15 +71,17 @@ namespace Vismo_New_
                         if (funcionario.AchaGerenteDisponivel() == 1)
                         {
                             //caso for um operador de caixa
-                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
-                            frmCx.Show();
+                            FrmLogFuncionario tela = new FrmLogFuncionario(funcionario.Login);
+                            tela.Show();
+
                             Hide();
                         }
                         else if (funcionario.AchaGerenteAutonomo() == 1)
                         {
                             //caso for um operador de caixa
-                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
-                            frmCx.Show();
+                            FrmLogFuncionario tela = new FrmLogFuncionario(funcionario.Login);
+                            tela.Show();
+
                             Hide();
                         }
                         else
@@ -86,11 +89,11 @@ namespace Vismo_New_
                             funcionario.AchaGerenteAusente();
 
                             //caso for um operador de caixa
-                            FrmLogOpCaixa frmCx = new FrmLogOpCaixa(funcionario.Login);
-                            frmCx.Show();
+                            FrmLogFuncionario tela = new FrmLogFuncionario(funcionario.Login);
+                            tela.Show();
+
                             Hide();
-                        }
-                       
+                        }           
                     }
 
                     //limpa os campos de login e senha
@@ -146,6 +149,22 @@ namespace Vismo_New_
         private void LblCadastrar_MouseLeave(object sender, EventArgs e)
         {
             lblCadastrar.ForeColor = Color.SteelBlue;
+        }
+
+
+        //fecha todos os Forms abertos ao usuário voltar para a tela de login
+        private void FrmTelaLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible == true)
+            {
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i] != this)
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
+            }   
         }
     }
 }

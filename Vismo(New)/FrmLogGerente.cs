@@ -27,6 +27,7 @@ namespace Vismo_New_
             funcionario.Senha = senha;
 
             funcionario.PegaStatus();
+
             txtModo.Text = funcionario.Status;
             txtLogin.Text = funcionario.Login;
             lblNome.Text = funcionario.Nome;
@@ -36,18 +37,18 @@ namespace Vismo_New_
         //Ações para abrir as telas do sistema
         private void FornecedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmNovoFornecedor>().Count() == 0)
+            if (Application.OpenForms.OfType<FrmCadFornecedor>().Count() == 0)
             {
-                FrmNovoFornecedor tela = new FrmNovoFornecedor(0);
+                FrmCadFornecedor tela = new FrmCadFornecedor(0);
                 tela.Show();
             } 
         }
 
         private void ProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmNovoProduto>().Count() == 0)
+            if (Application.OpenForms.OfType<FrmCadProduto>().Count() == 0)
             {
-                FrmNovoProduto tela = new FrmNovoProduto();
+                FrmCadProduto tela = new FrmCadProduto(0);
                 tela.Show();
             } 
         }
@@ -99,9 +100,9 @@ namespace Vismo_New_
 
         private void pagamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmCadastroPagamento>().Count() == 0)
+            if (Application.OpenForms.OfType<FrmCadPagamento>().Count() == 0)
             {
-                FrmCadastroPagamento tela = new FrmCadastroPagamento();
+                FrmCadPagamento tela = new FrmCadPagamento();
                 tela.Show();
             } 
         }
@@ -151,7 +152,6 @@ namespace Vismo_New_
             }          
         }
 
-
         private void ProdutoDaCasaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<FrmNovoProdutoCasa>().Count() == 0)
@@ -162,119 +162,22 @@ namespace Vismo_New_
         }
 
 
-
-        //Fecha os forms abertos no sistema se existentes e voltar para tela de login
+        //volta para a tela de login
         private void FrmLogGerente_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmNovoProduto>().Count() == 1)
-            {
-                Application.OpenForms["FrmNovoProduto"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmCadFuncionario>().Count() == 1)
-            {
-                Application.OpenForms["FrmCadFuncionario"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmNovoFornecedor>().Count() == 1)
-            {
-                Application.OpenForms["FrmNovoFornecedor"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmCadastroPagamento>().Count() == 1)
-            {
-                Application.OpenForms["FrmCadastroPagamento"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmListarProduto>().Count() == 1)
-            {
-                Application.OpenForms["FrmListarProduto"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmListarFuncionario>().Count() == 1)
-            {
-                Application.OpenForms["FrmListarFuncionario"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmListarFornecedor>().Count() == 1)
-            {
-                Application.OpenForms["FrmListarFornecedor"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmRegistroPagamento>().Count() == 1)
-            {
-                Application.OpenForms["FrmRegistroPagamento"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmRegistroVenda>().Count() == 1)
-            {
-                Application.OpenForms["FrmRegistroVenda"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmMaisVendidos>().Count() == 1)
-            {
-                Application.OpenForms["FrmMaisVendidos"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmPedidoReposicao>().Count() == 1)
-            {
-                Application.OpenForms["FrmPedidoReposicao"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmNovaVenda>().Count() == 1)
-            {
-                Application.OpenForms["FrmNovaVenda"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModo>().Count() == 1)
-            {
-                Application.OpenForms["FrmModo"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 1)
-            {
-                Application.OpenForms["FrmModoDisponivel"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente>().Count() == 1)
-            {
-                Application.OpenForms["FrmModoAusente"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAusente2>().Count() == 1)
-            {
-                Application.OpenForms["FrmModoAusente2"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 1)
-            {
-                Application.OpenForms["FrmModoAutonomo"].Close();
-            }
-
-            if (Application.OpenForms.OfType<FrmNovoProdutoCasa>().Count() == 1)
-            {
-                Application.OpenForms["FrmNovoProdutoCasa"].Close();
-            }
-
-            if (Application.OpenForms.OfType<Frm_logGerenteAjuda>().Count() == 1)
-            {
-                Application.OpenForms["Frm_logGerenteAjuda"].Close();
-            }
-
             if (Application.OpenForms.OfType<FrmModoDisponivel>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAusente2>().Count() == 0 &&
                 Application.OpenForms.OfType<FrmModoAutonomo>().Count() == 0)
             {
                 Application.OpenForms["FrmTelaLogin"].Show();
-            }
+            }   
         }
-
-
 
         //Ação para alterar o status do gerente
         private void FrmLogGerente_Load(object sender, EventArgs e)
         {
             txtModo.Refresh();
+
             if(txtModo.Text == "1")
             {
                 pcbAusente.Visible = false;
@@ -300,7 +203,7 @@ namespace Vismo_New_
         {
             if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
             {
-                FrmModo tela = new FrmModo(txtLogin.Text);
+                FrmModo tela = new FrmModo(funcionario.Login);
                 tela.Show();
             }
         }
@@ -309,7 +212,7 @@ namespace Vismo_New_
         {
             if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
             {
-                FrmModo tela = new FrmModo(txtLogin.Text);
+                FrmModo tela = new FrmModo(funcionario.Login);
                 tela.Show();
             }
         }
@@ -318,7 +221,7 @@ namespace Vismo_New_
         {
             if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
             {
-                FrmModo tela = new FrmModo(txtLogin.Text);
+                FrmModo tela = new FrmModo(funcionario.Login);
                 tela.Show();
             }
         }
@@ -327,7 +230,7 @@ namespace Vismo_New_
         {
             if (Application.OpenForms.OfType<FrmModo>().Count() == 0)
             {
-                FrmModo tela = new FrmModo(txtLogin.Text);
+                FrmModo tela = new FrmModo(funcionario.Login);
                 tela.Show();
             }
         }
@@ -345,6 +248,7 @@ namespace Vismo_New_
             }
         }
 
+        //abre um Form de ajuda
         private void SobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<Frm_logGerenteAjuda>().Count() == 0)

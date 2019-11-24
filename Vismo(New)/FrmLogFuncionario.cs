@@ -11,11 +11,11 @@ using Control;
 
 namespace Vismo_New_
 {
-    public partial class FrmLogOpCaixa : Form
+    public partial class FrmLogFuncionario : Form
     {
         Funcionario funcionario;
 
-        public FrmLogOpCaixa(string login)
+        public FrmLogFuncionario(string login)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace Vismo_New_
         //Ações para abrir as telas do sistema
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            FrmCadastroPagamento tela = new FrmCadastroPagamento();
+            FrmCadPagamento tela = new FrmCadPagamento();
             tela.Show();
         }
 
@@ -90,7 +90,7 @@ namespace Vismo_New_
         //Fecha os forms abertos no sistema se existentes e voltar para tela de login
         private void FrmLogOpCaixa_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms.OfType<FrmCadastroPagamento>().Count() == 1)
+            if (Application.OpenForms.OfType<FrmCadPagamento>().Count() == 1)
             {
                 Application.OpenForms["FrmCadastroPagamento"].Close();
             }

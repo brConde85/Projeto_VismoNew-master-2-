@@ -37,7 +37,7 @@ namespace Vismo_New_
                 {
                     //atribuição dos compos do formulário para os atributos do produto
                     produto.Nome = txtNome.Text;
-                    produto.Preco = Convert.ToDouble(txtPreco.Text);
+                    produto.Preco = float.Parse(txtPreco.Text);
                     produto.Pchave = cboPalavra.Text;
                    
                     //chamada do método Inserir(), que insere os registros no banco

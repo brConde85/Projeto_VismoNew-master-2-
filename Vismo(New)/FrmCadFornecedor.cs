@@ -12,11 +12,11 @@ using Control;
 
 namespace Vismo_New_
 {
-    public partial class FrmNovoFornecedor : Form
+    public partial class FrmCadFornecedor : Form
     {
         Produto produto;
 
-        public FrmNovoFornecedor(int codigo)
+        public FrmCadFornecedor(int codigo)
         {
             InitializeComponent();
 
@@ -26,6 +26,7 @@ namespace Vismo_New_
 
             if (codigo > 0)
             {
+                //ao abrir o Form, é preparado para ações de alteração de registro
                 if (produto.fornecedor.PegaNome() == 1)
                 {
                     txtNome.Text = produto.fornecedor.Nome;
@@ -44,6 +45,7 @@ namespace Vismo_New_
                     lblStatus.Visible = true;
                     lblRemover.Visible = true;
 
+                    //checa se fornecedor está relacionado com algum produto ou pagamento no sistema
                     if (produto.Busca() == 0)
                     {
                         Pagamento pagamento = new Pagamento();
@@ -52,6 +54,7 @@ namespace Vismo_New_
 
                         if (pagamento.Busca() == 0)
                         {
+                            //se não estiver, é possivel remover o fornecedor do sistema
                             lblRemover.Enabled = true;
                         }
                     }
@@ -61,6 +64,7 @@ namespace Vismo_New_
                     MessageBox.Show("Ocorreu um erro ao procurar pelo registro.", "Erro",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                    //fecha o Form caso ocorra algum erro ao carregar as informações do fornecedor
                     Close();
                 }
             }  
@@ -148,22 +152,12 @@ namespace Vismo_New_
             }
         }
 
-        //ação para voltar ao menu principal
-        private void BtnVoltar_Click(object sender, EventArgs e)
-        {
-            if (Text == "Editar Fornecedor - Vismo")
-            {
-                FrmListarFornecedor tela = new FrmListarFornecedor();
-                tela.Show();
-            }
-
-            Close();
-        }
-
-        private void LblDesabilitar_Click(object sender, EventArgs e)
+        //ação para desabilitar ou habilitar registro
+        private void LblStatus_Click(object sender, EventArgs e)
         {
             if (lblStatus.Text == "Desabilitar fornecedor")
             {
+                //confirmação para desabilitar registro
                 if (MessageBox.Show("Essa ação não removerá o registro, mas fará com que não " +
                "esteja disponível em relacionamentos com o sistema.\n\n" +
                "Todos os produtos registrados em nome do fornecedor também serão " +
@@ -171,10 +165,13 @@ namespace Vismo_New_
                "Você poderá desfazer essa ação futuramente.\n\n" +
                "Continuar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    //checa novamente se fornecedor está registrado com algum produto
                     if (produto.Busca() > 0)
                     {
+                        //se estiver desabilita todos os produtos relacionados
                         if (produto.MudaStatus() >= 1)
                         {
+                            //desabilita o fornecedor
                             if (produto.fornecedor.MudaStatus("Desabilitado") == 1)
                             {
                                 MessageBox.Show("Registro desabilitado.", "Confirmação",
@@ -199,6 +196,7 @@ namespace Vismo_New_
                     }
                     else
                     {
+                        //desabilita o fornecedor somente, caso não esteja relacionado a algum produto
                         if (produto.fornecedor.MudaStatus("Desabilitado") == 1)
                         {
                             MessageBox.Show("Registro desabilitado.", "Confirmação",
@@ -219,16 +217,21 @@ namespace Vismo_New_
             }
             else
             {
+                //confirmação para habilitar registro
                 if (MessageBox.Show("Habilitar registro de fornecedor e permitir relacionamentos " +
                     "com o sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    //habilita o fornecedor
                     if (produto.fornecedor.MudaStatus("Habilitado") == 1)
                     {
                         MessageBox.Show("Registro habilitado.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        /*procura por produtos desabilitados relacionados com o fornecedor, se encontrar
+                          abre os registros de produtos para uma possível habilitação de produto*/
                         if (produto.AchaStatus() == 1)
                         {
+                            //prepara a tela de registro de produtos para habilitação
                             FrmListarProduto tela = new FrmListarProduto();
 
                             tela.dgvProduto.Columns["Selecionar"].Visible = true;
@@ -248,6 +251,8 @@ namespace Vismo_New_
                         }
                         else
                         {
+                            /*caso não encontre produtos relacionados desabilitados,
+                              volta para o registro de fornecedores */ 
                             FrmListarFornecedor tela = new FrmListarFornecedor();
                             tela.Show();
                         }
@@ -263,16 +268,20 @@ namespace Vismo_New_
             }  
         }
 
+        //ação para remover registro
         private void LblRemover_Click(object sender, EventArgs e)
         {
+            //confirmação
             if (MessageBox.Show("Remover registro?", "Confirmação",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                //remove o registro
                 if (produto.fornecedor.Remover() == 1)
                 {
                     MessageBox.Show("Registro removido.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    //volta para o registro de fornecedores
                     FrmListarFornecedor tela = new FrmListarFornecedor();
                     tela.Show();
 
@@ -284,6 +293,18 @@ namespace Vismo_New_
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        //ação para voltar ao menu principal
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            if (Text == "Editar Fornecedor - Vismo")
+            {
+                FrmListarFornecedor tela = new FrmListarFornecedor();
+                tela.Show();
+            }
+
+            Close();
         }
     }
 }

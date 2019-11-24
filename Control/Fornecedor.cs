@@ -129,7 +129,7 @@ namespace Control
         }
 
         //faz uma busca de fornecedor por nome
-        public DataSet ListarNome()
+        public DataSet ListarNome(string comando)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -138,7 +138,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Fornecedor WHERE lower(nome) like lower('%" + nome + "%')";
+                cn.CommandText = comando;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -199,7 +199,7 @@ namespace Control
         }
 
         //realiza a listagem de funcionários registrados
-        public DataSet ListarDataGrid()
+        public DataSet ListarDataGrid(string comando)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -208,7 +208,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT * FROM Fornecedor ORDER BY nome";
+                cn.CommandText = comando;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();

@@ -28,7 +28,7 @@ namespace Vismo_New_
             {
                 int codigo = Convert.ToInt32(dgvProduto.CurrentRow.Cells[1].Value);
 
-                FrmAtualizarProduto tela = new FrmAtualizarProduto(codigo);
+                FrmCadProduto tela = new FrmCadProduto(codigo);
 
                 tela.Show();
 

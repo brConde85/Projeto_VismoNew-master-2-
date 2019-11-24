@@ -21,17 +21,21 @@ namespace Vismo_New_
         //método para confirmar ação de editar fornecedor
         private void EditarRegistro()
         {
-            if (MessageBox.Show("Editar registro?", "Confirmação",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //permite edição de registro caso não esteja em uma edição de produto
+            if (Application.OpenForms.OfType<FrmCadProduto>().Count() == 0)
             {
-                int codigo = Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value);
+                if (MessageBox.Show("Editar registro?", "Confirmação",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int codigo = Convert.ToInt32(dgvFornecedor.CurrentRow.Cells[0].Value);
 
-                FrmNovoFornecedor tela = new FrmNovoFornecedor(codigo);
+                    FrmCadFornecedor tela = new FrmCadFornecedor(codigo);
 
-                tela.Show();
+                    tela.Show();
 
-                Close();
-            }
+                    Close();
+                }
+            }  
         }
 
 
@@ -65,9 +69,20 @@ namespace Vismo_New_
             {
                 Fornecedor fornecedor = new Fornecedor();
 
+                string comando = "";
+
+                if (chkDesabilitados.Checked == true)
+                {
+                    comando = "SELECT * FROM Fornecedor ORDER BY nome";
+                }
+                else
+                {
+                    comando = "SELECT * FROM Fornecedor WHERE status = 'Habilitado' ORDER BY nome";
+                }
+
                 //preecnhe o dataGrid
-                dgvFornecedor.DataSource = fornecedor.ListarDataGrid();
-                dgvFornecedor.DataMember = fornecedor.ListarDataGrid().Tables[0].TableName;
+                dgvFornecedor.DataSource = fornecedor.ListarDataGrid(comando);
+                dgvFornecedor.DataMember = fornecedor.ListarDataGrid(comando).Tables[0].TableName;
             }
             catch (Exception ex)
             {
@@ -89,8 +104,20 @@ namespace Vismo_New_
 
                     fornecedor.Nome = txtNome.Text;
 
+                    string comando = "";
+
+                    if (chkDesabilitados.Checked == true)
+                    {
+                        comando = "SELECT * FROM Fornecedor WHERE lower(nome) like lower('%" + fornecedor.Nome + "%')";
+                    }
+                    else
+                    {
+                        comando = "SELECT * FROM Fornecedor WHERE lower(nome) like lower('%" + fornecedor.Nome + "%') " +
+                            "AND status = 'Habilitado'";
+                    }
+
                     //preenche o dataGrid
-                    dgvFornecedor.DataSource = fornecedor.ListarNome();
+                    dgvFornecedor.DataSource = fornecedor.ListarNome(comando);
 
                     if (dgvFornecedor.RowCount > 0)
                     {

@@ -56,11 +56,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_lojaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmAtualizarProduto.cs">
+    <Compile Include="FrmCadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAtualizarProduto.Designer.cs">
-      <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
+    <Compile Include="FrmCadProduto.Designer.cs">
+      <DependentUpon>FrmCadProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAuten.cs">
       <SubType>Form</SubType>
@@ -68,11 +68,11 @@
     <Compile Include="FrmAuten.Designer.cs">
       <DependentUpon>FrmAuten.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCadastroPagamento.cs">
+    <Compile Include="FrmCadPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCadastroPagamento.Designer.cs">
-      <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>
+    <Compile Include="FrmCadPagamento.Designer.cs">
+      <DependentUpon>FrmCadPagamento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadFuncionario.cs">
       <SubType>Form</SubType>
@@ -104,11 +104,11 @@
     <Compile Include="FrmLogGerente.Designer.cs">
       <DependentUpon>FrmLogGerente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogOpCaixa.cs">
+    <Compile Include="FrmLogFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogOpCaixa.Designer.cs">
-      <DependentUpon>FrmLogOpCaixa.cs</DependentUpon>
+    <Compile Include="FrmLogFuncionario.Designer.cs">
+      <DependentUpon>FrmLogFuncionario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMaisVendidos.cs">
       <SubType>Form</SubType>
@@ -152,17 +152,11 @@
     <Compile Include="FrmNovaVenda.designer.cs">
       <DependentUpon>FrmNovaVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNovoFornecedor.cs">
+    <Compile Include="FrmCadFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNovoFornecedor.Designer.cs">
-      <DependentUpon>FrmNovoFornecedor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmNovoProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmNovoProduto.designer.cs">
-      <DependentUpon>FrmNovoProduto.cs</DependentUpon>
+    <Compile Include="FrmCadFornecedor.Designer.cs">
+      <DependentUpon>FrmCadFornecedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPedidoReposicao.cs">
       <SubType>Form</SubType>
@@ -208,14 +202,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAtualizarProduto.resx">
-      <DependentUpon>FrmAtualizarProduto.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCadProduto.resx">
+      <DependentUpon>FrmCadProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAuten.resx">
       <DependentUpon>FrmAuten.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroPagamento.resx">
-      <DependentUpon>FrmCadastroPagamento.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCadPagamento.resx">
+      <DependentUpon>FrmCadPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadFuncionario.resx">
       <DependentUpon>FrmCadFuncionario.cs</DependentUpon>
@@ -232,8 +226,8 @@
     <EmbeddedResource Include="FrmLogGerente.resx">
       <DependentUpon>FrmLogGerente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogOpCaixa.resx">
-      <DependentUpon>FrmLogOpCaixa.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogFuncionario.resx">
+      <DependentUpon>FrmLogFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMaisVendidos.resx">
       <DependentUpon>FrmMaisVendidos.cs</DependentUpon>
@@ -256,11 +250,8 @@
     <EmbeddedResource Include="FrmNovaVenda.resx">
       <DependentUpon>FrmNovaVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmNovoFornecedor.resx">
-      <DependentUpon>FrmNovoFornecedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmNovoProduto.resx">
-      <DependentUpon>FrmNovoProduto.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCadFornecedor.resx">
+      <DependentUpon>FrmCadFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNovoProdutoCasa.resx">
       <DependentUpon>FrmNovoProdutoCasa.cs</DependentUpon>

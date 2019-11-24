@@ -1,6 +1,6 @@
 ﻿namespace Vismo_New_
 {
-    partial class FrmNovoFornecedor
+    partial class FrmCadFornecedor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNovoFornecedor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadFornecedor));
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -73,9 +73,9 @@
             this.lblTitulo.Font = new System.Drawing.Font("Tw Cen MT", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.Location = new System.Drawing.Point(21, 50);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(199, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(278, 31);
             this.lblTitulo.TabIndex = 13;
-            this.lblTitulo.Text = "Novo fornecedor";
+            this.lblTitulo.Text = "Cadastro de  fornecedor";
             // 
             // btnSalvar
             // 
@@ -184,7 +184,7 @@
             this.lblStatus.TabIndex = 94;
             this.lblStatus.Text = "Desabilitar fornecedor";
             this.lblStatus.Visible = false;
-            this.lblStatus.Click += new System.EventHandler(this.LblDesabilitar_Click);
+            this.lblStatus.Click += new System.EventHandler(this.LblStatus_Click);
             // 
             // lblRemover
             // 
@@ -214,7 +214,7 @@
             this.removerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removerToolStripMenuItem.Text = "Remover";
             // 
-            // FrmNovoFornecedor
+            // FrmCadFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -234,9 +234,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FrmNovoFornecedor";
+            this.Name = "FrmCadFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Novo Fornecedor - Vismo";
+            this.Text = "Cadastro de  Fornecedor - Vismo";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
