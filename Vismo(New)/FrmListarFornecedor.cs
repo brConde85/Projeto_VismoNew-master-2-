@@ -83,6 +83,8 @@ namespace Vismo_New_
                 //preecnhe o dataGrid
                 dgvFornecedor.DataSource = fornecedor.ListarDataGrid(comando);
                 dgvFornecedor.DataMember = fornecedor.ListarDataGrid(comando).Tables[0].TableName;
+
+                lblPesquisa.Text = "1";
             }
             catch (Exception ex)
             {
@@ -118,6 +120,8 @@ namespace Vismo_New_
 
                     //preenche o dataGrid
                     dgvFornecedor.DataSource = fornecedor.ListarNome(comando);
+
+                    lblPesquisa.Text = "2";
 
                     if (dgvFornecedor.RowCount > 0)
                     {
@@ -161,6 +165,18 @@ namespace Vismo_New_
         private void BtnVoltar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ChkDesabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lblPesquisa.Text == "1")
+            {
+                FrmListarFornecedor_Load(sender, e);
+            }
+            else
+            {
+                BtnPesquisar_Click(sender, e);
+            }
         }
     }
 }

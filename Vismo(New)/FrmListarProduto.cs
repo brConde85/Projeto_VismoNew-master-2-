@@ -59,9 +59,10 @@ namespace Vismo_New_
                     "AND t1.status = 'Habilitado' ORDER BY t1.nome";
                     }
                     
-                   
                     dgvProduto.DataSource = produto.ListarDataGrid(comando);
                     dgvProduto.DataMember = produto.ListarDataGrid(comando).Tables[0].TableName;
+
+                    lblPesquisa.Text = "1";
                 }
                 catch (Exception ex)
                 {
@@ -113,17 +114,21 @@ namespace Vismo_New_
 
                     if (chkDesabilitados.Checked == true)
                     {
-                        comando = "SELECT * FROM produto WHERE lower(nome) " +
-                        "like lower('%" + produto.Nome + "%') ORDER BY nome";
+                        comando = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 "+
+                        "WHERE t1.codFornecedor = t2.codFornecedor " +
+                        "AND lower(t1.nome) like lower('%"+ produto.Nome +"%') ORDER BY t1.nome";
                     }
                     else
                     {
-                        comando = "SELECT * FROM produto WHERE lower(nome) " +
-                        "like lower('%" + produto.Nome + "%') " +
-                        "AND status = 'Habilitado' ORDER BY nome";
+                        comando = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
+                        "WHERE t1.codFornecedor = t2.codFornecedor " +
+                        "AND lower(t1.nome) like lower('%" + produto.Nome + "%') " +
+                        "AND t1.status = 'Habilitado' ORDER BY t1.nome";
                     }
                         
                     dgvProduto.DataSource = produto.ListarDataGrid(comando);
+
+                    lblPesquisa.Text = "2";
 
                     if (dgvProduto.RowCount > 0)
                     {
@@ -248,9 +253,13 @@ namespace Vismo_New_
 
         private void ChkDesabilitados_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkDesabilitados.Checked == true)
+            if (lblPesquisa.Text == "1")
             {
-               
+                FrmListarProduto_Load(sender, e);
+            }
+            else
+            {
+                BtnPesquisar_Click(sender, e);
             }
         }
     }

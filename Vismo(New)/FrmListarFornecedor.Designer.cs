@@ -49,6 +49,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.lblEncontrado = new System.Windows.Forms.Label();
             this.chkDesabilitados = new System.Windows.Forms.CheckBox();
+            this.lblPesquisa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -281,12 +282,24 @@
             this.chkDesabilitados.TabIndex = 97;
             this.chkDesabilitados.Text = "Exibir Desabilitados";
             this.chkDesabilitados.UseVisualStyleBackColor = true;
+            this.chkDesabilitados.CheckedChanged += new System.EventHandler(this.ChkDesabilitados_CheckedChanged);
+            // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(516, 104);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(13, 13);
+            this.lblPesquisa.TabIndex = 98;
+            this.lblPesquisa.Text = "0";
+            this.lblPesquisa.Visible = false;
             // 
             // FrmListarFornecedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 467);
+            this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.chkDesabilitados);
             this.Controls.Add(this.lblEncontrado);
             this.Controls.Add(this.lblMsg);
@@ -341,5 +354,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         public System.Windows.Forms.CheckBox chkDesabilitados;
         public System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Label lblPesquisa;
     }
 }
