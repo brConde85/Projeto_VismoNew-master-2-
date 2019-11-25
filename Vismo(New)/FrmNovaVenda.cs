@@ -103,7 +103,7 @@ namespace Vismo_New_
                 //atribuição do campo de id ao atributo de id do produto
                 produto.Codigo = Convert.ToInt32(txtCod.Text);
 
-                string comando = "SELECT * FROM Produto WHERE codigo = @codigo";
+                string comando = "SELECT * FROM Produto WHERE codigo = @codigo AND status = 'Habilitado'";
 
                 if (produto.Listar(comando) != null)
                 {
@@ -145,7 +145,7 @@ namespace Vismo_New_
                     //chamada do método de listagem de produto
 
                     string comando = "SELECT * FROM produto WHERE lower(nome) " +
-                        "like lower('%"+ produto.Nome +"%') ORDER BY nome";
+                        "like lower('%"+ produto.Nome + "%') AND status = 'Habilitado' ORDER BY nome";
 
                     if (produto.Listar(comando) != null)
                     {
@@ -184,7 +184,8 @@ namespace Vismo_New_
                 try
                 {
                     string comando = "SELECT * FROM produto WHERE lower(nome) " +
-                    "like lower('%" + produto.Nome + "%') AND pchave = @pchave ORDER BY nome";
+                    "like lower('%" + produto.Nome + "%') AND pchave = @pchave AND status = 'Habilitado' " +
+                    "ORDER BY nome";
 
                     //chamada do método de listagem de produto
                     if (produto.Listar(comando) != null)
@@ -223,7 +224,8 @@ namespace Vismo_New_
 
                 try
                 {
-                    string comando = "SELECT * FROM Produto WHERE pchave = @pchave ORDER BY nome";
+                    string comando = "SELECT * FROM Produto WHERE pchave = @pchave " +
+                        "AND status = 'Habilitado' ORDER BY nome";
 
                     if (produto.Listar(comando) != null)
                     {

@@ -45,8 +45,23 @@ namespace Vismo_New_
                 {
                     Produto produto = new Produto();
 
-                    dgvProduto.DataSource = produto.ListarDataGrid();
-                    dgvProduto.DataMember = produto.ListarDataGrid().Tables[0].TableName;
+                    string comando = "";
+
+                    if (chkDesabilitados.Checked == true)
+                    {
+                        comando = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
+                    "WHERE t1.codFornecedor = t2.codFornecedor";
+                    }
+                    else
+                    {
+                        comando = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
+                    "WHERE t1.codFornecedor = t2.codFornecedor " +
+                    "AND t1.status = 'Habilitado' ORDER BY t1.nome";
+                    }
+                    
+                   
+                    dgvProduto.DataSource = produto.ListarDataGrid(comando);
+                    dgvProduto.DataMember = produto.ListarDataGrid(comando).Tables[0].TableName;
                 }
                 catch (Exception ex)
                 {
@@ -94,10 +109,21 @@ namespace Vismo_New_
                     //preenche o dataGrid
                     dgvProduto.AutoGenerateColumns = false;
 
-                    string comando = "SELECT * FROM produto WHERE lower(nome) " +
-                        "like lower('%" + produto.Nome + "%') ORDER BY nome";
+                    string comando = "";
 
-                    dgvProduto.DataSource = produto.Listar(comando);
+                    if (chkDesabilitados.Checked == true)
+                    {
+                        comando = "SELECT * FROM produto WHERE lower(nome) " +
+                        "like lower('%" + produto.Nome + "%') ORDER BY nome";
+                    }
+                    else
+                    {
+                        comando = "SELECT * FROM produto WHERE lower(nome) " +
+                        "like lower('%" + produto.Nome + "%') " +
+                        "AND status = 'Habilitado' ORDER BY nome";
+                    }
+                        
+                    dgvProduto.DataSource = produto.ListarDataGrid(comando);
 
                     if (dgvProduto.RowCount > 0)
                     {
@@ -218,6 +244,14 @@ namespace Vismo_New_
             tela.Show();
 
             Close();
+        }
+
+        private void ChkDesabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDesabilitados.Checked == true)
+            {
+               
+            }
         }
     }
 }

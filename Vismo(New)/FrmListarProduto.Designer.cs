@@ -34,6 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListarProduto));
             this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.Selecionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnQtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPalChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumncodForn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,14 +60,7 @@
             this.chkSelecionar = new System.Windows.Forms.CheckBox();
             this.lblSelecionar = new System.Windows.Forms.Label();
             this.lblCod = new System.Windows.Forms.Label();
-            this.Selecionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnQtdEstoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPalChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumncodForn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkDesabilitados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -90,6 +91,86 @@
             this.dgvProduto.Size = new System.Drawing.Size(643, 229);
             this.dgvProduto.TabIndex = 0;
             this.dgvProduto.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProduto_CellDoubleClick);
+            // 
+            // Selecionar
+            // 
+            this.Selecionar.HeaderText = "";
+            this.Selecionar.Name = "Selecionar";
+            this.Selecionar.TrueValue = "";
+            this.Selecionar.Visible = false;
+            this.Selecionar.Width = 30;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Codigo";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "Código";
+            this.id.MinimumWidth = 8;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 60;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.DataPropertyName = "Nome";
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.MinimumWidth = 8;
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 140;
+            // 
+            // ColumnPreco
+            // 
+            this.ColumnPreco.DataPropertyName = "Preco";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnPreco.HeaderText = "Preço";
+            this.ColumnPreco.MinimumWidth = 8;
+            this.ColumnPreco.Name = "ColumnPreco";
+            this.ColumnPreco.ReadOnly = true;
+            this.ColumnPreco.Width = 80;
+            // 
+            // ColumnQtdEstoque
+            // 
+            this.ColumnQtdEstoque.DataPropertyName = "QtdEstoque";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ColumnQtdEstoque.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColumnQtdEstoque.HeaderText = "Qtd Estoque";
+            this.ColumnQtdEstoque.MinimumWidth = 8;
+            this.ColumnQtdEstoque.Name = "ColumnQtdEstoque";
+            this.ColumnQtdEstoque.ReadOnly = true;
+            this.ColumnQtdEstoque.Width = 60;
+            // 
+            // ColumnPalChave
+            // 
+            this.ColumnPalChave.DataPropertyName = "Pchave";
+            this.ColumnPalChave.HeaderText = "Palavra Chave";
+            this.ColumnPalChave.MinimumWidth = 8;
+            this.ColumnPalChave.Name = "ColumnPalChave";
+            this.ColumnPalChave.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // ColumncodForn
+            // 
+            this.ColumncodForn.DataPropertyName = "fornecedor";
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumncodForn.HeaderText = "Fornecedor";
+            this.ColumncodForn.MinimumWidth = 8;
+            this.ColumncodForn.Name = "ColumncodForn";
+            this.ColumncodForn.ReadOnly = true;
+            this.ColumncodForn.Width = 80;
             // 
             // label1
             // 
@@ -302,91 +383,23 @@
             this.lblCod.Text = "0";
             this.lblCod.Visible = false;
             // 
-            // Selecionar
+            // chkDesabilitados
             // 
-            this.Selecionar.HeaderText = "";
-            this.Selecionar.Name = "Selecionar";
-            this.Selecionar.TrueValue = "";
-            this.Selecionar.Visible = false;
-            this.Selecionar.Width = 30;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Codigo";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
-            this.id.HeaderText = "Código";
-            this.id.MinimumWidth = 8;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 60;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.DataPropertyName = "Nome";
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.MinimumWidth = 8;
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            this.ColumnNome.Width = 140;
-            // 
-            // ColumnPreco
-            // 
-            this.ColumnPreco.DataPropertyName = "Preco";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ColumnPreco.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ColumnPreco.HeaderText = "Preço";
-            this.ColumnPreco.MinimumWidth = 8;
-            this.ColumnPreco.Name = "ColumnPreco";
-            this.ColumnPreco.ReadOnly = true;
-            this.ColumnPreco.Width = 80;
-            // 
-            // ColumnQtdEstoque
-            // 
-            this.ColumnQtdEstoque.DataPropertyName = "QtdEstoque";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ColumnQtdEstoque.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ColumnQtdEstoque.HeaderText = "Qtd Estoque";
-            this.ColumnQtdEstoque.MinimumWidth = 8;
-            this.ColumnQtdEstoque.Name = "ColumnQtdEstoque";
-            this.ColumnQtdEstoque.ReadOnly = true;
-            this.ColumnQtdEstoque.Width = 60;
-            // 
-            // ColumnPalChave
-            // 
-            this.ColumnPalChave.DataPropertyName = "Pchave";
-            this.ColumnPalChave.HeaderText = "Palavra Chave";
-            this.ColumnPalChave.MinimumWidth = 8;
-            this.ColumnPalChave.Name = "ColumnPalChave";
-            this.ColumnPalChave.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // ColumncodForn
-            // 
-            this.ColumncodForn.DataPropertyName = "fornecedor";
-            dataGridViewCellStyle4.Format = "N0";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ColumncodForn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ColumncodForn.HeaderText = "Fornecedor";
-            this.ColumncodForn.MinimumWidth = 8;
-            this.ColumncodForn.Name = "ColumncodForn";
-            this.ColumncodForn.ReadOnly = true;
-            this.ColumncodForn.Width = 80;
+            this.chkDesabilitados.AutoSize = true;
+            this.chkDesabilitados.Location = new System.Drawing.Point(383, 103);
+            this.chkDesabilitados.Name = "chkDesabilitados";
+            this.chkDesabilitados.Size = new System.Drawing.Size(117, 17);
+            this.chkDesabilitados.TabIndex = 107;
+            this.chkDesabilitados.Text = "Exibir Desabilitados";
+            this.chkDesabilitados.UseVisualStyleBackColor = true;
+            this.chkDesabilitados.CheckedChanged += new System.EventHandler(this.ChkDesabilitados_CheckedChanged);
             // 
             // FrmListarProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 467);
+            this.Controls.Add(this.chkDesabilitados);
             this.Controls.Add(this.lblCod);
             this.Controls.Add(this.lblSelecionar);
             this.Controls.Add(this.chkSelecionar);
@@ -451,5 +464,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumncodForn;
         public System.Windows.Forms.CheckBox chkSelecionar;
+        public System.Windows.Forms.CheckBox chkDesabilitados;
     }
 }

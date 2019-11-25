@@ -203,7 +203,7 @@ namespace Control
         }
 
         //faz a listagem de produtos registrados
-        public DataSet ListarDataGrid()
+        public DataSet ListarDataGrid(string comando)
         {
             using (SqlConnection con = new SqlConnection())
             {
@@ -212,8 +212,7 @@ namespace Control
                 cn.CommandType = CommandType.Text;
 
                 con.Open();
-                cn.CommandText = "SELECT t1.*, t2.nome AS fornecedor FROM Produto t1, Fornecedor t2 " +
-                    "WHERE t1.codFornecedor = t2.codFornecedor ORDER BY nome";
+                cn.CommandText = comando;
                 cn.Connection = con;
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -298,9 +297,11 @@ namespace Control
                 cn.Parameters.Add("codigo", SqlDbType.Int).Value = codigo;
 
                 if (comando == "SELECT * FROM produto WHERE lower(nome) " +
-                    "like lower('%" + nome + "%') AND pchave = @pchave ORDER BY nome" ||
+                    "like lower('%" + nome + "%') AND pchave = @pchave AND status = 'Habilitado' " +
+                    "ORDER BY nome" ||
 
-                    comando == "SELECT * FROM Produto WHERE pchave = @pchave ORDER BY nome")
+                    comando == "SELECT * FROM Produto WHERE pchave = @pchave " +
+                    "AND status = 'Habilitado' ORDER BY nome")
                 {
                     cn.Parameters.Add("pchave", SqlDbType.NVarChar).Value = pchave;
                 }
@@ -317,7 +318,7 @@ namespace Control
 
                 if (reader.HasRows)
                 {
-                    if (comando == "SELECT * FROM Produto WHERE codigo = @codigo")
+                    if (comando == "SELECT * FROM Produto WHERE codigo = @codigo AND status = 'Habilitado'")
                     {
                         while (reader.Read())
                         {
