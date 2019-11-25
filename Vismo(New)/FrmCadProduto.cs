@@ -101,7 +101,7 @@ namespace Vismo_New_
                     //atribuição dos compos do formulário para os atributos do produto
                     produto.Nome = txtNome.Text;
 
-                    float valor = float.Parse(txtPreco.Text.Replace("R$", "0"));
+                    double valor = Convert.ToDouble(txtPreco.Text.Replace("R$", ""));
                     produto.Preco = valor;
 
                     produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
@@ -165,7 +165,7 @@ namespace Vismo_New_
                         //atribuição dos campos do formulário aos atributos da classe Produto
                         produto.Nome = txtNome.Text;
 
-                        float valor = float.Parse(txtPreco.Text.Replace("R$", "0"));
+                       double valor = Convert.ToDouble(txtPreco.Text.Replace("R$", ""));
                         produto.Preco = valor;
 
                         produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
@@ -184,7 +184,7 @@ namespace Vismo_New_
                         }
                     }
 
-                    catch (Exception ex)
+                    catch (SqlException ex)
                     {
                         //exibe mensagem em caso de erro
                         MessageBox.Show(ex.Message);
@@ -368,16 +368,20 @@ namespace Vismo_New_
         //checa se código de fornecedor informado está registrado
         private void TxtFornec_Leave(object sender, EventArgs e)
         {
-            produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
-
-            if (produto.fornecedor.PegaId() == 1)
+            
+            if (!txtFornec.Text.Equals(""))
             {
-                lblCod.Visible = false;
+                produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
+                if (produto.fornecedor.PegaId() == 1)
+                {
+                    lblCod.Visible = false;
+                }
+                else
+                {
+                    lblCod.Visible = true;
+                }
             }
-            else
-            {
-                lblCod.Visible = true;
-            }
+            
         }
 
 

@@ -318,7 +318,8 @@ namespace Control
 
                 if (reader.HasRows)
                 {
-                    if (comando == "SELECT * FROM Produto WHERE codigo = @codigo AND status = 'Habilitado'")
+                    if (comando == "SELECT * FROM Produto WHERE codigo = @codigo AND status = 'Habilitado'" ||
+                        comando == "SELECT * FROM Produto WHERE codigo = @codigo")
                     {
                         while (reader.Read())
                         {
