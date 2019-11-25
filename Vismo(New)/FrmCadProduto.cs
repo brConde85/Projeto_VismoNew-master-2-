@@ -27,9 +27,11 @@ namespace Vismo_New_
 
             if (codigo > 0)
             {
-                if (produto.Listar1() != null)
+                string comando = "SELECT * FROM Produto WHERE codigo = @codigo";
+
+                if (produto.Listar(comando) != null)
                 {
-                    txtFornec.Text = Convert.ToString(produto.fornecedor.CodigoF);
+                    txtFornec.Text = Convert.ToString(produto.fornecedor.Codigo);
                     txtNome.Text = produto.Nome;
                     txtPreco.Text = Convert.ToString(produto.Preco);
                     txtQtd.Text = Convert.ToString(produto.QtdEstoque);
@@ -104,7 +106,7 @@ namespace Vismo_New_
 
                     produto.QtdEstoque = Convert.ToInt32(txtQtd.Text);
                     produto.Pchave = cboPalavra.Text;
-                    produto.fornecedor.CodigoF = Convert.ToInt32(txtFornec.Text);
+                    produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
 
                     if (produto.Inserir() == 1)
                     {
@@ -153,7 +155,7 @@ namespace Vismo_New_
                 lblCod.Visible == false)
             {
                 //atribuição do campo de ID de funcionário ao atributo da classe Funcionário
-                produto.fornecedor.CodigoF = Convert.ToInt32(txtFornec.Text);
+                produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
 
                 //checa se ID de funcionário está registrado
                 if (produto.fornecedor.PegaId() == 1)
@@ -248,7 +250,10 @@ namespace Vismo_New_
                "Você poderá desfazer essa ação futuramente.\n\n" +
                "Continuar?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (produto.MudaStatus2("Desabilitado") == 1)
+                    string comando = "UPDATE Produto SET status = 'Desabilitado' " +
+                    "WHERE codigo = @codigo";
+
+                    if (produto.MudaStatus(comando) == 1)
                     {
                         MessageBox.Show("Registro desabilitado.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -270,7 +275,10 @@ namespace Vismo_New_
                 if (MessageBox.Show("Habilitar registro de fornecedor e permitir relacionamentos " +
                     "com o sistema?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (produto.MudaStatus2("Habilitado") == 1)
+                    string comando = "UPDATE Produto SET status = 'Habilitado' " +
+                    "WHERE codigo = @codigo";
+
+                    if (produto.MudaStatus(comando) == 1)
                     {
                         MessageBox.Show("Registro habilitado.", "Confirmação",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -360,7 +368,7 @@ namespace Vismo_New_
         //checa se código de fornecedor informado está registrado
         private void TxtFornec_Leave(object sender, EventArgs e)
         {
-            produto.fornecedor.CodigoF = Convert.ToInt32(txtFornec.Text);
+            produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
 
             if (produto.fornecedor.PegaId() == 1)
             {

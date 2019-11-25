@@ -59,7 +59,7 @@ namespace Vismo_New_
                 {
                     Produto produto = new Produto();
 
-                    produto.fornecedor.CodigoF = Convert.ToInt32(lblCod.Text);
+                    produto.fornecedor.Codigo = Convert.ToInt32(lblCod.Text);
 
                     dgvProduto.AutoGenerateColumns = false;
                     dgvProduto.DataSource = produto.ProdutoFornec();
@@ -93,7 +93,11 @@ namespace Vismo_New_
 
                     //preenche o dataGrid
                     dgvProduto.AutoGenerateColumns = false;
-                    dgvProduto.DataSource = produto.Listar2();
+
+                    string comando = "SELECT * FROM produto WHERE lower(nome) " +
+                        "like lower('%" + produto.Nome + "%') ORDER BY nome";
+
+                    dgvProduto.DataSource = produto.Listar(comando);
 
                     if (dgvProduto.RowCount > 0)
                     {
@@ -183,7 +187,10 @@ namespace Vismo_New_
 
                     try
                     {
-                        if (produto.MudaStatus2("Habilitado") == 0)
+                        string comando = "UPDATE Produto SET status = 'Habilitado' " +
+                    "WHERE codigo = @codigo";
+
+                        if (produto.MudaStatus(comando) == 0)
                         {
                             cont += 1;
                         }

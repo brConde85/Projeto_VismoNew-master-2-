@@ -22,7 +22,7 @@ namespace Control
 
 
         //encapsulamento de atributos da classe
-        public int CodigoF
+        public int Codigo
         {
             get
             {            
@@ -110,6 +110,7 @@ namespace Control
             }
         }
 
+        //altera o status de um fornecedor
         public int MudaStatus(string status)
         {
             using (SqlConnection con = new SqlConnection())
@@ -170,7 +171,7 @@ namespace Control
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    CodigoF = reader.GetInt32(0);
+                    Codigo = reader.GetInt32(0);
 
                     return 1;
                 }
@@ -221,6 +222,7 @@ namespace Control
             }
         }
 
+        //remove o registro de um fornecedor
         public int Remover()
         {
             using (SqlConnection con = new SqlConnection())
@@ -238,6 +240,7 @@ namespace Control
             }
         }
 
+        //procura por registro de um fornecedor para alteração
         public int PegaNome()
         {
             using (SqlConnection con = new SqlConnection())

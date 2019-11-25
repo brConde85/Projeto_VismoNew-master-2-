@@ -22,7 +22,7 @@ namespace Vismo_New_
 
             produto = new Produto();
 
-            produto.fornecedor.CodigoF = codigo;
+            produto.fornecedor.Codigo = codigo;
 
             if (codigo > 0)
             {
@@ -50,7 +50,7 @@ namespace Vismo_New_
                     {
                         Pagamento pagamento = new Pagamento();
 
-                        pagamento.fornecedor.CodigoF = produto.fornecedor.CodigoF;
+                        pagamento.fornecedor.Codigo = produto.fornecedor.Codigo;
 
                         if (pagamento.Busca() == 0)
                         {
@@ -168,8 +168,11 @@ namespace Vismo_New_
                     //checa novamente se fornecedor está registrado com algum produto
                     if (produto.Busca() > 0)
                     {
+                        string comando = "UPDATE Produto SET status = 'Desabilitado' " +
+                        "WHERE codFornecedor = @codFornecedor";
+
                         //se estiver desabilita todos os produtos relacionados
-                        if (produto.MudaStatus() >= 1)
+                        if (produto.MudaStatus(comando) >= 1)
                         {
                             //desabilita o fornecedor
                             if (produto.fornecedor.MudaStatus("Desabilitado") == 1)
@@ -245,7 +248,7 @@ namespace Vismo_New_
                             tela.btnConfirmar.Visible = true;
                             tela.lblSelecionar.Visible = true;
                             tela.chkSelecionar.Visible = true;
-                            tela.lblCod.Text = Convert.ToString(produto.fornecedor.CodigoF);
+                            tela.lblCod.Text = Convert.ToString(produto.fornecedor.Codigo);
 
                             tela.Show();
                         }

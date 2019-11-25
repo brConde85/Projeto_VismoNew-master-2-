@@ -40,7 +40,7 @@ namespace Vismo_New_
 
                     //atribuição dos campos do formulário aos atributos da classe Pagamento
                     pagamento.Valor = txtValor.Text;
-                    pagamento.fornecedor.CodigoF = Convert.ToInt32(txtCod.Text);
+                    pagamento.fornecedor.Codigo = Convert.ToInt32(txtCod.Text);
                     pagamento.Descricao = txtDesc.Text;
 
                     /*compara se a data inserida como prazo de pagamento é válida;

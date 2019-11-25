@@ -114,7 +114,7 @@ namespace Control
                 cn.Parameters.Add("descricao", SqlDbType.NVarChar).Value = descricao;
                 cn.Parameters.Add("validade", SqlDbType.Date).Value = validade;
                 cn.Parameters.Add("situacao", SqlDbType.NVarChar).Value = situacao;
-                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Parameters.Add("codFornecedor", SqlDbType.Int).Value = fornecedor.Codigo;
                 cn.Connection = con;
 
                 return cn.ExecuteNonQuery();
@@ -197,7 +197,7 @@ namespace Control
 
                 con.Open();
                 cn.CommandText = "SELECT codigo FROM Pagamento WHERE codFornecedor = @codigo";
-                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.CodigoF;
+                cn.Parameters.Add("codigo", SqlDbType.Int).Value = fornecedor.Codigo;
                 cn.Connection = con;
 
                 SqlDataReader reader = cn.ExecuteReader();

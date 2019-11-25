@@ -103,7 +103,9 @@ namespace Vismo_New_
                 //atribuição do campo de id ao atributo de id do produto
                 produto.Codigo = Convert.ToInt32(txtCod.Text);
 
-                if (produto.Listar1() != null)
+                string comando = "SELECT * FROM Produto WHERE codigo = @codigo";
+
+                if (produto.Listar(comando) != null)
                 {
                     try
                     {
@@ -112,8 +114,8 @@ namespace Vismo_New_
                         dataGridView2.AutoGenerateColumns = false;
 
                         //chamada do método de listagem de produto
-                        dataGridView2.DataSource = produto.Listar1();
-                        dataGridView2.DataMember = produto.Listar1().Tables[0].TableName;
+                        dataGridView2.DataSource = produto.Listar(comando);
+                        dataGridView2.DataMember = produto.Listar(comando).Tables[0].TableName;
 
                         AtualizaQtd();
                     }
@@ -141,14 +143,18 @@ namespace Vismo_New_
                 {
                     produto.Nome = txtNome.Text;
                     //chamada do método de listagem de produto
-                    if (produto.Listar2() != null)
+
+                    string comando = "SELECT * FROM produto WHERE lower(nome) " +
+                        "like lower('%"+ produto.Nome +"%') ORDER BY nome";
+
+                    if (produto.Listar(comando) != null)
                     {
                         lblFalhaPesquisa2.Visible = false;
 
                         dataGridView2.AutoGenerateColumns = false;
 
-                        dataGridView2.DataSource = produto.Listar2();
-                        dataGridView2.DataMember = produto.Listar2().Tables[0].TableName;
+                        dataGridView2.DataSource = produto.Listar(comando);
+                        dataGridView2.DataMember = produto.Listar(comando).Tables[0].TableName;
 
                         AtualizaQtd();
                     }
@@ -166,26 +172,29 @@ namespace Vismo_New_
                 {
                     //exibe mensagem em caso de erro
                     MessageBox.Show(ex.Message);
-                    throw;
                 }
             }
 
             //pesquisa por nome de produto
             else if (!txtNome.Text.Equals("") && !cboPalavra.Text.Equals(""))
             {
+                produto.Nome = txtNome.Text;
                 produto.Pchave = cboPalavra.Text;
 
                 try
                 {
+                    string comando = "SELECT * FROM produto WHERE lower(nome) " +
+                    "like lower('%" + produto.Nome + "%') AND pchave = @pchave ORDER BY nome";
+
                     //chamada do método de listagem de produto
-                    if (produto.Listar4(txtNome.Text) != null)
+                    if (produto.Listar(comando) != null)
                     {
                         lblFalhaPesquisa2.Visible = false;
 
                         dataGridView2.AutoGenerateColumns = false;
 
-                        dataGridView2.DataSource = produto.Listar4(txtNome.Text);
-                        dataGridView2.DataMember = produto.Listar4(txtNome.Text).Tables[0].TableName;
+                        dataGridView2.DataSource = produto.Listar(comando);
+                        dataGridView2.DataMember = produto.Listar(comando).Tables[0].TableName;
 
                         AtualizaQtd();
                     }
@@ -214,15 +223,17 @@ namespace Vismo_New_
 
                 try
                 {
-                    if (produto.Listar3() != null)
+                    string comando = "SELECT * FROM Produto WHERE pchave = @pchave ORDER BY nome";
+
+                    if (produto.Listar(comando) != null)
                     {
                         lblFalhaPesquisa2.Visible = false;
 
                         dataGridView2.AutoGenerateColumns = false;
 
                         //chamada do método de listagem de produto
-                        dataGridView2.DataSource = produto.Listar3();
-                        dataGridView2.DataMember = produto.Listar3().Tables[0].TableName;
+                        dataGridView2.DataSource = produto.Listar(comando);
+                        dataGridView2.DataMember = produto.Listar(comando).Tables[0].TableName;
 
                         AtualizaQtd();
                     }
