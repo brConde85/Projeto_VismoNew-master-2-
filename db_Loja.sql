@@ -14,6 +14,7 @@ nome NVARCHAR (50) NOT NULL,
 status NVARCHAR (20) NOT NULL
 );
 
+
 CREATE TABLE produto(
 codigo INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 nome NVARCHAR (50) NOT NULL,
@@ -68,3 +69,4 @@ nome NVARCHAR(50) NOT NULL,
 preco FLOAT NOT NULL,
 pChave NVARCHAR(50) NOT NULL
 );
+update fornecedor set status = 'Habilitado' where codFornecedor > 0 

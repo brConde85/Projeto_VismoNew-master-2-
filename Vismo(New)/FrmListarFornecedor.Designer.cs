@@ -67,15 +67,15 @@
             this.id,
             this.ColumnNome,
             this.Status});
-            this.dgvFornecedor.Location = new System.Drawing.Point(53, 151);
-            this.dgvFornecedor.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvFornecedor.Location = new System.Drawing.Point(80, 232);
             this.dgvFornecedor.Name = "dgvFornecedor";
             this.dgvFornecedor.ReadOnly = true;
             this.dgvFornecedor.RowHeadersWidth = 62;
             this.dgvFornecedor.RowTemplate.Height = 28;
             this.dgvFornecedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFornecedor.Size = new System.Drawing.Size(624, 229);
+            this.dgvFornecedor.Size = new System.Drawing.Size(936, 352);
             this.dgvFornecedor.TabIndex = 2;
+            this.dgvFornecedor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFornecedor_CellContentClick);
             this.dgvFornecedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFornecedor_CellDoubleClick);
             // 
             // id
@@ -103,6 +103,7 @@
             // 
             this.Status.DataPropertyName = "status";
             this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 8;
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             this.Status.Width = 200;
@@ -112,10 +113,9 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(40, 140);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 215);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(651, 250);
+            this.pictureBox1.Size = new System.Drawing.Size(976, 384);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -123,23 +123,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tw Cen MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(20, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(286, 47);
+            this.label1.Size = new System.Drawing.Size(421, 70);
             this.label1.TabIndex = 8;
             this.label1.Text = "Lista de Fornecedores";
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(755, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1132, 36);
             this.menuStrip1.TabIndex = 47;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,7 +147,7 @@
             // 
             this.sobreToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(75, 32);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // pictureBox3
@@ -155,10 +155,9 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(-624, 443);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Location = new System.Drawing.Point(-936, 682);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1926, 28);
+            this.pictureBox3.Size = new System.Drawing.Size(2888, 42);
             this.pictureBox3.TabIndex = 80;
             this.pictureBox3.TabStop = false;
             // 
@@ -167,19 +166,19 @@
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox4.Image = global::Vismo_New_.Properties.Resources.Logo21;
-            this.pictureBox4.Location = new System.Drawing.Point(5, 414);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Location = new System.Drawing.Point(8, 637);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(145, 25);
+            this.pictureBox4.Size = new System.Drawing.Size(218, 38);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 82;
             this.pictureBox4.TabStop = false;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(96, 97);
+            this.txtNome.Location = new System.Drawing.Point(144, 149);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(164, 20);
+            this.txtNome.Size = new System.Drawing.Size(244, 26);
             this.txtNome.TabIndex = 0;
             this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNome_KeyPress);
             // 
@@ -188,9 +187,10 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Control;
             this.label3.Font = new System.Drawing.Font("Tw Cen MT", 14.25F);
-            this.label3.Location = new System.Drawing.Point(30, 94);
+            this.label3.Location = new System.Drawing.Point(45, 145);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 22);
+            this.label3.Size = new System.Drawing.Size(89, 34);
             this.label3.TabIndex = 86;
             this.label3.Text = "Nome:";
             // 
@@ -198,9 +198,10 @@
             // 
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPesquisar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.btnPesquisar.Location = new System.Drawing.Point(290, 94);
+            this.btnPesquisar.Location = new System.Drawing.Point(435, 145);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(79, 26);
+            this.btnPesquisar.Size = new System.Drawing.Size(118, 40);
             this.btnPesquisar.TabIndex = 1;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -211,9 +212,10 @@
             this.btnVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVoltar.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.btnVoltar.Location = new System.Drawing.Point(630, 398);
+            this.btnVoltar.Location = new System.Drawing.Point(945, 612);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(79, 26);
+            this.btnVoltar.Size = new System.Drawing.Size(118, 40);
             this.btnVoltar.TabIndex = 3;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
@@ -227,9 +229,10 @@
             this.lblRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblRegistro.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistro.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.lblRegistro.Location = new System.Drawing.Point(584, 116);
+            this.lblRegistro.Location = new System.Drawing.Point(876, 178);
+            this.lblRegistro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(107, 19);
+            this.lblRegistro.Size = new System.Drawing.Size(163, 28);
             this.lblRegistro.TabIndex = 93;
             this.lblRegistro.Text = "Registros gerais";
             this.lblRegistro.Visible = false;
@@ -241,9 +244,10 @@
             this.lblNome.BackColor = System.Drawing.Color.Transparent;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.ForeColor = System.Drawing.Color.Red;
-            this.lblNome.Location = new System.Drawing.Point(113, 120);
+            this.lblNome.Location = new System.Drawing.Point(170, 185);
+            this.lblNome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(147, 13);
+            this.lblNome.Size = new System.Drawing.Size(222, 20);
             this.lblNome.TabIndex = 94;
             this.lblNome.Text = "Insira um nome para pesquisa";
             this.lblNome.Visible = false;
@@ -254,9 +258,10 @@
             this.lblMsg.AutoSize = true;
             this.lblMsg.BackColor = System.Drawing.SystemColors.Control;
             this.lblMsg.Font = new System.Drawing.Font("Tw Cen MT", 12F);
-            this.lblMsg.Location = new System.Drawing.Point(520, 31);
+            this.lblMsg.Location = new System.Drawing.Point(780, 48);
+            this.lblMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(223, 38);
+            this.lblMsg.Size = new System.Drawing.Size(340, 56);
             this.lblMsg.TabIndex = 95;
             this.lblMsg.Text = "Selecione um registro para editar,\r\ndesabilitar ou remover.";
             // 
@@ -266,9 +271,10 @@
             this.lblEncontrado.BackColor = System.Drawing.Color.Transparent;
             this.lblEncontrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEncontrado.ForeColor = System.Drawing.Color.Red;
-            this.lblEncontrado.Location = new System.Drawing.Point(119, 120);
+            this.lblEncontrado.Location = new System.Drawing.Point(178, 185);
+            this.lblEncontrado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEncontrado.Name = "lblEncontrado";
-            this.lblEncontrado.Size = new System.Drawing.Size(141, 13);
+            this.lblEncontrado.Size = new System.Drawing.Size(211, 20);
             this.lblEncontrado.TabIndex = 96;
             this.lblEncontrado.Text = "Nenhum registro encontrado";
             this.lblEncontrado.Visible = false;
@@ -276,9 +282,10 @@
             // chkDesabilitados
             // 
             this.chkDesabilitados.AutoSize = true;
-            this.chkDesabilitados.Location = new System.Drawing.Point(386, 103);
+            this.chkDesabilitados.Location = new System.Drawing.Point(579, 158);
+            this.chkDesabilitados.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkDesabilitados.Name = "chkDesabilitados";
-            this.chkDesabilitados.Size = new System.Drawing.Size(117, 17);
+            this.chkDesabilitados.Size = new System.Drawing.Size(173, 24);
             this.chkDesabilitados.TabIndex = 97;
             this.chkDesabilitados.Text = "Exibir Desabilitados";
             this.chkDesabilitados.UseVisualStyleBackColor = true;
@@ -287,18 +294,19 @@
             // lblPesquisa
             // 
             this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(516, 104);
+            this.lblPesquisa.Location = new System.Drawing.Point(774, 160);
+            this.lblPesquisa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(13, 13);
+            this.lblPesquisa.Size = new System.Drawing.Size(18, 20);
             this.lblPesquisa.TabIndex = 98;
             this.lblPesquisa.Text = "0";
             this.lblPesquisa.Visible = false;
             // 
             // FrmListarFornecedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 467);
+            this.ClientSize = new System.Drawing.Size(1132, 718);
             this.Controls.Add(this.lblPesquisa);
             this.Controls.Add(this.chkDesabilitados);
             this.Controls.Add(this.lblEncontrado);
@@ -317,6 +325,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmListarFornecedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Fornecedores - Vismo";

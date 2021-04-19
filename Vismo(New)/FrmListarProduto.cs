@@ -262,6 +262,11 @@ namespace Vismo_New_
                 BtnPesquisar_Click(sender, e);
             }
         }
+
+        private void lblSelecionar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

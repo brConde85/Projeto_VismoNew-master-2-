@@ -178,5 +178,10 @@ namespace Vismo_New_
                 BtnPesquisar_Click(sender, e);
             }
         }
+
+        private void dgvFornecedor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
