@@ -14,7 +14,7 @@ namespace Control
         private int codPagamento;
         private string descricao;
         private DateTime validade;
-        private string valor;
+        private double valor;
         private string situacao;
 
 
@@ -71,7 +71,7 @@ namespace Control
             }
         }
 
-        public string Valor
+        public double Valor
         {
             get
             {

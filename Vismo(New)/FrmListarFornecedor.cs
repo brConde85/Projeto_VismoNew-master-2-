@@ -22,7 +22,8 @@ namespace Vismo_New_
         private void EditarRegistro()
         {
             //permite edição de registro caso não esteja em uma edição de produto
-            if (Application.OpenForms.OfType<FrmCadProduto>().Count() == 0)
+            if (Application.OpenForms.OfType<FrmCadProduto>().Count() == 0 &&
+                Application.OpenForms.OfType<FrmCadPagamento>().Count() == 0)
             {
                 if (MessageBox.Show("Editar registro?", "Confirmação",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

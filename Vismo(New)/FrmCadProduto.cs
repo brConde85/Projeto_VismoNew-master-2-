@@ -241,6 +241,8 @@ namespace Vismo_New_
             }
         }
 
+
+        //ações das labels para habilitar, desabilitar e remover um produto
         private void LblStatus_Click(object sender, EventArgs e)
         {
             if (lblStatus.Text == "Desabilitar produto")
@@ -368,10 +370,10 @@ namespace Vismo_New_
         //checa se código de fornecedor informado está registrado
         private void TxtFornec_Leave(object sender, EventArgs e)
         {
-            
             if (!txtFornec.Text.Equals(""))
             {
                 produto.fornecedor.Codigo = Convert.ToInt32(txtFornec.Text);
+
                 if (produto.fornecedor.PegaId() == 1)
                 {
                     lblCod.Visible = false;
@@ -380,8 +382,7 @@ namespace Vismo_New_
                 {
                     lblCod.Visible = true;
                 }
-            }
-            
+            }  
         }
 
 
